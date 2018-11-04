@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MyHttpService } from './http.service';
+import { Config } from 'src/resources/conf';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,13 @@ import { MyHttpService } from './http.service';
 export class AppComponent {
   title = 'frontend-ignou';
 
-  constructor(private myService : MyHttpService){}
-  
+  constructor(private myService: MyHttpService) {}
   testLarvel() {
-    this.myService.getServices()
+    this.myService.getServices(Config.backendIgnou)
     .subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );
   }
 }
+
