@@ -1,0 +1,14 @@
+.iAmButton{
+    padding: 1%;
+    color: black;
+    background-color: lightgreen;
+    border: 1px solid rgb(0, 0, 0);
+    max-width: 5.2%;
+    font-weight: bold;
+    font-size: 19px;
+    
+}
+.iAmButton:hover{
+    background-color: green;
+    color: white;
+}
