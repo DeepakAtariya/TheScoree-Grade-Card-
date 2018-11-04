@@ -15,9 +15,16 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-*/
 
 Route::get('/', function () {
     return "view('welcome')";
 });
+*/
+
+
+
+Route::middleware('cors')->get('/', function (){
+    return "hello api";
+});
+
 

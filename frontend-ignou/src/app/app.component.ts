@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MyHttpService } from './http.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'frontend-ignou';
 
+  constructor(private myService : MyHttpService){}
+  
   testLarvel() {
-    this.title='ss';
+    this.myService.getServices()
+    .subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 }
