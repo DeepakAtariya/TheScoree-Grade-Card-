@@ -6,10 +6,16 @@ import { AppComponent } from './app.component';
 import { MyHttpService } from './http.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { FieldsComponent } from './fields/fields.component';
+import { MiddleHeadingComponent } from './middle-heading/middle-heading.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FieldsComponent,
+    MiddleHeadingComponent
   ],
   imports: [
     BrowserModule,
