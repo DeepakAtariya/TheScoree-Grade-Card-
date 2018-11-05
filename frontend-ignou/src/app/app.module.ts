@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FieldsComponent } from './fields/fields.component';
 import { MiddleHeadingComponent } from './middle-heading/middle-heading.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,7 @@ import { MiddleHeadingComponent } from './middle-heading/middle-heading.componen
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
 
   ],
   providers: [MyHttpService],
