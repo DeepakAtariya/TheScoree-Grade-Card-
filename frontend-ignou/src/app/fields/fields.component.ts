@@ -23,7 +23,7 @@ export class FieldsComponent implements OnInit {
     this.randomcolor="blue";
 
     let data = this.inputEle.nativeElement;
-    data.css="background-color:red";
+    
 
 
   }
