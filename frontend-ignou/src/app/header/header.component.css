@@ -1,0 +1,32 @@
+/* centerAlign{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+} */
+
+.format-Header > li > a{
+    text-decoration: none;
+    font-weight: 200;
+    font-size: 200%;
+    font-style: normal;
+    color: #636b6f;
+    opacity: 0.7;
+    font-family: cursive;
+    /* font-family: chiller; */
+
+
+}
+.format-Header > li > a:hover{
+    opacity: 1.0;
+}
+
+.format-Header > li{
+    padding-left: 8%
+}
+
+.format-Header{
+    /* background-color: rgb(236, 235, 235); */
+    padding: 2%;
+}
