@@ -15,6 +15,7 @@
     opacity: 0.7;
     font-family: cursive;
     /* font-family: chiller; */
+    text-align: center;
 
 
 }
@@ -23,10 +24,12 @@
 }
 
 .format-Header > li{
-    padding-left: 8%
+    padding-left: 12%
 }
 
 .format-Header{
     /* background-color: rgb(236, 235, 235); */
-    padding: 2%;
+    padding-right: 10%;
+    text-align: center;
+
 }

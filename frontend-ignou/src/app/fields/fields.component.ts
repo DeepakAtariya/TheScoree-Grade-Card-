@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-fields',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FieldsComponent implements OnInit {
 
+  @ViewChild('inputElement') inputEle;
+
+  sampleText="ssss";
+  randomcolor:string='red';
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  addEvent(ElementObj){
+    this.sampleText=ElementObj;
+    this.randomcolor="blue";
+
+    let data = this.inputEle.nativeElement;
+    data.css="background-color:red";
+
+
   }
 
 }
