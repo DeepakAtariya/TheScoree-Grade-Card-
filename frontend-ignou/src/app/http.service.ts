@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class MyHttpService {
 
-  service = "it is on";
+  service = "it is onsss";
 
   constructor(private http: Http) {}
   getServices(serverPath) {
