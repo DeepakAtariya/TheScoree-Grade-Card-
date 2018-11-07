@@ -10,8 +10,15 @@ export class FieldsComponent implements OnInit {
 
   @ViewChild('f')  mainForm: NgForm;
 
+  mainFormData = {
+    program : '',
+    enrollment : ''
+  };
   buttonVisibility = 'none';
   enroll = '';
+  warning = '';
+  warningColor = 'green';
+
   constructor() { }
 
   ngOnInit() {
@@ -27,7 +34,16 @@ export class FieldsComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.mainForm);
+    const testProgram = this.mainForm.value.userData.Program;
+    if (testProgram === '') {
+      console.log('program is empty');
+      this.warning = 'Please select your course';
+      this.warningColor = 'red';
+    } else {
+      console.log('program is not empty');
+      this.mainFormData.enrollment = this.mainForm.value.userData.enrollment;
+      this.mainFormData.program = this.mainForm.value.userData.Program;
+    }
 
   }
 
