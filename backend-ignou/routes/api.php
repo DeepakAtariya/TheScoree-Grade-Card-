@@ -16,15 +16,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', function () {
-    return "view('welcome')";
-});
+
 */
 
-
+// Route::get('/', function () {
+//     return "view('welcome')";
+// });
 
 Route::middleware('cors')->get('/', function (){
-    return "hello api";
+    return response()->json(['hey'=>'hey'],210);
 });
 
 

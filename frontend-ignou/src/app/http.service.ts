@@ -4,10 +4,13 @@ import { Http } from '@angular/http';
 @Injectable()
 export class MyHttpService {
 
-  service = "it is onsss";
-
   constructor(private http: Http) {}
-  getServices(serverPath) {
+  onPost(serverPath, data) {
+    return this.http.post(serverPath, data);
+
+  }
+
+  onGet(serverPath) {
     return this.http.get(serverPath);
   }
 

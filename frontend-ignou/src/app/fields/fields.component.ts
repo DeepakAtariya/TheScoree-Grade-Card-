@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MyHttpService } from '../http.service';
+import { Config } from 'src/resources/conf';
+
 
 @Component({
   selector: 'app-fields',
@@ -19,7 +22,7 @@ export class FieldsComponent implements OnInit {
   warning = '';
   warningColor = 'green';
 
-  constructor() { }
+  constructor(private myHttpService: MyHttpService) { }
 
   ngOnInit() {
 
@@ -43,6 +46,12 @@ export class FieldsComponent implements OnInit {
       console.log('program is not empty');
       this.mainFormData.enrollment = this.mainForm.value.userData.enrollment;
       this.mainFormData.program = this.mainForm.value.userData.Program;
+      const returnedData = this.myHttpService.onGet(Config.backendIgnou)
+      .subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
+      // console.log(returnedData.hey);
     }
 
   }

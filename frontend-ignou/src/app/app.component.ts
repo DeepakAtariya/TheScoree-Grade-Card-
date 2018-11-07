@@ -39,20 +39,20 @@ export class AppComponent {
   title = 'frontend-ignou';
 
   constructor(private myService: MyHttpService) {}
-  testLarvel() {
-    this.myService.getServices(Config.backendIgnou)
-    .subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    );
-  }
+  // testLarvel() {
+  //   this.myService.getServices(Config.backendIgnou)
+  //   .subscribe(
+  //     (response) => console.log(response),
+  //     (error) => console.log(error)
+  //   );
+  // }
 
   onAnimate() {
     // this.state === 'normal' ? this.state = 'slided' : this.state = 'slided';
     if (this.state === 'normal') {
       this.state = 'slided';
       this.appState = 'visible';
-    } 
+    }
   }
 }
 
