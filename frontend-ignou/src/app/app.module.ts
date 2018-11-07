@@ -22,7 +22,7 @@ import { MiddleHeadingComponent } from './middle-heading/middle-heading.componen
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule,
+    FormsModule
 
   ],
   providers: [MyHttpService],

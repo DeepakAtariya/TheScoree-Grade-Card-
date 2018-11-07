@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import * as $ from 'jquery';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-fields',
@@ -8,23 +8,26 @@ import * as $ from 'jquery';
 })
 export class FieldsComponent implements OnInit {
 
-  @ViewChild('inputElement') inputEle;
+  @ViewChild('f')  mainForm: NgForm;
 
-  sampleText="ssss";
-  randomcolor:string='red';
+  buttonVisibility = 'none';
+  enroll = '';
   constructor() { }
 
   ngOnInit() {
 
   }
 
-  addEvent(ElementObj){
-    this.sampleText=ElementObj;
-    this.randomcolor="blue";
+  onKey(e: HTMLInputElement) {
+    if (e.value === '') {
+      this.buttonVisibility = 'none';
+    } else {
+      this.buttonVisibility = ' ';
+    }
+  }
 
-    let data = this.inputEle.nativeElement;
-    
-
+  onSubmit() {
+    console.log(this.mainForm);
 
   }
 
