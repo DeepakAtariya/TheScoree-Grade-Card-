@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FieldsComponent } from './fields/fields.component';
 import { MiddleHeadingComponent } from './middle-heading/middle-heading.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,8 +23,8 @@ import { MiddleHeadingComponent } from './middle-heading/middle-heading.componen
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
-
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [MyHttpService],
   bootstrap: [AppComponent]

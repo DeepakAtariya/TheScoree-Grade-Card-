@@ -6,3 +6,12 @@
 {
     color:red;
 }
+
+.formatGoButton{
+    color: darkgrey;
+    font-weight: bold;
+}
+.formatGoButton:hover{
+    color: black;
+    box-shadow: 1.5px 2px lightgray;
+}

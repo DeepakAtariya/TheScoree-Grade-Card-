@@ -15,11 +15,19 @@
         <app-header></app-header>
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <app-middle-heading></app-middle-heading>
+                <div 
+                class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                style="margin-top:5%;"
+                [@animateState]="state"
+                (click)="onAnimate()">
+                    <!-- <a href="#"> -->
+                        <app-middle-heading></app-middle-heading>
+                    <!-- </a> -->
                 </div>
             </div>
-            <div class="row">
+            <div 
+            class="row"
+            [@appFieldState]="appState">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <app-fields></app-fields>   
                          
