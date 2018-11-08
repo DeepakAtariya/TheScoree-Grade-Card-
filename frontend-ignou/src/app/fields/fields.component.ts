@@ -46,12 +46,12 @@ export class FieldsComponent implements OnInit {
       console.log('program is not empty');
       this.mainFormData.enrollment = this.mainForm.value.userData.enrollment;
       this.mainFormData.program = this.mainForm.value.userData.Program;
-      const returnedData = this.myHttpService.onGet(Config.backendIgnou)
+      const returnedData = this.myHttpService.onPost(Config.backendIgnou, {'name': 'rahul', 'age': '100'})
       .subscribe(
         (response) => console.log(response),
         (error) => console.log(error)
       );
-      // console.log(returnedData.hey);
+      console.log(returnedData);
     }
 
   }

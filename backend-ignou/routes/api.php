@@ -27,4 +27,6 @@ Route::middleware('cors')->get('/', function (){
     return response()->json(['hey'=>'hey'],210);
 });
 
-
+Route::middleware('cors')->post('/', function (Request $request){
+    return response()->json(['a'=> 'a'],101);
+});
