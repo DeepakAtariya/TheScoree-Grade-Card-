@@ -19,4 +19,10 @@ class ProfileController extends Controller
 
         // return "show method!";
     }
+
+    public function onGet(Request $request){
+
+        return response()->json(['enroll'=>$request->input('enrollment')],201);
+
+    }
 }

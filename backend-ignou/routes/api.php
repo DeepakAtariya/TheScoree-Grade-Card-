@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    return $  request->user();
 });
 
 
@@ -23,10 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return "view('welcome')";
 // });
 
-Route::middleware('cors')->get('/', function (){
-    return response()->json(['hey'=>'hey'],210);
-});
+// Route::middleware('cors')->get('/', function (){
+//     return response()->json(['hey'=>'I am deepak!'],210);
+// });
 
-Route::middleware('cors')->post('/', function (Request $request){
-    return response()->json(['a'=> 'a'],101);
-});
+Route::middleware('cors')->post('/getProfile','ProfileController@onGet');
