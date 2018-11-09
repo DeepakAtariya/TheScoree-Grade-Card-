@@ -15,6 +15,7 @@ export class FieldsComponent implements OnInit {
   @ViewChild('f')  mainForm: NgForm;
 
   public data;
+  public showData;
 
   mainFormData = {
     program : '',
@@ -52,8 +53,10 @@ export class FieldsComponent implements OnInit {
       this.myHttpService.onPost(Config.backendIgnou + 'getProfile', this.mainFormData)
       .subscribe(
         (response: Response) => {
+          /* this is a response section */
           this.data = response.json();
           console.log(this.data);
+          this.showData = this.data.enroll; 
         },
         (error) => console.log(error)
       );
