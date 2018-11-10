@@ -42,27 +42,18 @@ class ProfileController extends Controller
         $client = new Client();
 
         try{
-            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp', [
-                'form_params' => [
-                    'Program' => 'BCA',
-                    'eno' => '159673056'
+            $response = $client->request('GET', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
+            'form_params' => [
+                'Program' => 'BCA',
+                'eno' => '159673056',
+                'submit' => 'Submit',
+                'hidden_submit' => 'OK'
                 ]
             ]);
-            // echo $response->getReasonPhrase();
-            // $data = $response->getHeader('Content-Length');
-            // echo $data[0];
-
-            // foreach ($response->getHeaders() as $name => $values) {
-            //     echo $name . ':-- ' . implode(',-- ', $values) . "\r\n";
-            // }
-
             $body = $response->getBody();
-            // echo $body;
-            // $remainingBytes = $body->getContents(0);
-            // $xml = new \SimpleXMLElement($body);
-            // echo $xml;
-            // $remainingBytes = $body->getContents();
-            // echo $remainingBytes;
+            
+            echo $body;
+
         }catch(Exception $e){
             return "error : ".$e;
         }finally{
