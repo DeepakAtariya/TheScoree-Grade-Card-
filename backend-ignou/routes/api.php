@@ -18,13 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 */
+Route::middleware('cors')->group(function(){
+    Route::post('/getProfile','ProfileController@onGet');
+    /*
+        Route::get('/checKHttp','ProfileController@onTestHttpClient'); for testing purposes
+    */
+    Route::get('/checKHttp','ProfileController@onTestHttpClient'); 
+    Route::post('/checKHttp','ProfileController@onTestHttpClient');
 
-// Route::get('/', function () {
-//     return "view('welcome')";
-// });
-
-// Route::middleware('cors')->get('/', function (){
-//     return response()->json(['hey'=>'I am deepak!'],210);
-// });
-
-Route::middleware('cors')->post('/getProfile','ProfileController@onGet');
+});

@@ -27,12 +27,50 @@ class ProfileController extends Controller
 
     }
 
-    public function onFetchServerData(Response $response){
+    private function onFetchServerData(Response $response){
 
-        /*this function is responsible for requesting external server too fetch the information
+        /*
+            this function is responsible for requesting external server too fetch the information
             use guzzle httpClitn library to make it happen
         */
 
 
+    }
+
+    public function onTestHttpClient(Request $req){
+        
+        $client = new Client();
+
+        try{
+            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp', [
+                'form_params' => [
+                    'Program' => 'BCA',
+                    'eno' => '159673056'
+                ]
+            ]);
+            // echo $response->getReasonPhrase();
+            // $data = $response->getHeader('Content-Length');
+            // echo $data[0];
+
+            // foreach ($response->getHeaders() as $name => $values) {
+            //     echo $name . ':-- ' . implode(',-- ', $values) . "\r\n";
+            // }
+
+            $body = $response->getBody();
+            // echo $body;
+            // $remainingBytes = $body->getContents(0);
+            // $xml = new \SimpleXMLElement($body);
+            // echo $xml;
+            // $remainingBytes = $body->getContents();
+            // echo $remainingBytes;
+        }catch(Exception $e){
+            return "error : ".$e;
+        }finally{
+            // echo "server is working!";
+        }
+        
+
+        
+    
     }
 }
