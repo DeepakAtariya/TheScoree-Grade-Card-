@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+require '../vendor/autoload.php';
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+
 
 class ProfileController extends Controller
 {
@@ -25,6 +27,7 @@ class ProfileController extends Controller
 
     public function onSave(Response $response){
 
+        //save database
     }
 
     private function onFetchServerData(Response $response){
@@ -34,15 +37,10 @@ class ProfileController extends Controller
             use guzzle httpClitn library to make it happen
         */
 
-
-    }
-
-    public function onTestHttpClient(Request $req){
-        
         $client = new Client();
 
         try{
-            $response = $client->request('GET', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
+            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
             'form_params' => [
                 'Program' => 'BCA',
                 'eno' => '159673056',
@@ -50,18 +48,52 @@ class ProfileController extends Controller
                 'hidden_submit' => 'OK'
                 ]
             ]);
-            $body = $response->getBody();
-            
-            echo $body;
+            $body = $response->getBody()->getContents();
 
+            // IvoPetkov\HTML5DOMDocument() is used to handle HTML code in a better way
+            $dom = new \IvoPetkov\HTML5DOMDocument();
+            $dom->loadHTML($body);
+            $data = $dom->querySelectorAll('b');
+            for($i=0; $i<$data->length; $i++){
+                echo $data[$i]."<br>";
+            }
         }catch(Exception $e){
             return "error : ".$e;
         }finally{
             // echo "server is working!";
         }
-        
+    }
 
+    public function onTestHttpClient(Request $req){        
+
+        /* This  function is just for test the http client requests and responses */
         
-    
+        /*
+        $client = new Client();
+
+        try{
+            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
+            'form_params' => [
+                'Program' => 'BCA',
+                'eno' => '159673056',
+                'submit' => 'Submit',
+                'hidden_submit' => 'OK'
+                ]
+            ]);
+            $body = $response->getBody()->getContents();
+
+            // \IvoPetkov\HTML5DOMDocument() is used to handle HTML code in a better way
+            $dom = new \IvoPetkov\HTML5DOMDocument();
+            $dom->loadHTML($body);
+            $data = $dom->querySelectorAll('b');
+            for($i=0; $i<$data->length; $i++){
+                echo $data[$i]."<br>";
+            }
+        }catch(Exception $e){
+            return "error : ".$e;
+        }finally{
+            // echo "server is working!";
+        }  
+    */
     }
 }
