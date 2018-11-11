@@ -24,7 +24,7 @@ Route::middleware('cors')->group(function(){
     /*
         Route::get('/checKHttp','ProfileController@onTestHttpClient'); for testing purposes
     */
-    Route::get('/checKHttp','ProfileController@onTestHttpClient'); 
-    Route::post('/checKHttp','ProfileController@onTestHttpClient');
+    // Route::get('/checKHttp','ProfileController@onTestHttpClient'); 
+    // Route::post('/checKHttp','ProfileController@onTestHttpClient');
 
 });

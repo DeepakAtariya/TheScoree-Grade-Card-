@@ -20,56 +20,65 @@ class ProfileController extends Controller
 
         $this->program = $request->input('Program');
         $this->enrollment = $request->input('enrollment');
-        $fetchedProfileData = onFetchServerData($request);
-        return response()->json(['enroll'=>$request->input('enrollment')],201);
-
+        $fetchedStudentName = $this->onFetchServerData();
+        // return $fetchedStudentName;
+        if($fetchedStudentName!==""){
+            return response()->json([
+                'name' => $fetchedStudentName,
+                'enrollment'=> $this->enrollment,
+                'program' => $this->program
+            ],201);
+    
+        }else{
+            return response()->json([
+                'error' => "something went wrong!"
+            ],404);
+        }
+        
     }
 
-    public function onSave(Response $response){
+    public function onSave(Response $response) {
 
         //save database
     }
 
-    private function onFetchServerData(Response $response){
-
+    private function onFetchServerData() {
         /*
             this function is responsible for requesting external server too fetch the information
-            use guzzle httpClitn library to make it happen
         */
-
         $client = new Client();
+        $foundName = '';
 
         try{
             $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
             'form_params' => [
-                'Program' => 'BCA',
-                'eno' => '159673056',
+                'Program' => $this->program,
+                'eno' => $this->enrollment,
                 'submit' => 'Submit',
                 'hidden_submit' => 'OK'
                 ]
             ]);
             $body = $response->getBody()->getContents();
-
-            // IvoPetkov\HTML5DOMDocument() is used to handle HTML code in a better way
             $dom = new \IvoPetkov\HTML5DOMDocument();
             $dom->loadHTML($body);
             $data = $dom->querySelectorAll('b');
             for($i=0; $i<$data->length; $i++){
-                echo $data[$i]."<br>";
+                if (strpos($data[$i],"Name")==true){
+                    $foundName = substr($data[$i],10);
+                }
             }
+            return $foundName;
         }catch(Exception $e){
             return "error : ".$e;
-        }finally{
-            // echo "server is working!";
         }
     }
 
     public function onTestHttpClient(Request $req){        
 
-        /* This  function is just for test the http client requests and responses */
-        
-        /*
+        /* 
+            This  function is just for test the http client requests and responses 
         $client = new Client();
+        $foundName = '';
 
         try{
             $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
@@ -81,19 +90,21 @@ class ProfileController extends Controller
                 ]
             ]);
             $body = $response->getBody()->getContents();
-
+            
             // \IvoPetkov\HTML5DOMDocument() is used to handle HTML code in a better way
             $dom = new \IvoPetkov\HTML5DOMDocument();
             $dom->loadHTML($body);
             $data = $dom->querySelectorAll('b');
             for($i=0; $i<$data->length; $i++){
-                echo $data[$i]."<br>";
+                // echo $data[$i]."<br>";
+                if (strpos($data[$i],"Name")==true){
+                    $foundName = substr($data[$i],10);
+                }
             }
+            return $foundName;
         }catch(Exception $e){
             return "error : ".$e;
-        }finally{
-            // echo "server is working!";
-        }  
+        }
     */
     }
 }
