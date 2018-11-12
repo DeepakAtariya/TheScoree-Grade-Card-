@@ -67,7 +67,7 @@ class ProfileController extends Controller
                     $foundName = substr($data[$i],10);
                 }
             }
-            return $foundName;
+            return $foundName ;
         }catch(Exception $e){
             return "error : ".$e;
         }
