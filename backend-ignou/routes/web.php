@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,6 @@ Route::get('/testForm', function (Request $request) {
 });
 */
 
+Route::get('/', function () {
+    return "hey!";
+});
