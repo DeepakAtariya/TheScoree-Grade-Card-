@@ -65,3 +65,6 @@ export class FieldsComponent implements OnInit {
   }
 
 }
+
+
+//https://github.com/ivanderbu2/angular-redux.git fr loader
