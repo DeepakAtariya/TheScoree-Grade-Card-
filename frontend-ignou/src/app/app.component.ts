@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 import { MyHttpService } from './http.service';
 import { Config } from 'src/resources/conf';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
+declare var $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -38,6 +38,7 @@ export class AppComponent {
   appState = 'normal';
   title = 'frontend-ignou';
 
+
   constructor(private myService: MyHttpService) {}
   // testLarvel() {
   //   this.myService.getServices(Config.backendIgnou)
@@ -49,10 +50,20 @@ export class AppComponent {
 
   onAnimate() {
     // this.state === 'normal' ? this.state = 'slided' : this.state = 'slided';
+    $('#divLoading').css("display", "none");
     if (this.state === 'normal') {
       this.state = 'slided';
-      this.appState = 'visible';
+      this.appState = 'visible'
     }
+  }
+
+  public static onShowLoader(loader){
+    if(loader == 1){
+      $('#divLoading').css("display", "block");
+    }else{
+      $('#divLoading').css("display", "none");
+    }
+
   }
 }
 

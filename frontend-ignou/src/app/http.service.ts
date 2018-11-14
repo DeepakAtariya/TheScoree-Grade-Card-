@@ -5,6 +5,7 @@ export class MyHttpService {
 
   constructor(private http: Http) {}
   onPost(serverPath, data) {
+    // debugger;
     const headers = new Headers({'Content-Type': 'application/json'});
     return this.http.post(serverPath, data, {headers: headers});
 

@@ -505,7 +505,7 @@
               </select>
             </div>
             
-            <div class="form-group formatForm">
+            <div id="sample" class="form-group formatForm">
               <input id="input1" 
               [ngClass]="{'form-control': true}" 
               type="number" 
@@ -521,7 +521,7 @@
               type="submit" 
               class="btn btn-default formatGoButton"
               [style.display]="buttonVisibility"
-              >Go</button>
+              (click)="work();">Go</button>
             </div>
           </form>
     </td>
