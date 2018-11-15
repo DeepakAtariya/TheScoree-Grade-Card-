@@ -18,7 +18,7 @@ class ProfileController extends Controller
 
         //this function is responsible to get data from angular main page
 
-        $this->program = $request->input('Program');
+        $this->program = $request->input('program');
         $this->enrollment = $request->input('enrollment');
         $fetchedStudentName = $this->onFetchServerData();
         // return $fetchedStudentName;
@@ -67,7 +67,8 @@ class ProfileController extends Controller
                     $foundName = substr($data[$i],10);
                 }
             }
-            return $foundName ;
+            $foundName = trim($foundName,"</b>");
+            return $foundName;
         }catch(Exception $e){
             return "error : ".$e;
         }
@@ -106,5 +107,12 @@ class ProfileController extends Controller
             return "error : ".$e;
         }
     */
+    }
+
+    public function test(Request $response) {
+        return response()->json([
+            'p' => $response->input('program'),
+            'e' => $response->input('enrollment')
+        ],201);
     }
 }

@@ -13,8 +13,8 @@
           <div class="form-group">
             <select 
             class="form-control" 
-            name="Program" 
-            id="Program"
+            name="program" 
+            id="program"
             ngModel
             required>
               <option value>Select Program:</option>
@@ -521,13 +521,13 @@
               type="submit" 
               class="btn btn-default formatGoButton"
               [style.display]="buttonVisibility"
-              (click)="work();">Go</button>
+              >Go</button>
             </div>
           </form>
     </td>
   </tr>
   <tr>
-    <td>
+    <td style="color:red; text-align:center">
       {{showData}}
     </td>
   </tr>

@@ -49,36 +49,23 @@ export class FieldsComponent implements OnInit {
       this.warningColor = 'red';
     } else {
       console.log('program is not empty');
-
-      // $('#divLoading').css("display", "block");
-      
-      AppComponent.onShowLoader(1);
       this.mainFormData.enrollment = this.mainForm.value.userData.enrollment;
-      this.mainFormData.program = this.mainForm.value.userData.Program;
-      // this.mainFormData.program="BCA";
-      // this.mainFormData.enrollment="12121212";
+      this.mainFormData.program = this.mainForm.value.userData.program;
+      AppComponent.onShowLoader(1);
       this.myHttpService.onPost(Config.backendIgnou + 'getProfile', this.mainFormData)
       .subscribe(
         (response: Response) => {
-          /* this is a response section */
-          // debugger;
-        //  $('#divLoading').css("display", "none");
-        
           this.data = response.json();
-          console.log(this.data);
+          AppComponent.onShowLoader(0);
           this.showData = this.data.name; 
         },
-        (error) => console.log(error)
+        (error) => {
+            this.showData = "something went wrong!";
+            AppComponent.onShowLoader(0);
+        }
       );
     }
 
   }
 
-  work(){
-    
-  }
-
 }
-
-
-//https://github.com/ivanderbu2/angular-redux.git fr loader

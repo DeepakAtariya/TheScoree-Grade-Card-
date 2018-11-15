@@ -21,10 +21,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('cors')->group(function(){
 
     Route::post('/getProfile','ProfileController@onGet');
+    Route::post('/testData','ProfileController@test');
     /*
         Route::get('/checKHttp','ProfileController@onTestHttpClient'); for testing purposes
     */
     // Route::get('/checKHttp','ProfileController@onTestHttpClient'); 
     // Route::post('/checKHttp','ProfileController@onTestHttpClient');
+
+    Route::get('/',function(){
+        return "hey hey";
+    });
 
 });
