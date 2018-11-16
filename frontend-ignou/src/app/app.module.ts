@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,11 +11,12 @@ import { HeaderComponent } from './header/header.component';
 import { FieldsComponent } from './fields/fields.component';
 import { MiddleHeadingComponent } from './middle-heading/middle-heading.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SetupProfileComponent } from './setup-profile/setup-profile.component';
+import { SetupProfileComponent } from '../app/setup-profile/setup-profile.component';
 
 const appRoutes : Routes = [
-  {path : '', component : AppComponent},
-  {path :'setupProfile'}
+  {path : '', component : HeaderComponent},
+  {path :'page1', component : SetupProfileComponent},
+  // {path :'page1', component : HeaderComponent}
 ];
 
 @NgModule({
@@ -31,7 +32,8 @@ const appRoutes : Routes = [
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [MyHttpService],
   bootstrap: [AppComponent]

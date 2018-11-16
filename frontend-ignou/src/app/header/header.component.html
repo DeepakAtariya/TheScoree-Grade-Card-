@@ -46,5 +46,27 @@
         <!-- <li><a href="#">P</a></li> -->
       </ul>
 </div>
+
+<div class="container">
+  <div class="row">
+      <div 
+      class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+      style="margin-top:5%;"
+      [@animateState]="state"
+      (click)="onAnimate()">
+         
+        <app-middle-heading></app-middle-heading>
+        
+      </div>
+  </div>
+  <div 
+  class="row"
+  [@appFieldState]="appState">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <app-fields></app-fields>   
+      </div>
+  </div>
+  
+</div>
   
 

@@ -48,14 +48,6 @@ export class AppComponent {
   //   );
   // }
 
-  onAnimate() {
-    // this.state === 'normal' ? this.state = 'slided' : this.state = 'slided';
-    $('#divLoading').css("display", "none");
-    if (this.state === 'normal') {
-      this.state = 'slided';
-      this.appState = 'visible'
-    }
-  }
 
   public static onShowLoader(loader){
     if(loader == 1){
