@@ -11,6 +11,7 @@ export class SetupProfileComponent implements OnInit {
   name : string;
   enrollment : string;
   dataProvider : any;
+  program :string;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -19,5 +20,6 @@ export class SetupProfileComponent implements OnInit {
     this.dataProvider = this.route.snapshot.params['name'];
     this.name = this.route.snapshot.params['name'];
     this.enrollment = this.route.snapshot.params['enrollment'];
+    this.program = this.route.snapshot.params['program'];
   }
 }

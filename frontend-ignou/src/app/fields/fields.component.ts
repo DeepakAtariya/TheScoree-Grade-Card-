@@ -60,9 +60,9 @@ export class FieldsComponent implements OnInit {
           AppComponent.onShowLoader(0);
           this.showData = this.data.name; 
           if (this.showData != ""){
-            this.fieldService.onNavigate(true, this.data.name, this.data.enrollment);
+            this.fieldService.onNavigate(true, this.data.name, this.data.enrollment, this.data.program);
           }else{
-            this.fieldService.onNavigate(false,  this.data.name, this.data.enrollment);
+            this.fieldService.onNavigate(false,  this.data.name, this.data.enrollment, this.data.program);
           }
         },
         (error) => {

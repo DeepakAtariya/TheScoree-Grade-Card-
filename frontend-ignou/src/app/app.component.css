@@ -20,3 +20,7 @@ a{
 a:hover{
     text-decoration: none;
 }
+
+body[_ngcontent-c0] {
+    background-color: yellow;
+  }
