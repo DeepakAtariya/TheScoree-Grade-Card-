@@ -4,6 +4,7 @@ import { MyHttpService } from '../http.service';
 import { Config } from 'src/resources/conf';
 import { Response } from '@angular/http';
 import { AppComponent } from '../app.component';
+import { FieldsService } from './fields.service';
 
 declare var $: any;
 @Component({
@@ -16,7 +17,7 @@ export class FieldsComponent implements OnInit {
   @ViewChild('f')  mainForm: NgForm;
 
   public data;
-  public showData;
+  public showData="";
 
   mainFormData = {
     program : '',
@@ -27,7 +28,7 @@ export class FieldsComponent implements OnInit {
   warning = '';
   warningColor = 'green';
 
-  constructor(private myHttpService: MyHttpService) { }
+  constructor(private fieldService: FieldsService, private myHttpService: MyHttpService) { }
 
   ngOnInit() {
 
@@ -58,6 +59,11 @@ export class FieldsComponent implements OnInit {
           this.data = response.json();
           AppComponent.onShowLoader(0);
           this.showData = this.data.name; 
+          if (this.showData != ""){
+            this.fieldService.onNavigate(true, this.showData);
+          }else{
+            this.fieldService.onNavigate(false, this.showData);
+          }
         },
         (error) => {
             this.showData = "something went wrong!";
@@ -65,7 +71,6 @@ export class FieldsComponent implements OnInit {
         }
       );
     }
-
   }
 
 }

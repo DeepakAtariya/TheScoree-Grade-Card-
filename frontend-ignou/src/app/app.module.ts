@@ -12,10 +12,11 @@ import { FieldsComponent } from './fields/fields.component';
 import { MiddleHeadingComponent } from './middle-heading/middle-heading.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SetupProfileComponent } from '../app/setup-profile/setup-profile.component';
+import { FieldsService } from './fields/fields.service';
 
 const appRoutes : Routes = [
   {path : '', component : HeaderComponent},
-  {path :'page1', component : SetupProfileComponent},
+  {path :'user/profileSetup/:name', component : SetupProfileComponent},
   // {path :'page1', component : HeaderComponent}
 ];
 
@@ -35,7 +36,10 @@ const appRoutes : Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MyHttpService],
+  providers: [
+    MyHttpService,
+    FieldsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
