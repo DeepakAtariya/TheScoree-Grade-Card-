@@ -11,9 +11,9 @@ export class FieldsService {
 
   }
 
-  onNavigate(decision : Boolean, data: string) { 
+  onNavigate(decision : Boolean, name, enrollment) { 
     if(decision){
-      this.route.navigate(["user/profileSetup", data]);
+      this.route.navigate(["user/profileSetup", name, enrollment]);
     }else{
       this.route.navigate([""]);
     }

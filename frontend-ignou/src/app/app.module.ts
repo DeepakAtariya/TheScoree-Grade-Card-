@@ -16,7 +16,7 @@ import { FieldsService } from './fields/fields.service';
 
 const appRoutes : Routes = [
   {path : '', component : HeaderComponent},
-  {path :'user/profileSetup/:name', component : SetupProfileComponent},
+  {path :'user/profileSetup/:name/:enrollment', component : SetupProfileComponent},
   // {path :'page1', component : HeaderComponent}
 ];
 

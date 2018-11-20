@@ -8,13 +8,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SetupProfileComponent implements OnInit {
 
-  data;
+  name : string;
+  enrollment : string;
+  dataProvider : any;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.params['name']);
-    this.data = this.route.snapshot.params['name'];
-
+    // console.log(this.route.snapshot.params['name']);
+    this.dataProvider = this.route.snapshot.params['name'];
+    this.name = this.route.snapshot.params['name'];
+    this.enrollment = this.route.snapshot.params['enrollment'];
   }
-
 }
