@@ -57,7 +57,7 @@ $('#setupProfileForm').bootstrapValidator({
                                 <input type="text" class="form-control" id="mobile" placeholder="Enter mobile number(optional)" #mobile="ngModel" [(ngModel)]="f.mobile" name="mobile"   data-toggle="tooltip" data-placement="right" title="for mobile notification" required>
                                 <!-- <div *ngIf="mobile.errors.required && mobile.touched">
                                         contact number is required.
-                                </div>                  -->
+                                </div> -->
                             </div>
 
                             <!-- email field -->
@@ -80,7 +80,7 @@ $('#setupProfileForm').bootstrapValidator({
                                         <input type="password" class="form-control" name="password" id="password" #password="ngModel" [(ngModel)]="f.password" placeholder="enter password..." required/>
 
                                         <div *ngIf="password.errors.required && password.touched">
-                                                Password is required.
+                                                password is required.
                                         </div>
                                                 
                             
@@ -92,7 +92,7 @@ $('#setupProfileForm').bootstrapValidator({
                                     
                                 <input type="password" class="form-control" name="confirmPassword" #confirmPassword="ngModel" [(ngModel)]="f.confirmPassword" placeholder="retype password..." required/>
                                 <div *ngIf="confirmPassword.errors.required && confirmPassword.touched">
-                                    Password is required.
+                                    confirm password is required.
                                 </div>
                                     
                             </div>
