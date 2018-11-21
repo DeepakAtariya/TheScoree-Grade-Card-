@@ -1,24 +1,107 @@
 
+<script>
+        $(document).ready(function() {
+$('#setupProfileForm').bootstrapValidator({
+  feedbackIcons: {
+      valid: 'glyphicon glyphicon-ok',
+      invalid: 'glyphicon glyphicon-remove',
+      validating: 'glyphicon glyphicon-refresh'
+  },
+  fields: {
+      password: {
+          validators: {
+              identical: {
+                  field: 'confirmPassword',
+                  message: 'The password and its confirm are not the same'
+              }
+          }
+      },
+      confirmPassword: {
+          validators: {
+              identical: {
+                  field: 'password',
+                  message: 'The password and its confirm are not the same'
+              }
+          }
+      }
+  }
+});
+});
+    </script>
+
         <div id="" class="container">
+            <div class="row" id="row1" [style.display]="save_error">
+                <div class="col-lg-4 text-center">
+                    <h1>Service unavailable...</h1>
+                    <button class="btn btn-info" (click)="serviceUnavailable()">Retry!</button>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-lg-4 col-md-3 col-sm-6 col-centered">
-                    <form>   
-                        <div class="our-team">
+                <div class="col-lg-12 text-center">
+                    <h1>Complete your profile!</h1>
+                    <h4>For email and mobile notifications...</h4>
+                </div>
+            </div>
+            <div class="row" id="row2" [style.display]="save_success">
+                <div class="col-lg-4 col-centered">
+                    <form (ngSubmit)="onSubmit()" #f="ngForm" id="setupProfileForm">   
+                        <div class="our-team" ngModelGroup="setupProfileGroupData" #setupProfileGroupData = "ngModelGroup">
                         <div class="pic">
                             <img src="assets/images/1.jpg">
                         </div>
                         <div class="team-content">
-                            <h3 class="title">{{name}}<br>{{enrollment}}<br>{{program}}</h3>
+                            <h3 class="title">{{userData.name}}<br>{{userData.enrollment}}<br>{{userData.program}}</h3>
+
+                            <!-- mobile number field -->
                             <div class="form-group">
-                                <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">                      
+                                <input type="text" class="form-control" id="mobile" placeholder="Enter mobile number(optional)" #mobile="ngModel" [(ngModel)]="f.mobile" name="mobile"   data-toggle="tooltip" data-placement="right" title="for mobile notification" required>
+                                <!-- <div *ngIf="mobile.errors.required && mobile.touched">
+                                        contact number is required.
+                                </div>                  -->
                             </div>
+
+                            <!-- email field -->
+                            <div class="form-group" [class.has.error]="email.invalid && email.touched">
+                                    <input class="form-control" id="email" placeholder="Enter email" name="email" #email="ngModel" [email]="f.email!==''" [(ngModel)]="f.email" type="text" required email>
+    
+                                    <span *ngIf="email.errors?.required && email.touched">
+                                    Email is required
+                                    </span>
+                                    
+                                    <span *ngIf="email.errors?.email && email.touched">
+                                    Email is invalid
+                                    </span>
+                            </div>
+
+                            <!-- password field -->
                             <div class="form-group">
-                                <input type="text" class="form-control" id="mobile" placeholder="Enter mobile number" name="mobile">                      
+                                   
+                                    
+                                        <input type="password" class="form-control" name="password" id="password" #password="ngModel" [(ngModel)]="f.password" placeholder="enter password..." required/>
+
+                                        <div *ngIf="password.errors.required && password.touched">
+                                                Password is required.
+                                        </div>
+                                                
+                            
+                                </div>
+                                
+                            <!-- confirm password field -->
+                            <div class="form-group">
+                   
+                                    
+                                <input type="password" class="form-control" name="confirmPassword" #confirmPassword="ngModel" [(ngModel)]="f.confirmPassword" placeholder="retype password..." required/>
+                                <div *ngIf="confirmPassword.errors.required && confirmPassword.touched">
+                                    Password is required.
+                                </div>
+                                    
                             </div>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success" [disabled]="activeButton">Submit</button>
                         </div>
                     </div>
                   </form>
                 </div>
             </div>
           </div>
+
+          
