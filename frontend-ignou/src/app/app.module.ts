@@ -16,8 +16,8 @@ import { FieldsService } from './fields/fields.service';
 import { SetupProfileService } from './setup-profile/setup-profile.service';
 
 const appRoutes : Routes = [
-  {path : '', component : HeaderComponent},
-  {path :'user/profileSetup/:name/:enrollment/:program', component : SetupProfileComponent},
+  {path : '', component : HeaderComponent, data:{animation : 'HomePage'}},
+  {path :'user/profileSetup/:name/:enrollment/:program', component : SetupProfileComponent, data:{animation : 'AboutPage'}},
   {path :'user/profileSetup', component : SetupProfileComponent}
   // {path :'page1', component : HeaderComponent}
 ];

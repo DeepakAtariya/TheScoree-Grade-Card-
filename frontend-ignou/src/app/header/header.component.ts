@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
 
   onAnimate() {
     // this.state === 'normal' ? this.state = 'slided' : this.state = 'slided';
-    $('#divLoading').css("display", "none");
+    // $('#divLoading').css("display", "none");
     if (this.state === 'normal') {
       this.state = 'slided';
       this.appState = 'visible'

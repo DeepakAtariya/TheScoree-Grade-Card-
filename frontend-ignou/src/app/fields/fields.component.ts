@@ -52,7 +52,7 @@ export class FieldsComponent implements OnInit {
       console.log('program is not empty');
       this.mainFormData.enrollment = this.mainForm.value.userData.enrollment;
       this.mainFormData.program = this.mainForm.value.userData.program;
-      AppComponent.onShowLoader(1);
+      AppComponent.onShowLoader(0);
       this.myHttpService.onPost(Config.backendIgnou + 'getProfile', this.mainFormData)
       .subscribe(
         (response: Response) => {
@@ -71,6 +71,10 @@ export class FieldsComponent implements OnInit {
         }
       );
     }
+  }
+
+  triggerAnimate() {
+    // AppComponent.prepareRoute();
   }
 
 }

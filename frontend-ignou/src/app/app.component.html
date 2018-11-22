@@ -9,9 +9,9 @@
     <head>
     </head>
     <body>
-        <div>
-            <router-outlet></router-outlet>
-        </div>
+        <div [@routeAnimations]="prepareRoute(outlet)" >
+            <router-outlet #outlet="outlet"></router-outlet>
         
+        </div>
     </body>
 </html>

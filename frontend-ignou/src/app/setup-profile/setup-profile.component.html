@@ -1,32 +1,6 @@
 
 <script>
-        $(document).ready(function() {
-$('#setupProfileForm').bootstrapValidator({
-  feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok',
-      invalid: 'glyphicon glyphicon-remove',
-      validating: 'glyphicon glyphicon-refresh'
-  },
-  fields: {
-      password: {
-          validators: {
-              identical: {
-                  field: 'confirmPassword',
-                  message: 'The password and its confirm are not the same'
-              }
-          }
-      },
-      confirmPassword: {
-          validators: {
-              identical: {
-                  field: 'password',
-                  message: 'The password and its confirm are not the same'
-              }
-          }
-      }
-  }
-});
-});
+
     </script>
 
         <div id="" class="container">
@@ -77,7 +51,7 @@ $('#setupProfileForm').bootstrapValidator({
                             <div class="form-group">
                                    
                                     
-                                        <input type="password" class="form-control" name="password" id="password" #password="ngModel" [(ngModel)]="f.password" placeholder="enter password..." required/>
+                                        <input type="password" class="form-control"  name="password" id="password" #password="ngModel" [(ngModel)]="f.password" placeholder="enter password..." required/>
 
                                         <div *ngIf="password.errors.required && password.touched">
                                                 password is required.
@@ -88,7 +62,8 @@ $('#setupProfileForm').bootstrapValidator({
                             <div class="form-group">
                    
                                     
-                                <input type="password" class="form-control" name="confirmPassword" #confirmPassword="ngModel" [(ngModel)]="f.confirmPassword" placeholder="retype password..." required/>
+                                <input   type="password" class="form-control" name="confirmPassword" id="confirmPassword" #confirmPassword="ngModel" [(ngModel)]="f.confirmPassword" placeholder="retype password..." required/>
+                                
                                 <div *ngIf="confirmPassword.errors.required && confirmPassword.touched">
                                     confirm password is required.
                                 </div>

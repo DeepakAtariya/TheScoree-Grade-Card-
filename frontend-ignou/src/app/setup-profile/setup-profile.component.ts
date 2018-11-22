@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { SetupProfileService } from './setup-profile.service';
 import { Response } from '@angular/http';
 import {Location} from '@angular/common';
-import { AppComponent } from '../app.component';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-setup-profile',
@@ -30,6 +30,7 @@ export class SetupProfileComponent implements OnInit {
   save_error = "none";
   save_success = "block";
 
+
   emailValidate = "";
   activeButton :Boolean;
 
@@ -51,6 +52,34 @@ export class SetupProfileComponent implements OnInit {
     this.userData.name = this.Activatedroute.snapshot.params['name'];
     this.userData.enrollment = this.Activatedroute.snapshot.params['enrollment'];
     this.userData.program = this.Activatedroute.snapshot.params['program'];
+
+    $(document).ready(function() {
+  $('#setupProfileForm').bootstrapValidator({
+    feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+        password: {
+            validators: {
+                identical: {
+                    field: 'confirmPassword',
+                    message: 'The password and its confirm are not the same'
+                }
+            }
+        },
+        confirmPassword: {
+            validators: {
+                identical: {
+                    field: 'password',
+                    message: 'The password and its confirm are not the same'
+                }
+            }
+        }
+    }
+  });
+  });
 
   }
 
