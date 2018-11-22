@@ -53,32 +53,18 @@ export class SetupProfileComponent implements OnInit {
     this.userData.enrollment = this.Activatedroute.snapshot.params['enrollment'];
     this.userData.program = this.Activatedroute.snapshot.params['program'];
 
-    $(document).ready(function() {
-  $('#setupProfileForm').bootstrapValidator({
-    feedbackIcons: {
-        valid: 'glyphicon glyphicon-ok',
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-    },
-    fields: {
-        password: {
-            validators: {
-                identical: {
-                    field: 'confirmPassword',
-                    message: 'The password and its confirm are not the same'
-                }
-            }
-        },
-        confirmPassword: {
-            validators: {
-                identical: {
-                    field: 'password',
-                    message: 'The password and its confirm are not the same'
-                }
-            }
-        }
-    }
-  });
+    function checkPasswordMatch() {
+      var password = $("#password").val();
+      var confirmPassword = $("#confirmPassword").val();
+  
+      if (password != confirmPassword)
+          $("#divCheckPasswordMatch").html("Passwords do not match!");
+      else
+          $("#divCheckPasswordMatch").html("Passwords match.");
+  }
+  
+  $(document).ready(function () {
+     $("#txtNewPassword, #txtConfirmPassword").keyup(checkPasswordMatch);
   });
 
   }
