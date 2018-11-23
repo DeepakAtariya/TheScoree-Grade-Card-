@@ -20,20 +20,9 @@ export class SetupProfileComponent implements OnInit {
 
   // setupProfileData is responsible to fetch data from setupProfile form
   @ViewChild('f')  setupProfileData: NgForm;
-
-  name : string;
-  enrollment : string;
-  program :string;
-  email :string;
-  mobile : string;
-  path = '';
   save_error = "none";
   save_success = "block";
-
-
-  emailValidate = "";
-  activeButton :Boolean;
-
+  
 
   // form data in json format
   userData = {
@@ -53,24 +42,74 @@ export class SetupProfileComponent implements OnInit {
     this.userData.enrollment = this.Activatedroute.snapshot.params['enrollment'];
     this.userData.program = this.Activatedroute.snapshot.params['program'];
 
+    var buttonVisibility = "";
+
+
     function checkPasswordMatch() {
       var password = $("#password").val();
       var confirmPassword = $("#confirmPassword").val();
-  
-      if (password != confirmPassword)
-          $("#divCheckPasswordMatch").html("Passwords do not match!");
-      else
-          $("#divCheckPasswordMatch").html("Passwords match.");
-  }
+      var email = $("#email").val();
+      
+
+      if (password != confirmPassword){ 
+        // $("#divCheckPasswordMatch").html("Passwords do not match!");
+        $("#submit").css("display","none");
+        return 0;
+      } else{
+          // $("#divCheckPasswordMatch").html("Passwords match.");
+          
+            console.log("password checked");
+            $("#submit").css("display","block");
+
+            if(email!==''){
+              $("#submit").css("display","block");
+            }else{
+              $("#submit").css("display","none");
+            }
+            
+            // return 1;
+        }
+      }
+    
+    function checkEmail(){
+      var email = $("#email").val();
+      var password = $("#password").val();
+      var confirmPassword = $("#confirmPassword").val();
+      
+      if(email.indexOf("@") != -1 &&  email.indexOf(".") != -1){
+        console.log("valid email");
+        $("#checkEmail").html("");
+        
+        if(password!=='' && confirmPassword!=='' && password===confirmPassword){
+          $("#submit").css("display","block");
+        }else{
+          $("#submit").css("display","none");
+        }
+        
+        
+
+        
+      }else{
+        // $("#checkEmail").html("invalid email...");
+        $("#submit").css("display","none");
+      }
+    }
   
   $(document).ready(function () {
-     $("#txtNewPassword, #txtConfirmPassword").keyup(checkPasswordMatch);
+
+    
+    
+    $("#password, #confirmPassword").keyup(checkPasswordMatch);
+    $("#email").keyup(checkEmail);
+
+    
+
+
+
   });
 
   }
 
-
-  // two way binded method to fetch data!
   onSubmit() {
     let setupProfileFormData = this.setupProfileData.value.setupProfileGroupData;
     this.userData.email = setupProfileFormData.email;

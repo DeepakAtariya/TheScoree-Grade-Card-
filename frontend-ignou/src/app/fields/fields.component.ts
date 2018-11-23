@@ -52,7 +52,7 @@ export class FieldsComponent implements OnInit {
       console.log('program is not empty');
       this.mainFormData.enrollment = this.mainForm.value.userData.enrollment;
       this.mainFormData.program = this.mainForm.value.userData.program;
-      AppComponent.onShowLoader(0);
+      AppComponent.onShowLoader(1);
       this.myHttpService.onPost(Config.backendIgnou + 'getProfile', this.mainFormData)
       .subscribe(
         (response: Response) => {
@@ -61,7 +61,7 @@ export class FieldsComponent implements OnInit {
           this.showData = this.data.name; 
           if (this.showData != ""){
             this.fieldService.onNavigate(true, this.data.name, this.data.enrollment, this.data.program);
-          }else{
+          } else {
             this.fieldService.onNavigate(false,  this.data.name, this.data.enrollment, this.data.program);
           }
         },
