@@ -42,23 +42,26 @@ class ProfileController extends Controller
     public function onSave(Request $request) {
 
         //save into database
-
-        // $student_details = new \App\student_details();
-
-    
-
-        //     $student_details->name = $request->input('name');
-        //     $student_details->enrollment = $request->input('enrollment');
-        //     $student_details->program = $request->input('program');
-        //     $student_details->email = $request->input('email');
-        //     $student_details->mobile = $request->input('mobile');
-        //     $student_details->password = Hash::make($request->input('password'));
-        //     $student_details->save();
-        //     $data = $request->input('name');
+        try{
+            $student_details = new \App\student_details();
+            $student_details->name = $request->input('name');
+            $student_details->enrollment = $request->input('enrollment');
+            $student_details->program = $request->input('program');
+            $student_details->email = $request->input('email');
+            $student_details->mobile = $request->input('mobile');
+            $student_details->password = Hash::make($request->input('password'));
+            $student_details->save();
+            // $data = $request->input('name');
 
             return response()->json([
-                'status' => 'aaaaa'
+                'status' => 'yes'
             ],200);
+        }catch(Exception $e){
+            return response()->json([
+                'status' => 'no'
+            ],503);
+        }
+            
         // With angular
         // return response()->json([
         //     'status' => "yes"

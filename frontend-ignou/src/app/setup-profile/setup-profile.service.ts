@@ -22,34 +22,7 @@ export class SetupProfileService {
   }
   
   onSave(userData){
-    // this.http.post(Config.backendIgnou+"save",data);
-    let check = 0;
-    AppComponent.onShowLoader(1);
-    this.http.post(Config.backendIgnou+"save",userData)
-    .subscribe(
-      (response: Response) => {
-        const responseData = response.json();
-        AppComponent.onShowLoader(0);
-        console.log(responseData.status);
-        if(responseData.status==="yes"){
-          console.log("success");
-          this.datasaved=responseData.status;
-        }else{
-          console.log("failed");
-          this.datasaved='';
-          AppComponent.onShowLoader(0);
-        }
-      },
-      (error) =>{
-        check=0;
-          AppComponent.onShowLoader(0);
-      }
-    );
-    if(this.datasaved!==''){
-      return true;
-    }else{
-      return false;
-    }
+    return this.http.post(Config.backendIgnou+"save",userData);
   }
 
 }

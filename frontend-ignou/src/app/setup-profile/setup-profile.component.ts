@@ -5,6 +5,7 @@ import { SetupProfileService } from './setup-profile.service';
 import { Response } from '@angular/http';
 import {Location} from '@angular/common';
 import * as $ from 'jquery';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-setup-profile',
@@ -109,20 +110,27 @@ export class SetupProfileComponent implements OnInit {
     this.userData.password = setupProfileFormData.password;
 
     try{
-      const status = this.setupProfileService.onSave(this.userData);
-      if(status){
-        // this.registration_status = "block";
-        // this.form="none"
-        console.log(status);
-        this.route.navigate(["user/login"]);
-        
-      }else{
-        // this.registration_status = "none";
-        // this.form="block"
-        // this.route.navigate(["user/profileSetup/:name/:enrollment/:program", this.userData.name, this.userData.enrollment, this.userData.program]);
-        console.log(status);
-        this.route.navigate(['']);
-      }
+      AppComponent.onShowLoader(1);
+      this.setupProfileService.onSave(this.userData)
+      .subscribe(
+        (response: Response) => {
+          const responseData = response.json();
+          AppComponent.onShowLoader(0);
+          console.log(responseData.status);
+          if(responseData.status==="yes"){
+            console.log("success! Data saved");
+
+            this.route.navigate(['user/login']);
+          }else{
+            console.log("failed");
+            AppComponent.onShowLoader(0);
+          }
+        },
+        (error) =>{
+            AppComponent.onShowLoader(0);
+            this.route.navigate(['user/profileSetup/:name/:enrollment/:program', this.userData.name, this.userData.enrollment, this.userData.program]);
+        }
+      );
     }catch(error){
       console.log("server error");
     }
