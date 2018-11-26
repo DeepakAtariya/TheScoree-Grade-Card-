@@ -13,6 +13,8 @@ import { AppComponent } from '../app.component';
 @Injectable()
 export class SetupProfileService {
 
+  datasaved='';
+
   constructor(private http: Http, private route: Router) {}
 
   onProcess() {
@@ -28,16 +30,13 @@ export class SetupProfileService {
       (response: Response) => {
         const responseData = response.json();
         AppComponent.onShowLoader(0);
-        if(responseData.status){
-          check=1;
-          // localStorage.setItem('userID','5');
-          // localStorage.getItem('userID');
-          // localStorage.removeItem('userID');
-          this.route.navigate(["user/login"]);
+        console.log(responseData.status);
+        if(responseData.status==="yes"){
+          console.log("success");
+          this.datasaved=responseData.status;
         }else{
-          // this.path
-          // this.setupProfileService.onNavigate(this.path, this.userData); 
-          check=0;
+          console.log("failed");
+          this.datasaved='';
           AppComponent.onShowLoader(0);
         }
       },
@@ -46,7 +45,11 @@ export class SetupProfileService {
           AppComponent.onShowLoader(0);
       }
     );
-    return check==1;
+    if(this.datasaved!==''){
+      return true;
+    }else{
+      return false;
+    }
   }
 
 }

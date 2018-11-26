@@ -110,18 +110,25 @@ export class SetupProfileComponent implements OnInit {
 
     try{
       const status = this.setupProfileService.onSave(this.userData);
+      if(status){
+        // this.registration_status = "block";
+        // this.form="none"
+        console.log(status);
+        this.route.navigate(["user/login"]);
+        
+      }else{
+        // this.registration_status = "none";
+        // this.form="block"
+        // this.route.navigate(["user/profileSetup/:name/:enrollment/:program", this.userData.name, this.userData.enrollment, this.userData.program]);
+        console.log(status);
+        this.route.navigate(['']);
+      }
     }catch(error){
       console.log("server error");
     }
     
 
-    if(status){
-      this.registration_status = "block";
-      this.form="none"
-    }else{
-      this.registration_status = "none";
-      this.form="block"
-    }
+    
   } // end onSumit()
 
   // this function works in server error!

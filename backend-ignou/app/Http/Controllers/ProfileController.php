@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 require '../vendor/autoload.php';
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Hash;
 
 
 class ProfileController extends Controller
@@ -42,9 +43,28 @@ class ProfileController extends Controller
 
         //save into database
 
-        return response()->json([
-            'status' => 'true'
-        ],200);
+        // $student_details = new \App\student_details();
+
+    
+
+        //     $student_details->name = $request->input('name');
+        //     $student_details->enrollment = $request->input('enrollment');
+        //     $student_details->program = $request->input('program');
+        //     $student_details->email = $request->input('email');
+        //     $student_details->mobile = $request->input('mobile');
+        //     $student_details->password = Hash::make($request->input('password'));
+        //     $student_details->save();
+        //     $data = $request->input('name');
+
+            return response()->json([
+                'status' => 'aaaaa'
+            ],200);
+        // With angular
+        // return response()->json([
+        //     'status' => "yes"
+        // ],200);
+
+        
     }
 
     private function onFetchServerData() {
