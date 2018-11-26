@@ -14,12 +14,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SetupProfileComponent } from '../app/setup-profile/setup-profile.component';
 import { FieldsService } from './fields/fields.service';
 import { SetupProfileService } from './setup-profile/setup-profile.service';
+import { ShowProfileComponent } from './show-profile/show-profile.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes : Routes = [
   {path : '', component : HeaderComponent, data:{animation : 'HomePage'}},
   {path :'user/profileSetup/:name/:enrollment/:program', component : SetupProfileComponent, data:{animation : 'AboutPage'}},
-  {path :'user/profileSetup', component : SetupProfileComponent}
-  // {path :'page1', component : HeaderComponent}
+  {path :'user/profileSetup', component : SetupProfileComponent},
+  {path :'user/showProfile', component : ShowProfileComponent},
+  {path :'user/login', component : LoginComponent}
+  // {path :'page1', component : HeaderComponent
 ];
 
 @NgModule({
@@ -28,7 +32,9 @@ const appRoutes : Routes = [
     HeaderComponent,
     FieldsComponent,
     MiddleHeadingComponent,
-    SetupProfileComponent
+    SetupProfileComponent,
+    ShowProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

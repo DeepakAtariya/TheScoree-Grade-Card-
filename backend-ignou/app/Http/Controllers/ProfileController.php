@@ -33,13 +33,18 @@ class ProfileController extends Controller
             return response()->json([
                 'error' => "something went wrong!"
             ],404);
+            
         }
         
     }
 
-    public function onSave(Response $response) {
+    public function onSave(Request $request) {
 
-        //save database
+        //save into database
+
+        return response()->json([
+            'status' => 'true'
+        ],200);
     }
 
     private function onFetchServerData() {

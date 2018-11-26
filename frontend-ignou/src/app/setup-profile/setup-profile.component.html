@@ -12,13 +12,14 @@
                 </div>
             </div>
             <div class="row" id="row2" [style.display]="save_success">
-                <div class="col-lg-4 col-centered">
+                <div class="col-lg-4 col-md-7 col-sm-6 col-xs-7 col-centered">
                     <form (ngSubmit)="onSubmit()" #f="ngForm" id="setupProfileForm">   
                         <div class="our-team" ngModelGroup="setupProfileGroupData" #setupProfileGroupData = "ngModelGroup">
                         <div class="pic">
                             <img src="assets/images/1.jpg">
                         </div>
-                        <div class="team-content">
+                        <h1 [style.display]="registration_status">Registration Completed..</h1>
+                        <div class="team-content" [style.display]="form">
                             <h3 class="title">{{userData.name}}<br>{{userData.enrollment}}<br>{{userData.program}}</h3>
 
                             <!-- mobile number field -->
@@ -36,8 +37,6 @@
 
                             <!-- password field -->
                             <div class="form-group">
-                                   
-                                    
                                         <input type="password" class="form-control"  name="password" id="password" placeholder="enter password..." ngModel required>
                                 </div>
                                 

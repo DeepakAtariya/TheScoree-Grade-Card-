@@ -22,19 +22,24 @@ export class SetupProfileComponent implements OnInit {
   @ViewChild('f')  setupProfileData: NgForm;
   save_error = "none";
   save_success = "block";
+  registration_status='none';
   
 
   // form data in json format
   userData = {
-    'name' : '',
-    'enrollment' : '',
-    'program' : '',
-    'email' : '',
-    'mobile' : ''
+    name : '',
+    enrollment : '',
+    program : '',
+    email : '',
+    mobile : '',
+    password : ''
   };
+  form: string;
 
   constructor(private Activatedroute: ActivatedRoute, private setupProfileService : SetupProfileService, private location : Location, private route: Router) { }
 
+
+  //Initialisation with old data and validation jquery code
   ngOnInit() {
     
 
@@ -44,6 +49,7 @@ export class SetupProfileComponent implements OnInit {
 
     var buttonVisibility = "";
 
+    var validEmail=false;
 
     function checkPasswordMatch() {
       var password = $("#password").val();
@@ -56,18 +62,14 @@ export class SetupProfileComponent implements OnInit {
         $("#submit").css("display","none");
         return 0;
       } else{
-          // $("#divCheckPasswordMatch").html("Passwords match.");
-          
-            console.log("password checked");
-            $("#submit").css("display","block");
 
-            if(email!==''){
+            console.log("password checked");
+            if(validEmail && password!=='' && confirmPassword!==''){  
               $("#submit").css("display","block");
             }else{
               $("#submit").css("display","none");
             }
             
-            // return 1;
         }
       }
     
@@ -79,16 +81,13 @@ export class SetupProfileComponent implements OnInit {
       if(email.indexOf("@") != -1 &&  email.indexOf(".") != -1){
         console.log("valid email");
         $("#checkEmail").html("");
+        validEmail=true;
         
         if(password!=='' && confirmPassword!=='' && password===confirmPassword){
           $("#submit").css("display","block");
         }else{
           $("#submit").css("display","none");
         }
-        
-        
-
-        
       }else{
         // $("#checkEmail").html("invalid email...");
         $("#submit").css("display","none");
@@ -96,57 +95,39 @@ export class SetupProfileComponent implements OnInit {
     }
   
   $(document).ready(function () {
-
-    
-    
     $("#password, #confirmPassword").keyup(checkPasswordMatch);
     $("#email").keyup(checkEmail);
-
-    
-
-
-
   });
 
-  }
+  } //end ngOnInit
 
+  //submit data to database using laravel server
   onSubmit() {
     let setupProfileFormData = this.setupProfileData.value.setupProfileGroupData;
     this.userData.email = setupProfileFormData.email;
     this.userData.mobile = setupProfileFormData.mobile;
+    this.userData.password = setupProfileFormData.password;
 
+    try{
+      const status = this.setupProfileService.onSave(this.userData);
+    }catch(error){
+      console.log("server error");
+    }
+    
 
-
-    // AppComponent.onShowLoader(1);
-    // this.setupProfileService.onSave(setupProfileFormData)
-    // .subscribe(
-    //   (response: Response) => {
-    //     const responseData = response.json();
-    //     AppComponent.onShowLoader(0);
-    //     if(responseData.status){
-    //       this.route.navigate(["user/showProfile", this.userData.name, this.userData.enrollment, this.userData.program, this.userData.email, this.userData.mobile]);
-    //     }else{
-    //       // this.path
-    //       // this.setupProfileService.onNavigate(this.path, this.userData );  
-    //       this.save_error="block";
-    //       this.save_success="none";
-    //       AppComponent.onShowLoader(0);
-          
-    //     }
-    //   },
-    //   (error) =>{
-    //       this.save_error="block";
-    //       this.save_success="none";
-    //       AppComponent.onShowLoader(0);
-    //   }
-    // );
-
-  }
+    if(status){
+      this.registration_status = "block";
+      this.form="none"
+    }else{
+      this.registration_status = "none";
+      this.form="block"
+    }
+  } // end onSumit()
 
   // this function works in server error!
-  serviceUnavailable() {
-    this.route.navigate([""]);
-  }
+  // serviceUnavailable() {
+  //   this.route.navigate([""]);
+  // }
 
   
 }

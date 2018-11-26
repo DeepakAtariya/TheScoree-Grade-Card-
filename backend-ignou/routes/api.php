@@ -21,7 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('cors')->group(function(){
 
     Route::post('/getProfile','ProfileController@onGet');
+    
     Route::post('/testData','ProfileController@test');
+
+    Route::post('/save','ProfileController@onSave');
     /*
         Route::get('/checKHttp','ProfileController@onTestHttpClient'); for testing purposes
     */

@@ -22,14 +22,6 @@ export class AppComponent {
 
 
   constructor(private myService: MyHttpService ) {}
-  // testLarvel() {
-  //   this.myService.getServices(Config.backendIgnou)
-  //   .subscribe(
-  //     (response) => console.log(response),
-  //     (error) => console.log(error)
-  //   );
-  // }
-
 
   public static onShowLoader(loader){
     if(loader == 1){

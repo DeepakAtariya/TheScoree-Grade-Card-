@@ -15,5 +15,6 @@ export class MyHttpService {
     const headers = new Headers({'Content-Type': 'application/json'});
     return this.http.get(serverPath, {headers: headers});
   }
+  
 
 }
