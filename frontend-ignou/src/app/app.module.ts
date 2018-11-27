@@ -16,6 +16,7 @@ import { FieldsService } from './fields/fields.service';
 import { SetupProfileService } from './setup-profile/setup-profile.service';
 import { ShowProfileComponent } from './show-profile/show-profile.component';
 import { LoginComponent } from './login/login.component';
+import { Sharing } from 'src/resources/Sharing';
 
 const appRoutes : Routes = [
   {path : '', component : HeaderComponent, data:{animation : 'HomePage'}},
@@ -47,7 +48,8 @@ const appRoutes : Routes = [
   providers: [
     MyHttpService,
     FieldsService,
-    SetupProfileService
+    SetupProfileService,
+    Sharing
   ],
   bootstrap: [AppComponent]
 })

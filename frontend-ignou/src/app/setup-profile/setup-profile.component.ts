@@ -6,6 +6,7 @@ import { Response } from '@angular/http';
 import {Location} from '@angular/common';
 import * as $ from 'jquery';
 import { AppComponent } from '../app.component';
+import { Sharing } from 'src/resources/Sharing';
 
 @Component({
   selector: 'app-setup-profile',
@@ -37,7 +38,7 @@ export class SetupProfileComponent implements OnInit {
   };
   form: string;
 
-  constructor(private Activatedroute: ActivatedRoute, private setupProfileService : SetupProfileService, private location : Location, private route: Router) { }
+  constructor(private Activatedroute: ActivatedRoute, private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
 
 
   //Initialisation with old data and validation jquery code
@@ -119,7 +120,9 @@ export class SetupProfileComponent implements OnInit {
           console.log(responseData.status);
           if(responseData.status==="yes"){
             console.log("success! Data saved");
-
+            
+            //saving data for sharing
+            this.shared.setData(this.userData);
             this.route.navigate(['user/login']);
           }else{
             console.log("failed");

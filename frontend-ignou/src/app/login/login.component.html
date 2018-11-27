@@ -10,12 +10,13 @@
   <div class="row" id="row2" [style.display]="save_success">
       <div class="col-lg-4 col-md-7 col-sm-6 col-xs-7 col-centered">
           <form (ngSubmit)="onSubmit()" #f="ngForm" id="loginForm">   
-              <div class="our-team" ngModelGroup="loginFormData" #setupProfileGroupData = "ngModelGroup">
+              <div class="our-team" ngModelGroup="loginData" #loginData = "ngModelGroup">
               <div class="pic">
                   <img src="assets/images/1.jpg">
               </div>
-              
               <div class="team-content" [style.display]="form">
+
+                  <!-- email field -->
                   <div class="form-group">
                       <input class="form-control" id="email" placeholder="Enter email" name="email" type="text" ngModel required email>
                       <span id="checkEmail">
