@@ -1,4 +1,8 @@
-export class Sharing  {
+import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
+@Injectable()
+export class Sharing {
+
     data : any;
 
     setData(data : any){
@@ -8,4 +12,6 @@ export class Sharing  {
     getData(){
         return this.data;
     }
+
+
 }

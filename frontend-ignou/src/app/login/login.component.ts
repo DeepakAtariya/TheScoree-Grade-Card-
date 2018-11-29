@@ -77,7 +77,13 @@ export class LoginComponent implements OnInit {
     this.credentials.password = data.password;
 
     let sharedData = this.shared.getData();
-    console.log(sharedData);
+
+    if(sharedData.email === this.credentials.email && sharedData.password===this.credentials.password){
+      console.log("boom email");
+    }else{
+      console.log("login failed!"+ sharedData);
+    }
+    
 
   }
 
