@@ -24,7 +24,7 @@ export class SetupProfileComponent implements OnInit {
   @ViewChild('f')  setupProfileData: NgForm;
   save_error = "none";
   save_success = "block";
-  registration_status='none';
+  register='none';
   
 
   // form data in json format
@@ -40,14 +40,35 @@ export class SetupProfileComponent implements OnInit {
 
   constructor(private Activatedroute: ActivatedRoute, private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
 
-
   //Initialisation with old data and validation jquery code
   ngOnInit() {
+    this.register = this.shared.getData();
+    $('#register-form-link').addClass('active');
+    $("#login-form").fadeOut(100);
+    $('#login-form-link').removeClass('active');
     
-
     this.userData.name = this.Activatedroute.snapshot.params['name'];
     this.userData.enrollment = this.Activatedroute.snapshot.params['enrollment'];
     this.userData.program = this.Activatedroute.snapshot.params['program'];
+
+    // Template JS
+    $(function() {
+      $('#login-form-link').click(function(e) { 
+      $("#login-form").delay(100).fadeIn(100);
+       $("#setupProfileForm").fadeOut(100);
+      $('#register-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+    });
+    $('#register-form-link').click(function(e) {
+      $("#setupProfileForm").delay(100).fadeIn(100);
+       $("#login-form").fadeOut(100);
+      $('#login-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+    });
+  });
+
 
     var buttonVisibility = "";
 
@@ -131,6 +152,7 @@ export class SetupProfileComponent implements OnInit {
         },
         (error) =>{
             AppComponent.onShowLoader(0);
+            this.register='block';
             this.route.navigate(['user/profileSetup/:name/:enrollment/:program', this.userData.name, this.userData.enrollment, this.userData.program]);
         }
       );

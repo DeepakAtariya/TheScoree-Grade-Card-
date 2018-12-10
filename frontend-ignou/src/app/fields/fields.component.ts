@@ -5,6 +5,7 @@ import { Config } from 'src/resources/conf';
 import { Response } from '@angular/http';
 import { AppComponent } from '../app.component';
 import { FieldsService } from './fields.service';
+import { Sharing } from 'src/resources/Sharing';
 
 declare var $: any;
 @Component({
@@ -28,7 +29,7 @@ export class FieldsComponent implements OnInit {
   warning = '';
   warningColor = 'green';
 
-  constructor(private fieldService: FieldsService, private myHttpService: MyHttpService) { }
+  constructor(private fieldService: FieldsService, private myHttpService: MyHttpService, public shared : Sharing) { }
 
   ngOnInit() {
 
@@ -60,6 +61,7 @@ export class FieldsComponent implements OnInit {
           AppComponent.onShowLoader(0);
           this.showData = this.data.name; 
           if (this.showData != ""){
+            this.shared.setData("block");
             this.fieldService.onNavigate(true, this.data.name, this.data.enrollment, this.data.program);
           } else {
             this.fieldService.onNavigate(false,  this.data.name, this.data.enrollment, this.data.program);

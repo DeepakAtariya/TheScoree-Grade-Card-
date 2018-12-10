@@ -1,0 +1,54 @@
+<div id="" class="container">
+        <div class="row" id="row1" [style.display]="save_error">
+            <div class="col-lg-4 text-center">
+                <h1>Service unavailable...</h1>
+                <button class="btn btn-info" (click)="serviceUnavailable()">Retry!</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Complete your profile!</h1>
+                <h4>For email and mobile notifications...</h4>
+            </div>
+        </div>
+        <div class="row" id="row2" [style.display]="save_success">
+            <div class="col-lg-4 col-md-7 col-sm-6 col-xs-7 col-centered">
+                <form (ngSubmit)="onSubmit()" #f="ngForm" id="setupProfileForm">   
+                    <div class="our-team" ngModelGroup="setupProfileGroupData" #setupProfileGroupData = "ngModelGroup">
+                    <div class="pic">
+                        <img src="assets/images/1.jpg">
+                    </div>
+                    <h1 [style.display]="registration_status">Registration Completed..</h1>
+                    <div class="team-content" [style.display]="form">
+                        <h3 class="title">{{userData.name}}<br>{{userData.enrollment}}<br>{{userData.program}}</h3>
+
+                        <!-- mobile number field -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile number(optional)" data-toggle="tooltip" data-placement="right" title="for mobile notification" ngModel required>
+                            
+                        </div>
+
+                        <!-- email field -->
+                        <div class="form-group">
+                                <input class="form-control" id="email" placeholder="Enter email" name="email" type="text" ngModel required email>
+                                <span id="checkEmail">
+                                </span>
+                        </div>
+
+                        <!-- password field -->
+                        <div class="form-group">
+                                    <input type="password" class="form-control"  name="password" id="password" placeholder="enter password..." ngModel required>
+                            </div>
+                            
+                        <!-- confirm password field -->
+                        <div  class="form-group">
+                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="retype password..." ngModel required>
+                            <span id="divCheckPasswordMatch"></span>
+                        </div>
+                        <button style="display:none; margin:0 auto;" id="submit" type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+              </form>
+            </div>
+        </div>
+      </div>
