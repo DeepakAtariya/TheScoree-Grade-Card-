@@ -192,10 +192,16 @@ export class SetupProfileComponent implements OnInit {
     }catch(error){
       console.log("server error");
     }
-    
+
+  } // end onSumit()
+
+  onLogin(){ //start onLoing
 
     
-  } // end onSumit()
+    console.log("login process is begin");
+  } // end onLogin
+
+  
 
   // this function works in server error!
   // serviceUnavailable() {

@@ -17,12 +17,13 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form id="login-form" action="" method="post" role="form" [ngStyle]="{display: login}">
+                                        <form (ngSubmit)="onLogin()" #login="ngForm" name="loginForm" id="loginForm" action="" method="post" role="form" [ngStyle]="{display: login}">
+                                                <div class="our-team" ngModelGroup="loginFormGroupData" #loginFormGroupData = "ngModelGroup">
                                             <div class="form-group">
                                                 <input type="text" name="login_username" id="login_username" tabindex="1" class="form-control" placeholder="Username" value="{{loginData.enrollment}}" [disabled]="true" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="login_password" id="login_password" tabindex="2" class="form-control" placeholder="Password" required>
+                                                <input type="password" name="login_password" id="login_password" tabindex="2" class="form-control" placeholder="Password" ngModel required>
                                             </div>
                                             <div class="form-group text-center">
                                                 <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -44,8 +45,10 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         </form>
                                         <form  (ngSubmit)="onSubmit()" #f="ngForm" id="setupProfileForm" role="form" [ngStyle]="{display: register}">
+                                                <div class="our-team" ngModelGroup="setupProfileGroupData" #setupProfileGroupData = "ngModelGroup">
                                             <!-- <div class="form-group">
                                                 <h3 class="title">{{userData.name}}<br>{{userData.enrollment}}<br>{{userData.program}}</h3>
                                             </div> -->
@@ -90,6 +93,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         </form>
                                     </div>
                                 </div>
