@@ -11,13 +11,12 @@ export class FieldsService {
 
   }
 
-  onNavigate(decision : Boolean, name, enrollment, program) { 
-    if(decision){
+  onNavigateRegister(decision : Boolean, name, enrollment, program) { 
       this.route.navigate(["user/profileSetup", name, enrollment, program]);
-    }else{
-      this.route.navigate([""]);
     }
+
+  onNavigateLogin(enrollment){
+    this.route.navigate(["user/profileSetup", enrollment]);
+  }  
     
   }
-
-}

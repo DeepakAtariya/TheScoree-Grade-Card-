@@ -6,6 +6,7 @@ require '../vendor/autoload.php';
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 
 class ProfileController extends Controller
@@ -21,21 +22,55 @@ class ProfileController extends Controller
 
         $this->program = $request->input('program');
         $this->enrollment = $request->input('enrollment');
-        $fetchedStudentName = $this->onFetchServerData();
-        // return $fetchedStudentName;
-        if($fetchedStudentName!==""){
+        
+        
+        $user = DB::table('student_details')->where('enrollment', $this->enrollment)->first();
+        // $user = "1";
+
+        // return (string)$user->enrollment;
+
+
+        if(isset($user)){
             return response()->json([
-                'name' => $fetchedStudentName,
-                'enrollment'=> $this->enrollment,
-                'program' => $this->program
+                'status' => 'old',
+                'name' => $user->name,
+                'enrollment'=> $user->enrollment,
+                'program' => $user->program,
+                'email' => $user->email,
+                'password' => $user->password
             ],201);
-    
         }else{
-            return response()->json([
-                'error' => "something went wrong!"
-            ],404);
-            
+            $fetchedStudentName = $this->onFetchServerData();
+            if($fetchedStudentName!==""){
+                return response()->json([
+                    'status' => 'new',
+                    'name' => $fetchedStudentName,
+                    'enrollment'=> $this->enrollment,
+                    'program' => $this->program
+                ],201);
+            }else{
+                return response()->json([
+                    'status' => 'error'
+                ],404);
+            }
         }
+
+        // return $fetchedStudentName;
+        // if($fetchedStudentName!==""){
+        //     return response()->json([
+        //         'name' => $fetchedStudentName,
+        //         'enrollment'=> $this->enrollment,
+        //         'program' => $this->program
+        //     ],201);
+    
+        // }else{
+        //     return response()->json([
+        //         'error' => "something went wrong!"
+        //     ],404);
+            
+        // }
+
+
         
     }
 

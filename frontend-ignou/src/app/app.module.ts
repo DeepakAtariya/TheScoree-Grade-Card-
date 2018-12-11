@@ -21,7 +21,7 @@ import { Sharing } from 'src/resources/Sharing';
 const appRoutes : Routes = [
   {path : '', component : HeaderComponent, data:{animation : 'HomePage'}},
   {path :'user/profileSetup/:name/:enrollment/:program', component : SetupProfileComponent, data:{animation : 'AboutPage'}},
-  {path :'user/profileSetup', component : SetupProfileComponent},
+  {path :'user/profileSetup/:enroll', component : SetupProfileComponent},
   {path :'user/showProfile', component : ShowProfileComponent},
   {path :'user/login', component : LoginComponent}
   // {path :'page1', component : HeaderComponent

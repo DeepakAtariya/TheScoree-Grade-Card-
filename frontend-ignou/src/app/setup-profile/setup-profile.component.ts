@@ -36,17 +36,50 @@ export class SetupProfileComponent implements OnInit {
     mobile : '',
     password : ''
   };
+
+  loginData ={
+    name : '',
+    enrollment : '',
+    program : '',
+    email : '',
+    mobile : '',
+    password : ''
+  };
+
   form: string;
+  login: string;
 
   constructor(private Activatedroute: ActivatedRoute, private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
 
   //Initialisation with old data and validation jquery code
   ngOnInit() {
-    this.register = this.shared.getData();
-    $('#register-form-link').addClass('active');
-    $("#login-form").fadeOut(100);
-    $('#login-form-link').removeClass('active');
+
+
+    try{
+
+      this.register = this.shared.getData();
+      if(this.register==="block"){
+        console.log("register invoked");
+          $('#register-form-link').addClass('active');
+          $("#login-form").fadeOut(100);
+          $('#login-form-link').removeClass('active');
+          this.login = "none";
+      }else{
+        console.log("login invoked");
+        this.login = "block";
+        this.register = "none";
+        // const data = this.shared.getData();
+        this.loginData.enrollment = this.Activatedroute.snapshot.params['enroll'];
+        console.log(this.loginData.enrollment);
+        
+        // this.loginData.enrollment='157673056';
+  
+      }
+    }catch(e){
+      console.log('error');
+    }
     
+
     this.userData.name = this.Activatedroute.snapshot.params['name'];
     this.userData.enrollment = this.Activatedroute.snapshot.params['enrollment'];
     this.userData.program = this.Activatedroute.snapshot.params['program'];

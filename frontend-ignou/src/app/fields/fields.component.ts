@@ -59,12 +59,14 @@ export class FieldsComponent implements OnInit {
         (response: Response) => {
           this.data = response.json();
           AppComponent.onShowLoader(0);
-          this.showData = this.data.name; 
-          if (this.showData != ""){
+          this.showData = this.data.status; 
+          if (this.showData != "old"){
             this.shared.setData("block");
-            this.fieldService.onNavigate(true, this.data.name, this.data.enrollment, this.data.program);
+            this.fieldService.onNavigateRegister(true, this.data.name, this.data.enrollment, this.data.program);
           } else {
-            this.fieldService.onNavigate(false,  this.data.name, this.data.enrollment, this.data.program);
+            this.shared.setData("none");
+            this.shared.setData(this.data);
+            this.fieldService.onNavigateLogin(this.data.enrollment);
           }
         },
         (error) => {
