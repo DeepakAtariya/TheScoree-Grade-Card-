@@ -64,8 +64,9 @@ export class FieldsComponent implements OnInit {
             this.shared.setData("block");
             this.fieldService.onNavigateRegister(true, this.data.name, this.data.enrollment, this.data.program);
           } else {
+            console.log("user is not new !");
             this.shared.setData("none");
-            this.shared.setData(this.data);
+            this.fieldService.setData(this.data);
             this.fieldService.onNavigateLogin(this.data.enrollment);
           }
         },

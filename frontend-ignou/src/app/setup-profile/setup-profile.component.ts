@@ -7,6 +7,7 @@ import {Location} from '@angular/common';
 import * as $ from 'jquery';
 import { AppComponent } from '../app.component';
 import { Sharing } from 'src/resources/Sharing';
+import { FieldsService } from '../fields/fields.service';
 
 @Component({
   selector: 'app-setup-profile',
@@ -22,6 +23,7 @@ export class SetupProfileComponent implements OnInit {
 
   // setupProfileData is responsible to fetch data from setupProfile form
   @ViewChild('f')  setupProfileData: NgForm;
+  @ViewChild('login')  loginFormData: NgForm;
   save_error = "none";
   save_success = "block";
   register='none';
@@ -48,20 +50,20 @@ export class SetupProfileComponent implements OnInit {
 
   form: string;
   login: string;
+  login_error: string;
 
-  constructor(private Activatedroute: ActivatedRoute, private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
+  constructor(private Activatedroute: ActivatedRoute, private fieldService: FieldsService, private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
 
   //Initialisation with old data and validation jquery code
   ngOnInit() {
 
 
     try{
-
       this.register = this.shared.getData();
       if(this.register==="block"){
         console.log("register invoked");
           $('#register-form-link').addClass('active');
-          $("#login-form").fadeOut(100);
+          $("#loginForm").fadeOut(100);
           $('#login-form-link').removeClass('active');
           this.login = "none";
       }else{
@@ -87,7 +89,7 @@ export class SetupProfileComponent implements OnInit {
     // Template JS
     $(function() {
       $('#login-form-link').click(function(e) { 
-      $("#login-form").delay(100).fadeIn(100);
+      $("#loginForm").delay(100).fadeIn(100);
        $("#setupProfileForm").fadeOut(100);
       $('#register-form-link').removeClass('active');
       $(this).addClass('active');
@@ -95,7 +97,7 @@ export class SetupProfileComponent implements OnInit {
     });
     $('#register-form-link').click(function(e) {
       $("#setupProfileForm").delay(100).fadeIn(100);
-       $("#login-form").fadeOut(100);
+       $("#loginForm").fadeOut(100);
       $('#login-form-link').removeClass('active');
       $(this).addClass('active');
       e.preventDefault();
@@ -195,10 +197,30 @@ export class SetupProfileComponent implements OnInit {
 
   } // end onSumit()
 
-  onLogin(){ //start onLoing
+  onLogin(){ //start onLogin
+
+    //fetch original user data to compare to login
+    const loginData = this.fieldService.getData();
+    console.log("login data-- " + loginData.password);
+    const loginDataToCompare = this.loginFormData.value.loginFormGroupData;
+    const password = loginDataToCompare.login_password;
+    const username = loginDataToCompare.login_username;
+
+    console.log(" This is the password! "+password);
+
+    if(password == loginData.password){
+      console.log("logged in...");
+      this.route.navigate(['user/showProfile']);
+    }else if(password !== "" && username !== ""){
+      console.log("login error!");
+      this.login_error = "login failed";
+    }else{
+      console.log("password field is blank");
+      this.login_error = "Blank fields";
+    }
 
     
-    console.log("login process is begin");
+
   } // end onLogin
 
   
