@@ -25,10 +25,7 @@ class ProfileController extends Controller
         
         
         $user = DB::table('student_details')->where('enrollment', $this->enrollment)->first();
-        // $user = "1";
-
-        // return (string)$user->enrollment;
-
+  
 
         if(isset($user)){
             return response()->json([
