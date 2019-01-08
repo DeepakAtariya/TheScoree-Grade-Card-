@@ -16,6 +16,8 @@ class ProfileController extends Controller
     private $name;
     private $email;
     private $contact;
+
+    
     public function onGet(Request $request){
 
         //this function is responsible to get data from angular main page
