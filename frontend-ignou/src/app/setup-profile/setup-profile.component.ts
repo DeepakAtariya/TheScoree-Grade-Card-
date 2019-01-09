@@ -204,11 +204,12 @@ export class SetupProfileComponent implements OnInit {
     console.log("login data-- " + loginData.password);
     const loginDataToCompare = this.loginFormData.value.loginFormGroupData;
     const password = loginDataToCompare.login_password;
+    console.log("Password entered by user : "+password);
     const username = loginDataToCompare.login_username;
 
-    console.log(" This is the password! "+password);
+    console.log("This is the saved password "+loginData.password);
 
-    if(password == loginData.password){
+    if(password === loginData.password){
       console.log("logged in...");
       this.route.navigate(['user/showProfile']);
     }else if(password !== "" && username !== ""){
