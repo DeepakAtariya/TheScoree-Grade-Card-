@@ -7,7 +7,6 @@ import {Location} from '@angular/common';
 import * as $ from 'jquery';
 import { AppComponent } from '../app.component';
 import { Sharing } from 'src/resources/Sharing';
-import { FieldsService } from '../fields/fields.service';
 
 @Component({
   selector: 'app-setup-profile',
@@ -52,39 +51,11 @@ export class SetupProfileComponent implements OnInit {
   login: string;
   login_error: string;
 
-  constructor(private Activatedroute: ActivatedRoute, private fieldService: FieldsService, private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
+  // constructor(private Activatedroute: ActivatedRoute,  private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
+  constructor(){}
 
   //Initialisation with old data and validation jquery code
   ngOnInit() {
-
-
-    try{
-      this.register = this.shared.getData();
-      if(this.register==="block"){
-        console.log("register invoked");
-          $('#register-form-link').addClass('active');
-          $("#loginForm").fadeOut(100);
-          $('#login-form-link').removeClass('active');
-          this.login = "none";
-      }else{
-        console.log("login invoked");
-        this.login = "block";
-        this.register = "none";
-        // const data = this.shared.getData();
-        this.loginData.enrollment = this.Activatedroute.snapshot.params['enroll'];
-        console.log(this.loginData.enrollment);
-        
-        // this.loginData.enrollment='157673056';
-  
-      }
-    }catch(e){
-      console.log('error');
-    }
-    
-
-    this.userData.name = this.Activatedroute.snapshot.params['name'];
-    this.userData.enrollment = this.Activatedroute.snapshot.params['enrollment'];
-    this.userData.program = this.Activatedroute.snapshot.params['program'];
 
     // Template JS
     $(function() {
@@ -105,124 +76,74 @@ export class SetupProfileComponent implements OnInit {
   });
 
 
-    var buttonVisibility = "";
-
-    var validEmail=false;
-
-    function checkPasswordMatch() {
-      var password = $("#password").val();
-      var confirmPassword = $("#confirmPassword").val();
-      var email = $("#email").val();
-      
-
-      if (password != confirmPassword){ 
-        // $("#divCheckPasswordMatch").html("Passwords do not match!");
-        $("#submit").css("display","none");
-        return 0;
-      } else{
-
-            console.log("password checked");
-            if(validEmail && password!=='' && confirmPassword!==''){  
-              $("#submit").css("display","block");
-            }else{
-              $("#submit").css("display","none");
-            }
-            
-        }
-      }
     
-    function checkEmail(){
-      var email = $("#email").val();
-      var password = $("#password").val();
-      var confirmPassword = $("#confirmPassword").val();
-      
-      if(email.indexOf("@") != -1 &&  email.indexOf(".") != -1){
-        console.log("valid email");
-        $("#checkEmail").html("");
-        validEmail=true;
-        
-        if(password!=='' && confirmPassword!=='' && password===confirmPassword){
-          $("#submit").css("display","block");
-        }else{
-          $("#submit").css("display","none");
-        }
-      }else{
-        // $("#checkEmail").html("invalid email...");
-        $("#submit").css("display","none");
-      }
-    }
-  
-  $(document).ready(function () {
-    $("#password, #confirmPassword").keyup(checkPasswordMatch);
-    $("#email").keyup(checkEmail);
-  });
 
   } //end ngOnInit
 
   //submit data to database using laravel server
-  onSubmit() {
-    let setupProfileFormData = this.setupProfileData.value.setupProfileGroupData;
-    this.userData.email = setupProfileFormData.email;
-    this.userData.mobile = setupProfileFormData.mobile;
-    this.userData.password = setupProfileFormData.password;
+  // onSubmit() {
+  //   let setupProfileFormData = this.setupProfileData.value.setupProfileGroupData;
+  //   this.userData.email = setupProfileFormData.email;
+  //   this.userData.mobile = setupProfileFormData.mobile;
+  //   this.userData.password = setupProfileFormData.password;
 
-    try{
-      AppComponent.onShowLoader(1);
-      this.setupProfileService.onSave(this.userData)
-      .subscribe(
-        (response: Response) => {
-          const responseData = response.json();
-          AppComponent.onShowLoader(0);
-          console.log(responseData.status);
-          if(responseData.status==="yes"){
-            console.log("success! Data saved");
+  //   try{
+  //     AppComponent.onShowLoader(1);
+  //     this.setupProfileService.onSave(this.userData)
+  //     .subscribe(
+  //       (response: Response) => {
+  //         const responseData = response.json();
+  //         AppComponent.onShowLoader(0);
+  //         console.log(responseData.status);
+  //         if(responseData.status==="yes"){
+  //           console.log("success! Data saved");
             
-            //saving data for sharing
-            this.shared.setData(this.userData);
-            this.route.navigate(['user/login']);
-          }else{
-            console.log("failed");
-            AppComponent.onShowLoader(0);
-          }
-        },
-        (error) =>{
-            AppComponent.onShowLoader(0);
-            this.register='block';
-            this.route.navigate(['user/profileSetup/:name/:enrollment/:program', this.userData.name, this.userData.enrollment, this.userData.program]);
-        }
-      );
-    }catch(error){
-      console.log("server error");
-    }
+  //           //saving data for sharing
+  //           this.shared.setData(this.userData);
+  //           this.route.navigate(['user/login']);
+  //         }else{
+  //           console.log("failed");
+  //           AppComponent.onShowLoader(0);
+  //         }
+  //       },
+  //       (error) =>{
+  //           AppComponent.onShowLoader(0);
+  //           this.register='block';
+  //           this.route.navigate(['user/profileSetup/:name/:enrollment/:program', this.userData.name, this.userData.enrollment, this.userData.program]);
+  //       }
+  //     );
+  //   }catch(error){
+  //     console.log("server error");
+  //   }
 
-  } // end onSumit()
+  // } // end onSumit()
 
-  onLogin(){ //start onLogin
+  // onLogin(){ //start onLogin
 
-    //fetch original user data to compare to login
-    const loginData = this.fieldService.getData();
-    console.log("login data-- " + loginData.password);
-    const loginDataToCompare = this.loginFormData.value.loginFormGroupData;
-    const password = loginDataToCompare.login_password;
-    console.log("Password entered by user : "+password);
-    const username = loginDataToCompare.login_username;
+  //   //fetch original user data to compare to login
+  //   const loginData = this.fieldService.getData();
+  //   console.log("login data-- " + loginData.password);
+  //   const loginDataToCompare = this.loginFormData.value.loginFormGroupData;
+  //   const password = loginDataToCompare.login_password;
+  //   console.log("Password entered by user : "+password);
+  //   const username = loginDataToCompare.login_username;
 
-    console.log("This is the saved password "+loginData.password);
+  //   console.log("This is the saved password "+loginData.password);
 
-    if(password === loginData.password){
-      console.log("logged in...");
-      this.route.navigate(['user/showProfile']);
-    }else if(password !== "" && username !== ""){
-      console.log("login error!");
-      this.login_error = "login failed";
-    }else{
-      console.log("password field is blank");
-      this.login_error = "Blank fields";
-    }
+  //   if(password === loginData.password){
+  //     console.log("logged in...");
+  //     this.route.navigate(['user/showProfile']);
+  //   }else if(password !== "" && username !== ""){
+  //     console.log("login error!");
+  //     this.login_error = "login failed";
+  //   }else{
+  //     console.log("password field is blank");
+  //     this.login_error = "Blank fields";
+  //   }
 
     
 
-  } // end onLogin
+  // } // end onLogin
 
   
 
