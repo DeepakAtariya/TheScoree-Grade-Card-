@@ -23,9 +23,7 @@ export class SetupProfileComponent implements OnInit {
   // setupProfileData is responsible to fetch data from setupProfile form
   @ViewChild('f')  setupProfileData: NgForm;
   @ViewChild('login')  loginFormData: NgForm;
-  save_error = "none";
-  save_success = "block";
-  register='none';
+  @ViewChild('login_username') login_username : any;
   
 
   // form data in json format
@@ -39,17 +37,12 @@ export class SetupProfileComponent implements OnInit {
   };
 
   loginData ={
-    name : '',
-    enrollment : '',
-    program : '',
-    email : '',
-    mobile : '',
+    username : '',
     password : ''
   };
 
-  form: string;
-  login: string;
   login_error: string;
+  // login_error : string;
 
   // constructor(private Activatedroute: ActivatedRoute,  private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
   constructor(){}
@@ -60,15 +53,15 @@ export class SetupProfileComponent implements OnInit {
     // Template JS
     $(function() {
       $('#login-form-link').click(function(e) { 
-      $("#loginForm").delay(100).fadeIn(100);
-       $("#setupProfileForm").fadeOut(100);
+      $("#loginForm").delay(50).fadeIn(50);
+       $("#setupProfileForm").fadeOut(50);
       $('#register-form-link').removeClass('active');
       $(this).addClass('active');
       e.preventDefault();
     });
     $('#register-form-link').click(function(e) {
-      $("#setupProfileForm").delay(100).fadeIn(100);
-       $("#loginForm").fadeOut(100);
+      $("#setupProfileForm").delay(50).fadeIn(50);
+       $("#loginForm").fadeOut(50);
       $('#login-form-link').removeClass('active');
       $(this).addClass('active');
       e.preventDefault();
@@ -81,69 +74,36 @@ export class SetupProfileComponent implements OnInit {
   } //end ngOnInit
 
   //submit data to database using laravel server
-  // onSubmit() {
-  //   let setupProfileFormData = this.setupProfileData.value.setupProfileGroupData;
-  //   this.userData.email = setupProfileFormData.email;
-  //   this.userData.mobile = setupProfileFormData.mobile;
-  //   this.userData.password = setupProfileFormData.password;
+  onSubmit() {
+    let setupProfileFormData = this.setupProfileData.value.setupProfileGroupData;
+    this.userData.name = setupProfileFormData.name;
+    this.userData.enrollment = setupProfileFormData.enrollment;
+    this.userData.program = setupProfileFormData.program;
+    this.userData.email = setupProfileFormData.email;
+    this.userData.mobile = setupProfileFormData.mobile;
+    this.userData.password = setupProfileFormData.password;
+    
+    console.log(this.userData);
+    
 
-  //   try{
-  //     AppComponent.onShowLoader(1);
-  //     this.setupProfileService.onSave(this.userData)
-  //     .subscribe(
-  //       (response: Response) => {
-  //         const responseData = response.json();
-  //         AppComponent.onShowLoader(0);
-  //         console.log(responseData.status);
-  //         if(responseData.status==="yes"){
-  //           console.log("success! Data saved");
-            
-  //           //saving data for sharing
-  //           this.shared.setData(this.userData);
-  //           this.route.navigate(['user/login']);
-  //         }else{
-  //           console.log("failed");
-  //           AppComponent.onShowLoader(0);
-  //         }
-  //       },
-  //       (error) =>{
-  //           AppComponent.onShowLoader(0);
-  //           this.register='block';
-  //           this.route.navigate(['user/profileSetup/:name/:enrollment/:program', this.userData.name, this.userData.enrollment, this.userData.program]);
-  //       }
-  //     );
-  //   }catch(error){
-  //     console.log("server error");
-  //   }
 
-  // } // end onSumit()
 
-  // onLogin(){ //start onLogin
+  } // end onSumit()
 
-  //   //fetch original user data to compare to login
-  //   const loginData = this.fieldService.getData();
-  //   console.log("login data-- " + loginData.password);
-  //   const loginDataToCompare = this.loginFormData.value.loginFormGroupData;
-  //   const password = loginDataToCompare.login_password;
-  //   console.log("Password entered by user : "+password);
-  //   const username = loginDataToCompare.login_username;
+  onLogin(){ //start onLogin
 
-  //   console.log("This is the saved password "+loginData.password);
-
-  //   if(password === loginData.password){
-  //     console.log("logged in...");
-  //     this.route.navigate(['user/showProfile']);
-  //   }else if(password !== "" && username !== ""){
-  //     console.log("login error!");
-  //     this.login_error = "login failed";
-  //   }else{
-  //     console.log("password field is blank");
-  //     this.login_error = "Blank fields";
-  //   }
+    const loginDataToCompare = this.loginFormData.value.loginFormGroupData;
+    const username = loginDataToCompare.login_username;
+    const password = loginDataToCompare.login_password;
+    this.login_username.nativeElement.focus();
+    console.log(this.login_username);
 
     
 
-  // } // end onLogin
+    
+    
+
+  } // end onLogin
 
   
 
