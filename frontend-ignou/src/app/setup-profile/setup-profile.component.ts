@@ -42,6 +42,7 @@ export class SetupProfileComponent implements OnInit {
   };
 
   login_error: string;
+  signup_error: string;
   // login_error : string;
 
   // constructor(private Activatedroute: ActivatedRoute,  private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
@@ -84,6 +85,23 @@ export class SetupProfileComponent implements OnInit {
     this.userData.password = setupProfileFormData.password;
     
     console.log(this.userData);
+
+    var pattern = /^\d+$/;
+    var email =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(this.userData.name == "" || this.userData.enrollment == "" || this.userData.program == "" || this.userData.email == "" || this.userData.password == ""){
+        this.signup_error = "Enter credentials";
+    }else if(!pattern.test(this.userData.enrollment)){
+      this.signup_error = "Invalid enrollment format";
+    }else if(!email.test(this.userData.email)){
+      this.signup_error = "Invalid email";
+      console.log(email.test(this.userData.email));
+    }else if(!this.checkWithIgnou(this.userData.enrollment, this.userData.program)){
+      //let's go to next page 
+      this.signup_error = "Enter valid enrollment";
+    }else{
+      console.log("yupiee");
+      this.signup_error = "";
+    }
     
 
 
@@ -95,8 +113,22 @@ export class SetupProfileComponent implements OnInit {
     const loginDataToCompare = this.loginFormData.value.loginFormGroupData;
     const username = loginDataToCompare.login_username;
     const password = loginDataToCompare.login_password;
-    this.login_username.nativeElement.focus();
-    console.log(this.login_username);
+    // this.login_username.nativeElement.focus();
+
+    // const s_username = "deepak";
+    // const s_password = "deepak";
+
+    
+
+    if(username == "" || password == ""){
+      this.login_error = "Enter credentials";
+    }else if (this.checkCredentialsWithServer(username,password)){
+      // this.login_error = "";
+      // lets go to next page...      
+    }else{
+      this.login_error = "Invalid credentials";
+    }
+
 
     
 
@@ -105,12 +137,24 @@ export class SetupProfileComponent implements OnInit {
 
   } // end onLogin
 
-  
+ /* checking whether student is real or fake with ignou server */ 
+checkWithIgnou(enrollment:any, program:any){
+  if(1){
+    return true;
 
-  // this function works in server error!
-  // serviceUnavailable() {
-  //   this.route.navigate([""]);
-  // }
+  }else{
+    return false;
+  }
+}
+
+checkCredentialsWithServer(username:any, password:any){
+  if(1){
+    return true;
+
+  }else{
+    return false;
+  }
+}
 
   
 }
