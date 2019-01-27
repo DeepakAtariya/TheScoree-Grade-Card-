@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+// import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { SetupProfileService } from './setup-profile.service';
-import { Response } from '@angular/http';
-import {Location} from '@angular/common';
+// import { SetupProfileService } from './setup-profile.service';
+// import { Response } from '@angular/http';
+// import {Location} from '@angular/common';
 import * as $ from 'jquery';
-import { AppComponent } from '../app.component';
-import { Sharing } from 'src/resources/Sharing';
+import { SetupProfileService } from './setup-profile.service';
+// import { AppComponent } from '../app.component';
+// import { Sharing } from 'src/resources/Sharing';
 
 @Component({
   selector: 'app-setup-profile',
@@ -45,12 +46,13 @@ export class SetupProfileComponent implements OnInit {
   signup_error: string;
   // login_error : string;
 
-  // constructor(private Activatedroute: ActivatedRoute,  private setupProfileService : SetupProfileService, private location : Location, private route: Router, public shared : Sharing) { }
-  constructor(){}
+  constructor(private setupProfileService : SetupProfileService){
+
+  }
 
   //Initialisation with old data and validation jquery code
   ngOnInit() {
-
+    
     // Template JS
     $(function() {
       $('#login-form-link').click(function(e) { 
@@ -84,7 +86,7 @@ export class SetupProfileComponent implements OnInit {
     this.userData.mobile = setupProfileFormData.mobile;
     this.userData.password = setupProfileFormData.password;
     
-    console.log(this.userData);
+    // console.log(this.userData);
 
     var pattern = /^\d+$/;
     var email =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -95,12 +97,38 @@ export class SetupProfileComponent implements OnInit {
     }else if(!email.test(this.userData.email)){
       this.signup_error = "Invalid email";
       console.log(email.test(this.userData.email));
-    }else if(!this.checkWithIgnou(this.userData.enrollment, this.userData.program)){
-      //let's go to next page 
-      this.signup_error = "Enter valid enrollment";
     }else{
-      console.log("yupiee");
-      this.signup_error = "";
+      // code to store data into database if enrollment is not valid it will cause error on the screen(signup_error)
+
+      this.setupProfileService.saveSignUpData(this.userData)
+        .subscribe(data  => {
+
+        //   const keys = data.headers.keys();
+          
+        //   const headers = keys.map(key =>
+        // `${key}: ${data.headers.get(key)}`);
+        // console.log("Headers : "+headers);
+
+          // console.log(data['error']);
+          if (data['student']=="invalid"){
+            this.signup_error = "Not registered with ignou";
+          }else{
+            this.signup_error = "Now I can go to dashboard!";
+
+          }
+    },
+    error => {
+      console.log(error['error']['message']);
+      var ex = error['error']['message']; 
+      if(ex.search(this.userData.enrollment)){
+        this.signup_error = "Already Registered";
+      }else{
+        this.signup_error = "";
+        console.log(ex);
+      }
+    }
+    );
+
     }
     
 

@@ -4,11 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MyHttpService } from './http.service';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SetupProfileComponent } from '../app/setup-profile/setup-profile.component';
+import { SetupProfileService } from '../app/setup-profile/setup-profile.service';
 import { Sharing } from 'src/resources/Sharing';
 
 const appRoutes : Routes = [
@@ -24,13 +24,13 @@ const appRoutes : Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    MyHttpService
+    SetupProfileService,
   ],
   bootstrap: [AppComponent]
 })

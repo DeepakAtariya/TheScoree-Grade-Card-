@@ -1,28 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import { Route } from '@angular/compiler/src/core';
-import { Router } from '@angular/router';
 import { Config } from 'src/resources/conf';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { NgForm } from '@angular/forms';
-import { Response } from '@angular/http';
-import {Location} from '@angular/common';
-import * as $ from 'jquery';
-import { AppComponent } from '../app.component';
+
+// import { Router } from '@angular/router';
+// import { Component, OnInit, ViewChild } from '@angular/core';
+
+// import { NgForm } from '@angular/forms';
+// import { Response } from '@angular/http';
+// import {Location} from '@angular/common';
+// import * as $ from 'jquery';
+// import { Route } from '@angular/compiler/src/core';
+// import { AppComponent } from '../app.component';
 @Injectable()
 export class SetupProfileService {
 
   datasaved='';
 
-  constructor(private http: Http, private route: Router) {}
+  // constructor(private http: Http, private route: Router) {}
+  constructor(private http: HttpClient) { }
 
   onProcess() {
 
   }
   
-  onSave(userData){
-    return this.http.post(Config.backendIgnou+"save",userData);
+  saveSignUpData(userData : any)
+  {
+    // return this.http.post();
+    return this.http.post(Config.backendIgnou+"saveSignUpData",userData);
   }
 
 }

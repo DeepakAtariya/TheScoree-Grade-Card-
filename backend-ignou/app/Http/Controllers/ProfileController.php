@@ -39,7 +39,7 @@ class ProfileController extends Controller
                 'password' => $user->password
             ],201);
         }else{
-            $fetchedStudentName = $this->onFetchServerData();
+            $fetchedStudentName = $this->onFetchServerData($this->program, $this->enrollment);
             if($fetchedStudentName!==""){
                 return response()->json([
                     'status' => 'new',
@@ -53,29 +53,20 @@ class ProfileController extends Controller
                 ],404);
             }
         }
-
-        // return $fetchedStudentName;
-        // if($fetchedStudentName!==""){
-        //     return response()->json([
-        //         'name' => $fetchedStudentName,
-        //         'enrollment'=> $this->enrollment,
-        //         'program' => $this->program
-        //     ],201);
-    
-        // }else{
-        //     return response()->json([
-        //         'error' => "something went wrong!"
-        //     ],404);
-            
-        // }
-
-
-        
     }
 
-    public function onSave(Request $request) {
+    public function saveSignUpData(Request $request) {
+
+        //check the enrollment with ignou server
+        $program = $request->input('program');
+        $enrollment = $request->input('enrollment');
+        $StudentName = $this->onFetchServerData($program, $enrollment);
+        // $StudentName = $this->onFetchServerData('bca','159673056');
+        // echo $StudentName;
+        if($StudentName!=""){
 
         //save into database
+        
         try{
             $student_details = new \App\student_details();
             $student_details->name = $request->input('name');
@@ -88,12 +79,23 @@ class ProfileController extends Controller
             // $data = $request->input('name');
 
             return response()->json([
-                'status' => 'yes'
+                'student' => 'valid'
             ],200);
         }catch(Exception $e){
             return response()->json([
                 'status' => 'no'
             ],503);
+        }
+        
+        // return response()->json([
+        //     'student' => "valid",
+        //     'program' => $program,
+        //     'enrollment' => $enrollment
+        // ]);
+        }else{
+            return response()->json([
+                'student' => 'invalid'
+            ]);
         }
             
         // With angular
@@ -104,7 +106,7 @@ class ProfileController extends Controller
         
     }
 
-    private function onFetchServerData() {
+    private function onFetchServerData($program, $enrollment) {
         /*
             this function is responsible for requesting external server too fetch the information
         */
@@ -114,12 +116,13 @@ class ProfileController extends Controller
         try{
             $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
             'form_params' => [
-                'Program' => $this->program,
-                'eno' => $this->enrollment,
+                'Program' => $program,
+                'eno' => $enrollment,
                 'submit' => 'Submit',
                 'hidden_submit' => 'OK'
                 ]
             ]);
+            
             $body = $response->getBody()->getContents();
             $dom = new \IvoPetkov\HTML5DOMDocument();
             $dom->loadHTML($body);
@@ -132,7 +135,8 @@ class ProfileController extends Controller
             $foundName = trim($foundName,"</b>");
             return $foundName;
         }catch(Exception $e){
-            return "error : ".$e;
+            // return "error : ".$e;
+            
         }
     }
 
@@ -176,5 +180,10 @@ class ProfileController extends Controller
             'p' => $response->input('program'),
             'e' => $response->input('enrollment')
         ],201);
+    }
+
+
+    public function checkStudentAvailability(Request $request){
+
     }
 }

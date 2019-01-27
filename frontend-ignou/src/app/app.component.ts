@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { MyHttpService } from './http.service';
 import { Config } from 'src/resources/conf';
 import { trigger, state, style, transition, animate, query, group } from '@angular/animations';
 import { RouterOutlet } from '@angular/router';
@@ -21,7 +20,7 @@ export class AppComponent {
   title = 'frontend-ignou';
 
 
-  constructor(private myService: MyHttpService ) {}
+  constructor() {}
 
   public static onShowLoader(loader){
     if(loader == 1){
