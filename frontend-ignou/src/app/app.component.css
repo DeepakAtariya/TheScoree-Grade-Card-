@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 .iAmButton{
     padding: 1%;
     color: black;

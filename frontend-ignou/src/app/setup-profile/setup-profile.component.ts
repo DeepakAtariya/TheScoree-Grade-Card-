@@ -9,6 +9,7 @@ import { SetupProfileService } from './setup-profile.service';
 // import { AppComponent } from '../app.component';
 // import { Sharing } from 'src/resources/Sharing';
 
+
 @Component({
   selector: 'app-setup-profile',
   templateUrl: './setup-profile.component.html',

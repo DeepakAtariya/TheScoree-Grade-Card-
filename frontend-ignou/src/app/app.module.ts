@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SetupProfileComponent } from '../app/setup-profile/setup-profile.component';
 import { SetupProfileService } from '../app/setup-profile/setup-profile.service';
 import { Sharing } from 'src/resources/Sharing';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 const appRoutes : Routes = [
   {path : '', component : SetupProfileComponent}
@@ -27,6 +28,7 @@ const appRoutes : Routes = [
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
