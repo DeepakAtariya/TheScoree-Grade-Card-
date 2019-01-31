@@ -1,3 +1,5 @@
+<div *ngIf="!showSpinnerr; then trueBlock else falseBlock"></div>
+    <ng-template #trueBlock>
         <div style="height:100px;"></div>
           <div class="container text-center">
                 <div class="row">
@@ -10,6 +12,7 @@
                                     </div>
                                     <div class="col-xs-6 register">
                                         <a href="#" id="register-form-link">Register</a>
+                                        <!-- <button class="" id="register-form-link">Register</button> -->
                                     </div>
                                 </div>
                                 <hr>
@@ -39,18 +42,14 @@
                                                         <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
                                                     </div>
                                                 </div>
+                                                
                                             </div>
-                                            <!-- <div class="form-group">
-                                                 <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="text-center">
-                                                            <a href="" tabindex="5" class="forgot-password">Forgot Password?</a>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                            </div> -->
+                                            
                                         </div>
                                         </form>
+                                        <!-- <div *ngIf="!showSpinnerr; then trueBlock else falseBlock"></div> -->
+                                        <!-- <ng-template #trueBlock> -->
+                                        <!-- <app-loader *ngIf="showSpinner"></app-loader> -->
                                         <form  (ngSubmit)="onSubmit()" #f="ngForm" id="setupProfileForm" role="form" style="display:none">
                                                 <div class="our-team" ngModelGroup="setupProfileGroupData" #setupProfileGroupData = "ngModelGroup">
                                             <!-- <div class="form-group">
@@ -583,6 +582,10 @@
                                                     <span id="divCheckPasswordMatch"></span>
                                                     </div>
                                                     <div class="form-group">
+                                                        <div class="text-center" style="margin-left:40%">
+                                                            <app-loader  *ngIf="showSpinner"></app-loader>
+                                                        </div>
+                                                            
                                                         <label style="color:red">{{signup_error}}</label>
         
                                                     </div>
@@ -596,7 +599,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         </form>
+                                    <!-- </ng-template> -->
+                                    <!-- <ng-template #falseBlock> -->
+                                        
+                                    <!-- </ng-template> -->
                                     </div>
                                 </div>
                             </div>
@@ -604,5 +612,6 @@
                     </div>
                 </div>
             </div>
-
+        
+        
           <!-- $("#confirmPassword").css("box-shadow","0 0 6px red"); -->

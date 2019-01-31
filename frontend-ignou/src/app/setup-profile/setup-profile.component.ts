@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 // import {Location} from '@angular/common';
 import * as $ from 'jquery';
 import { SetupProfileService } from './setup-profile.service';
+import { Router } from '@angular/router';
 // import { AppComponent } from '../app.component';
 // import { Sharing } from 'src/resources/Sharing';
 
@@ -47,7 +48,10 @@ export class SetupProfileComponent implements OnInit {
   signup_error: string;
   // login_error : string;
 
-  constructor(private setupProfileService : SetupProfileService){
+  showSpinner : boolean = false;
+
+
+  constructor(private setupProfileService : SetupProfileService, private route : Router){
 
   }
 
@@ -86,36 +90,37 @@ export class SetupProfileComponent implements OnInit {
     this.userData.email = setupProfileFormData.email;
     this.userData.mobile = setupProfileFormData.mobile;
     this.userData.password = setupProfileFormData.password;
+    const confirm = setupProfileFormData.confirmPassword;
+    console.log(confirm==this.userData.password);
     
     // console.log(this.userData);
 
     var pattern = /^\d+$/;
     var email =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if(this.userData.name == "" || this.userData.enrollment == "" || this.userData.program == "" || this.userData.email == "" || this.userData.password == ""){
-        this.signup_error = "Enter credentials";
+        this.signup_error = "Enter details";
     }else if(!pattern.test(this.userData.enrollment)){
       this.signup_error = "Invalid enrollment format";
     }else if(!email.test(this.userData.email)){
       this.signup_error = "Invalid email";
       console.log(email.test(this.userData.email));
+    }else if(confirm.toString() != this.userData.password.toString()){
+      this.signup_error = "mismatch passwords";
     }else{
       // code to store data into database if enrollment is not valid it will cause error on the screen(signup_error)
-
+      this.showSpinner = true;
       this.setupProfileService.saveSignUpData(this.userData)
         .subscribe(data  => {
-
-        //   const keys = data.headers.keys();
-          
-        //   const headers = keys.map(key =>
-        // `${key}: ${data.headers.get(key)}`);
-        // console.log("Headers : "+headers);
-
-          // console.log(data['error']);
+          this.showSpinner = false;
           if (data['student']=="invalid"){
             this.signup_error = "Not registered with ignou";
           }else{
-            this.signup_error = "Now I can go to dashboard!";
-
+            // this.showSpinner = false;
+            localStorage.setItem("email",this.userData.email);
+            localStorage.setItem("enrollment",this.userData.enrollment);
+            localStorage.setItem("password",this.userData.password);
+            // sessionStorage
+            this.route.navigate(['/dashboard'])
           }
     },
     error => {
