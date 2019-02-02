@@ -49,6 +49,7 @@ export class SetupProfileComponent implements OnInit {
   // login_error : string;
 
   showSpinner : boolean = false;
+  showSpinner4login: boolean;
 
 
   constructor(private setupProfileService : SetupProfileService, private route : Router){
@@ -57,6 +58,14 @@ export class SetupProfileComponent implements OnInit {
 
   //Initialisation with old data and validation jquery code
   ngOnInit() {
+
+
+    const username = localStorage.getItem("username");
+    const password = localStorage.getItem("password");
+    console.log(username)
+    if(username != null && password !=null){
+      this.route.navigate(['/dashboard']);
+    }
     
     // Template JS
     $(function() {
@@ -116,7 +125,7 @@ export class SetupProfileComponent implements OnInit {
             this.signup_error = "Not registered with ignou";
           }else{
             // this.showSpinner = false;
-            localStorage.setItem("email",this.userData.email);
+            localStorage.setItem("username",this.userData.email);
             localStorage.setItem("enrollment",this.userData.enrollment);
             localStorage.setItem("password",this.userData.password);
             // sessionStorage
@@ -124,12 +133,14 @@ export class SetupProfileComponent implements OnInit {
           }
     },
     error => {
+      this.showSpinner = false;
+      this.signup_error = "server error!";
       console.log(error['error']['message']);
       var ex = error['error']['message']; 
       if(ex.search(this.userData.enrollment)){
         this.signup_error = "Already Registered";
       }else{
-        this.signup_error = "";
+        this.signup_error = "server error!";
         console.log(ex);
       }
     }
@@ -145,15 +156,12 @@ export class SetupProfileComponent implements OnInit {
   onLogin(){ //start onLogin
 
     const loginDataToCompare = this.loginFormData.value.loginFormGroupData;
-    const username = loginDataToCompare.login_username;
-    const password = loginDataToCompare.login_password;
-    // this.login_username.nativeElement.focus();
-
-    // const s_username = "deepak";
-    // const s_password = "deepak";
-
-    
-
+    this.loginData.username = loginDataToCompare.login_username;
+    this.loginData.password = loginDataToCompare.login_password;
+    /*
+    this.login_username.nativeElement.focus();
+    const s_username = "deepak";
+    const s_password = "deepak";
     if(username == "" || password == ""){
       this.login_error = "Enter credentials";
     }else if (this.checkCredentialsWithServer(username,password)){
@@ -162,7 +170,35 @@ export class SetupProfileComponent implements OnInit {
     }else{
       this.login_error = "Invalid credentials";
     }
+    */
+    this.showSpinner4login = true;
+    if(this,this.loginData.username == "" || this.loginData.password == "" ){
+      this.login_error="enter credentails";
+    }else {
+      this.setupProfileService.doLogin(this.loginData)
+      .subscribe((data)=>{
+        this.showSpinner4login = false;
+        if(data['auth']=='true'){
+          localStorage.setItem("username",this.loginData.username);
+          this.route.navigate(['/dashboard'])
+        }else{
+          this.login_error="Invalid Credentails";
+        }
+      },
+      (error) => {
+        this.showSpinner4login = false;
+        this.login_error = "login - server error!";
+        console.log(error);
+        
+      // if(ex.search()){
+      //   this.signup_error = "Already Registered";
+      // }else{
+      //   this.signup_error = "server error!";
+      //   console.log(ex);
+      // }
 
+      });
+    }
 
     
 

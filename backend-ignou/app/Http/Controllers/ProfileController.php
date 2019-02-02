@@ -55,6 +55,32 @@ class ProfileController extends Controller
         }
     }
 
+    //login (For existing users)
+    public function doLogin(Request $request){
+        $username = $request->input('username');
+        $password = $request->input('password');
+        $auth = DB::select("select * from student_details where email='".$username."'");
+        if (Hash::check($password, $auth[0]->password)) {
+            // The passwords match...
+            // echo "password = true";
+            return response()->json([
+                'auth'=> 'true'
+            ],201);
+        }else{
+            // echo "password = false";
+            return response()->json([
+                'auth'=> 'false'
+            ],201);
+        }
+
+        // $pass = DB::select("select password from student_details where email='deepakkumaratariya@gmail.com'");
+
+
+        
+
+    }
+
+    //sign up (For new users only)
     public function saveSignUpData(Request $request) {
 
         //check the enrollment with ignou server

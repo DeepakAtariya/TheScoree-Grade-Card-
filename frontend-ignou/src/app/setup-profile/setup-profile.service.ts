@@ -30,4 +30,9 @@ export class SetupProfileService {
     return this.http.post(Config.backendIgnou+"saveSignUpData",userData);
   }
 
+  doLogin(loginData : any)
+  {
+    return this.http.post(Config.backendIgnou+"doLogin",loginData);
+  }
+
 }

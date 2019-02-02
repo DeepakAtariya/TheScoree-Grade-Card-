@@ -33,6 +33,9 @@
                                                 <label for="remember"> Remember Me</label>
                                             </div> -->
                                             <div class="form-group">
+                                                    <div class="text-center" style="margin-left:45%">
+                                                        <app-loader  *ngIf="showSpinner4login"></app-loader>
+                                                    </div>
                                                 <label style="color:red">{{login_error}}</label>
 
                                             </div>
@@ -582,7 +585,7 @@
                                                     <span id="divCheckPasswordMatch"></span>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="text-center" style="margin-left:40%">
+                                                        <div class="text-center" style="margin-left:45%">
                                                             <app-loader  *ngIf="showSpinner"></app-loader>
                                                         </div>
                                                             
@@ -595,6 +598,7 @@
                                                     <div class="col-sm-6 col-sm-offset-3">
                                                             <button style="margin:0 auto;" id="submit" type="submit" tabindex="4" class="form-control btn btn-login">Register</button>
                                                     </div>
+                                                    
                                                     
                                                 </div>
                                             </div>
