@@ -15,9 +15,9 @@ import { LoaderComponent } from './ui/loader/loader.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes : Routes = [
-  {path : '', component : SetupProfileComponent},
-  {path : 'loader', component : LoaderComponent},
-  {path : 'dashboard', component : DashboardComponent}
+  {path : '', component : SetupProfileComponent ,data: {animation: 'HomePage'}},
+  {path : 'loader', component : LoaderComponent, },
+  {path : 'dashboard', component : DashboardComponent, data: {animation: 'Dashboard'}}
   // {path :'page1', component : HeaderComponent
 ];
 

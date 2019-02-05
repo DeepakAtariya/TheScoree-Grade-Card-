@@ -11,6 +11,7 @@ declare var $: any;
   animations: [
     // slideInAnimation
     // animation triggers go here
+
     
   ]
 })

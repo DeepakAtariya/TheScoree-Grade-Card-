@@ -11,7 +11,12 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.enrollment = localStorage.getItem("enrollment");
+    this.enrollment = localStorage.getItem("username");
+  }
+
+  logout(){
+    console.log("logout hit");
+    localStorage.clear();
   }
 
 }
