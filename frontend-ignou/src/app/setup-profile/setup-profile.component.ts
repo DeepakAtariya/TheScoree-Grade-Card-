@@ -180,6 +180,8 @@ export class SetupProfileComponent implements OnInit {
         this.showSpinner4login = false;
         if(data['auth']=='true'){
           localStorage.setItem("username",this.loginData.username);
+          localStorage.setItem("password",this.loginData.password);
+
           this.route.navigate(['/dashboard'])
         }else{
           this.login_error="Invalid Credentails";
