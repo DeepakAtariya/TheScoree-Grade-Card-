@@ -60,12 +60,12 @@ export class SetupProfileComponent implements OnInit {
   ngOnInit() {
 
 
-    const username = localStorage.getItem("username");
-    const password = localStorage.getItem("password");
-    console.log(username)
-    if(username != null && password !=null){
-      this.route.navigate(['/dashboard']);
-    }
+    // const username = localStorage.getItem("username");
+    // const password = localStorage.getItem("password");
+    // console.log(username)
+    // if(username != null && password !=null){
+    //   this.route.navigate(['/dashboard']);
+    // }
     
     // Template JS
     $(function() {
