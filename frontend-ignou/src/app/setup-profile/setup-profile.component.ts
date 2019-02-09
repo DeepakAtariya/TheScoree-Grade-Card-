@@ -17,10 +17,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./setup-profile.component.css']
 })
 
-/*  this component is responsible to fetch user remaining information,
-    this component will redirect user to next component called "SetCredentials" for setting credentials to the user.
-    
-    */
+/*  
+this component is responsible to fetch user remaining information,
+this component will redirect user to next component called "SetCredentials" for setting credentials to the user.    
+*/
+
 export class SetupProfileComponent implements OnInit {
 
   // setupProfileData is responsible to fetch data from setupProfile form
