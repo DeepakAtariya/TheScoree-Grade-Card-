@@ -33,11 +33,15 @@ export class AppComponent {
 
   }
 
+  // prepareRoute(outlet: RouterOutlet) {
+  //   // var s = outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  //   var s = outlet.activatedRouteData['animation'] || {};
+  //   console.log(s);
+  //   return s['value'] || null;
+  // }
+
   prepareRoute(outlet: RouterOutlet) {
-    // var s = outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-    var s = outlet.activatedRouteData['animation'] || {};
-    console.log(s);
-    return s['value'] || null;
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 }
 
