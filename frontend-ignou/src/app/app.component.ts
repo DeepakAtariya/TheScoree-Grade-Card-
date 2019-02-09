@@ -9,8 +9,9 @@ declare var $: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    // slideInAnimation
+    slideInAnimation
     // animation triggers go here
+    // simpleAnimation
 
     
   ]
@@ -33,9 +34,10 @@ export class AppComponent {
   }
 
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    // var s = outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    var s = outlet.activatedRouteData['animation'] || {};
+    console.log(s);
+    return s['value'] || null;
   }
-
-
 }
 
