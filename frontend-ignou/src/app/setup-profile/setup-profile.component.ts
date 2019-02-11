@@ -61,12 +61,12 @@ export class SetupProfileComponent implements OnInit {
   ngOnInit() {
 
 
-    // const username = localStorage.getItem("username");
-    // const password = localStorage.getItem("password");
-    // console.log(username)
-    // if(username != null && password !=null){
-    //   this.route.navigate(['/dashboard']);
-    // }
+    const username = localStorage.getItem("username");
+    const password = localStorage.getItem("password");
+    console.log(username)
+    if(username != null && password !=null){
+      this.route.navigate(['/dashboard']);
+    }
     
     // Template JS
     $(function() {
@@ -159,6 +159,8 @@ export class SetupProfileComponent implements OnInit {
     const loginDataToCompare = this.loginFormData.value.loginFormGroupData;
     this.loginData.username = loginDataToCompare.login_username;
     this.loginData.password = loginDataToCompare.login_password;
+
+    console.log(this.loginData.username+"  "+this.loginData.password);
     /*
     this.login_username.nativeElement.focus();
     const s_username = "deepak";
@@ -175,6 +177,7 @@ export class SetupProfileComponent implements OnInit {
     this.showSpinner4login = true;
     if(this,this.loginData.username == "" || this.loginData.password == "" ){
       this.login_error="enter credentails";
+      this.showSpinner4login = false;
     }else {
       this.setupProfileService.doLogin(this.loginData)
       .subscribe((data)=>{
