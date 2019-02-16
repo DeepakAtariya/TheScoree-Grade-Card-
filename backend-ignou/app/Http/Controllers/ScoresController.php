@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
 
+/*
+    Add few more fields into score table:
+        1. score types : assignments, theory, practical (lab 1 , lab2, etc)
+    problem : how will you enter the scores in the database for different students
+*/
+
 class ScoresController extends Controller
 {   
     public function getScores(Request $request) {
