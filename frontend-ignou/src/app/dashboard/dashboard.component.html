@@ -3,7 +3,7 @@
     <div class="row">
         <!-- sidebar -->
         <div style="border:black 1px solid " class="sidebar col-xs-3 col-sm-3 col-md-3 col-lg-3">
-            sidebar
+            Student's profile
 
             <div class="row">
                 <div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
@@ -34,33 +34,9 @@
             <!-- end of navbar row -->
 
             <!-- alert switching row  -->
-            <div style="background-color:aquamarine; border:black 1px solid " class="row">
-                
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="row">
-                        
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <!-- Rounded switch -->
-                            <div class="row">
-                                
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <label class="" style="font-size:20px;">Email Alert :</label>
-                                </div>
-                                
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <label class="switch">  
-                                        <input type="checkbox">
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-                                
-                                
-                            </div>
-                            
-                            
-                        </div>
-                        
-                    </div>
+            <div style="background-color:aquamarine; border:black 1px solid " class="row">        
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label>Email alert : </label><button class="btn btn-link">subscribe</button>    
                 </div>
                 
             </div>
@@ -73,15 +49,11 @@
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                             <ul class="list-inline">
                                 <li>Overall % : 90%</li>
-                                <li>Sem1 % : 90%</li>
-                                <li>Sem2 % : 90%</li>
-                                <li>Sem3 % : 90%</li>
-                                <li>Sem4 % : 90%</li>
                             </ul>
                         </div>
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                             views like grid, cards, tables
-                            <p>Envelope icon: <span class="glyphicon glyphicon-th"></span></p>
+                             <span class="glyphicon glyphicon-th"></span>
                         </div>
                     </div>
                 </div>
@@ -93,32 +65,35 @@
                 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     
-                    <table class="table table-bordered table-hover">
+                    <table style="table-layout: auto;" class="table table-bordered table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th>S No.</th>
+                                <!-- <th *ngFor="let head of heading">
+                                    {{ head }}
+                                </th> -->
                                 <th>Course Code</th>
-                                <th>Assignment</th>
-                                <th>LAB-1</th>
-                                <th>LAB-2</th>
-                                <th>LAB-3</th>
-                                <th>LAB-4</th>
-                                <th>Theory</th>
+                                <th>Asgn1</th>
+                                <th>LAB1</th>
+                                <th>LAB2</th>
+                                <th>LAB3</th>
+                                <th>LAB4</th>
+                                <th>Term End Theory</th>
                                 <th>Status</th>
+                                <th>(25%+75%)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-
+                            <tr *ngFor="let row of scoreData; let i = index;">
+                                <td>
+                                    {{i+1}}
+                                </td>
+                                <td *ngFor="let col of row;">
+                                   <span>{{col}}</span> 
+                                </td>
+                                <td>
+                                    
+                                </td>
                             </tr>
                         </tbody>
                     </table>

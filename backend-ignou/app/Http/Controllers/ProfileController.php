@@ -63,7 +63,12 @@ class ProfileController extends Controller
         if (Hash::check($password, $auth[0]->password)) {
             // The passwords match...
             // echo "password = true";
+
+            
+
             return response()->json([
+                'program'=> $auth[0]->program,
+                'enrollment'=> $auth[0]->enrollment,
                 'auth'=> 'true'
             ],201);
         }else{

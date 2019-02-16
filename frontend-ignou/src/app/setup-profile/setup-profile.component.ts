@@ -127,8 +127,9 @@ export class SetupProfileComponent implements OnInit {
           }else{
             // this.showSpinner = false;
             localStorage.setItem("username",this.userData.email);
+            localStorage.setItem("program",this.userData.program);
             localStorage.setItem("enrollment",this.userData.enrollment);
-            localStorage.setItem("password",this.userData.password);
+            // localStorage.setItem("password",this.userData.password);
             // sessionStorage
             this.route.navigate(['/dashboard'])
           }
@@ -184,7 +185,9 @@ export class SetupProfileComponent implements OnInit {
         this.showSpinner4login = false;
         if(data['auth']=='true'){
           localStorage.setItem("username",this.loginData.username);
-          localStorage.setItem("password",this.loginData.password);
+          localStorage.setItem("program",data['program']);
+          localStorage.setItem("enrollment",data['enrollment']);
+          // localStorage.setItem("password",this.loginData.password);
 
           this.route.navigate(['/dashboard'])
         }else{

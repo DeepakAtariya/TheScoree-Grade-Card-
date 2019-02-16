@@ -12,6 +12,7 @@ import { SetupProfileService } from '../app/setup-profile/setup-profile.service'
 import { Sharing } from 'src/resources/Sharing';
 import { LoaderComponent } from './ui/loader/loader.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardService } from './dashboard/dashboard.service';
 
 const appRoutes : Routes = [
   {path : '', component : SetupProfileComponent ,data: {animation: 'HomePage'}},
@@ -37,6 +38,7 @@ const appRoutes : Routes = [
   ],
   providers: [
     SetupProfileService,
+    DashboardService
   ],
   bootstrap: [AppComponent]
 })

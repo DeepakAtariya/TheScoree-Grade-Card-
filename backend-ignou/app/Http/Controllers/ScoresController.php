@@ -11,13 +11,15 @@ use Illuminate\Support\Facades\DB;
 
 class ScoresController extends Controller
 {   
-    public function getScores($program="Bca", $enrollment="159673056") {
+    public function getScores(Request $request) {
         /*
             this function is responsible for requesting external server too fetch the information
         */
         $client = new Client();
         $foundName = '';
         // echo $program;
+        $program = $request->input('program');
+        $enrollment = $request->input('enrollment');
 
         try{
             $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
@@ -54,7 +56,7 @@ class ScoresController extends Controller
                 $r_i++;
             }
             // print_r($row);
-
+            
             return response()->json([
                 'scores' => $row
             ],201);

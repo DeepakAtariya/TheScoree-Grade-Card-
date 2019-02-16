@@ -32,7 +32,7 @@ Route::middleware('cors')->group(function(){
     // Route::get('/checKHttp','ProfileController@onTestHttpClient'); 
     // Route::post('/checKHttp','ProfileController@onTestHttpClient');
     // Route::get('/scores/getScores','ScoresController@getScores');
-    Route::get('/scores/getScores','ScoresController@getScores');
+    Route::post('/scores/getScores','ScoresController@getScores');
     Route::get('scores/test','ScoresController@test');
 
     // Route::get('/',function(){
