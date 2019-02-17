@@ -60,6 +60,7 @@ class ProfileController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
         $auth = DB::select("select * from student_details where email='".$username."'");
+        // return $auth;
         if (Hash::check($password, $auth[0]->password)) {
             // The passwords match...
             // echo "password = true";
@@ -77,11 +78,6 @@ class ProfileController extends Controller
                 'auth'=> 'false'
             ],201);
         }
-
-        // $pass = DB::select("select password from student_details where email='deepakkumaratariya@gmail.com'");
-
-
-        
 
     }
 
@@ -118,22 +114,12 @@ class ProfileController extends Controller
             ],503);
         }
         
-        // return response()->json([
-        //     'student' => "valid",
-        //     'program' => $program,
-        //     'enrollment' => $enrollment
-        // ]);
+
         }else{
             return response()->json([
                 'student' => 'invalid'
             ]);
         }
-            
-        // With angular
-        // return response()->json([
-        //     'status' => "yes"
-        // ],200);
-
         
     }
 
@@ -213,8 +199,4 @@ class ProfileController extends Controller
         ],201);
     }
 
-
-    public function checkStudentAvailability(Request $request){
-
-    }
 }

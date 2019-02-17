@@ -198,13 +198,6 @@ export class SetupProfileComponent implements OnInit {
         this.showSpinner4login = false;
         this.login_error = "login - server error!";
         console.log(error);
-        
-      // if(ex.search()){
-      //   this.signup_error = "Already Registered";
-      // }else{
-      //   this.signup_error = "server error!";
-      //   console.log(ex);
-      // }
 
       });
     }

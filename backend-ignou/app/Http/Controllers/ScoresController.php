@@ -28,7 +28,7 @@ class ScoresController extends Controller
         $enrollment = $request->input('enrollment');
 
         try{
-            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
+            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.as',[
             'form_params' => [
                 'Program' => $program,
                 'eno' => $enrollment,
@@ -61,19 +61,25 @@ class ScoresController extends Controller
                 $row[$r_i] = $col;
                 $r_i++;
             }
-            // print_r($row);
+            echo $enrollment=159673056;
             
+
             return response()->json([
                 'scores' => $row
             ],201);
         }catch(Exception $e){
-            // return "error : ".$e;
+            $enrollment=159673056;
+
+            $dataWhenIgnouServerNotActive = DB::table('score')
+                ->select('score.course_code','score.asgn1','score.lab1','score.lab1','score.lab2','score.lab3','score.lab4','score.theory','score.status')
+                ->join('student_details','student_details.id','=','score.student')
+                ->where('enrollment', $enrollment)
+                ->get();
+
             return response()->json([
-                'scores' => 'No data found'
-            ],500);
+                'scores' => $dataWhenIgnouServerNotActive
+            ],201);
         }
-        
-        // return "ss";
     }
 
     public function test()
