@@ -28,7 +28,7 @@ class ScoresController extends Controller
         $enrollment = $request->input('enrollment');
 
         try{
-            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.as',[
+            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
             'form_params' => [
                 'Program' => $program,
                 'eno' => $enrollment,
@@ -44,7 +44,8 @@ class ScoresController extends Controller
             $dom->loadHTML($body);
             $items = $dom->getElementsByTagName('tr');
 
-            
+            // print_r($items);
+
             $row = array();
             
             $r_i = 0;
@@ -53,31 +54,41 @@ class ScoresController extends Controller
                 $cn = $node->childNodes;
                 $col = array();
                 $i = 0;
-                // print_r($cn[0]);
                 foreach($cn as $v){
                     $col[$i] = strip_tags((string)$v);
                     $i++;
                 }
+
+                for($j=0; $j<sizeof($col); $j++){
+                    if($j == 1){
+                        $assgn = ((int)$col[$j]/100)*25;
+                    }
+                    if($j == 6){
+                        $theory = ((int)$col[$j]/100)*75;
+                    }
+                }
+
+                array_push($col,ceil($assgn+$theory));
+
                 $row[$r_i] = $col;
                 $r_i++;
             }
-            echo $enrollment=159673056;
-            
+
 
             return response()->json([
                 'scores' => $row
             ],201);
         }catch(Exception $e){
-            $enrollment=159673056;
+            // $enrollment=159673056;
 
-            $dataWhenIgnouServerNotActive = DB::table('score')
-                ->select('score.course_code','score.asgn1','score.lab1','score.lab1','score.lab2','score.lab3','score.lab4','score.theory','score.status')
-                ->join('student_details','student_details.id','=','score.student')
-                ->where('enrollment', $enrollment)
-                ->get();
+            // $dataWhenIgnouServerNotActive = DB::table('score')
+            //     ->select('score.course_code','score.asgn1','score.lab1','score.lab1','score.lab2','score.lab3','score.lab4','score.theory','score.status')
+            //     ->join('student_details','student_details.id','=','score.student')
+            //     ->where('enrollment', $enrollment)
+            //     ->get();
 
             return response()->json([
-                'scores' => $dataWhenIgnouServerNotActive
+                'scores' => 'fail'
             ],201);
         }
     }

@@ -10,21 +10,23 @@ import { DashboardService } from './dashboard.service';
 })
 export class DashboardComponent implements OnInit {
 
+  username : any;
   enrollment : any;
-  scoreData : any;
+  scoreData : string;
   heading: any;
   totalScore = [1,2,3,4,5,6,7,7,8,9,5,4,4,32,3,2];
+  data: any;
   constructor(private route: Router, private dashboardService : DashboardService) { }
 
   ngOnInit() {
     this.enrollment = localStorage.getItem("enrollment");
 
-    const username = localStorage.getItem("username");
+    this.username = localStorage.getItem("username");
     const password = localStorage.getItem("password");
     const program = localStorage.getItem("program");
 
-    console.log(username+"  "+password);
-    if (username != null || password != null){
+    // console.log(this.username+"  "+password);
+    if (this.username != null || password != null){
       this.route.navigate(['/dashboard']);
     }else{
       this.route.navigate(['']);
@@ -35,7 +37,6 @@ export class DashboardComponent implements OnInit {
       {
         program : program,
         enrollment : this.enrollment
-
       }
     )
     .subscribe((data)=>{
@@ -46,7 +47,6 @@ export class DashboardComponent implements OnInit {
      this.scoreData = this.scoreData.slice(1,this.scoreData.length);
     },
     (error) => {
-     
         console.log('error occured');
     });
 
