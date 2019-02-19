@@ -37,7 +37,7 @@ class ScoresController extends Controller
         $enrollment = $request->input('enrollment');
 
         try{
-            $response = $client->request('POST', 'https://gradecard.ignou.acc.in/gradecardM/Result.asp',[
+            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
             'form_params' => [
                 'Program' => $program,
                 'eno' => $enrollment,
