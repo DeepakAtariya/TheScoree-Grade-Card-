@@ -14,15 +14,22 @@ import { HttpClient } from '@angular/common/http';
 // import { AppComponent } from '../app.component';
 @Injectable()
 export class DashboardService {
-
-  datasaved='';
-
-  // constructor(private http: Http, private route: Router) {}
+  
   constructor(private http: HttpClient) { }
 
   onProcess() {
 
   }
+
+
+  getScoresFromDatabase(studentData4database: any) {
+    return this.http.post(Config.backendIgnou+"scores/getScoresFromDatabase",studentData4database);
+  }
+
+  datasaved='';
+
+  // constructor(private http: Http, private route: Router) {}
+  
   
   saveSignUpData(userData : any)
   {

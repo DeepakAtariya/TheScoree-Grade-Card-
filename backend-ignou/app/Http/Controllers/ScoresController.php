@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\DB;
 
 class ScoresController extends Controller
 {   
+    public function getScoresFromDatabase(Request $request)
+    {
+        $enrollment = $request->input('enrollment');
+        $password = $request->input('password');
+        return response()->json([
+            'scoreFromDatabase' => $enrollment
+        ]);
+    }
+
     public function getScores(Request $request) {
         /*
             this function is responsible for requesting external server too fetch the information
@@ -28,7 +37,7 @@ class ScoresController extends Controller
         $enrollment = $request->input('enrollment');
 
         try{
-            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
+            $response = $client->request('POST', 'https://gradecard.ignou.acc.in/gradecardM/Result.asp',[
             'form_params' => [
                 'Program' => $program,
                 'eno' => $enrollment,
