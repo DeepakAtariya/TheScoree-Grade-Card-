@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\DB;
 
 class ScoresController extends Controller
 {   
-<<<<<<< HEAD
     private $program;
     private $enrollment;
 
@@ -26,13 +25,23 @@ class ScoresController extends Controller
         foreach ($row as $col){
             DB::table('score')->insert(
                 array(
-                       ''   =>   'Dayle'
+                       'student'   =>  DB::table('score')
+                                        ->select('id')
+                                        ->where('enrollment',$this->enrollment),
+                        'course_code' => $col[0],
+                        'asgn1' => $col[1],
+                        'lab1' => $col[2],
+                        'lab2' => $col[3],
+                        'lab3' => $col[4],
+                        'lab4' => $col[5],
+                        'theory' => $col[6],
+                        'status' => (string)$col[7],
                 )
            );
-        }
-        
+        }   
     }
-=======
+
+
     public function getScoresFromDatabase(Request $request)
     {
         $enrollment = $request->input('enrollment');
@@ -42,7 +51,6 @@ class ScoresController extends Controller
         ]);
     }
 
->>>>>>> 7f493839a688be3ef06f52dca56895e25089b741
     public function getScores(Request $request) {
         /*
             this function is responsible for requesting external server too fetch the information
@@ -56,8 +64,8 @@ class ScoresController extends Controller
         try{
             $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
             'form_params' => [
-                'Program' => $program,
-                'eno' => $enrollment,
+                'Program' => $this->program,
+                'eno' => $this->enrollment,
                 'submit' => 'Submit',
                 'hidden_submit' => 'OK'
                 ]
@@ -100,19 +108,39 @@ class ScoresController extends Controller
                 $r_i++;
             }
 
-            if(dataSavedIntoScoreTable($row)){
+            if(sizeof($row)>1 && sizeof($row[0])>1){
+
+                echo "I have got the results";
+
+                //deleting all the data for particular enrollment
+                // DB::table('score')
+                    // ->where('enrollment',$this->enrollment)
+                    // ->delete();
+
+                // inserting updated grade card into score table
+                // $this->dataSavedIntoScoreTable($row);
+
                 return response()->json([
                     'scores' => $row,
                     'status' => 'database passed'
                 ],201);
             }else{
+
+                echo "No results";
                 return response()->json([
                     'scores' => $row,
                     'status' => 'database failed'
                 ],201);
             }
+
+            // return response()->json([
+            //     'scores' => $row,
+            //     'status' => 'database passed'
+            // ],201);
             
         }catch(Exception $e){
+
+            echo "exception occured";
             // $enrollment=159673056;
 
             // $dataWhenIgnouServerNotActive = DB::table('score')
