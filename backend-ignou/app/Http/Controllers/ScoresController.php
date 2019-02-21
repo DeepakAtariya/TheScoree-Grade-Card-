@@ -36,6 +36,7 @@ class ScoresController extends Controller
                         'lab4' => $col[5],
                         'theory' => $col[6],
                         'status' => (string)$col[7],
+                        'total'=> $col[8]
                 )
            );
         }   
@@ -45,9 +46,32 @@ class ScoresController extends Controller
     public function getScoresFromDatabase(Request $request)
     {
         $enrollment = $request->input('enrollment');
-        $password = $request->input('password');
+        // $password = $request->input('password');
+
+        $dataWhenIgnouServerNotActive = DB::table('score')
+                ->select('score.course_code','score.asgn1','score.lab1','score.lab1','score.lab2','score.lab3','score.lab4','score.theory','score.status','score.total')
+                ->join('student_details','student_details.id','=','score.student')
+                ->where('student_details.enrollment', $enrollment)
+                ->get();
+
+        $row = array();
+        foreach($dataWhenIgnouServerNotActive as $d){
+            $col = array();
+            $col[0] = $d->course_code;
+            $col[1] = $d->asgn1;
+            $col[2] = $d->lab1;
+            $col[3] = $d->lab2;
+            $col[4] = $d->lab3;
+            $col[5] = $d->lab4;
+            $col[6] = $d->theory;
+            $col[7] = $d->status;
+            $col[8] = $d->total;
+
+            array_push($row,$col);
+        }
+
         return response()->json([
-            'scoreFromDatabase' => $enrollment
+            'scores' => $row
         ]);
     }
 
@@ -110,15 +134,15 @@ class ScoresController extends Controller
 
             if(sizeof($row)>1 && sizeof($row[0])>1){
 
-                echo "I have got the results";
+                // echo "I have got the results";
 
                 //deleting all the data for particular enrollment
-                // DB::table('score')
-                    // ->where('enrollment',$this->enrollment)
-                    // ->delete();
+                DB::table('score')
+                    ->where('enrollment',$this->enrollment)
+                    ->delete();
 
                 // inserting updated grade card into score table
-                // $this->dataSavedIntoScoreTable($row);
+                $this->dataSavedIntoScoreTable($row);
 
                 return response()->json([
                     'scores' => $row,
@@ -126,7 +150,7 @@ class ScoresController extends Controller
                 ],201);
             }else{
 
-                echo "No results";
+                // echo "No results";
                 return response()->json([
                     'scores' => $row,
                     'status' => 'database failed'

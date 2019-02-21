@@ -61,8 +61,18 @@ export class DashboardComponent implements OnInit {
           password : this.password    
         }
       )
-      
-      
+      .subscribe((data) => {
+        console.log(data);
+        this.scoreData = data['scores'];
+        this.heading = this.scoreData[0];  
+        console.log(this.scoreData.slice(1,this.scoreData.length));
+        this.scoreData = this.scoreData.slice(1,this.scoreData.length);
+      },
+      (error) => {
+        console.log(error);
+      }
+
+      );
     });
 
   }

@@ -34,7 +34,7 @@ Route::middleware('cors')->group(function(){
     // Route::get('/scores/getScores','ScoresController@getScores');
     Route::post('/scores/getScores','ScoresController@getScores');
     Route::get('scores/test','ScoresController@test');
-     Route::post('/scores/getScoresFromDatabase','ScoresController@getScoresFromDatabase');
+    Route::post('/scores/getScoresFromDatabase','ScoresController@getScoresFromDatabase');
 
     // Route::get('/',function(){
     //     return "hey hey";
