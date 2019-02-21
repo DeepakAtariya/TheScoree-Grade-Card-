@@ -17,6 +17,20 @@ use Illuminate\Support\Facades\DB;
 
 class ScoresController extends Controller
 {   
+    private $program;
+    private $enrollment;
+
+    private function dataSavedIntoScoreTable($row){
+
+        foreach ($row as $col){
+            DB::table('score')->insert(
+                array(
+                       ''   =>   'Dayle'
+                )
+           );
+        }
+        
+    }
     public function getScores(Request $request) {
         /*
             this function is responsible for requesting external server too fetch the information
@@ -24,8 +38,8 @@ class ScoresController extends Controller
         $client = new Client();
         $foundName = '';
         // echo $program;
-        $program = $request->input('program');
-        $enrollment = $request->input('enrollment');
+        $this->program = $request->input('program');
+        $this->enrollment = $request->input('enrollment');
 
         try{
             $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
@@ -74,10 +88,18 @@ class ScoresController extends Controller
                 $r_i++;
             }
 
-
-            return response()->json([
-                'scores' => $row
-            ],201);
+            if(dataSavedIntoScoreTable($row)){
+                return response()->json([
+                    'scores' => $row,
+                    'status' => 'database passed'
+                ],201);
+            }else{
+                return response()->json([
+                    'scores' => $row,
+                    'status' => 'database failed'
+                ],201);
+            }
+            
         }catch(Exception $e){
             // $enrollment=159673056;
 
