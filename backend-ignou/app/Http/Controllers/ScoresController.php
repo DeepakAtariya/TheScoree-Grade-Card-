@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
 
 class ScoresController extends Controller
 {   
+<<<<<<< HEAD
     private $program;
     private $enrollment;
 
@@ -31,6 +32,17 @@ class ScoresController extends Controller
         }
         
     }
+=======
+    public function getScoresFromDatabase(Request $request)
+    {
+        $enrollment = $request->input('enrollment');
+        $password = $request->input('password');
+        return response()->json([
+            'scoreFromDatabase' => $enrollment
+        ]);
+    }
+
+>>>>>>> 7f493839a688be3ef06f52dca56895e25089b741
     public function getScores(Request $request) {
         /*
             this function is responsible for requesting external server too fetch the information
