@@ -23,11 +23,23 @@ class ScoresController extends Controller
     private function dataSavedIntoScoreTable($row){
 
         foreach ($row as $col){
+
+            if(strpos($col[0], 'Course') == FALSE){
+            
+            
+            $student_details_row = DB::table('student_details')
+                ->select('id')
+                ->where('enrollment',$this->enrollment)
+                ->get();
+
+            $student_id = $student_details_row[0]->id;
+            // echo $student_id;
+            // break;
+            
+
             DB::table('score')->insert(
                 array(
-                       'student'   =>  DB::table('score')
-                                        ->select('id')
-                                        ->where('enrollment',$this->enrollment),
+                       'student'   =>  $student_id,
                         'course_code' => $col[0],
                         'asgn1' => $col[1],
                         'lab1' => $col[2],
@@ -39,6 +51,7 @@ class ScoresController extends Controller
                         'total'=> $col[8]
                 )
            );
+        }
         }   
     }
 
@@ -137,9 +150,19 @@ class ScoresController extends Controller
                 // echo "I have got the results";
 
                 //deleting all the data for particular enrollment
+                $row_id = DB::table('student_details')
+                            ->select('id')
+                            ->where('enrollment',$this->enrollment)
+                            ->get();
+                $student_id = $row_id[0]->id;
+
                 DB::table('score')
-                    ->where('enrollment',$this->enrollment)
+                    ->where('student',$student_id)
                     ->delete();
+
+                //Reset auto number
+                DB::statement('ALTER TABLE score AUTO_INCREMENT=1;');
+
 
                 // inserting updated grade card into score table
                 $this->dataSavedIntoScoreTable($row);

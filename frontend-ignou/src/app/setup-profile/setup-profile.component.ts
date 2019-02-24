@@ -189,7 +189,7 @@ export class SetupProfileComponent implements OnInit {
           localStorage.setItem("enrollment",data['enrollment']);
           // localStorage.setItem("password",this.loginData.password);
 
-          this.route.navigate(['/dashboard'])
+          this.route.navigate(['/dashboard']);
         }else{
           this.login_error="Invalid Credentails";
         }

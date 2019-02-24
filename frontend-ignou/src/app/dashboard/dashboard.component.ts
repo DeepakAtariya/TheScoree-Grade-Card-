@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   enrollment : any;
   scoreData : string;
   heading: any;
-  totalScore = [1,2,3,4,5,6,7,7,8,9,5,4,4,32,3,2];
+  // totalScore = [1,2,3,4,5,6,7,7,8,9,5,4,4,32,3,2];
   data: any;
   password: string;
   constructor(private route: Router, private dashboardService : DashboardService) { }
@@ -44,10 +44,10 @@ export class DashboardComponent implements OnInit {
     )
     .subscribe((data)=>{
       AppComponent.onShowLoader(0);
-      console.log(data);
+      // console.log(data);
       this.scoreData = data['scores'];
       this.heading = this.scoreData[0];  
-      console.log(this.scoreData.slice(1,this.scoreData.length));
+      // console.log(this.scoreData.slice(1,this.scoreData.length));
       this.scoreData = this.scoreData.slice(1,this.scoreData.length);
     },
     (error) => {
@@ -65,8 +65,8 @@ export class DashboardComponent implements OnInit {
         console.log(data);
         this.scoreData = data['scores'];
         this.heading = this.scoreData[0];  
-        console.log(this.scoreData.slice(1,this.scoreData.length));
-        this.scoreData = this.scoreData.slice(1,this.scoreData.length);
+        // console.log(this.scoreData.slice(1,this.scoreData.length));
+        // this.scoreData = this.scoreData.slice(1,this.scoreData.length);
       },
       (error) => {
         console.log(error);
@@ -82,6 +82,13 @@ export class DashboardComponent implements OnInit {
     localStorage.clear();
     this.route.navigate(['']);
 
+  }
+
+
+  /* Refresh */
+
+  refresh(){
+    location.reload();
   }
 
 }
