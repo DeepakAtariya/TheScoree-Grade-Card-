@@ -1,4 +1,24 @@
- body {
+/* @media only screen and (min-width: 786px) {
+	#forget{
+		color: red;
+		text-align:left;
+	}
+  } */
+
+/* @media only screen and (max-width: 786px) {
+
+	#forget{
+		padding-right: 70%;
+		color: orange;
+	}
+  } */
+
+  #forget{
+		text-align: left;
+		float: left;
+  }
+
+body {
     padding-top: 90px;
 }
 .panel-login {
