@@ -76,42 +76,17 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                     <!-- card view for small screens -->
+
+                    <!-- <tr *ngFor="let row of scoreData; let i = index;"> -->
                     <div class="row" id="scorecard">
-                        <div class="column">
+                        <div *ngFor="let row of master_data; let i = index;" class="column">
                             <div class="card">
-                                <h3>Card 1</h3>
+                                <h3>{{row.course_code}}</h3>
                                 <p>Some text</p>
                                 <p>Some text</p>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="card">
-                                <h3>Card 1</h3>
-                                <p>Some text</p>
-                                <p>Some text</p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                                <h3>Card 1</h3>
-                                <p>Some text</p>
-                                <p>Some text</p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                                <h3>Card 1</h3>
-                                <p>Some text</p>
-                                <p>Some text</p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                                <h3>Card 1</h3>
-                                <p>Some text</p>
-                                <p>Some text</p>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <div id="scoretable">
