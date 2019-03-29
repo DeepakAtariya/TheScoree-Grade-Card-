@@ -80,10 +80,26 @@
                     <!-- <tr *ngFor="let row of scoreData; let i = index;"> -->
                     <div class="row" id="scorecard">
                         <div *ngFor="let row of master_data; let i = index;" class="column">
-                            <div class="card">
-                                <h3>{{row.course_code}}</h3>
-                                <p>Some text</p>
-                                <p>Some text</p>
+                            <div class="card container">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <h2>{{row.course_code}}</h2>
+                                        <h4>{{row.status}}</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <ul class="list-inline">
+                                            <li>Assignment : {{row.Asgn1}}</li>
+                                            <li>Lab 1 : {{row.lab1}}</li>
+                                            <li>Lab 2 : {{row.lab2}}</li>
+                                            <li>Lab 3 : {{row.lab3}}</li>
+                                            <li>Lab 4 : {{row.lab4}}</li>
+                                            <li>Theory : {{row.theory}}</li>
+
+                                        </ul>
+                                    </div>                              
+                                </div>
                             </div>
                         </div>
                         

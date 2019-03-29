@@ -48,17 +48,7 @@ export class DashboardComponent implements OnInit {
       AppComponent.onShowLoader(0);
       console.log(data['scores']);
       this.data4small = data['scores'];
-      var scoreboard = {
-        'course_code' : '',
-        'Asgn1' : '',
-        'lab1' : '',
-        'lab2' : '',
-        'lab3' : '',
-        'lab4' : '',
-        'theory': '',
-        'status' : ''
 
-      }
 
       // console.log(this.data4small);
 
@@ -76,11 +66,11 @@ export class DashboardComponent implements OnInit {
 
           scoreboard.course_code = this.data4small[i][0];
           scoreboard.Asgn1 = this.data4small[i][1];
-          scoreboard.lab1 = this.data4small[i][2];
-          scoreboard.lab2 = this.data4small[i][3];
-          scoreboard.lab3 = this.data4small[i][4];
-          scoreboard.lab4 = this.data4small[i][5];
-          scoreboard.theory = this.data4small[i][6];
+          scoreboard.lab1 = this.data4small[i][2]=='-'?'NA':this.data4small[i][2];
+          scoreboard.lab2 = this.data4small[i][3]=='-'?'NA':this.data4small[i][3];
+          scoreboard.lab3 = this.data4small[i][4]=='-'?'NA':this.data4small[i][4];
+          scoreboard.lab4 = this.data4small[i][5]=='-'?'NA':this.data4small[i][5];
+          scoreboard.theory = this.data4small[i][6]=='-'?'NA':this.data4small[i][6];
           scoreboard.status = this.data4small[i][7];
 
           this.master_data[i-1]=scoreboard;
