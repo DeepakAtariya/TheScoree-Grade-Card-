@@ -175,6 +175,7 @@ export class SetupProfileComponent implements OnInit {
       this.login_error = "Invalid credentials";
     }
     */
+   this.login_error="";
     this.showSpinner4login = true;
     if(this,this.loginData.username == "" || this.loginData.password == "" ){
       this.login_error="enter credentails";
@@ -182,6 +183,7 @@ export class SetupProfileComponent implements OnInit {
     }else {
       this.setupProfileService.doLogin(this.loginData)
       .subscribe((data)=>{
+        
         this.showSpinner4login = false;
         if(data['auth']=='true'){
           localStorage.setItem("username",this.loginData.username);

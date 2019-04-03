@@ -5,6 +5,12 @@
 @media only screen and (max-width: 1025px) and (min-width : 10px) {
   /* For mobile phones: */
   
+
+  #rest_marks{
+    text-align: left;
+    list-style: none;
+  }
+
   #scoretable{
     display: none;
   }

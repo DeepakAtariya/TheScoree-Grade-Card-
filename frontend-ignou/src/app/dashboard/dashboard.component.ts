@@ -61,7 +61,8 @@ export class DashboardComponent implements OnInit {
             'lab3' : '',
             'lab4' : '',
             'theory': '',
-            'status' : ''
+            'status' : '',
+            'total' : ''
           }
 
           scoreboard.course_code = this.data4small[i][0];
@@ -71,7 +72,8 @@ export class DashboardComponent implements OnInit {
           scoreboard.lab3 = this.data4small[i][4]=='-'?'NA':this.data4small[i][4];
           scoreboard.lab4 = this.data4small[i][5]=='-'?'NA':this.data4small[i][5];
           scoreboard.theory = this.data4small[i][6]=='-'?'NA':this.data4small[i][6];
-          scoreboard.status = this.data4small[i][7];
+          scoreboard.status = this.data4small[i][7]=='Completed'?'Pass':'Fail';
+          scoreboard.total = this.data4small[i][8];
 
           this.master_data[i-1]=scoreboard;
           // console.log(scoreboard);
