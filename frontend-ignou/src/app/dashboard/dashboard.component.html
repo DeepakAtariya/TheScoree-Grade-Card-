@@ -120,27 +120,38 @@
                     <!-- <tr *ngFor="let row of scoreData; let i = index;"> -->
                     <div class="row" id="scorecard">
                         <div *ngFor="let row of master_data; let i = index;" class="column">
-                            <div class="card container" *ngIf="row.status=='Pass' else failed" style="background-color:rgb(137, 194, 137)">
+                            <div class="card container" *ngIf="row.status=='Pass' else failed">
                                 <div class="row">
                                     
                                     <div [ngSwitch]="row.theory" class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                                        <h2>{{row.course_code}}</h2>
-                                        <h3 *ngSwitchCase="'NA'"><span *ngIf="row.total!=0 else elsepart">Practical</span></h3>
-                                        <h3 *ngSwitchDefault>{{row.total}}</h3>
+                                        <h2 id="course_code">{{row.course_code}}</h2>
+                                        <h3 id="total" *ngSwitchCase="'NA'"><span *ngIf="row.total!=0 else elsepart">{{(row.Asgn1/100*25)+(row.lab1/100*75)| number:'1.0-0'}}</span></h3>
+                                        <h3 id="total" *ngSwitchDefault>{{row.total}}</h3>
                                         <ng-template #elsepart>
                                             <h3>Project</h3>
                                         </ng-template>
                                     </div>
                                     
                                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                                        <ul id="rest_marks" class="list-inline">
-                                            <li>Assignment : {{row.Asgn1}}</li>
-                                            <li *ngIf="row.lab1!='NA'">Lab 1 : {{row.lab1}}</li>
-                                            <li *ngIf="row.lab2!='NA'">Lab 2 : {{row.lab2}}</li>
-                                            <li *ngIf="row.lab3!='NA'">Lab 3 : {{row.lab3}}</li>
-                                            <li *ngIf="row.lab4!='NA'">Lab 4 : {{row.lab4}}</li>
-                                            <li *ngIf="row.theory!='NA'">Theory : {{row.theory}}</li>
-                                        </ul>
+                                        
+                                            <div id="assignment" *ngIf="row.Asgn1!='-'">
+                                                <label>Assignment {{row.Asgn1}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.lab1!='NA'">
+                                                <label>Lab1 <br> {{row.lab1}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.lab2!='NA'">
+                                                <label>Lab <br> {{row.lab2}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.lab3!='NA'">
+                                                <label>Lab3 <br> {{row.lab3}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.lab4!='NA'">
+                                                <label> Lab4 <br> {{row.lab4}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.theory!='NA'">
+                                                <label>Theory <br> {{row.theory}}</label>
+                                            </div>
                                     </div>
                                     
                                     
@@ -148,26 +159,44 @@
                                 
                             </div>
                             <ng-template #failed>
-                            <div class="card container" style="background-color:rgb(230, 132, 132)">
+                            <div class="card container" style="background-color:rgb(212, 74, 74)">
                                 <div class="row">
                                     
                                     <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                                        <h2>{{row.course_code}}</h2>
-                                        <h3 *ngIf="row.total!='0' else elsepart">{{row.total}}</h3>
+                                        <h2 id="course_code">{{row.course_code}}</h2>
+                                        <h3 id="total" *ngIf="row.total!='0' else elsepart">{{row.total}}</h3>
                                         <ng-template #elsepart>
-                                            <h3>Project</h3>
+                                            <h3 id="total">Project</h3>
                                         </ng-template>
                                     </div>
                                     
                                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                                        <ul id="rest_marks" class="list-inline">
+                                        <!-- <ul id="rest_marks" class="list-inline">
                                             <li>Assignment : {{row.Asgn1}}</li>
                                             <li *ngIf="row.lab1!='NA'">Lab 1 : {{row.lab1}}</li>
                                             <li *ngIf="row.lab2!='NA'">Lab 2 : {{row.lab2}}</li>
                                             <li *ngIf="row.lab3!='NA'">Lab 3 : {{row.lab3}}</li>
                                             <li *ngIf="row.lab4!='NA'">Lab 4 : {{row.lab4}}</li>
                                             <li *ngIf="row.theory!='NA'">Theory : {{row.theory}}</li>
-                                        </ul>
+                                        </ul> -->
+                                        <div id="assignment" *ngIf="row.Asgn1!='-'">
+                                                <label>Assignment <br> {{row.Asgn1}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.lab1!='NA'">
+                                                <label>Lab1 <br> {{row.lab1}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.lab2!='NA'">
+                                                <label>Lab2 <br> {{row.lab2}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.lab3!='NA'">
+                                                <label>Lab3 <br>{{row.lab3}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.lab4!='NA'">
+                                                <label> Lab4 <br>{{row.lab4}}</label>
+                                            </div>
+                                            <div id="assignment" *ngIf="row.theory!='NA'">
+                                                <label>Theory <br>{{row.theory}}</label>
+                                            </div>
                                     </div>
                                     
                                     
