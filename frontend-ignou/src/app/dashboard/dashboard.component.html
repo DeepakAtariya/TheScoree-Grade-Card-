@@ -2,113 +2,34 @@
 <div class="">
     <!-- master row  -->
     <div class="row">
-        <!-- sidebar -->
-        <!-- <div style="border:black 1px solid " class="sidebar col-xs-3 col-sm-3 col-md-3 col-lg-3">
-            Student's profile
-
-            <div class="row">
-                <div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                    <img src="" alt="">
-                </div>
-            </div>
-
-        </div> -->
-        <!-- end sidebar -->
-        
+       
         
         <!-- main column -->
         <div class="main col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <nav style="margin-bottom:0px;" class="navbar navbar-inverse">
-                        <!-- <div class="container-fluid"> -->
-                          <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>                        
-                            </button>
-                            <a class="navbar-brand" [routerLink]="dashboard" (click) = "refresh()">Codolic</a>
-                          </div>
-                          <div class="collapse navbar-collapse" id="myNavbar">
-                            <ul class="nav navbar-nav">
-                              <!-- <li class="active"><a href="#">Home</a></li> -->
-                              <li class="dropdown">
-                                <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a> -->
-                                <!-- <ul class="dropdown-menu"> -->
-                                  <!-- <li><a href="#">Page 1-1</a></li> -->
-                                  <!-- <li><a href="#">Page 1-2</a></li> -->
-                                  <!-- <li><a href="#">Page 1-3</a></li> -->
-                                <!-- </ul> -->
-                              </li>
-                              <!-- <li><a href="#">Page 2</a></li> -->
-                              <!-- <li><a href="#">Page 3</a></li> -->
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                              <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
-                              <li><a [routerLink]="" (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                            </ul>
-                          <!-- </div> -->
-                        </div>
-                      </nav>
-            
-            <!-- navbar row -->
-            <!--<div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <ul class="list-inline" style="text-align :right">
-                        <li>
-                            <button class="btn btn-default btn-sm" (click) = "refresh()">
-                                <span class="glyphicon glyphicon-refresh"></span>
-                            </button>
-                        </li>
-                         <li>
-                            <span style="color:beige">{{username}}</span>
-                        </li> 
-                        <li>
-                            <button style="color:white" class="btn btn-link" (click)="logout()">Logout</button>
-                            
-
-                        </li>
-                    </ul>
-                    
-                      
-                </div>
-            </div> -->
-            <!-- end of navbar row -->
+               
 
             <!-- alert switching row  -->
-            <div style="background-color:aquamarine; border:black 1px solid " class="row">        
+            <div style="background-color:aquamarine; border:black 1px solid;" class="row">        
                 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <ul class="list-inline" style="text-align: right">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                    <!--  -->
+                    <h5>Welcome {{username}}</h5>
+                    <!-- <br> -->
+                    <ul class="list-inline">
                         <li>
                             <label>Email alert : <button class="btn btn-link">subscribe</button> </label>
                         </li>
                         <li>
-                            {{username}}
+                            <span style="font-weight:bold"> Score : {{total_marks}}</span>
+                        </li>
+                        <li>
+                            <button style="" class="btn btn-link" (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</button>
                         </li>
                     </ul>
                        
                 </div>
                 
             </div>
-            <!-- end of alert switching row  -->
-
-            <!-- scores, views -->
-            <div style="background-color: lightcoral; border:black 1px solid " class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="row">
-                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                            <ul class="list-inline">
-                                <li>Overall % : 90%</li>
-                            </ul>
-                        </div>
-                        <!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            views like grid, cards, tables
-                             <span class="glyphicon glyphicon-th"></span>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <!-- end of scores, views -->
 
             <!-- score table row -->
             <div style="background-color:white; border:black 1px solid" class="row">
@@ -125,7 +46,8 @@
                                     
                                     <div [ngSwitch]="row.theory" class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                                         <h2 id="course_code">{{row.course_code}}</h2>
-                                        <h3 id="total" *ngSwitchCase="'NA'"><span *ngIf="row.total!=0 else elsepart">{{(row.Asgn1/100*25)+(row.lab1/100*75)| number:'1.0-0'}}</span></h3>
+                                       
+                                        <h3 id="total" *ngSwitchCase="'NA'"><span *ngIf="row.total!=0 else elsepart">{{row.total}}</span></h3>
                                         <h3 id="total" *ngSwitchDefault>{{row.total}}</h3>
                                         <ng-template #elsepart>
                                             <h3>Project</h3>
@@ -171,14 +93,7 @@
                                     </div>
                                     
                                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                                        <!-- <ul id="rest_marks" class="list-inline">
-                                            <li>Assignment : {{row.Asgn1}}</li>
-                                            <li *ngIf="row.lab1!='NA'">Lab 1 : {{row.lab1}}</li>
-                                            <li *ngIf="row.lab2!='NA'">Lab 2 : {{row.lab2}}</li>
-                                            <li *ngIf="row.lab3!='NA'">Lab 3 : {{row.lab3}}</li>
-                                            <li *ngIf="row.lab4!='NA'">Lab 4 : {{row.lab4}}</li>
-                                            <li *ngIf="row.theory!='NA'">Theory : {{row.theory}}</li>
-                                        </ul> -->
+                                       
                                         <div id="assignment" *ngIf="row.Asgn1!='-'">
                                                 <label>Assignment <br> {{row.Asgn1}}</label>
                                             </div>
@@ -209,10 +124,10 @@
                     </div>
 
                     <div id="scoretable">
-                    <table  style="table-layout: auto;" class="table table-bordered table-hover table-responsive">
+                    <table  style="table-layout: auto;" class="table table-condensed">
                         <thead>
                             <tr>
-                                <th>S No.</th>
+                                <!-- <th>S No.</th> -->
                                 <!-- <th *ngFor="let head of heading">
                                     {{ head }}
                                 </th> -->
@@ -222,20 +137,95 @@
                                 <th>LAB2</th>
                                 <th>LAB3</th>
                                 <th>LAB4</th>
-                                <th>Term End Theory</th>
+                                <th>Theory</th>
                                 <th>Status</th>
-                                <th>(25%+75%)</th>
+                                <th>Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let row of scoreData; let i = index;">
-                                <td>
+                            <tr *ngFor="let row of master_data; let i = index;" >
+                                <!-- <td *ngIf="row.status=='Pass' else failed_serial" >
                                     {{i+1}}
+                                </td > -->
+                                <td *ngIf="row.status=='Pass' else failed_course_code" >
+                                   {{row.course_code}} 
                                 </td>
-                                <td *ngFor="let col of row">
-                                   <span>{{col}}</span> 
+                                <td *ngIf="row.status=='Pass' else failed_assign" >
+                                   {{row.Asgn1}} 
                                 </td>
+                                <td *ngIf="row.status=='Pass' else failed_lab1" >
+                                   {{row.lab1}} 
+                                </td>
+                                <td *ngIf="row.status=='Pass' else failed_lab2" >
+                                   {{row.lab2}} 
+                                </td>
+                                <td *ngIf="row.status=='Pass' else failed_lab3" >
+                                   {{row.lab3}} 
+                                </td>
+                                <td *ngIf="row.status=='Pass' else failed_lab4" >
+                                   {{row.lab4}} 
+                                </td>
+                                <td *ngIf="row.status=='Pass' else failed_theory">
+                                   {{row.theory}} 
+                                </td>
+                                <td *ngIf="row.status=='Pass' else failed_status" >
+                                   {{row.status}} 
+                                </td>
+                                <td *ngIf="row.status=='Pass' else failed_total" >
+                                   {{row.total}} 
+                                </td>
+
+                                <ng-template #failed_serial>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{i+1}}
+                                        </td >    
+                                </ng-template>
+                                <ng-template #failed_course_code>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{row.course_code}}
+                                        </td >    
+                                </ng-template>
+                                <ng-template #failed_assign>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{row.Asgn1}}
+                                        </td >    
+                                </ng-template>
+                                <ng-template #failed_lab1>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{row.lab1}}
+                                        </td >    
+                                </ng-template>
+                                <ng-template #failed_lab2>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{row.lab2}}
+                                        </td >    
+                                </ng-template>
+                                <ng-template #failed_lab3>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{row.lab3}}
+                                        </td >    
+                                </ng-template>
+                                <ng-template #failed_lab4>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{row.lab4}}
+                                        </td >    
+                                </ng-template>
+                                <ng-template #failed_theory>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{row.theory}}
+                                        </td >    
+                                </ng-template>
+                                <ng-template #failed_status>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{row.status}}
+                                        </td >    
+                                </ng-template>
                                 
+                                <ng-template #failed_total>
+                                        <td style="background-color:rgb(212, 74, 74);">
+                                                {{row.total}}
+                                        </td >    
+                                </ng-template>
                                 
                             </tr>
                         </tbody>

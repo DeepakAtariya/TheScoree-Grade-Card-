@@ -2,9 +2,11 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
 
-@media only screen and (max-width: 1025px) and (min-width : 10px) {
+@media only screen and (max-width: 768px) and (min-width : 10px) {
   /* For mobile phones: */
   
+  
+
   #course_code, #total{
     color:white;
   }
@@ -12,7 +14,6 @@
 
   }
   
-
   #assignment{
        width: 89px;
     height: 82px; 
@@ -61,10 +62,33 @@
 }
 
 
-@media only screen and (max-width : 1366px) and (min-width : 1026px){
-  #scoretable{
+@media only screen and (max-width : 1366px) and (min-width : 768px){
+
+  /* .table-fixed thead {
+    width: 97%;
+  }
+  .table-fixed tbody {
+    height: 230px;
+    overflow-y: auto;
+    width: 100%;
+  }
+  .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
     display: block;
-    height: 572px;
+  }
+  .table-fixed tbody td, .table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 0;
+  } */
+
+  td{
+    /* color: white; */
+    background-color:rgb(128, 185, 128);
+    font-weight: bold;
+  }
+  #scoretable{
+    
+    height: 550px;
+    width: inherit; 
     overflow: auto;
   }
   #scorecard{

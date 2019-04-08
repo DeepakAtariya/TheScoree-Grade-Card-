@@ -129,16 +129,35 @@ class ScoresController extends Controller
                     $col[$i] = strip_tags((string)$v);
                     $i++;
                 }
-
+                $assgn = 0;
+                $theory = 0;
                 for($j=0; $j<sizeof($col); $j++){
-                    if($j == 1){
+
+                    if(strcmp($col[$j],"BCSP064")==0){
+                        $assgn = $theory = 0;
+                        break;
+                    }
+                    if($j == 1 && $col[$j]!="-"){
                         $assgn = ((int)$col[$j]/100)*25;
                     }
-                    if($j == 6){
+                    if($j == 2 && $col[$j]!="-"){
                         $theory = ((int)$col[$j]/100)*75;
                     }
+                    if($j == 3 && $col[$j]!="-"){
+                        $theory = ((int)$col[$j]/100)*75;
+                    }
+                    if($j == 4 && $col[$j]!="-"){
+                        $theory = ((int)$col[$j]/100)*75;
+                    }
+                    if($j == 5 && $col[$j]!="-"){
+                        $theory = ((int)$col[$j]/100)*75;
+                    }
+                    if($j == 6 && $col[$j]!="-"){
+                        $theory = ((int)$col[$j]/100)*75;
+                    }
+                    
                 }
-
+                
                 array_push($col,ceil($assgn+$theory));
 
                 $row[$r_i] = $col;
