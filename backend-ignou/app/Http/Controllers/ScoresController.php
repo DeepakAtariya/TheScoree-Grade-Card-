@@ -97,9 +97,19 @@ class ScoresController extends Controller
         // echo $program;
         $this->program = $request->input('program');
         $this->enrollment = $request->input('enrollment');
+        
+
+
+        if (strcmp($this->program,"ASSO")==0 || strcmp($this->program,"BA")==0 || strcmp($this->program,"BCOM")==0 || strcmp($this->program,"BDP")==0 || strcmp($this->program,"BSC")==0) {
+            $grade_card_url = "https://gradecard.ignou.ac.in/gradecardB/Result.asp";
+        }else if(strcmp($this->program,"BCA")==0 || strcmp($this->program,"MCA")==0 || strcmp($this->program,"MP")==0 || strcmp($this->program,"MPB")==0 || strcmp($this->program,"PGDHRM")==0 || strcmp($this->program,"PGDFM")==0 || strcmp($this->program,"PGDOM")==0 || strcmp($this->program,"PGDMM")==0 || strcmp($this->program,"PGDFMP")==0){
+            $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardM/Result.asp';
+        }else{
+            $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardR/Result.asp';
+        }
 
         try{
-            $response = $client->request('POST', 'https://gradecard.ignou.ac.in/gradecardM/Result.asp',[
+            $response = $client->request('POST', $grade_card_url,[
             'form_params' => [
                 'Program' => $this->program,
                 'eno' => $this->enrollment,
