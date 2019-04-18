@@ -20,7 +20,7 @@
                             <label>Email alert : <button class="btn btn-link">subscribe</button> </label>
                         </li>
                         <li>
-                            <span style="font-weight:bold"> Score : {{total_marks}}</span>
+                            <span style="font-weight:bold"> Score : {{total_marks  | number : '1.2-2' }}</span>
                         </li>
                         <li>
                             <button style="" class="btn btn-link" (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</button>

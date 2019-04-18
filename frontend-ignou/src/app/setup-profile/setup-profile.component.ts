@@ -27,6 +27,7 @@ export class SetupProfileComponent implements OnInit {
   // setupProfileData is responsible to fetch data from setupProfile form
   @ViewChild('f')  setupProfileData: NgForm;
   @ViewChild('login')  loginFormData: NgForm;
+  @ViewChild('guest')  guest_data: NgForm;
   @ViewChild('login_username') login_username : any;
   
 
@@ -51,6 +52,7 @@ export class SetupProfileComponent implements OnInit {
 
   showSpinner : boolean = false;
   showSpinner4login: boolean;
+  guest_error: string;
 
 
   constructor(private setupProfileService : SetupProfileService, private route : Router){
@@ -70,18 +72,34 @@ export class SetupProfileComponent implements OnInit {
     
     // Template JS
     $(function() {
+      $("#loginForm").fadeOut(50);
+      $('#guest').click(function(e) { 
+        $("#guestForm").delay(50).fadeIn(50);
+        $("#setupProfileForm").fadeOut(50);
+        $("#loginForm").fadeOut(50);
+        $('#register-form-link').removeClass('active');
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+      });
+
       $('#login-form-link').click(function(e) { 
       $("#loginForm").delay(50).fadeIn(50);
-       $("#setupProfileForm").fadeOut(50);
+      $("#setupProfileForm").fadeOut(50);
+      $("#guestForm").fadeOut(50);
       $('#register-form-link').removeClass('active');
+      $('#guest').removeClass('active');
       $(this).addClass('active');
       e.preventDefault();
     });
     $('#register-form-link').click(function(e) {
       $("#setupProfileForm").delay(50).fadeIn(50);
        $("#loginForm").fadeOut(50);
+       $("#guestForm").fadeOut(50);
       $('#login-form-link').removeClass('active');
+      $('#guest').removeClass('active');
       $(this).addClass('active');
+      
       e.preventDefault();
     });
   });
@@ -210,6 +228,26 @@ export class SetupProfileComponent implements OnInit {
     
 
   } // end onLogin
+
+  onGuest(){
+    // alert("clicked - go");
+    const enrollment = this.guest_data.value.guest_enrollment;
+    const program = this.guest_data.value.guest_program;
+
+    var pattern = /^\d+$/;
+    var email =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(program == "" || enrollment == ""){
+        this.guest_error = "Enter details";
+    }else if(!pattern.test(enrollment)){
+      this.guest_error = "Invalid enrollment format";
+    }else{
+      localStorage.setItem("username","guest");
+      localStorage.setItem("program",program);
+      localStorage.setItem("enrollment",enrollment);
+      this.route.navigate(['/dashboard']);
+    }
+  }
+
 
  /* checking whether student is real or fake with ignou server */ 
 checkWithIgnou(enrollment:any, program:any){
