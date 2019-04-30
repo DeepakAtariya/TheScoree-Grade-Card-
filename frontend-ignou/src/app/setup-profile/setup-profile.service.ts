@@ -15,6 +15,8 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class SetupProfileService {
 
+
+
   datasaved='';
 
   // constructor(private http: Http, private route: Router) {}
@@ -24,6 +26,10 @@ export class SetupProfileService {
 
   }
   
+  verifyEnrollment(enrollment: any) {
+    return this.http.post(Config.backendIgnou+"verifyenrollment",enrollment);
+  }
+
   saveSignUpData(userData : any)
   {
     // return this.http.post();

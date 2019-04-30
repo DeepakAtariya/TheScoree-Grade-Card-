@@ -1,7 +1,6 @@
 /* logout button css */
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
-
 @media only screen and (max-width: 768px) and (min-width : 10px) {
   /* For mobile phones: */
   
@@ -62,7 +61,7 @@
 }
 
 
-@media only screen and (max-width : 1366px) and (min-width : 768px){
+@media only screen and (max-width : 1500px) and (min-width : 768px){
 
   /* .table-fixed thead {
     width: 97%;
@@ -87,9 +86,9 @@
   }
   #scoretable{
     
-    height: 550px;
-    width: inherit; 
-    overflow: auto;
+    /* height: 550px; */
+    /* width: inherit;  */
+    /* overflow: auto; */
   }
   #scorecard{
     display : none;

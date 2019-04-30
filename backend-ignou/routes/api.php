@@ -25,6 +25,9 @@ Route::middleware('cors')->group(function(){
     Route::post('/testData','ProfileController@test');
 
     Route::post('/saveSignUpData','ProfileController@saveSignUpData');
+
+    Route::post('/verifyenrollment','ProfileController@verifyenrollment');
+
     Route::post('/doLogin','ProfileController@doLogin');
     /*
         Route::get('/checKHttp','ProfileController@onTestHttpClient'); for testing purposes

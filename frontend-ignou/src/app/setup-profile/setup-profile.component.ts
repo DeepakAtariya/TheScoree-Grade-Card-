@@ -53,6 +53,7 @@ export class SetupProfileComponent implements OnInit {
   showSpinner : boolean = false;
   showSpinner4login: boolean;
   guest_error: string;
+  showSpinnerg: boolean;
 
 
   constructor(private setupProfileService : SetupProfileService, private route : Router){
@@ -231,6 +232,7 @@ export class SetupProfileComponent implements OnInit {
 
   onGuest(){
     // alert("clicked - go");
+    
     const enrollment = this.guest_data.value.guest_enrollment;
     const program = this.guest_data.value.guest_program;
 
@@ -241,10 +243,25 @@ export class SetupProfileComponent implements OnInit {
     }else if(!pattern.test(enrollment)){
       this.guest_error = "Invalid enrollment format";
     }else{
-      localStorage.setItem("username","guest");
+      this.showSpinnerg = true;
+      this.setupProfileService.verifyEnrollment({
+        enrollment : enrollment,
+        program : program
+      })
+        .subscribe(data  => {
+          this.showSpinnerg = false;
+          console.log(data);
+          this.showSpinner = false;
+          if (data['student']=="invalid"){
+            this.guest_error = "Not registered with ignou";
+          }else{
+            localStorage.setItem("username","guest");
       localStorage.setItem("program",program);
       localStorage.setItem("enrollment",enrollment);
       this.route.navigate(['/dashboard']);
+          }
+    });
+  
     }
   }
 

@@ -157,6 +157,26 @@ class ProfileController extends Controller
         }
     }
 
+    //guest users
+    public function verifyenrollment(Request $request) {
+
+        //check the enrollment with ignou server
+        $program = $request->input('program');
+        $enrollment = $request->input('enrollment');
+        $StudentName = $this->onFetchServerData($program, $enrollment);
+        // $StudentName = $this->onFetchServerData('bca','159673056');
+        // echo $StudentName;
+        if($StudentName!=""){
+            return response()->json([
+                'student' => 'valid'
+            ]);
+        }else{
+            return response()->json([
+                'student' => 'invalid'
+            ]);
+        }
+    }
+
     public function onTestHttpClient(Request $req){        
 
         /* 
