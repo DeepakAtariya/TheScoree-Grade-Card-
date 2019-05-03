@@ -255,10 +255,11 @@ export class SetupProfileComponent implements OnInit {
           if (data['student']=="invalid"){
             this.guest_error = "Not registered with ignou";
           }else{
-            localStorage.setItem("username","guest");
-      localStorage.setItem("program",program);
-      localStorage.setItem("enrollment",enrollment);
-      this.route.navigate(['/dashboard']);
+            // localStorage.setItem("username","guest");
+            // localStorage.setItem("program",program);
+            localStorage.setItem("username",data['student']);
+            // debugger;
+            this.route.navigate(['/guestdashboard',program,enrollment]);
           }
     });
   

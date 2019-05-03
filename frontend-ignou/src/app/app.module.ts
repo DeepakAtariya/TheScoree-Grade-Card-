@@ -13,11 +13,13 @@ import { Sharing } from 'src/resources/Sharing';
 import { LoaderComponent } from './ui/loader/loader.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardService } from './dashboard/dashboard.service';
+import { GuestDashboardComponent } from './guest-dashboard/guest-dashboard.component';
 
 const appRoutes : Routes = [
   {path : '', component : SetupProfileComponent ,data: {animation: 'HomePage'}},
   {path : 'loader', component : LoaderComponent, },
-  {path : 'dashboard', component : DashboardComponent, data: {animation: 'Dashboard'}}
+  {path : 'dashboard', component : DashboardComponent, data: {animation: 'Dashboard'}},
+  {path : 'guestdashboard/:program/:enrollment', component : GuestDashboardComponent, data: {animation: 'GuestDashboard'}}
   // {path :'page1', component : HeaderComponent
 ];
 
@@ -27,6 +29,7 @@ const appRoutes : Routes = [
     SetupProfileComponent,
     LoaderComponent,
     DashboardComponent,
+    GuestDashboardComponent,
   ],
   imports: [
     BrowserModule,

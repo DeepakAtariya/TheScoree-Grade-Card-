@@ -168,7 +168,7 @@ class ProfileController extends Controller
         // echo $StudentName;
         if($StudentName!=""){
             return response()->json([
-                'student' => 'valid'
+                'student' => $StudentName
             ]);
         }else{
             return response()->json([
