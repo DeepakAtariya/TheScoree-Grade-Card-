@@ -1,13 +1,16 @@
 /* logout button css */
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
-@media only screen and (max-width: 768px) and (min-width : 10px) {
+@media only screen and (max-width: 767px) and (min-width : 10px) {
   /* For mobile phones: */
+  
+ 
+
   
   
 
   #course_code, #total{
-    color:white;
+    color:black;
   }
   #total{
 
@@ -17,11 +20,26 @@
     width: 89px;
     height: 82px; 
     background-color: #f1f1f1;
-    border: 1px solid black;
+    border: 0px solid black;
     border-radius: 50%;
     text-align: center;
     /* overflow: hidden; */
     float: left;
+  }
+
+  #failed > #assignment{
+    width: 89px;
+    height: 82px; 
+    background-color: #ffffff;
+    border: 0px solid black;
+    border-radius: 50%;
+    text-align: center;
+    /* overflow: hidden; */
+    float: left;
+  }
+
+  #course_code_failed, #total_failed {
+    color : red;
   }
 
   #assignment > label{
@@ -43,7 +61,7 @@
     padding: 16px;
     text-align: center;
     background-color: #f1f1f1;
-    background-color:rgb(79, 165, 79);
+    background-color:rgb(255, 255, 255);
   }
   
   .column {
@@ -54,14 +72,14 @@
 
   #scorecard{
     display : block;
-    height: 527px;
-    overflow: auto;
+    /* height: 527px; */
+    /* overflow: auto; */
 
   }
 }
 
 
-@media only screen and (max-width : 1500px) and (min-width : 768px){
+@media only screen and (max-width : 2000px) and (min-width : 768px){
 
   /* .table-fixed thead {
     width: 97%;
@@ -81,10 +99,12 @@
 
   td{
     /* color: white; */
-    background-color:rgb(128, 185, 128);
+    /* background-color:rgb(128, 185, 128); */
     font-weight: bold;
   }
   #scoretable{
+
+    display: block;
     
     /* height: 550px; */
     /* width: inherit;  */
@@ -157,11 +177,11 @@ a {
 
 
 .sidebar{
-    background-color: skyblue;
+    /* background-color: skyblue; */
 }
 
 .main{
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 }
 .switch {
   position: relative;
@@ -195,17 +215,17 @@ a {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  /* background-color: white; */
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  /* background-color: #2196F3; */
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  /* box-shadow: 0 0 1px #2196F3; */
 }
 
 input:checked + .slider:before {
@@ -221,4 +241,15 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+
+td {
+    /* white-space: nowrap; */
+    width: 20%;
+}
+
+.table-fit {
+  /* width: 10px; */
+  /* white-space: wrap; */
 }

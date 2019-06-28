@@ -43,7 +43,7 @@
     padding: 16px;
     text-align: center;
     background-color: #f1f1f1;
-    background-color:rgb(79, 165, 79);
+    /* background-color:rgb(79, 165, 79); */
   }
   
   .column {
@@ -81,7 +81,7 @@
 
   td{
     /* color: white; */
-    background-color:rgb(128, 185, 128);
+    /* background-color:rgb(128, 185, 128); */
     font-weight: bold;
   }
   #scoretable{
@@ -157,7 +157,7 @@ a {
 
 
 .sidebar{
-    background-color: skyblue;
+    /* background-color: skyblue; */
 }
 
 .main{

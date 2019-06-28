@@ -27,19 +27,19 @@ class ScoresController extends Controller
             if(strpos($col[0], 'Course') == FALSE){
             
             
-            $student_details_row = DB::table('student_details')
-                ->select('id')
-                ->where('enrollment',$this->enrollment)
-                ->get();
+            // $student_details_row = DB::table('student_details')
+            //     ->select('id')
+            //     ->where('enrollment',$this->enrollment)
+            //     ->get();
 
-            $student_id = $student_details_row[0]->id;
+            // $student_id = $student_details_row[0]->id;
             // echo $student_id;
             // break;
             
 
             DB::table('score')->insert(
                 array(
-                       'student'   =>  $student_id,
+                       'student'   =>  $this->enrollment,
                         'course_code' => $col[0],
                         'asgn1' => $col[1],
                         'lab1' => $col[2],
@@ -179,18 +179,18 @@ class ScoresController extends Controller
                 // echo "I have got the results";
 
                 //deleting all the data for particular enrollment
-                $row_id = DB::table('student_details')
-                            ->select('id')
-                            ->where('enrollment',$this->enrollment)
-                            ->get();
-                $student_id = $row_id[0]->id;
+                // $row_id = DB::table('student_details')
+                //             ->select('id')
+                //             ->where('enrollment',$this->enrollment)
+                //             ->get();
+                // $student_id = $row_id[0]->id;
 
-                DB::table('score')
-                    ->where('student',$student_id)
-                    ->delete();
+                // DB::table('score')
+                //     ->where('student',$student_id)
+                //     ->delete();
 
                 //Reset auto number
-                DB::statement('ALTER TABLE score AUTO_INCREMENT=1;');
+                // DB::statement('ALTER TABLE score AUTO_INCREMENT=1;');
 
 
                 // inserting updated grade card into score table
