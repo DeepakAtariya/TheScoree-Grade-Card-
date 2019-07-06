@@ -6,7 +6,7 @@
                                     <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 " >
                                         <!-- <a href="#" class="active" id="guest">SCORE!</a> -->
                                         <label id="guest">SCORE!</label>
-                                        <hr>
+
                                     </div>
                                 </div>
                             
@@ -16,7 +16,7 @@
                                         <form (ngSubmit)="onGuest()" #guest="ngForm" name="guestForm" id="guestForm" action="" method="post" role="form">
                                             <div class="form-group">
                                                 <select 
-                                                class="form-control" 
+                                                class="" 
                                                 name="guest_program" 
                                                 id="guest_program"
                                                 ngModel
@@ -28,7 +28,7 @@
                                                 </div>
 
                                             <div class="form-group">
-                                                <input type="text" name="guest_enrollment" id="guest_enrollment" tabindex="1" class="form-control" placeholder="Enrollment" ngModel required #enrollment> 
+                                                <input type="text" name="guest_enrollment" id="guest_enrollment" tabindex="1" class="" placeholder="Enrollment" ngModel required #enrollment> 
                                             </div>
                                             <div class="form-group">
                                                     
@@ -39,9 +39,21 @@
 
                                             <div class="form-group">
                                                 <div class="row text-center">
-                                                    <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 " >
-                                                        <input type="submit" name="guest-submit" id="guestSubmit" tabindex="4" class="btn btn-default btn-block" value="Go" style="border:0px solid white;">
+                                                    
+                                                    
+                                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                        
                                                     </div>
+                                                    
+                                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">                                                        
+                                                        <input type="submit" name="guest-submit" id="guestSubmit" tabindex="4" class="btn btn-default btn-block" value="Go" style="border:0px solid white;" class="btn btn-default">
+                                                    </div>
+                                                    
+
+                                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                        
+                                                    </div>
+
                                                 </div>
                                                 
                                             </div>

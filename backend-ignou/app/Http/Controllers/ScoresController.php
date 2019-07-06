@@ -21,11 +21,11 @@ class ScoresController extends Controller
     private $enrollment;
 
     private function dataSavedIntoScoreTable($row){
-
+        
         foreach ($row as $col){
-
-            if(strpos($col[0], 'Course') == FALSE){
             
+            if(strpos($col[0], 'Course') == FALSE){
+                // return  $col[0];
             
             // $student_details_row = DB::table('student_details')
             //     ->select('id')
@@ -37,21 +37,21 @@ class ScoresController extends Controller
             // break;
             
 
-            DB::table('score')->insert(
-                array(
-                       'student'   =>  $this->enrollment,
-                        'course_code' => $col[0],
-                        'asgn1' => $col[1],
-                        'lab1' => $col[2],
-                        'lab2' => $col[3],
-                        'lab3' => $col[4],
-                        'lab4' => $col[5],
-                        'theory' => $col[6],
-                        'status' => (string)$col[7],
-                        'total'=> $col[8]
-                )
-           );
-        }
+                DB::table('score')->insert(
+                    array(
+                        'student'   =>  $this->enrollment,
+                            'course_code' => $col[0],
+                            'asgn1' => $col[1],
+                            'lab1' => $col[2],
+                            'lab2' => $col[3],
+                            'lab3' => $col[4],
+                            'lab4' => $col[5],
+                            'theory' => $col[6],
+                            'status' => (string)$col[7],
+                            'total'=> $col[8]
+                    )
+                );
+            }
         }   
     }
 
@@ -131,7 +131,18 @@ class ScoresController extends Controller
             
             $r_i = 0;
 
+            $course_data = DB::table('course')
+                    ->where('program',$this->program)
+                    ->select('name')
+                    ->get();
+            
+            // return $course_data[0]->name;
+
+
+            $c = -1;
+            $data = 0;
             foreach ($items as $node) {
+                $course_name = array();
                 $cn = $node->childNodes;
                 $col = array();
                 $i = 0;
@@ -166,9 +177,21 @@ class ScoresController extends Controller
                         $theory = ((int)$col[$j]/100)*75;
                     }
                     
+                    // for($j=0; $j<sizeof($course_data); $j++){
+                    //     $course_name[$j]=$course_data[$j]->name;
+                    //     array_push($col,$course_name[$j]);
+                    // }
+
                 }
+
                 
+                $c++;
                 array_push($col,ceil($assgn+$theory));
+
+                if($c>0 && $c<=39){
+                    array_push($col,$course_data[$data]->name);
+                    $data++;
+                }
 
                 $row[$r_i] = $col;
                 $r_i++;
@@ -178,19 +201,19 @@ class ScoresController extends Controller
 
                 // echo "I have got the results";
 
-                //deleting all the data for particular enrollment
+                // deleting all the data for particular enrollment
                 // $row_id = DB::table('student_details')
                 //             ->select('id')
                 //             ->where('enrollment',$this->enrollment)
                 //             ->get();
                 // $student_id = $row_id[0]->id;
 
-                // DB::table('score')
-                //     ->where('student',$student_id)
-                //     ->delete();
+                DB::table('score')
+                    ->where('student',$this->enrollment)
+                    ->delete();
 
-                //Reset auto number
-                // DB::statement('ALTER TABLE score AUTO_INCREMENT=1;');
+                // Reset auto number
+                DB::statement('ALTER TABLE score AUTO_INCREMENT=1;');
 
 
                 // inserting updated grade card into score table

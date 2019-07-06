@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
 import * as $ from 'jquery';
 import { SetupProfileService } from './setup-profile.service';
 import { Router } from '@angular/router';
-// import { AppComponent } from '../app.component';
+import { AppComponent } from '../app.component';
 // import { Sharing } from 'src/resources/Sharing';
 
 
@@ -137,10 +137,10 @@ export class SetupProfileComponent implements OnInit {
       this.signup_error = "mismatch passwords";
     }else{
       // code to store data into database if enrollment is not valid it will cause error on the screen(signup_error)
-      this.showSpinner = true;
+      // this.showSpinner = true;
       this.setupProfileService.saveSignUpData(this.userData)
         .subscribe(data  => {
-          this.showSpinner = false;
+          // this.showSpinner = false;
           if (data['student']=="invalid"){
             this.signup_error = "Not registered with ignou";
           }else{
@@ -154,7 +154,7 @@ export class SetupProfileComponent implements OnInit {
           }
     },
     error => {
-      this.showSpinner = false;
+      // this.showSpinner = false;
       this.signup_error = "server error!";
       console.log(error['error']['message']);
       var ex = error['error']['message']; 
@@ -232,6 +232,7 @@ export class SetupProfileComponent implements OnInit {
 
   onGuest(){
     // alert("clicked - go");
+    AppComponent.onShowLoader(1);
     
     const enrollment = this.guest_data.value.guest_enrollment;
     const program = this.guest_data.value.guest_program;
@@ -240,18 +241,21 @@ export class SetupProfileComponent implements OnInit {
     var email =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if(program == "" || enrollment == ""){
         this.guest_error = "Enter details";
+        AppComponent.onShowLoader(0);
     }else if(!pattern.test(enrollment)){
       this.guest_error = "Invalid enrollment format";
+      AppComponent.onShowLoader(0);
     }else{
-      this.showSpinnerg = true;
+      // this.showSpinnerg = true;
       this.setupProfileService.verifyEnrollment({
         enrollment : enrollment,
         program : program
       })
         .subscribe(data  => {
-          this.showSpinnerg = false;
+          // this.showSpinnerg = false;
+          AppComponent.onShowLoader(0);
           console.log(data);
-          this.showSpinner = false;
+          // this.showSpinner = false;
           if (data['student']=="invalid"){
             this.guest_error = "Not registered with ignou";
           }else{
@@ -261,6 +265,9 @@ export class SetupProfileComponent implements OnInit {
             // debugger;
             this.route.navigate(['/guestdashboard',program,enrollment]);
           }
+    },error=>{
+      console.log(error);
+      AppComponent.onShowLoader(0);
     });
   
     }

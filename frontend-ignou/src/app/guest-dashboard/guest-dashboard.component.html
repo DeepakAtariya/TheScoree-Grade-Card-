@@ -1,23 +1,69 @@
 
+<style>
+#watermark
+{
+ position:fixed;
+ 
+ /* margin:20% 0% 0% 32%; */
+ margin-left:  10%;;
+font-size: 80px;
+/* padding: 100%; */
+font-family :Arial, Helvetica, sans-serif;
+transform:rotate(-50deg);
+width: 60%;
+padding-top: 100px;
+ opacity:0.1;
+ z-index:50;
+ color:black;
+}
+
+#watermark1 {
+    opacity: 0.5;
+    color: BLACK;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#watermark2 {
+    opacity: 0.5;
+    color: BLACK;
+    position: fixed;
+    top: auto;
+    left: 80%;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  /* border: 3px solid #73AD21; */
+  padding: 10px;
+}
+
+td{
+    width: 7%;
+}
+
+
+</style>
 <!-- <div class=""> -->
     <!-- master row  -->
+    <div class="center">
+    
+            <h5 id="watermark">{{username}}</h5>
+        </div>
+    
     <div class="row" style="padding: 25px 50px 0px 50px;" >
        
         
       <!-- main column -->
       <div class="main col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-             
-
           <!-- alert switching row  -->
           <div class="row">        
-              
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                  <!--  -->
-                  <h5>Hey! {{username}}</h5>
-                  <!-- <br> -->
                   <ul class="list-inline">
                       <li>
-                          <span style="font-weight:bold"> Score : {{total_marks  | number : '1.2-2' }}</span>
+                          <span style="font-weight:; font-size: 25px"> Score : {{total_marks  | number : '1.2-2' }}%</span>
                       </li>
                   </ul>
                      
@@ -40,6 +86,7 @@
                                   
                                   <div [ngSwitch]="row.theory" class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                                       <h2 id="course_code">{{row.course_code}}</h2>
+                                      <span style="font-size: 11px;"> {{row.course_name}}</span>
                                      
                                       <h3 id="total" *ngSwitchCase="'NA'"><span *ngIf="row.total!=0 else elsepart">{{row.total}}</span></h3>
                                       <h3 id="total" *ngSwitchDefault>{{row.total}}</h3>
@@ -80,13 +127,14 @@
                                   
                                   <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" id="failed_head">
                                       <h2 id="course_code_failed">{{row.course_code}}</h2>
+                                      <span style="font-size: 11px; color:red;"> {{row.course_name}}</span>
                                       <h3 id="total_failed" *ngIf="row.total!='0' else elsepart">{{row.total}}</h3>
                                       <ng-template #elsepart>
                                           <h3 id="total">Project</h3>
                                       </ng-template>
                                   </div>
                                   
-                                  <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" id="failed">
+                                  <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" id="failed" style="color:red">
                                      
                                       <div id="assignment" *ngIf="row.Asgn1!='-'">
                                               <label>Assignment <br> {{row.Asgn1}}</label>
@@ -116,7 +164,7 @@
                   </div>
 
                   <div id="scoretable">
-                  <table class="table table-responsive table-fit">
+                  <table class="table table-responsive table-fit ">
                       <thead>
                           <tr>
                               <!-- <th>S No.</th> -->
@@ -124,6 +172,7 @@
                                   {{ head }}
                               </th> -->
                               <th>Course Code</th>
+                              <th>Course Name</th>
                               <th>Asgn1</th>
                               <th>LAB1</th>
                               <th>LAB2</th>
@@ -139,8 +188,11 @@
                               <!-- <td *ngIf="row.status=='Pass' else failed_serial" >
                                   {{i+1}}
                               </td > -->
-                              <td *ngIf="row.status=='Pass' else failed_course_code" >
+                              <td *ngIf="row.status=='Pass' else failed_course_code" style="width: 6%;">
                                  {{row.course_code}} 
+                              </td>
+                              <td *ngIf="row.status=='Pass' else failed_course_name" style="width: 26%;">
+                                 {{row.course_name}} 
                               </td>
                               <td *ngIf="row.status=='Pass' else failed_assign" >
                                  {{row.Asgn1}} 
@@ -173,10 +225,15 @@
                                       </td >    
                               </ng-template>
                               <ng-template #failed_course_code>
-                                      <td style="color:rgb(212, 74, 74);">
+                                      <td style="color:rgb(212, 74, 74); width: 06%;">
                                               {{row.course_code}}
                                       </td >    
                               </ng-template>
+                              <ng-template #failed_course_name>
+                                <td style="color:rgb(212, 74, 74); width: 26%;">
+                                        {{row.course_name}}
+                                </td >    
+                                </ng-template>
                               <ng-template #failed_assign>
                                       <td style="color:rgb(212, 74, 74);">
                                               {{row.Asgn1}}

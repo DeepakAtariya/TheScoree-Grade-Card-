@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { TouchSequence } from 'selenium-webdriver';
 import { AppComponent } from '../app.component';
 import { DashboardService } from '../dashboard/dashboard.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-guest-dashboard',
@@ -24,6 +25,7 @@ export class GuestDashboardComponent implements OnInit {
   constructor(private route: Router,private activatedRoute: ActivatedRoute, private dashboardService : DashboardService) { }
 
   ngOnInit() {
+
 
     // console.log(this.activatedRoute.snapshot.paramMap.get('program'));
     this.username = localStorage.getItem('username');
@@ -50,6 +52,7 @@ export class GuestDashboardComponent implements OnInit {
                 
                 var scoreboard = {
                 'course_code' : '',
+                'course_name' : '',
                 'Asgn1' : '',
                 'lab1' : '',
                 'lab2' : '',
@@ -61,6 +64,7 @@ export class GuestDashboardComponent implements OnInit {
               }
     
               scoreboard.course_code = this.data4small[i][0];
+              scoreboard.course_name = this.data4small[i][9];
               scoreboard.Asgn1 = this.data4small[i][1];
               scoreboard.lab1 = this.data4small[i][2]=='-'?'NA':this.data4small[i][2];
               scoreboard.lab2 = this.data4small[i][3]=='-'?'NA':this.data4small[i][3];
@@ -84,6 +88,7 @@ export class GuestDashboardComponent implements OnInit {
         (error) => {
           console.log(error);
           AppComponent.onShowLoader(0);
+            
           /* do request for data from database in the case of ignou server error! */
     
         });

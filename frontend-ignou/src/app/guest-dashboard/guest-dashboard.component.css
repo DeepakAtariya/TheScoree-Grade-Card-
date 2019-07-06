@@ -105,7 +105,9 @@
   #scoretable{
 
     display: block;
-    
+    padding : 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     /* height: 550px; */
     /* width: inherit;  */
     /* overflow: auto; */
