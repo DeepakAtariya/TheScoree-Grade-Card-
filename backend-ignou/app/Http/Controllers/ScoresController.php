@@ -133,10 +133,9 @@ class ScoresController extends Controller
 
             $course_data = DB::table('course')
                     ->where('program',$this->program)
-                    ->select('name')
                     ->get();
             
-            // return $course_data[0]->name;
+            // return $course_data[1]->name;
 
 
             $c = -1;
@@ -160,38 +159,43 @@ class ScoresController extends Controller
                     }
                     if($j == 1 && $col[$j]!="-"){
                         $assgn = ((int)$col[$j]/100)*25;
+                        // break;
                     }
                     if($j == 2 && $col[$j]!="-"){
                         $theory = ((int)$col[$j]/100)*75;
+                        // break;
                     }
                     if($j == 3 && $col[$j]!="-"){
                         $theory = ((int)$col[$j]/100)*75;
+                        // break;
                     }
                     if($j == 4 && $col[$j]!="-"){
                         $theory = ((int)$col[$j]/100)*75;
+                        // break;
                     }
                     if($j == 5 && $col[$j]!="-"){
                         $theory = ((int)$col[$j]/100)*75;
+                        // break;
                     }
                     if($j == 6 && $col[$j]!="-"){
                         $theory = ((int)$col[$j]/100)*75;
+                        // break;
                     }
+                }
                     
-                    // for($j=0; $j<sizeof($course_data); $j++){
-                    //     $course_name[$j]=$course_data[$j]->name;
-                    //     array_push($col,$course_name[$j]);
-                    // }
-
-                }
-
-                
-                $c++;
                 array_push($col,ceil($assgn+$theory));
-
-                if($c>0 && $c<=39){
-                    array_push($col,$course_data[$data]->name);
-                    $data++;
+                for($c = 0; $c<sizeof($course_data); $c++){
+                    if($col[0] == $course_data[$c]->code){
+                        array_push($col,$course_data[$c]->name);
+                        break;
+                    }
                 }
+                    
+
+                // if($c>0 && $c<=39){
+                //     array_push($col,$course_data[$data]->name);
+                //     $data++;
+                // }
 
                 $row[$r_i] = $col;
                 $r_i++;

@@ -22,6 +22,7 @@ export class GuestDashboardComponent implements OnInit {
   password: string;
   data4small: any;
   master_data = [];
+  total: any;
   constructor(private route: Router,private activatedRoute: ActivatedRoute, private dashboardService : DashboardService) { }
 
   ngOnInit() {
@@ -66,19 +67,25 @@ export class GuestDashboardComponent implements OnInit {
               scoreboard.course_code = this.data4small[i][0];
               scoreboard.course_name = this.data4small[i][9];
               scoreboard.Asgn1 = this.data4small[i][1];
-              scoreboard.lab1 = this.data4small[i][2]=='-'?'NA':this.data4small[i][2];
-              scoreboard.lab2 = this.data4small[i][3]=='-'?'NA':this.data4small[i][3];
-              scoreboard.lab3 = this.data4small[i][4]=='-'?'NA':this.data4small[i][4];
-              scoreboard.lab4 = this.data4small[i][5]=='-'?'NA':this.data4small[i][5];
-              scoreboard.theory = this.data4small[i][6]=='-'?'NA':this.data4small[i][6];
+              // scoreboard.lab1 = this.data4small[i][2]=='-'?'NA':this.data4small[i][2]=='#'?'NA':this.data4small[i][2];
+              // scoreboard.lab2 = this.data4small[i][3]=='-'?'NA':this.data4small[i][3]=='#'?'NA':this.data4small[i][3];
+              // scoreboard.lab3 = this.data4small[i][4]=='-'?'NA':this.data4small[i][4]=='#'?'NA':this.data4small[i][4];
+              // scoreboard.lab4 = this.data4small[i][5]=='-'?'NA':this.data4small[i][5]=='#'?'NA':this.data4small[i][5];
+              // scoreboard.theory = this.data4small[i][6]=='-'?'NA':this.data4small[i][6]=='#'?'NA':this.data4small[i][6];
+              scoreboard.lab1 = this.data4small[i][2];
+              scoreboard.lab2 = this.data4small[i][3];
+              scoreboard.lab3 = this.data4small[i][4];
+              scoreboard.lab4 = this.data4small[i][5];
+              scoreboard.theory = this.data4small[i][6];
               scoreboard.status = this.data4small[i][7]=='Completed'?'Pass':'Fail';
-              scoreboard.total =  this.data4small[i][0]=="BCSP064"?Number(Number(this.data4small[i][2])+Number(this.data4small[i][3])):this.data4small[i][8];
-              this.total_marks = this.total_marks+scoreboard.total;
+              scoreboard.total =  this.data4small[i][8];
+              // this.total_marks = this.total_marks+scoreboard.total;
     
               this.master_data[i-1]=scoreboard;
               // console.log(scoreboard);
           }
-          this.total_marks = (this.total_marks/4000)*100;
+          // this.total = this.total_marks;
+          // this.total_marks = (this.total_marks/4000)*100;
           // console.log(this.master_data);
           this.scoreData = data['scores'];
           this.heading = this.scoreData[0];  
