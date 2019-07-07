@@ -1,0 +1,54 @@
+.row {
+  /* position: fixed; */
+    /* left: 0; */
+    /* bottom: 0; */
+    /* width: 100%; */
+    /* background-color: #e8e8e8; */
+    color: black;
+    border: 0.5px solid lightgray;
+  }
+
+  #footer {
+    /* position:absolute; */
+    bottom:0;
+    width:100%;
+    /* height:60px;   Height of the footer */
+    /* background:#6cf; */
+ }
+
+  #right{
+    text-align: right;
+  }
+
+  #left{
+
+  }
+
+  a{
+    text-decoration: none;
+    color: gray;
+    font-size:13px;
+  }
+
+  a:hover{
+    text-decoration: none;
+    color:black;
+    /* font-weight: bold; */
+  }
+
+  @media only screen and (max-width: 767px) and (min-width : 10px) {
+    /* For mobile phones: */
+    
+    a{
+      text-decoration: none;
+      color: gray;
+      font-size:8px;
+    }
+  
+    a:hover{
+      text-decoration: none;
+      color:black;
+      /* font-weight: bold; */
+    }
+  
+  }  

@@ -1,60 +1,4 @@
-
-<style>
-#watermark
-{
- position:fixed;
- 
- /* margin:20% 0% 0% 32%; */
- margin-left:  10%;;
-font-size: 80px;
-/* padding: 100%; */
-font-family :Arial, Helvetica, sans-serif;
-transform:rotate(-50deg);
-width: 60%;
-padding-top: 100px;
- opacity:0.1;
- z-index:50;
- color:black;
-}
-
-#watermark1 {
-    opacity: 0.5;
-    color: BLACK;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-#watermark2 {
-    opacity: 0.5;
-    color: BLACK;
-    position: fixed;
-    top: auto;
-    left: 80%;
-}
-
-.center {
-  margin: auto;
-  width: 60%;
-  /* border: 3px solid #73AD21; */
-  padding: 10px;
-}
-
-td{
-    width: 7%;
-}
-
-<!-- .col-xs-12 > #scorecard{
-    padding: 1px;
-}  -->
-
-<!-- .col-sm-12{
-
-} -->
-
-
-
-</style>
+<app-header></app-header>
 <!-- <div class=""> -->
     <!-- master row  -->
     <div class="center">
@@ -62,33 +6,27 @@ td{
             <h5 id="watermark">{{username}}</h5>
         </div>
     
-    <div class="row" style="padding: 25px 50px 0px 50px;" >
+    <!-- <div class=""  > -->
        
         
       <!-- main column -->
-      <div class="main col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+      <div class="main" >
           <!-- alert switching row  -->
           <div class="row">        
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                   <ul class="list-inline">
                       <li>
-                          <span style="font-size: 25px">{{percent  | number : '1.2-2' }}%</span><br>
+                          <span style="font-size: 25px">Score : {{percent  | number : '1.2-2' }}%</span><br>
                           <!-- <span>{{ total_marks }}</span> -->
                       </li>
-                  </ul>
-                     
+                  </ul> 
               </div>
-              
           </div>
 
           <!-- score table row -->
           <div style="background-color:white; border:white 1px solid" class="row">
-              
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                  <!-- card view for small screens -->
-
-                  <!-- <tr *ngFor="let row of scoreData; let i = index;"> -->
                   <div class="row" id="scorecard">
                       <div *ngFor="let row of master_data; let i = index;" class="column">
                           <div class="card" *ngIf="row.status=='Pass' else failed">
@@ -171,10 +109,6 @@ td{
                   <table class="table table-responsive table-fit ">
                       <thead>
                           <tr>
-                              <!-- <th>S No.</th> -->
-                              <!-- <th *ngFor="let head of heading">
-                                  {{ head }}
-                              </th> -->
                               <th>Code</th>
                               <th>Name</th>
                               <th>Asgn1</th>
@@ -183,7 +117,7 @@ td{
                               <th>LAB3</th>
                               <th>LAB4</th>
                               <th>Theory</th>
-                              <th>Status</th>
+                              <!-- <th>Status</th> -->
                               <th>Total</th>
                           </tr>
                       </thead>
@@ -216,9 +150,9 @@ td{
                               <td *ngIf="row.status=='Pass' else failed_theory">
                                  {{row.theory}} 
                               </td>
-                              <td *ngIf="row.status=='Pass' else failed_status" >
+                              <!-- <td *ngIf="row.status=='Pass' else failed_status" >
                                  {{row.status}} 
-                              </td>
+                              </td> -->
                               <td *ngIf="row.status=='Pass' else failed_total" >
                                  {{row.total}} 
                               </td>
@@ -268,11 +202,11 @@ td{
                                               {{row.theory}}
                                       </td >    
                               </ng-template>
-                              <ng-template #failed_status>
+                              <!-- <ng-template #failed_status>
                                       <td style="color:rgb(212, 74, 74);">
                                               {{row.status}}
                                       </td >    
-                              </ng-template>
+                              </ng-template> -->
                               
                               <ng-template #failed_total>
                                       <td style="color:rgb(212, 74, 74);">
@@ -293,8 +227,10 @@ td{
       </div>
       <!-- end of main column -->
       
-  </div>
+  <!-- </div> -->
   <!-- end of master row -->
 
 
 <!-- </div> -->
+
+<app-footer></app-footer>

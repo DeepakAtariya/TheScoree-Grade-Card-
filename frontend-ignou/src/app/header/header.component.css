@@ -1,0 +1,43 @@
+.row {
+  /* left: 0;
+  top: 0; */
+  /* width: 100%; */
+  /* background-color: #e8e8e8; */
+  color: black;
+  /* border: 1px solid; */
+  border-bottom: 1px solid lightgray;
+  /* border-bottom-color: lightcoral; */
+}
+
+#right{
+  padding-top: 5px;
+  text-align: right;
+}
+/* #right > li > a{
+  padding-bottom: 10px;
+} */
+#left{
+  padding-top: 5px;
+  
+}
+#center{
+  padding-top: 5px;
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: gray;
+  font-size:15px;
+
+}
+
+a:hover{
+  text-decoration: none;
+  color:black;
+}
+
+.glyphicon{
+  font-size: 20px;
+  color: gray;
+}

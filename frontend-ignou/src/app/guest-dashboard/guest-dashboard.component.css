@@ -103,12 +103,15 @@
     /* background-color:rgb(128, 185, 128); */
     font-weight: bold;
   }
+
+
   #scoretable{
 
     display: block;
     padding : 80px;
     padding-top: 5px;
     padding-bottom: 5px;
+    
     /* height: 550px; */
     /* width: inherit;  */
     /* overflow: auto; */
@@ -185,6 +188,10 @@ a {
 
 .main{
     /* background-color: aliceblue; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 .switch {
   position: relative;
@@ -254,5 +261,54 @@ td {
 
 .table-fit {
   /* width: 10px; */
+  overflow: hidden;
   /* white-space: wrap; */
 }
+
+
+
+#watermark
+{
+ position:fixed;
+ 
+ /* margin:20% 0% 0% 32%; */
+ margin-left:  10%;;
+font-size: 80px;
+/* padding: 100%; */
+font-family :Arial, Helvetica, sans-serif;
+transform:rotate(-50deg);
+width: 60%;
+padding-top: 100px;
+ opacity:0.1;
+ z-index:50;
+ color:black;
+}
+
+#watermark1 {
+    opacity: 0.5;
+    color: BLACK;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#watermark2 {
+    opacity: 0.5;
+    color: BLACK;
+    position: fixed;
+    top: auto;
+    left: 80%;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  /* border: 3px solid #73AD21; */
+  padding: 10px;
+}
+
+td{
+    width: 7%;
+}
+
+

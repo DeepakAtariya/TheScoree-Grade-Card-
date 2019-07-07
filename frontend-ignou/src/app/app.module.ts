@@ -14,6 +14,8 @@ import { LoaderComponent } from './ui/loader/loader.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardService } from './dashboard/dashboard.service';
 import { GuestDashboardComponent } from './guest-dashboard/guest-dashboard.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 const appRoutes : Routes = [
   {path : '', component : SetupProfileComponent ,data: {animation: 'HomePage'}},
@@ -30,6 +32,8 @@ const appRoutes : Routes = [
     LoaderComponent,
     DashboardComponent,
     GuestDashboardComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
