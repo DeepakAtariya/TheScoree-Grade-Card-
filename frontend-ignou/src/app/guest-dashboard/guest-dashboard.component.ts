@@ -23,6 +23,8 @@ export class GuestDashboardComponent implements OnInit {
   data4small: any;
   master_data = [];
   total: any;
+  percent: any;
+  outof: any;
   constructor(private route: Router,private activatedRoute: ActivatedRoute, private dashboardService : DashboardService) { }
 
   ngOnInit() {
@@ -91,6 +93,10 @@ export class GuestDashboardComponent implements OnInit {
           this.heading = this.scoreData[0];  
           // console.log(this.scoreData.slice(1,this.scoreData.length));
           this.scoreData = this.scoreData.slice(1,this.scoreData.length);
+
+          this.percent = data['percent'];
+          this.outof = data['outof'];
+          this.total_marks = data['earned_marks'];
         },
         (error) => {
           console.log(error);

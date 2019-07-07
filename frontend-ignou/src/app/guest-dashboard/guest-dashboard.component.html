@@ -44,6 +44,15 @@ td{
     width: 7%;
 }
 
+<!-- .col-xs-12 > #scorecard{
+    padding: 1px;
+}  -->
+
+<!-- .col-sm-12{
+
+} -->
+
+
 
 </style>
 <!-- <div class=""> -->
@@ -63,8 +72,8 @@ td{
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                   <ul class="list-inline">
                       <li>
-                          <span style="font-weight:; font-size: 25px"> Score : {{total_marks  | number : '1.2-2' }}%</span>
-                          <span>{{ total }}</span>
+                          <span style="font-size: 25px">{{percent  | number : '1.2-2' }}%</span><br>
+                          <!-- <span>{{ total_marks }}</span> -->
                       </li>
                   </ul>
                      
@@ -82,22 +91,19 @@ td{
                   <!-- <tr *ngFor="let row of scoreData; let i = index;"> -->
                   <div class="row" id="scorecard">
                       <div *ngFor="let row of master_data; let i = index;" class="column">
-                          <div class="card container" *ngIf="row.status=='Pass' else failed">
+                          <div class="card" *ngIf="row.status=='Pass' else failed">
                               <div class="row">
                                   
                                   <div [ngSwitch]="row.theory" class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                                      <h2 id="course_code">{{row.course_code}}</h2>
+                                      <h2 id="course_code" style="padding-right:10px;">{{row.course_code}}</h2>
                                       <span style="font-size: 11px;"> {{row.course_name}}</span>
                                      
-                                      <h3 id="total" *ngSwitchCase="'NA'"><span *ngIf="row.total!=0 else elsepart">{{row.total}}</span></h3>
-                                      <h3 id="total" *ngSwitchDefault>{{row.total}}</h3>
-                                      <ng-template #elsepart>
-                                          <h3>Project</h3>
-                                      </ng-template>
+                                      <h3 id="total" *ngSwitchCase="'NA'"><span style="font-size:50px;" *ngIf="row.total!=0 else elsepart">{{row.total}}</span></h3>
+                                      <h3 id="total" *ngSwitchDefault style="font-size:50px;">{{row.total}}</h3>
                                   </div>
                                   
                                   <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                                      
+                                        
                                           <div id="assignment" *ngIf="row.Asgn1!='-'">
                                               <label>Assignment {{row.Asgn1}}</label>
                                           </div>
@@ -129,10 +135,7 @@ td{
                                   <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" id="failed_head">
                                       <h2 id="course_code_failed">{{row.course_code}}</h2>
                                       <span style="font-size: 11px; color:red;"> {{row.course_name}}</span>
-                                      <h3 id="total_failed" *ngIf="row.total!='0' else elsepart">{{row.total}}</h3>
-                                      <ng-template #elsepart>
-                                          <h3 id="total">Project</h3>
-                                      </ng-template>
+                                      <h3 id="total_failed" *ngIf="row.total!='0' else elsepart" style="font-size:50px;">{{row.total}}</h3>
                                   </div>
                                   
                                   <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" id="failed" style="color:red">
