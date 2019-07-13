@@ -1,7 +1,4 @@
 <app-header></app-header>
-<div *ngIf="!showSpinnerr; then trueBlock else falseBlock"></div>
-    <ng-template #trueBlock>
-        
           <div class="text-center" id="main" style="padding: 10%;">
                                 <div class="row" >
                                     <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 " >
@@ -23,8 +20,8 @@
                                                 ngModel
                                                 required>
                                                   <option value>Select Program:</option>
-                                                  <option value="BCA                 ">BCA                 </option>
-                                                  <option value="MCA                 ">MCA                 </option>
+                                                  <option value="BCA">BCA</option>
+                                                  <option value="MCA">MCA</option>
                                                   </select>
                                                 </div>
 
@@ -64,5 +61,4 @@
                             </div>
                             </div>
                             </div>
-                            </ng-template>
                             <app-footer id="footer"></app-footer>

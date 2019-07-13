@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { TouchSequence } from 'selenium-webdriver';
 import { AppComponent } from '../app.component';
 import { DashboardService } from '../dashboard/dashboard.service';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-guest-dashboard',

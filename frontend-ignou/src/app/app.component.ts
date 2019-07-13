@@ -10,16 +10,12 @@ declare var $: any;
   styleUrls: ['./app.component.css'],
   animations: [
     slideInAnimation
-    // animation triggers go here
-    // simpleAnimation
-
-    
   ]
 })
 export class AppComponent {
   state = 'normal';
   appState = 'normal';
-  title = 'frontend-ignou';
+  title = 'Score';
 
 
   constructor() {}

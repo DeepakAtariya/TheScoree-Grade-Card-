@@ -10,8 +10,7 @@ export class HeaderComponent implements OnInit {
   username:any;
 
   constructor() {
-    this.username = localStorage.getItem('username');
-    this.username = this.username.charAt(0).toUpperCase();
+
    }
 
   ngOnInit() {

@@ -18,6 +18,19 @@ Route::get('/testForm', function (Request $request) {
 });
 */
 
-Route::get('/', function () {
-    return "hey!";
+// Route::get('/', function () {
+    // return "hey!";
+// });
+
+Route::get('guestdashboard/BCA/159673056',function (){
+	return redirect()->route('home');
 });
+
+
+Route::get('',function (){
+	return view('index');
+})->name('home');
+
+// Route::get('',function (){
+	// return view('welcome');
+// });

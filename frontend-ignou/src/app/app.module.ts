@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +19,7 @@ import { HeaderComponent } from './header/header.component';
 const appRoutes : Routes = [
   {path : '', component : SetupProfileComponent ,data: {animation: 'HomePage'}},
   {path : 'loader', component : LoaderComponent, },
-  {path : 'dashboard', component : DashboardComponent, data: {animation: 'Dashboard'}},
+  // {path : 'dashboard', component : DashboardComponent, data: {animation: 'Dashboard'}},
   {path : 'guestdashboard/:program/:enrollment', component : GuestDashboardComponent, data: {animation: 'GuestDashboard'}}
   // {path :'page1', component : HeaderComponent
 ];
@@ -37,7 +36,6 @@ const appRoutes : Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
