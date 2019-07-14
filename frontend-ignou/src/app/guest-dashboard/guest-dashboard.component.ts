@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { DashboardService } from '../dashboard/dashboard.service';
+declare var $ : any;
 
 @Component({
   selector: 'app-guest-dashboard',
@@ -23,7 +24,11 @@ export class GuestDashboardComponent implements OnInit {
   total: any;
   percent: any;
   outof: any;
-  constructor(private route: Router,private activatedRoute: ActivatedRoute, private dashboardService : DashboardService) { }
+  constructor(private route: Router,private activatedRoute: ActivatedRoute, private dashboardService : DashboardService) { 
+
+    
+
+  }
 
   ngOnInit() {
 
@@ -95,6 +100,8 @@ export class GuestDashboardComponent implements OnInit {
           this.percent = data['percent'];
           this.outof = data['outof'];
           this.total_marks = data['earned_marks'];
+
+          $('#feedbackAlert').modal();
         },
         (error) => {
           console.log(error);
@@ -103,6 +110,8 @@ export class GuestDashboardComponent implements OnInit {
           /* do request for data from database in the case of ignou server error! */
     
         });
+
+        
     
 
   }
