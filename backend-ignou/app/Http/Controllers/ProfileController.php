@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use App\feedback;
 
 
 class ProfileController extends Controller
@@ -218,5 +219,18 @@ class ProfileController extends Controller
             'e' => $response->input('enrollment')
         ],201);
     }
+	
+	
+	public function feedback(Request $req){
+		$modal = new feedback();
+		$modal->name = $req->input('name');
+		$modal->email= $req->input('email');
+		$modal->feedback= $req->input('improvement');
+		
+		return response()->json([
+			'status'=>$modal->save()
+		]);
+	
+	}
 
 }

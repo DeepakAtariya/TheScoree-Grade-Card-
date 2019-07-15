@@ -17,6 +17,12 @@ export class SetupProfileService {
 
 
 
+  submitFeedback(value: any) {
+    return this.http.post(Config.backendIgnou+"feedback",value);
+  }
+
+
+
   datasaved='';
 
   // constructor(private http: Http, private route: Router) {}

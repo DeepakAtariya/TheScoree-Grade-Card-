@@ -101,7 +101,13 @@ export class GuestDashboardComponent implements OnInit {
           this.outof = data['outof'];
           this.total_marks = data['earned_marks'];
 
-          $('#feedbackAlert').modal();
+          let modal = Number.parseInt(localStorage.getItem('modal'));
+          // let modal = localStorage.getItem('modal');
+
+          if(modal === 1){
+            $('#feedbackAlert').modal();
+            localStorage.setItem('modal','0');
+          }
         },
         (error) => {
           console.log(error);

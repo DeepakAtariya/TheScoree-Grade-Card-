@@ -2,3 +2,26 @@
 /* body{
     background-color: azure;
 } */
+
+/* width */
+::-webkit-scrollbar {
+    width: 08px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black; 
+    border-radius: 05px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: gray; 
+    border-radius: 20px;
+  }
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: red; 
+  }
+  

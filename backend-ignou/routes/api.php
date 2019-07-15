@@ -27,6 +27,7 @@ Route::middleware('cors')->group(function(){
     Route::post('/saveSignUpData','ProfileController@saveSignUpData');
 
     Route::post('/verifyenrollment','ProfileController@verifyenrollment');
+    Route::post('/feedback','ProfileController@feedback');
 
     Route::post('/doLogin','ProfileController@doLogin');
     /*

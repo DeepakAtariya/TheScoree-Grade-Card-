@@ -47,6 +47,9 @@ export class SetupProfileComponent implements OnInit {
 
   //Initialisation with old data and validation jquery code
   ngOnInit() {
+
+    localStorage.setItem('modal','1');
+
   } //end ngOnInit
 
   onGuest(){

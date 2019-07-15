@@ -15,12 +15,16 @@ import { DashboardService } from './dashboard/dashboard.service';
 import { GuestDashboardComponent } from './guest-dashboard/guest-dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { AboutComponent } from './about/about.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const appRoutes : Routes = [
   {path : '', component : SetupProfileComponent ,data: {animation: 'HomePage'}},
   {path : 'loader', component : LoaderComponent, },
   // {path : 'dashboard', component : DashboardComponent, data: {animation: 'Dashboard'}},
-  {path : 'guestdashboard/:program/:enrollment', component : GuestDashboardComponent, data: {animation: 'GuestDashboard'}}
+  {path : 'guestdashboard/:program/:enrollment', component : GuestDashboardComponent, data: {animation: 'GuestDashboard'}},
+  {path : 'about', component : AboutComponent, data: {animation: 'About'}},
+  {path : 'feedback', component : FeedbackComponent, data: {animation: 'Feedback'}}
   // {path :'page1', component : HeaderComponent
 ];
 
@@ -33,6 +37,8 @@ const appRoutes : Routes = [
     GuestDashboardComponent,
     FooterComponent,
     HeaderComponent,
+    AboutComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
