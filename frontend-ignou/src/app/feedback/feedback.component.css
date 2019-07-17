@@ -9,22 +9,27 @@
 
 #submit{
     /* text-align: center; */
-	width: 30%;
+	width: 100px;
 	margin-bottom: 1em;
-	margin: auto;
+	/* margin: auto; */
 	padding: .25em;
 	border: 0;
 	border-bottom: 2px solid currentcolor; 
 	font-weight: bold;
 	letter-spacing: .15em;
-	border-radius: 0;
+	border-radius: 5px;
 	border-bottom-color: lightgray;
 		
   }
 
+ 
+
   #submit:hover{
       border-bottom-color: black;
-      background: none;
+	  background: none;
+	  border:2px solid black;
+	  transition: border 0.5s;
+	  
   }
 
 input{
@@ -72,9 +77,36 @@ textarea{
   }
 
   #footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
+    /* position:absolute; */
+    /* bottom:0; */
+    /* width:100%; */
     /* height:60px;   
-    background:#6cf; */
+	background:#6cf; */
+	/* margin-top: 100px; */
  }
+
+ #feedback_container{
+	 border:1px solid black;
+	 margin-top: 10%;
+	 /* width: 90%; */
+	 /* height: 100%; */
+	 box-shadow: 3px 5px #888888;
+	 padding-left: 20px;
+	 padding-right: 20px;
+
+ }
+
+ #guest{
+	margin-top: 5%;
+	font-weight: bold;
+	color: black;
+	font-size : 30px;
+	
+	/* text-align: center; */
+	
+}
+
+.container{
+	margin-bottom: 70px;
+}
+

@@ -1,10 +1,153 @@
 /* logout button css */
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
-@media only screen and (max-width: 767px) and (min-width : 10px) {
+@media only screen and (max-width: 584px) and (min-width : 100px) {
+
+  .center {
+    /* margin: auto; */
+    /* width: 60%; */
+    /* border: 3px solid #73AD21; */
+    /* padding: 10px; */
+  }
+
+  #watermark
+  {
+ /* position:fixed; */
+ 
+ /* margin:20% 0% 0% 32%; */
+ /* margin-left:  10%;; */
+font-size: 70px;
+/* padding: 100%; */
+font-family :Arial, Helvetica, sans-serif;
+transform:rotate(-50deg);
+/* width: 60%; */
+/* padding-top: 100px; */
+ opacity:0.1;
+ z-index:50;
+ /* color:red; */
+ margin-top: 20%;
+ /* marg */
+ padding-right: 80%;
+}
+
+  
+#course_code{
+  font-size: 25px;
+}
+
+  #course_code, #total{
+    color:black;
+  }
+  #total{
+    font-size:30px;
+  }
+  
+  #assignment{
+    /* color:red; */
+    font-size: 10px;
+    width: 30%;
+    height: 40%; 
+    background-color: #f1f1f1;
+    border: 0px solid black;
+    border-radius: 50%;
+    text-align: center;
+    /* overflow: hidden; */
+    float: left;
+  }
+
+  #failed > #assignment{
+    width: 30%;
+    height:40%; 
+    background-color: #ffffff;
+    border: 0px solid black;
+    border-radius: 50%;
+    text-align: center;
+    /* overflow: hidden; */
+    float: left;
+  }
+
+  #course_code_failed, #total_failed {
+    color : red;
+  }
+
+  #course_code_failed{
+    font-size: 25px;
+  }
+
+  #total_failed{
+    font-size:30px;
+  }
+  
+  
+
+  #assignment > label{
+    padding:20px 0px;
+    /* padding-right:  */
+  }
+
+  #rest_marks{
+    text-align: left;
+    list-style: none;
+  }
+
+  #scoretable{
+    display: none;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 2px;
+    text-align: center;
+    background-color: #f1f1f1;
+    background-color:rgb(255, 255, 255);
+  }
+  
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 22px;
+  }
+
+  #scorecard{
+    display : block;
+
+    /* height: 527px; */
+    /* overflow: auto; */
+
+  }
+
+}
+
+@media only screen and (max-width: 767px) and (min-width : 584px) {
   /* For mobile phones: */
   
  
+  .center {
+    /* margin: auto; */
+    /* width: 60%; */
+    /* border: 3px solid #73AD21; */
+    /* padding: 10px; */
+  }
+
+  #watermark
+  {
+ /* position:fixed; */
+ 
+ /* margin:20% 0% 0% 32%; */
+ /* margin-left:  10%;; */
+font-size: 70px;
+/* padding: 100%; */
+font-family :Arial, Helvetica, sans-serif;
+transform:rotate(-50deg);
+/* width: 60%; */
+/* padding-top: 100px; */
+ opacity:0.1;
+ z-index:50;
+ /* color:red; */
+ margin-top: 20%;
+ /* marg */
+ padding-right: 80%;
+}
 
   
   
@@ -13,7 +156,7 @@
     color:black;
   }
   #total{
-
+    font-size:50px;
   }
   
   #assignment{
@@ -272,7 +415,7 @@ td {
  position:fixed;
  
  /* margin:20% 0% 0% 32%; */
- margin-left:  10%;;
+ margin-left:  25%;;
 font-size: 80px;
 /* padding: 100%; */
 font-family :Arial, Helvetica, sans-serif;
@@ -312,13 +455,14 @@ td{
 }
 
 
-#footer {
+/* #footer {
   position: absolute;;
   bottom:0;
   width:100%;
-  /* height:60px;   */
-}
+  height:60px;  
+} */
 
 p{
   font-size: 15px;
 }
+

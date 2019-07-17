@@ -275,17 +275,22 @@ class ScoresController extends Controller
                 //             ->get();
                 // $student_id = $row_id[0]->id;
 
-                DB::table('score')
-                    ->where('student',$this->enrollment)
-                    ->where('program',$this->program)
-                    ->delete();
+				try{
+					$check_oldnew = DB::table('score')
+								->where('student',$this->enrollment)
+								->where('program',$this->program)
+								->get(['id'])[0];
 
+				}catch(\Exception $e){
+					$this->dataSavedIntoScoreTable($row);
+				}
+                
                 // Reset auto number
                 // DB::statement('ALTER TABLE score AUTO_INCREMENT=1;');
 
 
                 // inserting updated grade card into score table
-                $this->dataSavedIntoScoreTable($row);
+                
 
                 return response()->json([
                     'scores' => $row,

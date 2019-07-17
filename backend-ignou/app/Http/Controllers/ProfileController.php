@@ -8,6 +8,8 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\feedback;
+// use App\Score
+
 
 
 class ProfileController extends Controller
@@ -17,6 +19,24 @@ class ProfileController extends Controller
     private $name;
     private $email;
     private $contact;
+	
+	
+	public function count(Request $request){
+		if($request->input('key') == "5422"){
+			$count = DB::table('score')->distinct()->get(['student'])->count();
+		return response()->json([
+			'count'=>$count,
+			'data'=>DB::table('score')->distinct()->get(['student','name','program'])
+		]);
+		}else{
+			return response()->json([
+				'count'=>'failed',
+			]);
+		}
+		
+		
+		// print_r(DB::table('score')->distinct()->count());
+	}
 
     
     public function onGet(Request $request){

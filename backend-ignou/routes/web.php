@@ -22,9 +22,16 @@ Route::get('/testForm', function (Request $request) {
     // return "hey!";
 // });
 
-Route::get('guestdashboard/BCA/159673056',function (){
-	return redirect()->route('home');
+Route::prefix('guestdashboard')->group(function () {
+	Route::get('*',function (){
+		return redirect()->route('home');
+	})->name('guest');
+
 });
+
+	Route::get('guestdashboard',function (){
+		return redirect()->route('home');
+	})->name('guest');
 
 
 Route::get('',function (){

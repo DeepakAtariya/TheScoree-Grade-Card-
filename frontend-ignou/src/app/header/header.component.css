@@ -6,7 +6,22 @@
   color: black;
   /* border: 1px solid; */
   border-bottom: 1px solid lightgray;
+  background: black;
+  /* position: fixed; */
+  /* opacity: 0.8; */
   /* border-bottom-color: lightcoral; */
+}
+
+#header {
+  /* position: fixed; */
+  /* top:0; */
+  /* width:100%; */
+  /* height:60px;   Height of the footr */
+  /* background:#6cf; */
+}
+
+.fa-home:hover{
+  color: white;
 }
 
 #right{
@@ -24,6 +39,15 @@
   padding-top: 5px;
   text-align: center;
 }
+
+#center_text{
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  display: block;
+}
+
 
 a{
   text-decoration: none;

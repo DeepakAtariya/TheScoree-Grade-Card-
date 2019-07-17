@@ -104,10 +104,10 @@ export class GuestDashboardComponent implements OnInit {
           let modal = Number.parseInt(localStorage.getItem('modal'));
           // let modal = localStorage.getItem('modal');
 
-          if(modal === 1){
-            $('#feedbackAlert').modal();
-            localStorage.setItem('modal','0');
-          }
+          // if(modal === 1){
+          //   $('#feedbackAlert').modal();
+          //   localStorage.setItem('modal','0');
+          // }
         },
         (error) => {
           console.log(error);
