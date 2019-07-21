@@ -110,6 +110,7 @@ transform:rotate(-50deg);
 
   #scorecard{
     display : block;
+    margin-bottom: 50px;
 
     /* height: 527px; */
     /* overflow: auto; */

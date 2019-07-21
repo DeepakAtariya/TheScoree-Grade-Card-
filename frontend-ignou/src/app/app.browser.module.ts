@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -17,9 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { CommonModule } from '@angular/common';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { AppModule } from './app.module';
 
 const appRoutes : Routes = [
   {path : '', component : SetupProfileComponent ,data: {animation: 'HomePage'}},
@@ -32,26 +30,14 @@ const appRoutes : Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SetupProfileComponent,
-    LoaderComponent,
-    DashboardComponent,
-    GuestDashboardComponent,
-    FooterComponent,
-    HeaderComponent,
-    AboutComponent,
-    FeedbackComponent,
-  ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    CommonModule,
-    TransferHttpCacheModule,
-    NgtUniversalModule
+    AppModule,
+    BrowserTransferStateModule
   ],
   providers: [
     SetupProfileService,
@@ -59,4 +45,4 @@ const appRoutes : Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppBrowserModule { }

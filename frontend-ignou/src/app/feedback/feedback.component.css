@@ -87,7 +87,7 @@ textarea{
 
  #feedback_container{
 	 border:1px solid black;
-	 margin-top: 10%;
+	 margin-top: 2%;
 	 /* width: 90%; */
 	 /* height: 100%; */
 	 box-shadow: 3px 5px #888888;
@@ -97,7 +97,7 @@ textarea{
  }
 
  #guest{
-	margin-top: 5%;
+	margin-top: 4%;
 	font-weight: bold;
 	color: black;
 	font-size : 30px;

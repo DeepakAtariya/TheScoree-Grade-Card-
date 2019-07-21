@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { DashboardService } from '../dashboard/dashboard.service';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 declare var $ : any;
 
 @Component({
@@ -24,7 +25,7 @@ export class GuestDashboardComponent implements OnInit {
   total: any;
   percent: any;
   outof: any;
-  constructor(private route: Router,private activatedRoute: ActivatedRoute, private dashboardService : DashboardService) { 
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private route: Router,private activatedRoute: ActivatedRoute, private dashboardService : DashboardService) { 
 
     
 
@@ -34,7 +35,8 @@ export class GuestDashboardComponent implements OnInit {
 
 
     // console.log(this.activatedRoute.snapshot.paramMap.get('program'));
-    this.username = localStorage.getItem('username');
+    this.username = this.localStorage.getItem('username');
+    this.enrollment = this.activatedRoute.snapshot.paramMap.get('enrollment');
     
         /* fetching score data from server (laravel) */
         AppComponent.onShowLoader(1);
@@ -101,7 +103,7 @@ export class GuestDashboardComponent implements OnInit {
           this.outof = data['outof'];
           this.total_marks = data['earned_marks'];
 
-          let modal = Number.parseInt(localStorage.getItem('modal'));
+          let modal = Number.parseInt(this.localStorage.getItem('modal'));
           // let modal = localStorage.getItem('modal');
 
           // if(modal === 1){

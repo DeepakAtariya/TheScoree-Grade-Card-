@@ -22,16 +22,24 @@ Route::get('/testForm', function (Request $request) {
     // return "hey!";
 // });
 
-Route::prefix('guestdashboard')->group(function () {
-	Route::get('*',function (){
-		return redirect()->route('home');
-	})->name('guest');
-
+Route::get('guestdashboard/{name?}', function ($name = null) {
+	return redirect()->route('home');
+});
+Route::get('guestdashboard/{name?}/{rol}', function ($name = null) {
+	return redirect()->route('home');
 });
 
-	Route::get('guestdashboard',function (){
-		return redirect()->route('home');
-	})->name('guest');
+Route::get('feedback/{name?}', function ($name = null) {
+	return redirect()->route('home');
+});
+
+Route::get('feedback', function () {
+	return redirect()->route('home');
+});
+
+// Route::get('guestdashboard',function (){
+// 	return redirect()->route('home');
+// })->name('guest');
 
 
 Route::get('',function (){

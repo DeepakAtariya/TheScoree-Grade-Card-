@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 // import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 // import { SetupProfileService } from './setup-profile.service';
@@ -8,6 +8,7 @@ import * as $ from 'jquery';
 import { SetupProfileService } from './setup-profile.service';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 // import { Sharing } from 'src/resources/Sharing';
 
 
@@ -41,14 +42,14 @@ export class SetupProfileComponent implements OnInit {
   showSpinnerg: boolean;
 
 
-  constructor(private setupProfileService : SetupProfileService, private route : Router){
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private setupProfileService : SetupProfileService, private route : Router){
 
   }
 
   //Initialisation with old data and validation jquery code
   ngOnInit() {
 
-    localStorage.setItem('modal','1');
+    this.localStorage.setItem('modal','1');
 
   } //end ngOnInit
 
@@ -80,7 +81,7 @@ export class SetupProfileComponent implements OnInit {
           if (data['student']=="invalid"){
             this.guest_error = "Not registered with ignou";
           }else{
-            localStorage.setItem("username",data['student']);
+            this.localStorage.setItem("username",data['student']);
             this.route.navigate(['/guestdashboard',program,enrollment]);
           }
     },error=>{

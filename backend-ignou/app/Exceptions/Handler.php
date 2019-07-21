@@ -44,8 +44,30 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    // public function render($request, Exception $exception)
+    // {
+    //     return parent::render($request, $exception);
+    // }
+
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+        // echo "hey hey";
+        // exit;
+        if ($e instanceof ModelNotFoundException) {
+            $e = new NotFoundHttpException($e->getMessage(), $e);
+        }
+    
+        // handle Angular routes when accessed directly from the browser without the need of the '#'
+        if ($e instanceof NotFoundHttpException) {
+    
+            $url = parse_url($request->url());
+    
+            $angular_url = $url['scheme'] . '://' . $url['host'] . '/#' . $url['path'];
+            
+    
+            return response()->redirectTo($angular_url);
+        }
+    
+        return parent::render($request, $e);
     }
 }

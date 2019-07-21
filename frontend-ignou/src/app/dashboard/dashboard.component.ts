@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TouchSequence } from 'selenium-webdriver';
 import { DashboardService } from './dashboard.service';
 import { AppComponent } from '../app.component';
+import { LOCAL_STORAGE } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,14 +22,14 @@ export class DashboardComponent implements OnInit {
   password: string;
   data4small: any;
   master_data = [];
-  constructor(private route: Router, private dashboardService : DashboardService) { }
+  constructor(@Inject(LOCAL_STORAGE) private localStorage: any, private route: Router, private dashboardService : DashboardService) { }
 
   ngOnInit() {
-    this.enrollment = localStorage.getItem("enrollment");
+    this.enrollment = this.localStorage.getItem("enrollment");
 
-    this.username = localStorage.getItem("username");
-    this.password = localStorage.getItem("password");
-    const program = localStorage.getItem("program");
+    this.username = this.localStorage.getItem("username");
+    this.password = this.localStorage.getItem("password");
+    const program = this.localStorage.getItem("program");
 
     // console.log(this.username+"  "+password);
     if (this.username != null || this.password != null){
@@ -121,7 +122,7 @@ export class DashboardComponent implements OnInit {
 
   logout(){
     console.log("logout hit");
-    localStorage.clear();
+    this.localStorage.clear();
     this.route.navigate(['']);
 
   }

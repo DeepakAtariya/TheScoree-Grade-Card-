@@ -7,6 +7,9 @@
 	
 }
 
+/* #main{
+	margin-bottom: 50px;
+} */
 /* #guestSubmit:hover{
 	background-color:white;
 	color : black;
@@ -88,7 +91,8 @@ input{
     bottom:0;
     width:100%;
     height:60px;   
-    background:#6cf;
+	background:#6cf;
+	
  } */
 
  .alert-info{
@@ -123,7 +127,7 @@ input{
  #feedback_container{
 	border:1px solid black;
 	/* margin-top: 10%; */
-	width: 70%;
+	width: 60%;
 	margin: auto;
 	padding: 10px;
 	/* height: 100%; */
