@@ -1,0 +1,469 @@
+/* logout button css */
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+@media only screen and (max-width: 584px) and (min-width : 100px) {
+
+  .center {
+    /* margin: auto; */
+    /* width: 60%; */
+    /* border: 3px solid #73AD21; */
+    /* padding: 10px; */
+  }
+
+  #watermark
+  {
+ /* position:fixed; */
+ 
+ /* margin:20% 0% 0% 32%; */
+ /* margin-left:  10%;; */
+font-size: 70px;
+/* padding: 100%; */
+font-family :Arial, Helvetica, sans-serif;
+transform:rotate(-50deg);
+/* width: 60%; */
+/* padding-top: 100px; */
+ opacity:0.1;
+ z-index:50;
+ /* color:red; */
+ margin-top: 20%;
+ /* marg */
+ padding-right: 80%;
+}
+
+  
+#course_code{
+  font-size: 25px;
+}
+
+  #course_code, #total{
+    color:black;
+  }
+  #total{
+    font-size:30px;
+  }
+  
+  #assignment{
+    /* color:red; */
+    font-size: 10px;
+    width: 30%;
+    height: 40%; 
+    background-color: #f1f1f1;
+    border: 0px solid black;
+    border-radius: 50%;
+    text-align: center;
+    /* overflow: hidden; */
+    float: left;
+  }
+
+  #failed > #assignment{
+    width: 30%;
+    height:40%; 
+    background-color: #ffffff;
+    border: 0px solid black;
+    border-radius: 50%;
+    text-align: center;
+    /* overflow: hidden; */
+    float: left;
+  }
+
+  #course_code_failed, #total_failed {
+    color : red;
+  }
+
+  #course_code_failed{
+    font-size: 25px;
+  }
+
+  #total_failed{
+    font-size:30px;
+  }
+  
+  
+
+  #assignment > label{
+    padding:20px 0px;
+    /* padding-right:  */
+  }
+
+  #rest_marks{
+    text-align: left;
+    list-style: none;
+  }
+
+  #scoretable{
+    display: none;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 2px;
+    text-align: center;
+    background-color: #f1f1f1;
+    background-color:rgb(255, 255, 255);
+  }
+  
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 22px;
+  }
+
+  #scorecard{
+    display : block;
+    margin-bottom: 50px;
+
+    /* height: 527px; */
+    /* overflow: auto; */
+
+  }
+
+}
+
+@media only screen and (max-width: 767px) and (min-width : 584px) {
+  /* For mobile phones: */
+  
+ 
+  .center {
+    /* margin: auto; */
+    /* width: 60%; */
+    /* border: 3px solid #73AD21; */
+    /* padding: 10px; */
+  }
+
+  #watermark
+  {
+ /* position:fixed; */
+ 
+ /* margin:20% 0% 0% 32%; */
+ /* margin-left:  10%;; */
+font-size: 70px;
+/* padding: 100%; */
+font-family :Arial, Helvetica, sans-serif;
+transform:rotate(-50deg);
+/* width: 60%; */
+/* padding-top: 100px; */
+ opacity:0.1;
+ z-index:50;
+ /* color:red; */
+ margin-top: 20%;
+ /* marg */
+ padding-right: 80%;
+}
+
+  
+  
+
+  #course_code, #total{
+    color:black;
+  }
+  #total{
+    font-size:50px;
+  }
+  
+  #assignment{
+    width: 89px;
+    height: 82px; 
+    background-color: #f1f1f1;
+    border: 0px solid black;
+    border-radius: 50%;
+    text-align: center;
+    /* overflow: hidden; */
+    float: left;
+  }
+
+  #failed > #assignment{
+    width: 89px;
+    height: 82px; 
+    background-color: #ffffff;
+    border: 0px solid black;
+    border-radius: 50%;
+    text-align: center;
+    /* overflow: hidden; */
+    float: left;
+  }
+
+  #course_code_failed, #total_failed {
+    color : red;
+  }
+
+  #assignment > label{
+    padding:25px 0px;
+    /* padding-right:  */
+  }
+
+  #rest_marks{
+    text-align: left;
+    list-style: none;
+  }
+
+  #scoretable{
+    display: none;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    background-color:rgb(255, 255, 255);
+  }
+  
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  #scorecard{
+    display : block;
+
+    /* height: 527px; */
+    /* overflow: auto; */
+
+  }
+}
+
+
+@media only screen and (max-width : 2000px) and (min-width : 768px){
+
+  /* .table-fixed thead {
+    width: 97%;
+  }
+  .table-fixed tbody {
+    height: 230px;
+    overflow-y: auto;
+    width: 100%;
+  }
+  .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+    display: block;
+  }
+  .table-fixed tbody td, .table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 0;
+  } */
+
+  td{
+    /* color: white; */
+    /* background-color:rgb(128, 185, 128); */
+    font-weight: bold;
+  }
+
+
+  #scoretable{
+
+    display: block;
+    padding : 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+    /* height: 550px; */
+    /* width: inherit;  */
+    /* overflow: auto; */
+  }
+  #scorecard{
+    display : none;
+  } 
+}
+/* 
+@media only screen and (orientation: landscape){
+  #scoretable{
+    display: block;
+  } 
+} */
+
+
+
+.navigation {
+  width: 100%;
+  background-color: black;
+}
+
+img {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+	position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.button {
+	text-decoration: none;
+	float: right;
+  padding: 12px;
+  margin: 15px;
+  color: white;
+  width: 25px;
+  background-color: black;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+a:hover {
+  width: 100px;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* end logout button */
+
+
+.sidebar{
+    /* background-color: skyblue; */
+}
+
+.main{
+    /* background-color: aliceblue; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  /* background-color: white; */
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  /* background-color: #2196F3; */
+}
+
+input:focus + .slider {
+  /* box-shadow: 0 0 1px #2196F3; */
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+td {
+    /* white-space: nowrap; */
+    width: 20%;
+}
+
+.table-fit {
+  /* width: 10px; */
+  overflow: hidden;
+  /* white-space: wrap; */
+}
+
+
+
+#watermark
+{
+ position:fixed;
+ 
+ /* margin:20% 0% 0% 32%; */
+ margin-left:  25%;;
+font-size: 80px;
+/* padding: 100%; */
+font-family :Arial, Helvetica, sans-serif;
+transform:rotate(-50deg);
+width: 60%;
+padding-top: 100px;
+ opacity:0.1;
+ z-index:50;
+ color:black;
+}
+
+#watermark1 {
+    opacity: 0.5;
+    color: BLACK;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#watermark2 {
+    opacity: 0.5;
+    color: BLACK;
+    position: fixed;
+    top: auto;
+    left: 80%;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  /* border: 3px solid #73AD21; */
+  padding: 10px;
+}
+
+td{
+    width: 7%;
+}
+
+
+/* #footer {
+  position: absolute;;
+  bottom:0;
+  width:100%;
+  height:60px;  
+} */
+
+p{
+  font-size: 15px;
+}
+

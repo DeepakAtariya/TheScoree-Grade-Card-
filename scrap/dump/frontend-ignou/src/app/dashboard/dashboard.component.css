@@ -1,0 +1,224 @@
+/* logout button css */
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+@media only screen and (max-width: 768px) and (min-width : 10px) {
+  /* For mobile phones: */
+  
+  
+
+  #course_code, #total{
+    color:white;
+  }
+  #total{
+
+  }
+  
+  #assignment{
+    width: 89px;
+    height: 82px; 
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    /* overflow: hidden; */
+    float: left;
+  }
+
+  #assignment > label{
+    padding:25px 0px;
+    /* padding-right:  */
+  }
+
+  #rest_marks{
+    text-align: left;
+    list-style: none;
+  }
+
+  #scoretable{
+    display: none;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    /* background-color:rgb(79, 165, 79); */
+  }
+  
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  #scorecard{
+    display : block;
+    height: 527px;
+    overflow: auto;
+
+  }
+}
+
+
+@media only screen and (max-width : 1500px) and (min-width : 768px){
+
+  /* .table-fixed thead {
+    width: 97%;
+  }
+  .table-fixed tbody {
+    height: 230px;
+    overflow-y: auto;
+    width: 100%;
+  }
+  .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+    display: block;
+  }
+  .table-fixed tbody td, .table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 0;
+  } */
+
+  td{
+    /* color: white; */
+    /* background-color:rgb(128, 185, 128); */
+    font-weight: bold;
+  }
+  #scoretable{
+    
+    /* height: 550px; */
+    /* width: inherit;  */
+    /* overflow: auto; */
+  }
+  #scorecard{
+    display : none;
+  } 
+}
+/* 
+@media only screen and (orientation: landscape){
+  #scoretable{
+    display: block;
+  } 
+} */
+
+
+
+.navigation {
+  width: 100%;
+  background-color: black;
+}
+
+img {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+	position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.button {
+	text-decoration: none;
+	float: right;
+  padding: 12px;
+  margin: 15px;
+  color: white;
+  width: 25px;
+  background-color: black;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+a:hover {
+  width: 100px;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* end logout button */
+
+
+.sidebar{
+    /* background-color: skyblue; */
+}
+
+.main{
+    background-color: aliceblue;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

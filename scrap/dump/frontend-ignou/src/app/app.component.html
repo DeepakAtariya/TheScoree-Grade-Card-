@@ -1,0 +1,71 @@
+<div id="divLoading" style="margin: auto; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: rgb(15, 15, 17); z-index: 30001; opacity: 0.3;display: none;">
+    <p style="position: absolute; color: white; font-weight: bold; top: 45%; margin-left: 50%;">
+      
+      <img src="https://timesheet.teri.res.in/images/ajax-loading.gif">
+    </p>
+  </div>  
+<html>
+    <head>
+        <!-- <script></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+    </head>
+    <body>
+        <!-- <h3 class="text-center">The Project</h3> -->
+        <div [@routeAnimations]="prepareRoute(outlet)">
+            <router-outlet #outlet="outlet"></router-outlet>
+        </div>
+        <div class="modal fade" id="modal-id">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">
+                    Hello Developer,
+                  </h4>
+                </div>
+                <div class="modal-body ">
+                  Thank you for showing your interest, we appreciate it. You may suggest any feature you would like to add to this project by sending an email to <a style="font-size:12px; text-decoration:underline" href="mailto:admin@thescoree.com">admin@thescoree.com</a>.<br><br>
+                  Happy Coding!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="modal-about">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title text-center">
+                    About
+                  </h3>
+                </div>
+                <div class="modal-body">
+                  <!-- The Scoree is about your growth, currently Scoree is trying to know you well so that Scoree can help you out in that. -->
+                  <h4>What?</h4>
+                  <p>The Scoree application shows the examination results in the simplest form. This application currently covers the results of BCA and MCA courses of Indira Gandhi National Open University with the first series of release. 
+                    <!-- <br>The Scoree is the first initiative by the <strong> Codolic </strong>coding group. </p><hr> -->
+                    <h4>Why are we here?</h4>
+                    <p>In simple words, to make it easy and convenient for the students to check their results, thereby saving their precious time.</p>
+                    <hr>
+                  <h4>How?</h4>
+                  <h5>Follow these 3 easy steps to use it:</h5>
+                  <ol>
+                    <li><strong>Select the programme you are enrolled in</strong></li>
+                    <li><strong> Enter your enrollment number</strong></li>
+                    <li><strong> Hit Enter/Go </strong></li>
+                  </ol>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+      <!-- </div> -->
+</html>
