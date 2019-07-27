@@ -1,0 +1,216 @@
+[2019-07-27 14:57:59] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:168)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(102): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(90): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(498): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(114): Illuminate\\Log\\LogManager->error('Directory name ...', Array)
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(RuntimeException))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(314): App\\Exceptions\\Handler->report(Object(RuntimeException))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(118): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(RuntimeException))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 {main}
+"} 
+[2019-07-27 14:57:59] laravel.ERROR: Directory name must not be empty. {"exception":"[object] (RuntimeException(code: 0): Directory name must not be empty. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php:48)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php(48): RecursiveDirectoryIterator->__construct('', 4096)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(744): Symfony\\Component\\Finder\\Iterator\\RecursiveDirectoryIterator->__construct('', 4096, false)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(626): Symfony\\Component\\Finder\\Finder->searchInDirectory('')
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(88): Symfony\\Component\\Finder\\Finder->getIterator()
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(65): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles(Object(Illuminate\\Foundation\\Application))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(211): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#8 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#9 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+"} 
+[2019-07-27 14:58:07] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:168)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(102): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(90): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(498): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(114): Illuminate\\Log\\LogManager->error('Directory name ...', Array)
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(RuntimeException))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(314): App\\Exceptions\\Handler->report(Object(RuntimeException))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(118): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(RuntimeException))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 {main}
+"} 
+[2019-07-27 14:58:07] laravel.ERROR: Directory name must not be empty. {"exception":"[object] (RuntimeException(code: 0): Directory name must not be empty. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php:48)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php(48): RecursiveDirectoryIterator->__construct('', 4096)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(744): Symfony\\Component\\Finder\\Iterator\\RecursiveDirectoryIterator->__construct('', 4096, false)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(626): Symfony\\Component\\Finder\\Finder->searchInDirectory('')
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(88): Symfony\\Component\\Finder\\Finder->getIterator()
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(65): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles(Object(Illuminate\\Foundation\\Application))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(211): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#8 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#9 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+"} 
+[2019-07-27 14:58:07] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:168)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(102): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(90): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(498): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(114): Illuminate\\Log\\LogManager->error('Directory name ...', Array)
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(RuntimeException))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(314): App\\Exceptions\\Handler->report(Object(RuntimeException))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(118): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(RuntimeException))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 {main}
+"} 
+[2019-07-27 14:58:07] laravel.ERROR: Directory name must not be empty. {"exception":"[object] (RuntimeException(code: 0): Directory name must not be empty. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php:48)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php(48): RecursiveDirectoryIterator->__construct('', 4096)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(744): Symfony\\Component\\Finder\\Iterator\\RecursiveDirectoryIterator->__construct('', 4096, false)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(626): Symfony\\Component\\Finder\\Finder->searchInDirectory('')
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(88): Symfony\\Component\\Finder\\Finder->getIterator()
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(65): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles(Object(Illuminate\\Foundation\\Application))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(211): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#8 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#9 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+"} 
+[2019-07-27 14:58:08] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:168)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(102): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(90): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(498): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(114): Illuminate\\Log\\LogManager->error('Directory name ...', Array)
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(RuntimeException))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(314): App\\Exceptions\\Handler->report(Object(RuntimeException))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(118): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(RuntimeException))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 {main}
+"} 
+[2019-07-27 14:58:08] laravel.ERROR: Directory name must not be empty. {"exception":"[object] (RuntimeException(code: 0): Directory name must not be empty. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php:48)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php(48): RecursiveDirectoryIterator->__construct('', 4096)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(744): Symfony\\Component\\Finder\\Iterator\\RecursiveDirectoryIterator->__construct('', 4096, false)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(626): Symfony\\Component\\Finder\\Finder->searchInDirectory('')
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(88): Symfony\\Component\\Finder\\Finder->getIterator()
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(65): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles(Object(Illuminate\\Foundation\\Application))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(211): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#8 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#9 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+"} 
+[2019-07-27 14:58:08] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:168)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(102): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(90): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(498): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(114): Illuminate\\Log\\LogManager->error('Directory name ...', Array)
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(RuntimeException))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(314): App\\Exceptions\\Handler->report(Object(RuntimeException))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(118): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(RuntimeException))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 {main}
+"} 
+[2019-07-27 14:58:08] laravel.ERROR: Directory name must not be empty. {"exception":"[object] (RuntimeException(code: 0): Directory name must not be empty. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php:48)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php(48): RecursiveDirectoryIterator->__construct('', 4096)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(744): Symfony\\Component\\Finder\\Iterator\\RecursiveDirectoryIterator->__construct('', 4096, false)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(626): Symfony\\Component\\Finder\\Finder->searchInDirectory('')
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(88): Symfony\\Component\\Finder\\Finder->getIterator()
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(65): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles(Object(Illuminate\\Foundation\\Application))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(211): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#8 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#9 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+"} 
+[2019-07-27 14:58:08] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:168)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(102): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(90): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(498): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(114): Illuminate\\Log\\LogManager->error('Directory name ...', Array)
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(RuntimeException))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(314): App\\Exceptions\\Handler->report(Object(RuntimeException))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(118): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(RuntimeException))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 {main}
+"} 
+[2019-07-27 14:58:08] laravel.ERROR: Directory name must not be empty. {"exception":"[object] (RuntimeException(code: 0): Directory name must not be empty. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php:48)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php(48): RecursiveDirectoryIterator->__construct('', 4096)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(744): Symfony\\Component\\Finder\\Iterator\\RecursiveDirectoryIterator->__construct('', 4096, false)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(626): Symfony\\Component\\Finder\\Finder->searchInDirectory('')
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(88): Symfony\\Component\\Finder\\Finder->getIterator()
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(65): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles(Object(Illuminate\\Foundation\\Application))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(211): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#8 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#9 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+"} 
+[2019-07-27 14:58:08] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:168)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(102): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(90): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(498): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(114): Illuminate\\Log\\LogManager->error('Directory name ...', Array)
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(RuntimeException))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(314): App\\Exceptions\\Handler->report(Object(RuntimeException))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(118): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(RuntimeException))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 {main}
+"} 
+[2019-07-27 14:58:08] laravel.ERROR: Directory name must not be empty. {"exception":"[object] (RuntimeException(code: 0): Directory name must not be empty. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php:48)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php(48): RecursiveDirectoryIterator->__construct('', 4096)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(744): Symfony\\Component\\Finder\\Iterator\\RecursiveDirectoryIterator->__construct('', 4096, false)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(626): Symfony\\Component\\Finder\\Finder->searchInDirectory('')
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(88): Symfony\\Component\\Finder\\Finder->getIterator()
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(65): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles(Object(Illuminate\\Foundation\\Application))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(211): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#8 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#9 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+"} 
+[2019-07-27 14:58:09] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:168)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(102): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(90): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(498): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(114): Illuminate\\Log\\LogManager->error('Directory name ...', Array)
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(RuntimeException))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(314): App\\Exceptions\\Handler->report(Object(RuntimeException))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(118): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(RuntimeException))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 {main}
+"} 
+[2019-07-27 14:58:09] laravel.ERROR: Directory name must not be empty. {"exception":"[object] (RuntimeException(code: 0): Directory name must not be empty. at C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php:48)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Iterator\\RecursiveDirectoryIterator.php(48): RecursiveDirectoryIterator->__construct('', 4096)
+#1 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(744): Symfony\\Component\\Finder\\Iterator\\RecursiveDirectoryIterator->__construct('', 4096, false)
+#2 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\symfony\\finder\\Finder.php(626): Symfony\\Component\\Finder\\Finder->searchInDirectory('')
+#3 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(88): Symfony\\Component\\Finder\\Finder->getIterator()
+#4 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(65): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->getConfigurationFiles(Object(Illuminate\\Foundation\\Application))
+#5 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#6 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(211): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#7 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#8 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#9 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\IgnouProject-\\backend-ignou\\public\\index.php(57): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#11 {main}
+"} 
