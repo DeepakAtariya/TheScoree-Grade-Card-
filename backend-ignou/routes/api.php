@@ -28,7 +28,9 @@ use Illuminate\Http\Request;
     // });
 
 
+
 Route::get('count','ProfileController@count');
 
+Route::get('gotFeedback','ProfileController@gotFeedback');
 
 

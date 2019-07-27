@@ -1,6 +1,4 @@
 import { Component} from '@angular/core';
-import { Config } from 'src/resources/conf';
-import { trigger, state, style, transition, animate, query, group } from '@angular/animations';
 import { RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './animations';
 declare var $: any;

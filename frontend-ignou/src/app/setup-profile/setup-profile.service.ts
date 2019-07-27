@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Config } from 'src/resources/conf';
 import { HttpClient } from '@angular/common/http';
+import { ConfService } from '../conf.service';
 
 
 // import { Router } from '@angular/router';
@@ -18,7 +18,7 @@ export class SetupProfileService {
 
 
   submitFeedback(value: any) {
-    return this.http.post(Config.backendIgnou+"feedback",value);
+    return this.http.post(ConfService.backendIgnou+"feedback",value);
   }
 
 
@@ -33,18 +33,18 @@ export class SetupProfileService {
   }
   
   verifyEnrollment(enrollment: any) {
-    return this.http.post(Config.backendIgnou+"verifyenrollment",enrollment);
+    return this.http.post(ConfService.backendIgnou+"verifyenrollment",enrollment);
   }
 
   saveSignUpData(userData : any)
   {
     // return this.http.post();
-    return this.http.post(Config.backendIgnou+"saveSignUpData",userData);
+    return this.http.post(ConfService.backendIgnou+"saveSignUpData",userData);
   }
 
   doLogin(loginData : any)
   {
-    return this.http.post(Config.backendIgnou+"doLogin",loginData);
+    return this.http.post(ConfService.backendIgnou+"doLogin",loginData);
   }
 
 }

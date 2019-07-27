@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SetupProfileComponent } from '../app/setup-profile/setup-profile.component';
 import { SetupProfileService } from '../app/setup-profile/setup-profile.service';
-import { Sharing } from 'src/resources/Sharing';
+
 import { LoaderComponent } from './ui/loader/loader.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardService } from './dashboard/dashboard.service';
@@ -48,7 +48,7 @@ const appRoutes : Routes = [
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes,{useHash: true}),
     CommonModule,
     TransferHttpCacheModule,
     NgtUniversalModule

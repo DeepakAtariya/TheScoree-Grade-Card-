@@ -20,6 +20,24 @@ class ProfileController extends Controller
     private $email;
     private $contact;
 	
+
+	public function gotFeedback(Request $request){
+		if($request->input('key') == "5422"){
+			$count = feedback::count();
+		return response()->json([
+			'count'=>$count,
+			'data'=>feedback::get()
+		]);
+		}else{
+			return response()->json([
+				'feedback'=>'failed',
+			]);
+		}
+		
+		
+		// print_r(DB::table('score')->distinct()->count());
+	}
+
 	
 	public function count(Request $request){
 		if($request->input('key') == "5422"){

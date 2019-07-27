@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Config } from 'src/resources/conf';
+
 import { HttpClient } from '@angular/common/http';
+import { ConfService } from '../conf.service';
 
 
 // import { Router } from '@angular/router';
@@ -23,7 +24,7 @@ export class DashboardService {
 
 
   getScoresFromDatabase(studentData4database: any) {
-    return this.http.post(Config.backendIgnou+"scores/getScoresFromDatabase",studentData4database);
+    return this.http.post(ConfService.backendIgnou+"scores/getScoresFromDatabase",studentData4database);
   }
 
   datasaved='';
@@ -34,12 +35,12 @@ export class DashboardService {
   saveSignUpData(userData : any)
   {
     // return this.http.post();
-    return this.http.post(Config.backendIgnou+"saveSignUpData",userData);
+    return this.http.post(ConfService.backendIgnou+"saveSignUpData",userData);
   }
 
   getScores(studentData:any)
   {
-    return this.http.post(Config.backendIgnou+"scores/getScores",studentData);
+    return this.http.post(ConfService.backendIgnou+"scores/getScores",studentData);
   }
 
 }
