@@ -17,11 +17,10 @@ class ScoresController extends Controller
     private function updateData($row){
         
         foreach ($row as $col){
+
             
             if(strpos($col[0], 'Course') == FALSE){
-
-                /*
-				DB::table('score')->update(
+				DB::table('score')->where('course_code',$col[0])->where('student',$this->enrollment)->update(
                     array(
                         'student'   =>  $this->enrollment,
                             'course_code' => $col[0],
@@ -37,13 +36,14 @@ class ScoresController extends Controller
                             'name'=> $this->foundName
                     )
                 );
-				*/
 				
-				$student_data = DB::table('score')->where('student',$this->enrollment)->get('id');
+				
+				// $student_data = DB::table('score')->where('student',$this->enrollment)->get('id');
 				// echo sizeof($student_data);
 				// exit;
             }
         }   
+        // exit;
     }
 
 
@@ -312,7 +312,7 @@ class ScoresController extends Controller
 								->where('program',$this->program)
 								->get(['id'])[0];
 					
-					// $this->updateData($row);
+					$this->updateData($row);
 
 				}catch(\Exception $e){
 					$this->dataSavedIntoScoreTable($row);

@@ -1,6 +1,6 @@
 var url = {
      local:'http://192.168.0.102/thescoree/public/',
-     prod:'http://thescoree/public/'
+     prod:'https://thescoree.com/public/'
 };
 
 
