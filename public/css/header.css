@@ -1,3 +1,28 @@
+/* width */
+::-webkit-scrollbar {
+  width: 08px;
+  /* background: white; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 15px black; 
+  border-radius: 05px;
+  /* background: white; */
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white; 
+}
+
+
 #header_row {
     /* left: 0;
     top: 0; */
@@ -24,14 +49,14 @@
     color: white;
   }
   
-  #right{
+  #right_header{
     padding-top: 5px;
     text-align: right;
   }
   /* #right > li > a{
     padding-bottom: 10px;
   } */
-  #left{
+  #left_header{
     padding-top: 5px;
     
   }

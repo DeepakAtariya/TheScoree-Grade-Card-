@@ -46,31 +46,33 @@
     }
   
     @media only screen and (max-width: 767px) and (min-width : 10px) {
-      /* For mobile phones: */
+
       
       a{
         text-decoration: none;
         color: gray;
-        font-size:13px;
-        /* padding-top: 5px; */
+        font-size:10px;
       }
     
       a:hover{
         text-decoration: none;
         color:white;
-        /* font-weight: bold; */
       }
   
       #owner{
         text-decoration: none;
         color: gray;
-        font-size:12px;
+        font-size:10px;
+        margin-bottom: 5px;
       }
   
       #left, #right{
-        padding-top: 5px;
+        text-align: center;
       }
-    
+      
+      .fa{
+        font-size:10px;
+      }
     }
     
     

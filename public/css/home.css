@@ -18,11 +18,10 @@
 	border-bottom-color: black;
 } */
 
-#guestSubmit:hover{
-	border-bottom-color: black;
+#go:hover{
 	background: none;
-	border:2px solid black;
-	transition: border 0.5s;
+	border:1.5px solid black;
+	transition: border 0.3s;
 	
 }
 
@@ -32,13 +31,13 @@
 	/* border:2px solid black; */
     /* border:0px solid white; */
     /* width: 80%; */
-	border: 0;
-	border-bottom: 2px solid currentcolor; 
-	font-weight: bold;
-	letter-spacing: .15em;
-	border-radius: 5px;
-	border-bottom-color: lightgray;
+	background: white;
+	border:1px;
+	border-bottom-color: black;
+	color: red;
 }
+
+
 
 select {
 	text-align: center;	
@@ -130,6 +129,7 @@ input{
 	/* margin-top: 10%; */
 	width: 60%;
 	margin: auto;
+	margin-top: 4%;
 	padding: 10px;
 	/* height: 100%; */
 	box-shadow: 3px 5px #888888;
@@ -142,6 +142,15 @@ input{
 	/* margin-top: 10%; */
 }
 
+input#go{
+	
+    background: white;
+    width: 20%;
+	border-bottom-color: gray;
+	border-radius: 5px;
+
+}
+
 
 @media only screen and (max-width: 767px) and (min-width : 10px) {
 
@@ -150,6 +159,7 @@ input{
 		/* margin-top: 10%; */
 		width: 100%;
 		margin: auto;
+		/* margin-top: 4%; */
 		padding: 10px;
 		/* height: 100%; */
 		box-shadow: 3px 5px #888888;
@@ -158,4 +168,10 @@ input{
 	
 	}
 
+}
+
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

@@ -71,18 +71,18 @@ export class SetupProfileComponent implements OnInit {
       // this.showSpinnerg = true;
       this.setupProfileService.verifyEnrollment({
         enrollment : enrollment,
-        program : program
+          program : program
       })
         .subscribe(data  => {
           // this.showSpinnerg = false;
           AppComponent.onShowLoader(0);
           console.log(data);
-          // this.showSpinner = false;
+                         // this.showSpinner = false;
           if (data['student']=="invalid"){
-            this.guest_error = "Not registered with ignou";
+              this.guest_error = "Not registered with ignou";
           }else{
-            this.localStorage.setItem("username",data['student']);
-            this.route.navigate(['/guestdashboard',program,enrollment]);
+             this.localStorage.setItem("username",data['student']);
+                this.route.navigate(['/guestdashboard',program,enrollment]);
           }
     },error=>{
       console.log(error);
@@ -90,5 +90,5 @@ export class SetupProfileComponent implements OnInit {
     });
   
     }
-  }
+  } 
 }

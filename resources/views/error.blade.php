@@ -1,0 +1,5 @@
+@include('header')
+
+{{$message}}
+
+@include('footer')

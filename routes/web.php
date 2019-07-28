@@ -31,10 +31,11 @@ Route::get('/',function (){
 	// return "view('index')";
 })->name('home');
 
-// Route::post('getGradeCard','ScoresController.php@getGradeCard')->name('getGradeCard');
-Route::get('/test',function (){
-    return "Asdasd";
-})->name('test');
+Route::post('getGradeCard','ScoresController@getGradeCard')->name('getGradeCard');
+Route::get('scores','ScoresController@scores')->name('scores');
+// Route::get('/test',function (){
+//     return "Asdasd";
+// })->name('test');
 
 // Route::get('',function (){
 	// return view('welcome');

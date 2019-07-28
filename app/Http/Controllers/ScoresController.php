@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class ScoresController extends Controller
 {
@@ -37,8 +40,8 @@ class ScoresController extends Controller
 				*/
 				
 				$student_data = DB::table('score')->where('student',$this->enrollment)->get('id');
-				echo sizeof($student_data);
-				exit;
+				// echo sizeof($student_data);
+				// exit;
             }
         }   
     }
@@ -124,16 +127,20 @@ class ScoresController extends Controller
         // echo $program;
         $this->program = $request->input('program');
         $this->enrollment = $request->input('enrollment');
+        // echo $request->input('program')."<br>". $request->input('enrollment');
+        // exit;
         
 
 
-        if (strcmp($this->program,"ASSO")==0 || strcmp($this->program,"BA")==0 || strcmp($this->program,"BCOM")==0 || strcmp($this->program,"BDP")==0 || strcmp($this->program,"BSC")==0) {
-            $grade_card_url = "https://gradecard.ignou.ac.in/gradecardB/Result.asp";
-        }else if(strcmp($this->program,"BCA")==0 || strcmp($this->program,"MCA")==0 || strcmp($this->program,"MP")==0 || strcmp($this->program,"MPB")==0 || strcmp($this->program,"PGDHRM")==0 || strcmp($this->program,"PGDFM")==0 || strcmp($this->program,"PGDOM")==0 || strcmp($this->program,"PGDMM")==0 || strcmp($this->program,"PGDFMP")==0){
-            $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardM/Result.asp';
-        }else{
-            $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardR/Result.asp';
-        }
+        // if (strcmp($this->program,"ASSO")==0 || strcmp($this->program,"BA")==0 || strcmp($this->program,"BCOM")==0 || strcmp($this->program,"BDP")==0 || strcmp($this->program,"BSC")==0) {
+        //     $grade_card_url = "https://gradecard.ignou.ac.in/gradecardB/Result.asp";
+        // }else if(strcmp($this->program,"BCA")==0 || strcmp($this->program,"MCA")==0 || strcmp($this->program,"MP")==0 || strcmp($this->program,"MPB")==0 || strcmp($this->program,"PGDHRM")==0 || strcmp($this->program,"PGDFM")==0 || strcmp($this->program,"PGDOM")==0 || strcmp($this->program,"PGDMM")==0 || strcmp($this->program,"PGDFMP")==0){
+        //     $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardM/Result.asp';
+        // }else{
+        //     $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardR/Result.asp';
+        // }
+
+        $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardM/Result.asp';
 
         try{
             $response = $client->request('POST', $grade_card_url,[
@@ -148,6 +155,7 @@ class ScoresController extends Controller
             
             $body = $response->getBody()->getContents();
             // echo $body;
+            // exit;
             $dom = new \IvoPetkov\HTML5DOMDocument();
             $dom->loadHTML($body);
             $data = $dom->querySelectorAll('b');
@@ -304,7 +312,7 @@ class ScoresController extends Controller
 								->where('program',$this->program)
 								->get(['id'])[0];
 					
-					$this->updateData($row);
+					// $this->updateData($row);
 
 				}catch(\Exception $e){
 					$this->dataSavedIntoScoreTable($row);
@@ -317,19 +325,29 @@ class ScoresController extends Controller
                 // inserting updated grade card into score table
                 
 
-                return response()->json([
-                    'scores' => $row,
+                // return response()->json([
+                //     'scores' => $row,
+                //     'earned_marks' => $earned_marks,
+                //     'outof' => $outof,
+                //     'percent'=>($earned_marks/$outof)*100
+                // ],201);
+
+                return [
+                    'scores'=>$row,
+                    'name'=>str_replace('</b>','',$foundName),
+                    'enrollment'=>$this->enrollment,
                     'earned_marks' => $earned_marks,
                     'outof' => $outof,
-                    'percent'=>($earned_marks/$outof)*100
-                ],201);
+                    'percent'=>round(($earned_marks/$outof)*100,2),
+                    'status'=>'200'
+                ];
             }else{
 
                 // echo "No results";
-                return response()->json([
+                return [
                     'scores' => $row,
-                    'status' => 'database failed'
-                ],201);
+                    'status' => '404',   
+                ];
             }
 
             // return response()->json([
@@ -356,7 +374,26 @@ class ScoresController extends Controller
 
     public function getGradeCard(Request $request)
     {
-        
-        return "asda";
+        $data = $this->getScores($request);
+        return redirect()->route('scores',[
+            'program'=>$request->input('program'),
+            'enrollment'=>$request->input('enrollment')
+        ]);
+        // print_r($data['scores']);
+    }
+
+    public function scores(Request $request)
+    {
+
+        $data = $this->getScores($request);
+        if($data['status']!="404"){
+            return view('scores',[
+                'scores'=>$data
+            ]);
+        }else{
+            return view('error',[
+                'message'=>'Not available, please check your enrollment and program'
+            ]);
+        }
     }
 }
