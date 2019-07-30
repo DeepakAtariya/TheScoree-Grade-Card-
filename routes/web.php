@@ -26,8 +26,18 @@ Route::get('/testForm', function (Request $request) {
 // })->name('guest');
 
 
-Route::get('/',function (){
+Route::get('',function (){
 	return view('index');
+	// return "view('index')";
+})->name('home');
+
+Route::get('about',function (){
+	return view('about');
+	// return "view('index')";
+})->name('home');
+
+Route::get('contribute',function (){
+	return view('contribute');
 	// return "view('index')";
 })->name('home');
 

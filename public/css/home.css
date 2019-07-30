@@ -6,6 +6,30 @@
 	padding-bottom: 40px;
 	
 }
+#contribute{
+	font-weight: bold;
+	color: white;
+	font-size : 25px;
+	/* padding: 10px; */
+	padding-bottom: 20px;
+	background: black;
+	text-align: center;
+	
+}
+#contribute >th {
+	text-align: center;
+	padding: 5px 1px;
+}
+
+#mail_admin:hover{
+	color:blue;
+}
+
+#mail_admin{
+	color: blue;
+	font-size:15px; 
+	text-decoration:underline;
+}
 
 /* #main{
 	margin-bottom: 50px;
@@ -137,6 +161,19 @@ input{
 	padding-right: 20px;
 
 }
+ #contribute_container{
+	border:1px solid black;
+	/* margin-top: 10%; */
+	width: 60%;
+	margin: auto;
+	margin-top: 6%;
+	padding: 10px;
+	/* height: 100%; */
+	box-shadow: 3px 5px #888888;
+	padding-left: 20px;
+	padding-right: 20px;
+
+}
 
 #row{
 	/* margin-top: 10%; */
@@ -160,6 +197,19 @@ input#go{
 		width: 100%;
 		margin: auto;
 		/* margin-top: 4%; */
+		padding: 10px;
+		/* height: 100%; */
+		box-shadow: 3px 5px #888888;
+		padding-left: 20px;
+		padding-right: 20px;
+	
+	}
+	#contribute_container{
+		border:1px solid black;
+		/* margin-top: 10%; */
+		width: 100%;
+		margin: auto;
+		margin-top: 8%;
 		padding: 10px;
 		/* height: 100%; */
 		box-shadow: 3px 5px #888888;

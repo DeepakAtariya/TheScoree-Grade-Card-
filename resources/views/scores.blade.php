@@ -226,11 +226,13 @@
                           @endforeach
                       </tbody>
                   </table>
+                  <br>
                   </div>
                   
               </div>
               
           </div>
+          
           <!-- end of score table row -->
 
       </div>

@@ -23,7 +23,7 @@
     }
   
     #left{
-  
+      text-decoration: none;
     }
   
   
@@ -39,6 +39,12 @@
       color:white;
       /* font-weight: bold; */
     }
+
+    a::after{
+      text-decoration: none;
+      color:white;
+    }
+
     #owner{
       text-decoration: none;
       color: gray;
@@ -55,6 +61,11 @@
       }
     
       a:hover{
+        text-decoration: none;
+        color:white;
+      }
+
+      a::after{
         text-decoration: none;
         color:white;
       }

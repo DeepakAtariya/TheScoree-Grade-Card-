@@ -1,5 +1,5 @@
 var url = {
-     local:'http://192.168.0.102/thescoree/public/',
+     local:'http://192.168.0.105/thescoree/public/',
      prod:'https://thescoree.com/public/'
 };
 
