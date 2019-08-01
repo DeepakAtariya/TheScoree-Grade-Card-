@@ -1,0 +1,6 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "ivopetkov/html5-dom-document-php": "2.*"
+    }
+}
