@@ -14,28 +14,51 @@
                         @endphp
                         @foreach($termendresult as $data)
                             @if($i > 0)
+                            @if(($data[2]==50 && $data[1]>19) || ($data[2]==100 && $data[1]>39) )
                       <div class="column">
                           <div class="card" >
                               <div class="row">
                                   <div  class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                                       <h2 id="course_code" style="padding-right:10px;">{{ $data[0] }}</h2>
+                                      <h3 id="total" ><span style="" >{{ $data[1] }}</span></h3>
                                   </div>
-                                  
+
                                   <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                         
-                                          <div id="assignment" >
-                                              <label>Marks<br> {{ $data[1] }} / {{ $data[2] }}</label>
+                                          <div id="assignment">
+                                              <label>Max Marks<br>{{ $data[2] }}</label>
                                           </div>
                                           <div id="assignment" >
                                               <label>Month Year <br> {{ $data[3] }}</label>
                                           </div>
                                   </div>
-                                  
-                                  
                               </div>
-                              
                           </div>
                       </div>
+                      @else
+                      <div class="column">
+                          <div class="card" >
+                              <div class="row" style="color:red">
+                                  <div  class="col-xs-5 col-sm-5 col-md-5 col-lg-5" id="failed_head">
+                                      <h2 id="course_code" style="padding-right:10px;">{{ $data[0] }}</h2>
+                                      <h3 id="total" ><span style="" >{{ $data[1] }}</span></h3>
+                                  </div>
+
+                                  <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                                        
+                                          <div id="assignment">
+                                              <label>Max Marks<br> {{ $data[2] }}</label>
+                                          </div>
+                                          <div id="assignment" >
+                                              <label>Month Year <br> {{ $data[3] }}</label>
+                                          </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                    @endif 
+
                       @endif
                        @php
                                 $i++;
