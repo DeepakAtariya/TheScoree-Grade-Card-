@@ -23,7 +23,7 @@
                   <tbody>
                     <tr>
                       <td>
-                      <div class=" modal-body">
+                      <div class=" modal-body" id="content_modal">
                   Thank you for showing your interest, we appreciate it. You may suggest any feature you would like to add to this project by sending an email to <a style="" href="mailto:admin@thescoree.com" id="mail_admin">admin@thescoree.com</a><br><br>
                   Happy Coding!
                 </div>

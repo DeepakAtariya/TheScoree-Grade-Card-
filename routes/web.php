@@ -34,15 +34,27 @@ Route::get('',function (){
 Route::get('about',function (){
 	return view('about');
 	// return "view('index')";
-})->name('home');
+})->name('about');
 
 Route::get('contribute',function (){
 	return view('contribute');
 	// return "view('index')";
-})->name('home');
+})->name('contribute');
+
+Route::get('privacypolicy',function (){
+	return view('privacypolicy');
+	// return "view('index')";
+})->name('privacypolicy');
+
+Route::get('disclaimer',function (){
+	return view('disclaimer');
+	// return "view('index')";
+})->name('disclaimer');
 
 Route::post('getGradeCard','ScoresController@getGradeCard')->name('getGradeCard');
 Route::get('scores','ScoresController@scores')->name('scores');
+
+Route::get('termend','TermEndController@termend');
 // Route::get('/test',function (){
 //     return "Asdasd";
 // })->name('test');

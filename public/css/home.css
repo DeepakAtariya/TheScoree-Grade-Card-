@@ -1,3 +1,33 @@
+
+#modal-id{
+	/* width: 200px; */
+}
+.modal-title{
+	padding:10px;
+	text-align: center;
+	background: black;
+	color:white;
+	border:3px solid white;
+	border-radius: 10px;
+}
+
+.close{
+	color:white;
+	background: white;
+	margin-right: 10px;
+	/* font-size: 50px; */
+	opacity: 1.0;
+}
+
+.close:hover{
+	color:white;
+}
+
+.term-end-enrollment{
+	padding-right: 10px;
+}
+
+
 #guest{
 	font-weight: bold;
 	color: black;

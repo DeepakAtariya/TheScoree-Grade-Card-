@@ -3,6 +3,8 @@ var url = {
      prod:'https://thescoree.com/public/'
 };
 
+$('#modal-id').modal('show');
+
 
 function validata(){
     console.log(url);
@@ -43,6 +45,30 @@ function validata(){
             console.log(error);
             $('#divLoading').hide();
         });
+    }
+
+    
+
+    
+    return false;
+}
+function validataTermend(){
+    console.log(url);
+    
+    // $('#divLoading').show();
+    // alert('sadasd');
+    // var program = $('#guest_program');
+    var enrollment = $('#termendEnrollment');
+    // console.log(enrollment.val());
+    
+    
+    if(enrollment.val() === "" ){
+        enrollment.css('border-color','red');
+        // $('#divLoading').hide();
+        return false;
+    }else{
+        enrollment.css('border-color','black');
+        return true;
     }
 
     

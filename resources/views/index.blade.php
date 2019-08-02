@@ -86,6 +86,46 @@
         </div>
     </div>
 </div>
+
+
+
+<div class="modal fade" id="modal-id">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Term-end Results out!</h4>
+            </div>
+            <form action="{{ url('termend') }}" method="get" class="form-inline" role="form" name="termendform">
+            <div class="modal-body text-center" >
+                
+                
+                
+                
+                    
+                    
+                   
+                        <div class="form-group ">
+                        <!-- <label class="term-end-enrollment" for="">Enrollment</label> -->
+                            
+                            <input type="number" class="" id="termendEnrollment" name="enrollment" placeholder="Enrollment">
+                            <input type="submit" name="guest-submit" id="go"  onclick="return validataTermend()" tabindex="4" class=" " value="Go" >
+                        </div>
+                   
+                
+                    
+                
+                    
+                
+                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                
+                
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script src="{{ URL::asset('js/home.js') }}"></script>
 
 @include('footer')
