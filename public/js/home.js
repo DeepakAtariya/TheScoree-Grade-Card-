@@ -1,5 +1,5 @@
 var url = {
-     local:'http://192.168.0.105/thescoree/public/',
+     local:'http://172.16.104.164:7201/thescoree/public/',
      prod:'https://thescoree.com/public/'
 };
 
@@ -39,7 +39,7 @@ function validata(){
                 alert('Invalid details');
                 $('#message').css('display','block');
             }else{
-                $('form').submit();
+                $('#gradeCardForm').submit();
             }
         }).fail(function (error) {
             console.log(error);
@@ -52,8 +52,10 @@ function validata(){
     
     return false;
 }
-function validataTermend(){
-    console.log(url);
+function validataTermend(){    
+    console.log($('#termendEnrollment').val().length);
+    // return false;
+    
     
     // $('#divLoading').show();
     // alert('sadasd');
@@ -66,15 +68,13 @@ function validataTermend(){
         enrollment.css('border-color','red');
         // $('#divLoading').hide();
         return false;
+    }else if(enrollment.val().length!=9){
+        enrollment.css('border-color','red');
+        return false;
     }else{
         enrollment.css('border-color','black');
         return true;
     }
-
-    
-
-    
-    return false;
 }
 
 /*

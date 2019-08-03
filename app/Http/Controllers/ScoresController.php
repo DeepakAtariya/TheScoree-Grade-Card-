@@ -19,7 +19,7 @@ class ScoresController extends Controller
         foreach ($row as $col){
 
             
-            if(strpos($col[0], 'Course') == FALSE){
+            if(strpos($col[0], 'rse') == FALSE){
 				DB::table('score')->where('course_code',$col[0])->where('student',$this->enrollment)->update(
                     array(
                         'student'   =>  $this->enrollment,

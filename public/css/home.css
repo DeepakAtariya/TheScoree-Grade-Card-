@@ -1,4 +1,18 @@
 
+#click_here{
+	color:black;
+	font-size: inherit;
+	text-decoration: underline;
+}
+
+#close_button:hover{
+	color:black;
+}
+#close_button{
+	background: inherit;
+	padding-bottom: 10px;
+}
+
 #modal-id{
 	/* width: 200px; */
 }
@@ -140,6 +154,29 @@ input{
 	border-bottom-color: black;
   }
 
+  #termendEnrollment{
+	width: 80%;
+	margin-bottom: 1em;
+	padding: .25em;
+	border: 0;
+	border-bottom: 2px solid currentcolor; 
+	font-weight: bold;
+	letter-spacing: .15em;
+	border-radius: 0;
+	border-bottom-color: lightgray;
+		
+  }
+
+  #termendEnrollment:hover {
+	outline: 0;
+	border-bottom-color: black;
+  }
+
+#termendEnrollment:focus, #termendEnrollment:active {
+	outline: 0;
+	border-bottom-color: black;
+  }
+
   /* #footer {
     position:absolute;
     bottom:0;
@@ -218,6 +255,12 @@ input#go{
 
 }
 
+.alert-info{
+	background: rgb(236, 236, 236);
+	border: white;
+	width: 40%;
+  }
+
 
 @media only screen and (max-width: 767px) and (min-width : 10px) {
 
@@ -247,6 +290,13 @@ input#go{
 		padding-right: 20px;
 	
 	}
+
+	.alert-info{
+		background: rgb(236, 236, 236);
+		border: white;
+		width: 90%;
+	}
+	
 
 }
 

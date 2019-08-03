@@ -16,10 +16,17 @@
                     <tr>
                       <td>
                       <div class="modal-body">
-                        <p>Hello I am scoree, I am general purpose website for ignou students developed by Deepak Atariya. I am trying to improve the gaps where students face while studying in open university. This website helps you to work on your weak points.</p>
-                        <p>I currently cover the results of BCA and MCA courses of Indira Gandhi National Open University with the first series of release.</p>
+                        <p>Hello, I am Scoree! I am a general purpose website developed by <a href="https://github.com/DeepakAtariya" style="color:black; font-size:16px;" >Deepak</a>, for the students of IGNOU. I am here to solve the problems faced by the students studying here.I would be helping you in working on your weak points.</p>
                      
-                        <p>There is a lot more to come, stay tuned.</p>
+                        <h3>Releases</h3>
+
+
+                        <p>
+                          <!-- <strong><span class="glyphicon glyphicon-info-sign"></span> Release 1.1 : </strong> Term-End Results are  -->
+                          <strong><span class="glyphicon glyphicon-info-sign"></span> Release 1.0 : </strong> With this release you can check the results of IGNOU BCA/MCA courses only.
+                        </p>
+
+                        <p>There's a lot more to come, so stay tuned!</p>
                       </div>
                       </td>
                     </tr>

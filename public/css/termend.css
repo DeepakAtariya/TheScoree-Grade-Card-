@@ -1,25 +1,35 @@
+
+#home{
+
+  color: black;
+
+}
+#home:hover{
+
+  text-decoration: underline;
+
+}
+
+#termendresult_message{
+  margin-bottom: 15px;
+  
+}
+
+.btn-link{
+  font-size: 15px;
+}
+
+
 @media only screen and (max-width: 584px) and (min-width : 100px) {
 
-  
+.alert-info{
+  background: lightgray;
+}
 
-  #watermark
-  {
- /* position:fixed; */
- 
- /* margin:20% 0% 0% 32%; */
- /* margin-left:  10%;; */
-font-size: 70px;
-/* padding: 100%; */
-font-family :Arial, Helvetica, sans-serif;
-transform:rotate(-50deg);
-/* width: 60%; */
-/* padding-top: 100px; */
- opacity:0.1;
- z-index:50;
- /* color:red; */
- margin-top: 20%;
- /* marg */
- padding-right: 80%;
+
+  
+.fail{
+  color: red;
 }
 
   
@@ -45,8 +55,10 @@ transform:rotate(-50deg);
     text-align: center;
     /* overflow: hidden; */
     float: left;
+    margin-right:10px;
+    margin-top:10px;
   }
-
+  
   #failed > #assignment{
     width: 30%;
     height:9%; 
@@ -112,31 +124,17 @@ transform:rotate(-50deg);
 }
 
 @media only screen and (max-width: 767px) and (min-width : 584px) {
+  
+
+  #termendresult_message{
+    margin-bottom: 15px;
+  }
+
   /* For mobile phones: */
-  
 
-
-  #watermark
-  {
- /* position:fixed; */
- 
- /* margin:20% 0% 0% 32%; */
- /* margin-left:  10%;; */
-font-size: 70px;
-/* padding: 100%; */
-font-family :Arial, Helvetica, sans-serif;
-transform:rotate(-50deg);
-/* width: 60%; */
-/* padding-top: 100px; */
- opacity:0.1;
- z-index:50;
- /* color:red; */
- margin-top: 20%;
- /* marg */
- padding-right: 80%;
-}
-
-  
+  .fail{
+    color: red;
+  }
   
 
   #course_code, #total{
@@ -155,6 +153,8 @@ transform:rotate(-50deg);
     text-align: center;
     /* overflow: hidden; */
     float: left;
+    margin-right:10px;
+    margin-top:10px;
   }
 
   #failed > #assignment{
@@ -202,6 +202,7 @@ transform:rotate(-50deg);
 
   #scorecard{
     display : block;
+    margin-bottom: 50px;
 
     /* height: 527px; */
     /* overflow: auto; */
@@ -210,28 +211,25 @@ transform:rotate(-50deg);
 }
 
 
-@media only screen and (max-width : 4000px) and (min-width : 768px){
+@media only screen and (max-width : 8000px) and (min-width : 768px){
+
+
+  #termendresult_message{
+
+    width: 80%;
+    margin-left: 10%;
+
+  }
+  .table{
+    width: 80%;
+    margin: auto;
+  }
 
   #fail_table{
     color:rgb(212, 74, 74); 
 
   }
 
-  /* .table-fixed thead {
-    width: 97%;
-  }
-  .table-fixed tbody {
-    height: 230px;
-    overflow-y: auto;
-    width: 100%;
-  }
-  .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-    display: block;
-  }
-  .table-fixed tbody td, .table-fixed thead > tr> th {
-    float: left;
-    border-bottom-width: 0;
-  } */
 
   td{
     /* color: white; */
@@ -254,6 +252,7 @@ transform:rotate(-50deg);
   }
   #scorecard{
     display : none;
+    margin-bottom: 50px;
   } 
 }
 /* 
@@ -390,41 +389,6 @@ td {
   /* width: 10px; */
   overflow: hidden;
   /* white-space: wrap; */
-}
-
-
-
-#watermark
-{
- position:fixed;
- 
- /* margin:20% 0% 0% 32%; */
- margin-left:  25%;;
-font-size: 80px;
-/* padding: 100%; */
-font-family :Arial, Helvetica, sans-serif;
-transform:rotate(-50deg);
-width: 60%;
-padding-top: 100px;
- opacity:0.1;
- z-index:50;
- color:black;
-}
-
-#watermark1 {
-    opacity: 0.5;
-    color: BLACK;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-#watermark2 {
-    opacity: 0.5;
-    color: BLACK;
-    position: fixed;
-    top: auto;
-    left: 80%;
 }
 
 .center {

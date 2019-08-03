@@ -1,5 +1,5 @@
 @include('header')
 
-{{$message}}
+{{ $message }}
 
 @include('footer')

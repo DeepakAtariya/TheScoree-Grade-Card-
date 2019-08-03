@@ -62,8 +62,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* background-color: #4CAF50; */
   color: white;
   /* padding: 16px; */
-  font-size: 16px;
+  font-size: 19px;
   border: none;
+}
+
+.glyphicon{
+  font-size:19px;
 }
 
 .dropdown {
@@ -128,13 +132,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li>
             <!-- <span class="glyphicon glyphicon-th toggle"></span>
             <div id="target"></div> -->
-              <div class="dropdown">
+              <!-- <div class="dropdown"> -->
                 <!-- <button class="dropbtn">Dropdown</button> -->
-                <span class="dropbtn glyphicon glyphicon-th toggle"></span>
-                <div class="dropdown-content">
-                  <a href="#">Stay Tuned...</a>
-                </div>
-              </div>
+                <span class="dropbtn glyphicon glyphicon-th toggle" style="font-size:18px;"></span>
+                  <!-- <div class="dropdown-content">
+                    <a href="#">Stay Tuned...</a>
+                  </div> -->
+              <!-- </div> -->
             </li>  
           <li></li>
         </ul>

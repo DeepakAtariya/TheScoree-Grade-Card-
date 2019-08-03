@@ -41,9 +41,12 @@ class ProfileController extends Controller
 	public function count(Request $request){
 		if($request->input('key') == "5422"){
 			$count = DB::table('score')->distinct()->get(['student'])->count();
+			$countViaTermEnd = DB::table('termends')->get(['enrollment'])->count();
 		return response()->json([
-			'count'=>$count,
-			'data'=>DB::table('score')->distinct()->get(['student','name','program'])
+            'count'=>$count,
+            'termend_count'=>$countViaTermEnd,
+            'data'=>DB::table('score')->distinct()->get(['student','name','program']),
+            'viaTermend'=>DB::table('termends')->distinct()->get(['enrollment','program'])
 		]);
 		}else{
 			return response()->json([
