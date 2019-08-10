@@ -211,7 +211,7 @@ transform:rotate(-50deg);
 }
 
 
-@media only screen and (max-width : 4000px) and (min-width : 768px){
+@media only screen and (max-width : 8000px) and (min-width : 768px){
 
   #fail_table{
     color:rgb(212, 74, 74); 

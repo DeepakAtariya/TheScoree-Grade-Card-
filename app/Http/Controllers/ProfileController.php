@@ -261,16 +261,6 @@ class ProfileController extends Controller
     }
 	
 	
-	public function feedback(Request $req){
-		$modal = new feedback();
-		$modal->name = $req->input('name');
-		$modal->email= $req->input('email');
-		$modal->feedback= $req->input('improvement');
-		
-		return response()->json([
-			'status'=>$modal->save()
-		]);
-	
-	}
+
 
 }

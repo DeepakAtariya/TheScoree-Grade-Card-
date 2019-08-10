@@ -31,6 +31,11 @@ Route::get('',function (){
 	// return "view('index')";
 })->name('home');
 
+Route::get('home',function (){
+	return view('index');
+	// return "view('index')";
+})->name('home');
+
 Route::get('about',function (){
 	return view('about');
 	// return "view('index')";
@@ -46,6 +51,12 @@ Route::get('privacypolicy',function (){
 	// return "view('index')";
 })->name('privacypolicy');
 
+Route::get('contactus',function (){
+	return view('contactus');
+	// return "view('index')";
+})->name('contactus');
+
+
 Route::get('disclaimer',function (){
 	return view('disclaimer');
 	// return "view('index')";
@@ -53,8 +64,10 @@ Route::get('disclaimer',function (){
 
 Route::post('getGradeCard','ScoresController@getGradeCard')->name('getGradeCard');
 Route::get('scores','ScoresController@scores')->name('scores');
+Route::post('submit_contactus','FeedbackController@feedback')->name('submit_contactus'); 
 
 Route::get('termend','TermEndController@termend');
+
 // Route::get('/test',function (){
 //     return "Asdasd";
 // })->name('test');

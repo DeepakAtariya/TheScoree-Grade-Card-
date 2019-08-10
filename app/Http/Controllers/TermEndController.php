@@ -43,6 +43,7 @@ class TermEndController extends Controller
                 ]);        
                 
                 $body = $response->getBody()->getContents();
+                
     
                 $dom = new \IvoPetkov\HTML5DOMDocument();
                 $dom->loadHTML($body);

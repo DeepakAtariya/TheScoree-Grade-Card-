@@ -6,6 +6,8 @@
               <li><a href="{{ url('about') }}" data-toggle="modal"  href='#modal-about'> &#8226; About & Releases</a></li>
               <li><a href="{{ url('contribute') }}"  data-toggle="modal"  href='#modal-id'> &#8226; Contribute</a></li>
               <li><a href="{{ url('disclaimer') }}"  data-toggle="modal"  href='#modal-id'> &#8226; Disclaimer</a></li>
+              <li><a href="{{ url('privacypolicy') }}"  data-toggle="modal"  href='#modal-id'> &#8226; Privacy Policy</a></li>
+              <li><a href="{{ url('contactus') }}"  data-toggle="modal"  href='#modal-id'> &#8226; Contact Us</a></li>
 
             </ul>
       </div>

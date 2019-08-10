@@ -1,11 +1,11 @@
 @include('header')
 
 <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
-<div class="text-center" id="main" style="padding: 2%;">
+<div class="" id="main" style="padding: 2%;">
     <div class="row" id="row">
-        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+        <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1">
         </div>
-        <div class="col-xs-10 col-lg-10 col-md-10 col-sm-10 ">
+        <div class="col-xs-12 col-lg-10 col-md-10 col-sm-12 ">
             <table id="contribute_container" >
                   <thead>
                     <tr id="contribute">
@@ -33,7 +33,7 @@
                   </tbody>
                 </table>
         </div>
-        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+        <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1">
         </div>
     </div>
 </div>

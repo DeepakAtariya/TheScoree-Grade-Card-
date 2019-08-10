@@ -1,9 +1,4 @@
-<div id="divLoading" style="margin: auto; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: rgb(15, 15, 17); z-index: 30001; opacity: 0.3;display: none;">
-    <p style="position: absolute; color: white; font-weight: bold; top: 45%; margin-left: 50%;">
-      
-      <img src="https://timesheet.teri.res.in/images/ajax-loading.gif">
-    </p>
-  </div> 
+
 <!DOCTYPE html>
 <html lang="">
   <head>
@@ -104,6 +99,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   </head>
   <body>
+  <div id="divLoading" style="margin: auto; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: rgb(15, 15, 17); z-index: 30001; opacity: 0.3;display: none;">
+    <p style="position: absolute; color: white; font-weight: bold; top: 45%; margin-left: 50%;">
+      
+      <img src="https://timesheet.teri.res.in/images/ajax-loading.gif">
+    </p>
+  </div> 
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWXS75V"
