@@ -24,7 +24,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="{{ URL::asset('images/favicon.ico') }}">
-<title>The Scoree - Check Ignou Results, grade card with new experience</title>
+
+@php
+
+$current_url = url()->current();
+
+if(strpos($current_url,"contactus") > 0){
+  echo "<title>Contact - Contact us to give your suggestions, the scoree tries best to make your experience better</title>";
+}elseif(strpos($current_url,"about") > 0){
+  echo "<title>About - The Scoree - Read about the scoree, releases and contact for improvements</title>";
+}elseif(strpos($current_url,"privacypolicy") > 0){
+  echo "<title>Privacy policy - The Scoree - Read the privacy policy for awareness, what and how do we work</title>";
+}elseif(strpos($current_url,"disclaimer") > 0){
+  echo "<title>Disclaimer - The Scoree - Read the disclaimer carefully for following things thescoree is not responsible.</title>";
+}elseif(strpos($current_url,"contribute") > 0){
+  echo "<title>Contribute - The Scoree - Developers are everyone who keeps the idea to develop anything. We would like to hear from them.</title>";
+}elseif(strpos($current_url,"scores") > 0){
+  echo "<title>Grade Card - The Scoree - Shows the grade card with more indicators and mobile friendly.</title>";
+}else{
+  echo "<title>The Scoree - Check Ignou Results, grade card with new experience</title>";
+}
+
+@endphp
+
+
+
 
 
 <script

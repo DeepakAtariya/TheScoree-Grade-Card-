@@ -23,6 +23,9 @@
                         <td style="padding:15px;">
                             This is the small initiative to help students in studies. This initiative meant to provide introduction level to the topic for basic understading of the subject. Your references will help student to dive into the subject. All the notes will be available publicly, you can access it from anywhere.<br>
                             Thank you for giving your time. your small contribution can make a change into the society in term of providing good content free of cost. 
+                            <br><br>
+                            <!-- <span style=""></span> -->
+                            
                         </td>
                     </tr>
                   </thead>
@@ -64,12 +67,12 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="unit_name" id="name"  class="" placeholder="Unit Name/Chapter Name" required  > 
+                                        <input type="text" name="unit_name" id="name"  class="" placeholder="Unit Name/Chapter Name"   > 
                                     </div>
                                     <div class="form-group">
                                         <!-- <input type="text" name="unit_desc" id="unit_desc"  class="" placeholder="Description" required  >  -->
-                                        <strong>Important Points </strong>
-                                        <textarea name="unit_description" id="unit_desc" placeholder="Unit Description :- You can describe only important points of the chapter or unit mentioned in the book. Try to keep your notes more descriptive or easy to understand "   rows="5" required></textarea>
+                                        <strong>Important Points </strong><span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
+                                        <textarea name="unit_description" id="unit_desc" placeholder="Unit Description :- You can describe only important points of the chapter or unit mentioned in the book. Try to keep your notes more descriptive or easy to understand.  "   rows="5" ></textarea>
                                     </div>
                                     
                                     
@@ -79,21 +82,21 @@
                                 <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> -->
                                     <div class="form-group">
                                             <!-- <input type="text" name="unit_app" id="unit_app"  class="" placeholder="Application" required  >  -->
-                                            <strong>Uses/Application </strong>
-                                            <textarea name="unit_application" id="unit_app" placeholder="Unit uses/Application :- You can explain here that how this chapter can help in practical world. In other words, you can tell this chapter uses, application, etc."   rows="5" required></textarea>
+                                            <strong>Uses/Application </strong><span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
+                                            <textarea name="unit_application" id="unit_app" placeholder="Unit uses/Application :- You can explain here that how this chapter can help in practical world. In other words, you can tell this chapter uses, application, etc."   rows="5" ></textarea>
                                     </div>
                                     <div class="form-group">
                                         <!-- <input type="text" name="name" id="name"  class="" placeholder="Important questions" required  >  -->
-                                        <strong>Important Questions</strong>
-                                        <textarea name="unit_importantQuestions" id="unit_importantQuestion" placeholder="Important Question :- You can tell important question for this particular unit/chapter, you can refer previous year question paper for more accuracy. It is recommended to unordered or ordered list."   rows="5" required></textarea>
+                                        <strong>Important Questions</strong><span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
+                                        <textarea name="unit_importantQuestions" id="unit_importantQuestion" placeholder="Important Question :- You can tell important question for this particular unit/chapter, you can refer previous year question paper for more accuracy. It is recommended to unordered or ordered list."   rows="5" ></textarea>
                                     </div>
                                     
                                     <div class="form-group">
                                         
                                         <!-- <input type="text" name="name" id="name"  class="" placeholder="Important questions" required  >  -->
                                         <!-- <label for="reference" >Reference</label> -->
-                                        <strong>Reference</strong>
-                                        <textarea name="unit_reference" id="unit_reference" placeholder="References :- You can list the sources you used to learn this chapter/unit. It will be good for other students if you insert video links such as youtube, dailymotion, etc. It is recommended to unordered or ordered list."   rows="5" required></textarea>
+                                        <strong>Reference</strong><span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
+                                        <textarea name="unit_reference" id="unit_reference" placeholder="References :- You can list the sources you used to learn this chapter/unit. It will be good for other students if you insert video links such as youtube, dailymotion, etc. It is recommended to unordered or ordered list."   rows="5" ></textarea>
                                     </div>
                                     <!-- <div class="form-group">
                                         <input type="text" name="name" id="name"  class="" placeholder="Reference links" required  > 
@@ -110,7 +113,7 @@
                           
                           
                           <div class="form-group">
-                              <input type="submit" name="submit" id="submit"   class="btn btn-default btn-block" value="Submit">
+                              <input type="submit" name="submit" id="submit"   class="btn btn-default btn-block" value="Submit" onclick="return validate()">
                               <!-- <button type="submit" class="btn btn-default">Submit</button> -->
                               <!-- <a class="btn btn-default btn-block" name="submit" id="submit" data-toggle="modal" href='#warning'>Submit</a> -->
                             </div>
@@ -207,6 +210,45 @@ $('#program').change(function(){
         });
     }});
 });
+
+
+function validate(){
+    // Get the HTML contents of the currently active editor
+// tinyMCE.activeEditor.getContent();
+
+// Get the raw contents of the currently active editor
+// tinyMCE.activeEditor.getContent({format : 'text'});
+
+// Get content of a specific editor:
+// tinyMCE.get('content id').getContent()
+    // tinyMCE.triggerSave();
+    // var desc=tinyMCE.get('unit_desc').getContent();
+    // var desc = $('#unit_desc').val();
+    // // console.log(desc);
+    
+    // var application = $('#unit_app').val();
+    // var importantQuestion = $('#unit_importantQuestion').val();
+    // var reference = $('#unit_reference').val();
+    
+    // if(desc===""){
+    //     alert('Important points field is blank');
+    //     return false;
+    // }
+    // if(application===""){
+    //     alert('Application/Uses field is blank');
+    //     return false;
+    // }
+    // if(importantQuestion===""){
+    //     alert('Important Question field is blank');
+    //     return false;
+    // }
+    // if(reference===""){
+    //     alert('Reference field is blank');
+    //     return false;
+    // }
+    
+    return true;
+}
 
 </script>
 

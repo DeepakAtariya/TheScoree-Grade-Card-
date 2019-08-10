@@ -17,6 +17,7 @@ class NotesCollectionController extends Controller
 
     public function submitNotes(Request $request){
 
+        return $request->unit_description;
         unset($request['_token']);
         // return $request;
 
@@ -53,7 +54,7 @@ class NotesCollectionController extends Controller
             'program_fullform'=>$request->program_fullform
         ]);
 
-        return view('malik/addprogram');
+        return view('notes/addprogram');
     }
     
     public function getCourses(Request $request){
