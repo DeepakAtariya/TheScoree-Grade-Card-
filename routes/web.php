@@ -62,11 +62,24 @@ Route::get('disclaimer',function (){
 	// return "view('index')";
 })->name('disclaimer');
 
+Route::get('malik/addprogram',function (){
+	return view('notes/addprogram');
+})->name('notes/addprogram');
+
+
+Route::get('notes/addprogram','NotesCollectionController@addprogram')->name('notes/addprogram');
+Route::get('notes/getCourses','NotesCollectionController@getCourses')->name('notes/getCourses');
+Route::get('notes/expert','NotesCollectionController@expert')->name('notes/expert');
+Route::post('notes/submit_notes','NotesCollectionController@submitNotes')->name('notes/submit_notes');
+
+
 Route::post('getGradeCard','ScoresController@getGradeCard')->name('getGradeCard');
 Route::get('scores','ScoresController@scores')->name('scores');
 Route::post('submit_contactus','FeedbackController@feedback')->name('submit_contactus'); 
 
 Route::get('termend','TermEndController@termend');
+
+
 
 // Route::get('/test',function (){
 //     return "Asdasd";
