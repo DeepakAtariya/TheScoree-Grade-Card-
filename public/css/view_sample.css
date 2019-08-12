@@ -1,0 +1,12 @@
+#view_sample{
+    width: 100%;
+}
+
+
+
+#unpublish_button{
+    color:red
+}
+#publish_button{
+    color:green;
+}

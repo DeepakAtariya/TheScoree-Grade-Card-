@@ -1,0 +1,58 @@
+#published{
+    /* color:green; */
+    background: lightgreen;
+}
+
+#unpublished{
+    /* color:red; */
+    background-color: coral;
+}
+
+.fa{
+    font-size: 20px;
+}
+
+
+#assignment{
+    width: 89px;
+    height: 82px; 
+    background-color: #f1f1f1;
+    border: 0px solid black;
+    border-radius: 50%;
+    text-align: center;
+    /* overflow: hidden; */
+    float: left;
+    margin-right: 10px;
+
+  }
+
+  label{
+      margin-top:18px;
+  }
+
+  .card {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+    padding-bottom: 50px;
+    padding-top: 20px;
+    text-align: center;
+    background-color: #f1f1f1;
+    background-color:rgb(255, 255, 255);
+    margin-left:auto;
+  }
+
+  .column{
+      /* padding-bottom: 70px; */
+      width: 100%;
+    display: block;
+    margin-bottom: 20px;  
+  }
+  
+  
+  
+
+  #scorecard{
+    display : block;
+    /* height: 527px; */
+    /* overflow: auto; */
+
+  }

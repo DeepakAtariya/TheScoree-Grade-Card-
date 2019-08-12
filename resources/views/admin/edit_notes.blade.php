@@ -1,6 +1,6 @@
-@include('header')
+@include('admin/header')
 
-<link rel="stylesheet" href="{{ URL::asset('css/notes.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/edit_notes.css') }}">
 <div class="" id="main" style="padding: 2%;">
     <div class="row" id="row">
         <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1">
@@ -17,7 +17,7 @@
                 <table id="notes_container" >
                   <thead>
                     <tr id="contribute">
-                      <th>Add Notes</th>
+                      <th>Edit Notes</th>
                     </tr>
                     <tr>
                         <td style="padding:15px;">
@@ -32,21 +32,25 @@ Thank you for lending your precious time, your small contribution can make a cha
                     <tr>
                       <td>
                         <div class=" modal-body" id="">
-                        <form action="{{ url('notes/submit_notes') }}" class="form" role="form" name="Feedback" id="Feedback" method="post">
+                        <form action="{{ url('moderator/update_notes') }}" class="form" role="form" name="Feedback" id="Feedback" method="post">
                             {{ csrf_field() }}
                             <!-- <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
                                     <div class="form-group">
-                                        <input type="text" name="unit_author_name" id="name"  class="" placeholder="Author name" required> 
+                                        <input type="text" name="unit_author_name" id="name"  class="" placeholder="Author name" value="{{ $note_data[0]->unit_author_name }}" required> 
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="unit_author_email" id="name"  class="" placeholder="Author Email" required> 
+                                        <input type="email" name="unit_author_email" id="name"  class="" placeholder="Author Email" value="{{ $note_data[0]->unit_author_email }}" required> 
                                     </div>
                                     <div class="form-group">
                                         <select class="" id="program" name="program" required>
                                             <option value>Select Program:</option>
                                             @foreach($program as $p)
+                                                @if(strcmp($note_data[0]->program_code,$p->program_code)==0)
+                                                <option value="{{ $p->id }}" selected>{{ $p->program_code }}</option>
+                                                @else
                                                 <option value="{{ $p->id }}">{{ $p->program_code }}</option>
+                                                @endif
                                             @endforeach
                                             <!-- <option value="0">Other</option> -->
                                         </select>
@@ -66,12 +70,13 @@ Thank you for lending your precious time, your small contribution can make a cha
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="unit_name" id="name"  class="" placeholder="Unit Name/Chapter Name"   > 
+                                        <input type="text" name="unit_name" id="name"  class="" placeholder="Unit Name/Chapter Name"  value="{{ $note_data[0]->unit_name }}" > 
                                     </div>
                                     <div class="form-group">
                                         <!-- <input type="text" name="unit_desc" id="unit_desc"  class="" placeholder="Description" required  >  -->
-                                        <strong>Important Points </strong><span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
-                                        <textarea name="unit_description" id="unit_desc" placeholder="Unit Description :- You can describe only important points of the chapter or unit mentioned in the book. Try to keep your notes more descriptive or easy to understand.  "   rows="5" ></textarea>
+                                        <a id="label" href="{{ url('moderator/view_notes')}}?notes={{ $note_data[0]->unit_description }}" target="_blank"><strong>Important Points </strong></a><span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
+                                        <textarea name="unit_description" id="unit_desc" placeholder="Unit Description :- You can describe only important points of the chapter or unit mentioned in the book. Try to keep your notes more descriptive or easy to understand.  "   rows="5"></textarea>
+                                        
                                     </div>
                                     
                                     
@@ -81,12 +86,14 @@ Thank you for lending your precious time, your small contribution can make a cha
                                 <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> -->
                                     <div class="form-group">
                                             <!-- <input type="text" name="unit_app" id="unit_app"  class="" placeholder="Application" required  >  -->
-                                            <strong>Uses/Application </strong><span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
+                                            <a id="label" href="{{ url('moderator/view_notes')}}?notes={{ $note_data[0]->unit_application }}" target="_blank"><strong>Uses/Application </strong></a>
+                                            <span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
                                             <textarea name="unit_application" id="unit_app" placeholder="Unit uses/Application :- You can explain here that how this chapter can help in practical world. In other words, you can tell this chapter uses, application, etc."   rows="5" ></textarea>
                                     </div>
                                     <div class="form-group">
                                         <!-- <input type="text" name="name" id="name"  class="" placeholder="Important questions" required  >  -->
-                                        <strong>Important Questions</strong><span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
+                                        <a id="label" href="{{ url('moderator/view_notes')}}?notes={{ $note_data[0]->unit_importantQuestions }}" target="_blank"><strong>Important Questions</strong></a>
+                                        <span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
                                         <textarea name="unit_importantQuestions" id="unit_importantQuestion" placeholder="Important Question :- You can tell important question and answers for this particular unit/chapter, you can refer previous year question paper for more accuracy. It is recommended to use unordered or ordered list."   rows="5" ></textarea>
                                     </div>
                                     
@@ -94,7 +101,9 @@ Thank you for lending your precious time, your small contribution can make a cha
                                         
                                         <!-- <input type="text" name="name" id="name"  class="" placeholder="Important questions" required  >  -->
                                         <!-- <label for="reference" >Reference</label> -->
-                                        <strong>Reference</strong><span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
+                                        <a id="label" href="{{ url('moderator/view_notes')}}?notes={{ $note_data[0]->unit_reference }}" target="_blank"><strong>Reference</strong></a>
+                                        
+                                        <span style="color:red">(Please use SHIFT+ENTER to break a line)</span>
                                         <textarea name="unit_reference" id="unit_reference" placeholder="References :- You can list the sources you used to learn this chapter/unit. It will be good for other students if you insert video links such as youtube, dailymotion, etc. It is recommended to use unordered or ordered list."   rows="5" ></textarea>
                                     </div>
                                     <!-- <div class="form-group">
@@ -109,6 +118,9 @@ Thank you for lending your precious time, your small contribution can make a cha
                                     
                                 </div>
                             </div> -->
+                            
+                            <input type="hidden" name="id" id="inputid" class="form-control" value="{{ $note_data[0]->id }}">
+                            
                           
                           
                           <div class="form-group">
@@ -185,6 +197,15 @@ tinymce.init({
   ]
 });
 
+// console.log(tinymce);
+
+
+// $(tinymce.get('#unit_desc').getBody()).html('<p>This is my new content!</p>');
+// tinymce.get('#unit_desc').setContent('<p>This is my new content!</p>');
+// tinyMCE.activeEditor.setContent('<span>some</span> html');
+// $("#unit_desc").val("{{ $note_data[0]->unit_description }}");
+
+console.log(tinymce);
 $('#course').prop("disabled",true);
 $('#course').css("border-color","red");
 
@@ -249,6 +270,28 @@ function validate(){
     return true;
 }
 
+
+var program_id = $('#program').val();
+    $.ajax({url: "{{ url('notes/getCourses') }}?program_id="+program_id, success: function(result){
+        // console.log(result);
+        $('#course').prop("disabled",false);
+        $('#course').css("border-color","gray");
+        $.each(result['data'], function(key, value) {
+            if("{{$note_data[0]->course_code}}" === value['course_code']){
+                $('#course')
+                 .append($("<option selected></option>")
+                            .attr("value",value['id'])
+                            .text(value['course_code']+' ('+value['course_name']+')')); 
+                
+            }else{
+                $('#course')
+                 .append($("<option></option>")
+                            .attr("value",value['id'])
+                            .text(value['course_code']+' ('+value['course_name']+')')); 
+            }
+        });   
+    }});
+
 </script>
 
-@include('footer')
+@include('admin/footer')

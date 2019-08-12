@@ -67,6 +67,8 @@ Route::get('malik/addprogram',function (){
 })->name('notes/addprogram');
 
 
+
+
 Route::get('notes/addprogram','NotesCollectionController@addprogram')->name('notes/addprogram');
 Route::get('notes/getCourses','NotesCollectionController@getCourses')->name('notes/getCourses');
 Route::get('notes/expert','NotesCollectionController@expert')->name('notes/expert');
@@ -78,6 +80,30 @@ Route::get('scores','ScoresController@scores')->name('scores');
 Route::post('submit_contactus','FeedbackController@feedback')->name('submit_contactus'); 
 
 Route::get('termend','TermEndController@termend');
+
+
+// admin
+Route::get('moderate',function (){
+	return view('admin/index');
+})->name('moderate');
+
+Route::post('moderator/login','NotesModerateController@login')->name('moderator/login');
+Route::get('moderator/logout','NotesModerateController@logout')->name('moderator/logout');
+Route::get('moderator/dashboard','NotesModerateController@dashboard')->name('moderator/dashboard')->middleware('auth');
+Route::get('moderator/edit_notes','NotesModerateController@edit_notes')->name('moderator/edit_notes')->middleware('auth');
+Route::get('moderator/view_notes','NotesModerateController@view_notes')->name('moderator/view_notes')->middleware('auth');
+Route::get('moderator/view_sample','NotesModerateController@view_sample')->name('moderator/view_sample')->middleware('auth');
+Route::get('moderator/publish_note','NotesModerateController@publish_note')->name('moderator/publish_note')->middleware('auth');
+Route::get('moderator/unpublish_note','NotesModerateController@unpublish_note')->name('moderator/unpublish_note')->middleware('auth');
+Route::post('moderator/update_notes','NotesModerateController@update_notes')->name('moderator/update_notes')->middleware('auth');
+
+
+
+
+
+
+
+
 
 
 
