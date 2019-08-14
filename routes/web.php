@@ -72,7 +72,6 @@ Route::get('termendresults',function (){
 
 
 
-
 Route::get('notes/addprogram','NotesCollectionController@addprogram')->name('notes/addprogram');
 Route::get('notes/getCourses','NotesCollectionController@getCourses')->name('notes/getCourses');
 Route::get('notes/expert','NotesCollectionController@expert')->name('notes/expert');
