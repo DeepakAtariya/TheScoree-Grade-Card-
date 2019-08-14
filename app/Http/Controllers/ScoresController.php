@@ -357,7 +357,7 @@ class ScoresController extends Controller
             
         }catch(Exception $e){
 
-            echo "exception occured";
+            // echo "exception occured";
             // $enrollment=159673056;
 
             // $dataWhenIgnouServerNotActive = DB::table('score')
@@ -366,19 +366,26 @@ class ScoresController extends Controller
             //     ->where('enrollment', $enrollment)
             //     ->get();
 
-            return response()->json([
-                'scores' => 'fail'
-            ],201);
+            return [
+                'scores' => 'fail',
+                'status' => '500',   
+            ];
         }
     }
 
     public function getGradeCard(Request $request)
     {
-        $data = $this->getScores($request);
-        return redirect()->route('scores',[
-            'program'=>$request->input('program'),
-            'enrollment'=>$request->input('enrollment')
-        ]);
+        try{
+            $data = $this->getScores($request);
+            return redirect()->route('scores',[
+                'program'=>$request->input('program'),
+                'enrollment'=>$request->input('enrollment')
+            ]);
+        }catch(\Exception $e){
+            return view('error',[
+                'message'=>'500 Oops! Server Unavailable'
+            ]);
+        }
         // print_r($data['scores']);
     }
 
@@ -386,13 +393,17 @@ class ScoresController extends Controller
     {
 
         $data = $this->getScores($request);
-        if($data['status']!="404"){
+        if($data['status']!="404" && $data['status']!="500"){
             return view('scores',[
                 'scores'=>$data
             ]);
+        }else if($data['status']=="500"){
+            return view('error',[
+                'message'=>'Oops! Server Unavailable'
+            ]);
         }else{
             return view('error',[
-                'message'=>'Not available, please check your enrollment and program'
+                'message'=>'Oops! Enrollment Not Found'
             ]);
         }
     }

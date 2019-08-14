@@ -55,7 +55,13 @@
                                               <label> Lab4 <br> {{ $data[5] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                           <label>Theory <br> {{ $data[6] }} </label>
+                                           <label>Theory <br> 
+                                                @if($data[6]!='-')
+                                                    {{ $data[6] }}
+                                                @else
+                                                    waiting
+                                                @endif 
+                                           </label>
                                           </div>
                                   </div>
                                   
@@ -94,7 +100,13 @@
                                               <label> Lab4 <br> {{ $data[5] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>Theory <br> {{ $data[6] }} </label>
+                                              <label>Theory <br>
+                                                    @if($data[6]!='-')
+                                                        {{ $data[6] }}
+                                                    @else
+                                                        waiting
+                                                    @endif 
+                                               </label>
                                           </div>
                                   </div>
                                   
@@ -165,7 +177,12 @@
                               {{ $data[5] }}
                               </td>
                               <td *ngIf="row.status=='Pass' else failed_theory">
+                              
+                              @if($data[6]!='-')
                               {{ $data[6] }}
+                              @else
+                              waiting
+                              @endif
                               </td>
                               <!-- <td *ngIf="row.status=='Pass' else failed_status" >
                                  

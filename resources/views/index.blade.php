@@ -26,21 +26,22 @@
                       <form name="gradeCardForm" id="gradeCardForm" method="POST" role="form" action="{{ url('getGradeCard') }}">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <select class="" id="guest_program" name="program">
+                        <select class="" id="guest_program" name="program" required>
                             <option value>Select Program:</option>
                             <option value="BCA">BCA</option>
                             <option value="MCA">MCA</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="number" min="0" name="enrollment" id="guest_enrollment" tabindex="1" class="" placeholder="Enrollment Number" > 
+                        <input type="number" min="0" name="enrollment" id="termendEnrollment" tabindex="1" class="" placeholder="Enrollment Number" > 
                     </div>
                     <div class="form-group">
                         <div class="row text-center">
                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">                                                        
-                                <input type="button" name="guest-submit" id="go"  onclick="return validata()" tabindex="4" class=" " value="Go" >
+                                <!-- <input type="button" name="guest-submit" id="go"  onclick="return validata()" tabindex="4" class=" " value="Go" > -->
+                                <input type="submit" name="guest-submit" id="go"  onclick="return validataTermend()" tabindex="4" class=" " value="Go" >
                             </div>
                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             </div>

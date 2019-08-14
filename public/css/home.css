@@ -154,6 +154,9 @@ input{
 	border-bottom-color: black;
   }
 
+  #guest_program{
+	width: 80%;  
+  }
   #termendEnrollment{
 	width: 80%;
 	margin-bottom: 1em;
