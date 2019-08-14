@@ -41,12 +41,16 @@ if(strpos($current_url,"contactus") > 0){
   echo "<title>Contribute - The Scoree - Developers are everyone who keeps the idea to develop anything. We would like to hear from them.</title>";
 }elseif(strpos($current_url,"scores") > 0){
   echo "<title>Grade Card - The Scoree - Shows the grade card with more indicators and mobile friendly.</title>";
+}elseif(strpos($current_url,"termendform") > 0){
+  echo "<title>Term End Exam Results June 2019! The Scoree - Shows the term end exam results with more indicators and mobile friendly.</title>";
 }else{
   echo "<title>The Scoree - Check Ignou Results, grade card with new experience</title>";
 }
 
 @endphp
 
+
+<!-- termendform -->
 
 
 

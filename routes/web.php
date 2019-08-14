@@ -66,6 +66,10 @@ Route::get('malik/addprogram',function (){
 	return view('notes/addprogram');
 })->name('notes/addprogram');
 
+Route::get('termendresults',function (){
+	return view('termendform');
+})->name('termendresults');
+
 
 
 

@@ -5,7 +5,7 @@
 <div class="alert-format">
     <div class="alert alert-info alert-dismissible ">
         <!-- <a href="#" id="close_button" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
-        <strong ><span class="glyphicon glyphicon-info-sign"></span>  Term-End Results will be out soon </strong> <a id="click_here" href="#" data-toggle="modal" data-target="#modal-id" >click here</a> to see the results
+        <strong ><span class="glyphicon glyphicon-info-sign"></span> </strong> <a id="click_here" style="font-size:15px;" href="{{ url('termendresults') }}" >Term End Exam Results - June 2019 is out! </a>
     </div>          
 </div>
 <div class="text-center" id="main" style="padding: 2%;">
@@ -61,7 +61,7 @@
 
 
 
-<div class="modal fade" id="modal-id">
+<div class="modal fade" id="modal-id_scrapped">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="">
