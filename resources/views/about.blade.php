@@ -16,7 +16,7 @@
                     <tr>
                       <td>
                       <div class="modal-body">
-                        <p>Hello, I am Scoree! I am a general purpose website developed by <a href="https://github.com/DeepakAtariya" style="color:black; font-size:16px;" >Deepak</a>, for the students of IGNOU. I am here to solve the problems faced by the students studying here.I would be helping you in working on your weak points.</p>
+                        <p>Hello, I am Scoree! I am a general purpose website for the students of IGNOU. I am here to solve the problems faced by the students studying here. I would be helping you in working on your weak points.</p>
                      
                         <h3>Releases</h3>
 
