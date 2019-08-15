@@ -391,19 +391,24 @@ class ScoresController extends Controller
 
     public function scores(Request $request)
     {
-
-        $data = $this->getScores($request);
-        if($data['status']!="404" && $data['status']!="500"){
-            return view('scores',[
-                'scores'=>$data
-            ]);
-        }else if($data['status']=="500"){
+        try{
+            $data = $this->getScores($request);
+            if($data['status']!="404" && $data['status']!="500"){
+                return view('scores',[
+                    'scores'=>$data
+                ]);
+            }else if($data['status']=="500"){
+                return view('error',[
+                    'message'=>'Oops! Server Unavailable'
+                ]);
+            }else{
+                return view('error',[
+                    'message'=>'Oops! Enrollment Not Found'
+                ]);
+            }
+        }catch(\Exception $e){
             return view('error',[
                 'message'=>'Oops! Server Unavailable'
-            ]);
-        }else{
-            return view('error',[
-                'message'=>'Oops! Enrollment Not Found'
             ]);
         }
     }

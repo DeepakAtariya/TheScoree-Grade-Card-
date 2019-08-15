@@ -414,3 +414,8 @@ p{
   font-size: 15px;
 }
 
+.pass{
+  color: green;
+  font-size: 10px;
+  margin-bottom: 10px;
+}

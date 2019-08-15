@@ -1,5 +1,9 @@
 @media only screen and (max-width: 584px) and (min-width : 100px) {
 
+  #marks_not_uploaded {
+    color: gray;
+  }
+
   
   
 
@@ -113,6 +117,12 @@ transform:rotate(-50deg);
 }
 
 @media only screen and (max-width: 767px) and (min-width : 584px) {
+
+  
+  #marks_not_uploaded{
+    color: gray;
+  }
+
   /* For mobile phones: */
   
 
@@ -212,6 +222,13 @@ transform:rotate(-50deg);
 
 
 @media only screen and (max-width : 8000px) and (min-width : 768px){
+
+
+  
+  #marks_not_uploaded{
+    color: gray;
+  }
+
 
   #fail_table{
     color:rgb(212, 74, 74); 

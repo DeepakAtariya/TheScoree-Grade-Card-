@@ -34,7 +34,7 @@ class TermEndController extends Controller
             */
     
                     // try{
-                $response = $client->request('POST', $termendJuly2018,[
+                $response = $client->request('POST', $termendJuly2019,[
                     'form_params' => [
                         "eno"=> $enrollment,
                         "myhide"=> "OK",
