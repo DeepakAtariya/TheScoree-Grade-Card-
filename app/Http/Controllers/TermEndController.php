@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use App\termend;
 
 class TermEndController extends Controller
@@ -117,6 +119,41 @@ class TermEndController extends Controller
             // dd($e);
         }
 
+    }
+
+    public function calculate(Request $request){
+
+        $data = array();
+
+        $all_data = termend::get();
+        // return $all_data;
+        $unique_program  = DB::table('termends')->distinct()->get(['program']);
+        // return $unique_program[0]->program;
+
+        foreach ($unique_program as $key => $value) {
+            $program = $value->program;
+            $count = 0;
+            foreach ($all_data as $key => $value_a) {
+                if(strcmp($program, $value_a->program )==0){
+                    $count++;
+                }
+            }
+            // echo $program." - ".$count."<br>";
+            
+            // array_push($data,$count);
+            $data[strip_tags($program)]=$count;
+        }
+
+        // print_r($data);
+
+        // array_multisort($data);
+        // return $data;
+        arsort($data);
+        foreach ($data as $key => $value) {
+           echo $key." ".$value."<br>";
+        }
+
+        // return  "data";
     }
 
 }

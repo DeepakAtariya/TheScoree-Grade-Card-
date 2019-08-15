@@ -101,15 +101,6 @@ Route::get('moderator/unpublish_note','NotesModerateController@unpublish_note')-
 Route::post('moderator/update_notes','NotesModerateController@update_notes')->name('moderator/update_notes')->middleware('auth');
 
 
-
-
-
-
-
-
-
-
-
 // Route::get('/test',function (){
 //     return "Asdasd";
 // })->name('test');
@@ -117,3 +108,7 @@ Route::post('moderator/update_notes','NotesModerateController@update_notes')->na
 // Route::get('',function (){
 	// return view('welcome');
 // });
+
+Route::get('most_occurring','TermEndController@calculate');
+
+
