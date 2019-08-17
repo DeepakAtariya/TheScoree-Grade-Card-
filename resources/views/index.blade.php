@@ -28,8 +28,9 @@
                     <div class="form-group">
                         <select class="" id="guest_program" name="program" required>
                             <option value>Select Program:</option>
-                            <option value="BCA">BCA</option>
-                            <option value="MCA">MCA</option>
+                            <option value="BCA">BCA (Bachelor of Computer Application)</option>
+                            <option value="MCA">MCA (Master of Computer Application)</option>
+                            <option value="MEG">MEG (Master of Arts - English)</option>
                         </select>
                     </div>
                     <div class="form-group">
