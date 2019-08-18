@@ -16,7 +16,9 @@
                     <tr>
                       <td>
                       <div class="modal-body">
-                        <p>Hello, I am Scoree! I am a general purpose website for the students of IGNOU. I am here to solve the problems faced by the students studying here. I would be helping you in working on your weak points.</p>
+                        <p>Hello, Scoree is a general purpose website for the students of IGNOU. Scoree shows the results, grade cards of IGNOU students in improved structure, such as Scoree shows course name, calculate total marks and percentage. If student is in first or second semester then Scoree will calculate percentage, total marks according to given course results. Currently Scoree is able to show few programs as mentioned in the releases. Later on Scoree will able to show most of the IGNOU programs.  </p>
+
+                        <p>Scoree is saving your enrollment and progress data to provide you better service in the future for more details please read our disclaimer and policies.</p>
                      
                         <h3>Releases</h3>
 
@@ -25,12 +27,16 @@
                           <!-- <strong><span class="glyphicon glyphicon-info-sign"></span> Release 1.1 : </strong> Term-End Results are  -->
                           <strong><span class="glyphicon glyphicon-info-sign"></span> Release 1.0 : </strong> With this release you can check the results of IGNOU BCA/MCA courses only.
                         </p>
+                        <p>
+                          <!-- <strong><span class="glyphicon glyphicon-info-sign"></span> Release 1.1 : </strong> Term-End Results are  -->
+                          <strong><span class="glyphicon glyphicon-info-sign"></span> Release 1.1 : </strong> MEG, BCOM Programs are added.
+                        </p>
 
                         <p>There's a lot more to come, so stay tuned!</p>
                       </div>
                       </td>
                     </tr>
-                  </tbody>
+                  </tbody> 
                 </table>
         </div>
         <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1">

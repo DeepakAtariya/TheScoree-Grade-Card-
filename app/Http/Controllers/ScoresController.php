@@ -343,7 +343,9 @@ class ScoresController extends Controller
                     'earned_marks' => $earned_marks,
                     'outof' => $outof,
                     'percent'=>round(($earned_marks/$outof)*100,2),
-                    'status'=>'200'
+                    'program'=>$this->program,
+                    'status'=>'200',
+                    'gradecard'=>'M'
                 ];
             }else{
 
@@ -397,12 +399,18 @@ class ScoresController extends Controller
         try{
             $data = $this->getScores($request);
             if($data['status']!="404" && $data['status']!="500"){
-                return view('scores',[
-                    'scores'=>$data
-                ]);
+                if($data['gradecard']=='R'){
+                    return view('scores_r',[
+                        'scores'=>$data
+                    ]);
+                }else{
+                    return view('scores',[
+                        'scores'=>$data
+                    ]);
+                }
             }else if($data['status']=="500"){
                 return view('error',[
-                    'message'=>'Oops! Server Unavailable'
+                    'message'=>'Oops! External Server Unavailable'
                 ]);
             }else{
                 return view('error',[
@@ -411,10 +419,14 @@ class ScoresController extends Controller
             }
         }catch(\Exception $e){
             return view('error',[
-                'message'=>'Oops! Server Unavailable'
+                'message'=>'Oops! External Server Unavailable'
             ]);
         }
     }
+
+
+    /************************* Grade Card - B link **************************** */
+
 
     public function gradeCardB($url, $program, $enrollment){
         // echo "asdasd";
@@ -551,6 +563,13 @@ class ScoresController extends Controller
                 $r_i++;
             }
             // exit;
+
+            // foreach ($row as $key => $value) {
+            //     print_r($value);
+            //     echo "<br>";
+            // }
+            // exit;
+
             $outof = 0;
             $earned_marks = 0;
             for($i=1; $i<sizeof($row); $i++){
@@ -589,7 +608,8 @@ class ScoresController extends Controller
                     'outof' => $outof,
                     'percent'=>round(($earned_marks/$outof)*100,2),
                     'program'=>$program,
-                    'status'=>'200'
+                    'status'=>'200',
+                    'gradecard'=>'B'
                 ];
             }else{
                 
@@ -611,6 +631,15 @@ class ScoresController extends Controller
         // }
         
     }
+
+
+
+
+    /************************* Grade Card - R link **************************** */
+
+
+
+
     public function gradeCardR($url, $program, $enrollment){
 
         $client = new Client();
@@ -668,39 +697,40 @@ class ScoresController extends Controller
                     $i++;
                 }
                 $assgn = 0;
+
                 $theory = $lab1 = $lab2 = $lab3 = $lab4 = 0;
                 for($j=0; $j<sizeof($col); $j++){
 
-                    if($j == 1 && $col[$j]!="-" ){
-                        // assignment marks
+                    if($j == 1 && $col[$j]!="-"  ){
+                        // Assgn1
                         $assgn = ((int)$col[$j]/100)*25;
                         // break;
                     }
-                    if($j == 2 && $col[$j]!="-"){
-                        //lab1 marks
-                        $lab1 = ((int)$col[$j]/100)*75;
-                        // break;
-                    }
-                    if($j == 3 && $col[$j]!="-"){
-                        // lab2 marks
-                        $lab2 = ((int)$col[$j]/100)*75;
-                        // break;
-                    }
-                    if($j == 4 && $col[$j]!="-"){
-                        // lab3 marks
-                        $lab3 = ((int)$col[$j]/100)*75;
-                        // break;
-                    }
+                    // if($j == 2 && $col[$j]!="-"){
+                    //     // Assgn2
+                    //     $lab1 = ((int)$col[$j]/100)*75;
+                    //     // break;
+                    // }
+                    // if($j == 3 && $col[$j]!="-"){
+                    //     // Assgn3
+                    //     $lab2 = ((int)$col[$j]/100)*75;
+                    //     // break;
+                    // }
+                    // if($j == 4 && $col[$j]!="-"){
+                    //     // Assgn4
+                    //     $lab3 = ((int)$col[$j]/100)*75;
+                    //     // break;
+                    // }
                     if($j == 5 && $col[$j]!="-"){
-                        //lab 4
+                        //Term end theory
                         $lab4 = ((int)$col[$j]/100)*75;
                         // break;
                     }
-                    if($j == 6 && $col[$j]!="-"){
-                        // theory
-                        $theory = ((int)$col[$j]/100)*75;
-                        // break;
-                    }
+                    // if($j == 6 && $col[$j]!="-"){
+                    //     // Term end practical
+                    //     $theory = ((int)$col[$j]/100)*75;
+                    //     // break;
+                    // }
                 }
                 
                
@@ -719,21 +749,6 @@ class ScoresController extends Controller
                     $lab_marks = $lab1+$lab2+$lab3+$lab4;
                 }
 
-                if(strcmp($col[0],"BCSP064")==0){
-                    $project_marks = ((int)$col[2]/100)*150;
-                    $project_viva = ((int)$col[3]/100)*50;
-                    $project_marks_in_hun = ($project_marks + $project_viva)/2;
-                    $lab_marks  = $project_marks_in_hun;
-                }
-                if(strcmp($col[0],"MCS044")==0){
-                    $project_marks = ((int)$col[5]/100)*50;
-                    $project_viva = ((int)$col[6]/100)*25;
-                    // $project_marks_in_hun = ($project_marks + $project_viva)/2;
-                    $lab_marks  = $project_marks + $project_viva;
-                    $theory = 0;
-                }
-
-                    
                 array_push($col,ceil($assgn+$theory+$lab_marks));
                 for($c = 0; $c<sizeof($course_data); $c++){
                     if($col[0] == $course_data[$c]->code){
@@ -748,6 +763,13 @@ class ScoresController extends Controller
                 $row[$r_i] = $col;
                 $r_i++;
             }
+
+            //  foreach ($row as $key => $value) {
+            //     print_r($value);
+            //     echo "<br>";
+            // }
+            // exit;
+
             $outof = 0;
             $earned_marks = 0;
             for($i=1; $i<sizeof($row); $i++){
@@ -772,6 +794,7 @@ class ScoresController extends Controller
 				}
                 
                 
+                // return "asda";
 
                 return [
                     'scores'=>$row,
@@ -781,7 +804,8 @@ class ScoresController extends Controller
                     'outof' => $outof,
                     'percent'=>round(($earned_marks/$outof)*100,2),
                     'program'=>$program,
-                    'status'=>'200'
+                    'status'=>'200',
+                    'gradecard'=>'R'
                 ];
             }else{
 
@@ -793,7 +817,7 @@ class ScoresController extends Controller
             }
 
             
-        }catch(Exception $e){
+        }catch(\Exception $e){
 
 
             return [

@@ -4,7 +4,7 @@
 
 <div class="alert-format">
     <div class="alert alert-info alert-dismissible ">
-        <!-- <a href="#" id="close_button" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+        <a href="#" id="close_button" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong ><span class="glyphicon glyphicon-info-sign"></span> </strong> <a id="click_here" style="font-size:15px;" href="{{ url('termendresults') }}" >Term End Exam Results - June 2019 is out! </a>
     </div>          
 </div>
@@ -22,6 +22,7 @@
                   <tbody>
                     <tr>
                       <td>
+                      
                       <div class=" modal-body text-center"><br>
                       <form name="gradeCardForm" id="gradeCardForm" method="POST" role="form" action="{{ url('getGradeCard') }}">
                     {{ csrf_field() }}
@@ -31,7 +32,8 @@
                             <option value="BCA">BCA (Bachelor of Computer Application)</option>
                             <option value="MCA">MCA (Master of Computer Application)</option>
                             <option value="MEG">MEG (Master of Arts - English)</option>
-                        </select>
+                            <option value="BCOM">BCOM (Bachelor of Commerce )</option>
+                        </select>   
                     </div>
                     <div class="form-group">
                         <input type="number" min="0" name="enrollment" id="termendEnrollment" tabindex="1" class="" placeholder="Enrollment Number" > 
