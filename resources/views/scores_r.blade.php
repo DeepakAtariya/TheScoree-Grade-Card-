@@ -13,6 +13,19 @@
                           
                       </li>
                   </ul> 
+                  <div>
+                      <a class="btn-link" href="{{ url('download_score') }}?enrollment={{ $scores['enrollment'] }}&program={{ $scores['program'] }}&download=1">
+                      Download Original Grade Card
+                          <!-- <span class="glyphicon glyphicon-download-alt"></span> -->
+                         </a>
+                  
+                         |
+                  
+                      <a class="btn-link" target="_blank" href="{{ url('download_score') }}?enrollment={{ $scores['enrollment'] }}&program={{ $scores['program'] }}&download=1&view=1">
+                      See Original Grade Card  
+                          <!-- <span class="glyphicon glyphicon-download-alt"></span> -->
+                         </a>
+                  </div>
               </div>
           </div>
         

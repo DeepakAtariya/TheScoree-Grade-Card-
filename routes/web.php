@@ -111,4 +111,6 @@ Route::post('moderator/update_notes','NotesModerateController@update_notes')->na
 
 Route::get('most_occurring','TermEndController@calculate');
 
+Route::get('download_score','ScoresController@downloadScore')->name('download_score');
+
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class ScoresController extends Controller
 {
@@ -134,14 +135,14 @@ class ScoresController extends Controller
 
         if (strcmp($this->program,"ASSO")==0 || strcmp($this->program,"BA")==0 || strcmp($this->program,"BCOM")==0 || strcmp($this->program,"BDP")==0 || strcmp($this->program,"BSC")==0) {
             $grade_card_url = "https://gradecard.ignou.ac.in/gradecardB/Result.asp";
-            return $this->gradeCardB($grade_card_url, $this->program, $this->enrollment);
+            return $this->gradeCardB($request, $grade_card_url, $this->program, $this->enrollment);
             
         }else if(strcmp($this->program,"BCA")==0 || strcmp($this->program,"MCA")==0 || strcmp($this->program,"MP")==0 || strcmp($this->program,"MPB")==0 || strcmp($this->program,"PGDHRM")==0 || strcmp($this->program,"PGDFM")==0 || strcmp($this->program,"PGDOM")==0 || strcmp($this->program,"PGDMM")==0 || strcmp($this->program,"PGDFMP")==0){
             $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardM/Result.asp';
             
         }else{
             $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardR/Result.asp';
-            return $this->gradeCardR($grade_card_url, $this->program, $this->enrollment);
+            return $this->gradeCardR($request, $grade_card_url, $this->program, $this->enrollment);
         }
 
         $grade_card_url = 'https://gradecard.ignou.ac.in/gradecardM/Result.asp';
@@ -158,6 +159,11 @@ class ScoresController extends Controller
             
             
             $body = $response->getBody()->getContents();
+
+            if($request->input('download')=='1'){
+                return $body;
+            }
+
             // echo $body;
             // exit;
             $dom = new \IvoPetkov\HTML5DOMDocument();
@@ -428,7 +434,7 @@ class ScoresController extends Controller
     /************************* Grade Card - B link **************************** */
 
 
-    public function gradeCardB($url, $program, $enrollment){
+    public function gradeCardB(Request $request, $url, $program, $enrollment){
         // echo "asdasd";
         // exit;
 
@@ -447,6 +453,9 @@ class ScoresController extends Controller
             
             
             $body = $response->getBody()->getContents();
+            if($request->input('download')=='1'){
+                return $body;
+            }
             
             // echo $body;
             // exit;
@@ -640,7 +649,7 @@ class ScoresController extends Controller
 
 
 
-    public function gradeCardR($url, $program, $enrollment){
+    public function gradeCardR(Request $request, $url, $program, $enrollment){
 
         $client = new Client();
         $foundName = '';
@@ -657,6 +666,10 @@ class ScoresController extends Controller
             
             
             $body = $response->getBody()->getContents();
+
+            if($request->input('download')=='1'){
+                return $body;
+            }
             // echo $body;
             // exit;
             $dom = new \IvoPetkov\HTML5DOMDocument();
@@ -825,6 +838,23 @@ class ScoresController extends Controller
                 'status' => '500',   
             ];
         }
+        
+    }
+
+
+    public function downloadScore(Request $request){
+
+        $html_grade_card = $this->getScores($request);
+
+        // $pdf = PDF::loadView('scores');
+        
+        if($request->view == '1'){
+            return $html_grade_card;
+        }else{
+            $pdf = PDF::loadHTML($html_grade_card);
+            return $pdf->download('gradecard2019.pdf');
+        }
+
         
     }
 }
