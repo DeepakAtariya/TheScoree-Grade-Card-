@@ -37,6 +37,7 @@ class NotesModerateController extends Controller
                 'total_published'=>Notes_Unit::where('published','1')->get()->count(),
                 'total_unpublished'=>Notes_Unit::where('published','0')->get()->count(),
                 'total_gradecard'=>DB::table('score')->distinct()->get(['student'])->count(),
+                'pushNotiData'=>DB::table('push_notification_data')->distinct()->get(['device_token'])->count(),
             ]);
 
     }

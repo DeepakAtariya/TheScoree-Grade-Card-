@@ -1,4 +1,4 @@
- @include('header')
+@include('header')
 
 <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
 
@@ -102,6 +102,123 @@
         </div>
     </div>
 </div>
+
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <!--<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>-->
+
+        <!-- Add Firebase products that you want to use -->
+        <!--<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-auth.js"></script>-->
+        <!--<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-firestore.js"></script>-->
+        <!-- <script src="/__/firebase/6.4.1/firebase-app.js"></script> -->
+        <!--<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>-->
+        <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js"></script>
+        <!-- <script src="/__/firebase/6.4.1/firebase-messaging.js"></script> -->
+        <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-messaging.js"></script>
+        <!-- <script src="/__/firebase/init.js"></script> -->
+
+
+        <script>
+
+
+              // Your web app's Firebase configuration
+              var firebaseConfig = {
+                apiKey: "AIzaSyBaWWTN10o_upA9hNFU74TJfMr009cCFJ4",
+                authDomain: "thescoree-caaa5.firebaseapp.com",
+                databaseURL: "https://thescoree-caaa5.firebaseio.com",
+                projectId: "thescoree-caaa5",
+                storageBucket: "",
+                messagingSenderId: "698972669010",
+                appId: "1:698972669010:web:5b93cbefe98fe3a0"
+              };
+              // Initialize Firebase
+              firebase.initializeApp(firebaseConfig);
+            
+            // var firebaseConfig = {
+            // apiKey: "AIzaSyBaWWTN10o_upA9hNFU74TJfMr009cCFJ4",
+            // authDomain: "thescoree-caaa5.firebaseapp.com",
+            // databaseURL: "https://thescoree-caaa5.firebaseio.com",
+            // projectId: "thescoree-caaa5",
+            // storageBucket: "thescoree-caaa5.appspot.com",
+            // messagingSenderId: "698972669010",
+            // };
+
+            //  // Initialize Firebase
+            // firebase.initializeApp(firebaseConfig);
+            
+            
+            const messaging = firebase.messaging();
+            
+            navigator.serviceWorker.register('{{ URL::asset("js/firebase-messaging-sw.js") }}')
+            .then((registration) => {
+                messaging.useServiceWorker(registration);
+            messaging.requestPermission()
+            .then(function(){
+                console.log('Have permission');
+                // debugger;
+                return messaging.getToken();
+                
+            })
+            .then(function(token){
+                // debugger;
+
+                console.log(token);
+                $.ajax({
+                    type: "POST",
+                    url: '{{ url("api/saveDeviceTokens") }}',
+                    data: {"token":token},
+                    success: function(response){
+                        console.log(response);
+                    }
+                });
+            })
+            .catch(function(err){
+                console.log(err);
+                
+            });
+            });
+            
+            // navigator.serviceWorker.register('{{ URL::asset("js/firebase-messaging-sw.js") }}')
+            // .then((registration) => {
+            //     messaging.useServiceWorker(registration);
+            //     console.log(registration);
+            //      // Request permission and get token.....
+            // });
+            // console.log(Notification.permission);
+            // console.log(Notification.requestPermission());
+            
+            // document.addEventListener('DOMContentLoaded', function() {
+            //     if (!Notification) {
+            //     alert('Desktop notifications not available in your browser. Try Chromium.');
+            //     return;
+            //     }
+            //     if (Notification.permission !== 'granted')
+            //         Notification.requestPermission();
+            // });
+
+
+
+            
+// const messaging = firebase.messaging();
+// messaging.requestPermission()
+//   .then(function () {
+//     console.log('Notification permission granted.');
+//     return messaging.getToken();
+//   })
+//   .then(function (token) {
+//     console.log('fcm id ' + token);
+//     localStorage.setItem('deviceID', token);
+//   })
+//   .catch(function (err) {
+//     console.log('Unable to get permission to notify. ', err);
+//   });
+
+// // receive message in the webpage when it is on.
+// messaging.onMessage(function (payload) {
+//   console.log("Message received. ", payload);
+//   // ...
+// });
+ </script>
 
 <script src="{{ URL::asset('js/home.js') }}"></script>
 

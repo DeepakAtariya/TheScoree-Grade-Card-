@@ -34,4 +34,6 @@ Route::get('count','ProfileController@count');
 
 Route::get('gotFeedback','ProfileController@gotFeedback');
 
+Route::post('saveDeviceTokens','NotificationController@saveDeviceTokens')->name('saveDeviceTokens');
+
 

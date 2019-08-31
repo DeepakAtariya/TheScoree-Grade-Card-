@@ -28,11 +28,16 @@
                                           <div id="assignment" >
                                               <label>GC<br>{{ $total_gradecard }}</label>  
                                         </div>
+                                          <div id="assignment" >
+                                              
+                                              <label>Conn-User<br>{{ $pushNotiData }}</label>  
+                                        </div>
                           </div>
                       </div>
 </div>
         <br>
         <br>    
+        <p>To send alert to user use populate route with title and body parameter</p>
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
