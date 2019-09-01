@@ -28,10 +28,8 @@ class NotificationController extends Controller
         $request->title = $request->body==''?'Test Body':$request->body;
 
         $message = [
-            "notification"=>[
-                "title"=>$request->title,
-                "body">$request->body
-            ]
+            "title"=>$request->title,
+            "body">$request->body
         ];
 
         $pushNotiData = PushNotificationData::get();
@@ -79,21 +77,28 @@ class NotificationController extends Controller
     public function saveDeviceTokens(Request $request){
 
         if(PushNotificationData::where('device_token',$request->token)->exists()){
-            PushNotificationData::insert([
-                'device_token'=>$request->token
-            ]);
 
             return response()->json([
                 'what'=>'done',
                 'token'=>$request->token
             ]);
         }else{
+            
+            PushNotificationData::insert([
+                'device_token'=>$request->token
+            ]);
+
             return response()->json([
                 'what'=>'not done',
                 'token'=>$request->token
             ]);
         }
-        
+
+        // try {
+        //     $id = PushNotificationData::where('device_token',$request->token)->get()[0]['id'];
+        // } catch (\Exception $th) {
+
+        // }
     }
 }
 

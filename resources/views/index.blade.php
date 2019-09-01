@@ -177,6 +177,11 @@
                 
             });
             });
+
+            messaging.onMessage(function (payload) {
+                console.log("Message received. ", payload);
+            // ...
+            });
             
             // navigator.serviceWorker.register('{{ URL::asset("js/firebase-messaging-sw.js") }}')
             // .then((registration) => {
