@@ -23,7 +23,6 @@ messaging.setBackgroundMessageHandler(function (payload) {
   const notificationTitle = payload.data.title;
   const notificationOptions = {
     body: payload.data.body,
-    click_action:'www.thescoree.com',
     vibrate: [100, 50, 100],
     // icon: '/firebase-logo.png'
   };

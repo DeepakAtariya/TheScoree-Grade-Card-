@@ -37,7 +37,41 @@
 </div>
         <br>
         <br>    
-        <p>To send alert to user use populate route with title and body parameter</p>
+        <br>
+        <p>To send alert to user use <a class="btn-link" data-toggle="modal" href='#modal-id'> populate </a> route with title and body parameter</p>
+        
+        
+        <div class="modal fade" id="modal-id">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Send Notification to people</h4>
+                    </div>
+                    <form action="{{ url('populate') }}" method="GET" role="form">
+                    <div class="modal-body">
+                        <legend>Enter title and message.</legend>
+                    
+                        <div class="form-group">
+                            <label for="">Title</label>
+                            <input type="text" class="form-control" id="" name="title" placeholder="Input Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Body</label>
+                            <input type="text" class="form-control" id="" name="body" placeholder="Input Message to send">
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
