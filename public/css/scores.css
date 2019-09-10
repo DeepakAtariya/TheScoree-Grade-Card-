@@ -322,7 +322,7 @@ img {
 }
 
 a:hover {
-  width: 100px;
+  /* width: 100px; */
 }
 
 a:hover .logout{

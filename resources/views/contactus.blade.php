@@ -1,8 +1,8 @@
 @include('header')
 
 <link rel="stylesheet" href="{{ URL::asset('css/contactus.css') }}">
-<div class="text-center" id="main" style="padding: 2%;">
-    <div class="row" id="row">
+<div class="container text-center" id="main" style="padding: 2%;">
+    <div class="row" id="">
         <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1">
         </div>
         <div class="col-xs-12 col-lg-10 col-md-10 col-sm-12 ">
@@ -16,7 +16,8 @@
                   <tbody>
                     <tr>
                       <td>
-                        <div class=" modal-body" id="">
+                        <hr>
+                        
                         <form action="{{ url('submit_contactus') }}" class="form" role="form" name="Feedback" id="Feedback" method="post">
                         {{ csrf_field() }}
                           <div class="form-group">
@@ -37,7 +38,7 @@
                               <!-- <button type="submit" class="btn btn-default">Submit</button> -->
                           </div>
                         </form>
-                        </div>
+                        
                       </td>
                     </tr>
                   </tbody>
@@ -53,4 +54,6 @@
 </div>
 <script src="{{ URL::asset('js/home.js') }}"></script>
 
+<footer class="footer">
 @include('footer')
+</footer>

@@ -115,5 +115,11 @@ Route::get('download_score','ScoresController@downloadScore')->name('download_sc
 Route::get('populate','NotificationController@populate')->name('populate')->middleware('auth');
 
 
+Route::get('coming_soon',function(){
+	return view('coming_soon');
+})->name('coming_soon');
+
+
+
 
 

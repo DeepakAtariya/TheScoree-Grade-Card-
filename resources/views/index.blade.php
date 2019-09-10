@@ -2,13 +2,66 @@
 
 <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
 
-<div class="alert-format">
+<!-- <div class="alert-format">
     <div class="alert alert-info alert-dismissible ">
         <a href="#" id="close_button" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong ><span class="glyphicon glyphicon-info-sign"></span> </strong> <a id="click_here" style="font-size:15px;" href="{{ url('termendresults') }}" >Term End Exam Results - June 2019 is out! </a>
     </div>          
-</div>
+</div> -->
 <div class="text-center" id="main" style="padding: 2%;">
+    <div class="row" id="row">
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+        </div>
+        <div class="col-xs-10 col-lg-10 col-md-10 col-sm-10 ">
+            <!-- <h1 class="scoree_banner">SCOREE</h1> -->
+            <table id="feedback_container">
+                <tr>
+                    <td>
+                        <img src="{{ URL::asset('images/grade_card_resized.png')}}" alt="Grade Card" srcset="" class="img-responsive">
+                    </td>
+                </tr>
+                <tr>
+                      <td>
+                      
+                      <div class=" modal-body text-center"><br>
+                      <form name="gradeCardForm" id="gradeCardForm" method="POST" role="form" action="{{ url('getGradeCard') }}">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <select class="" id="guest_program" name="program" required>
+                            <option value>Select Program:</option>
+                            <option value="BCA">BCA (Bachelor of Computer Application)</option>
+                            <option value="MCA">MCA (Master of Computer Application)</option>
+                            <option value="MEG">MEG (Master of Arts - English)</option>
+                            <option value="BCOM">BCOM (Bachelor of Commerce )</option>
+                        </select>   
+                    </div>
+                    <div class="form-group">
+                        <input type="number" min="0" name="enrollment" id="termendEnrollment" tabindex="1" class="" placeholder="Enrollment Number" > 
+                    </div>
+                    <div class="form-group">
+                        <div class="row text-center">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">                                                        
+                                <!-- <input type="button" name="guest-submit" id="go"  onclick="return validata()" tabindex="4" class=" " value="Go" > -->
+                                <input type="submit" name="guest-submit" id="go"  onclick="return validataTermend()" tabindex="4" class=" " value="Go" >
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                      </td>
+                    </tr>
+            </table>
+
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+        </div>
+    </div>
+</div>
+<!-- <div class="text-center" id="main" style="padding: 2%;">
     <div class="row" id="row">
         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
         </div>
@@ -43,7 +96,7 @@
                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">                                                        
-                                <!-- <input type="button" name="guest-submit" id="go"  onclick="return validata()" tabindex="4" class=" " value="Go" > -->
+                                <input type="button" name="guest-submit" id="go"  onclick="return validata()" tabindex="4" class=" " value="Go" >
                                 <input type="submit" name="guest-submit" id="go"  onclick="return validataTermend()" tabindex="4" class=" " value="Go" >
                             </div>
                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -61,7 +114,7 @@
         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
         </div>
     </div>
-</div>
+</div> -->
 
 
 
@@ -227,4 +280,7 @@
 
 <script src="{{ URL::asset('js/home.js') }}"></script>
 
-@include('footer')
+
+<footer id="home_footer"  class="footer">
+    @include('footer')
+</footer>

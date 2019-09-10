@@ -1,12 +1,12 @@
 @include('header')
 
 <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
-<div class="" id="main" style="padding: 2%;">
-    <div class="row" id="row">
+<div class="container" id="main" style="padding: 2%;">
+    <div class="row" id="">
         <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1">
         </div>
         <div class="col-xs-12 col-lg-10 col-md-10 col-sm-12 ">
-            <table id="privacy_container" >
+            <table id="" >
                   <thead>
                     <tr id="contribute">
                       <th>
@@ -19,8 +19,8 @@
                   <tbody>
                     <tr>
                       <td>
-                      <div class="modal-body">
-                      <h2>Privacy Policies </h2>
+                      <hr>
+                      <!-- <h2>Privacy Policies </h2> -->
 
 <p>At thescoree.com, accessible from thescoree.com , one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by thescoree.com and how we use it. If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at admin@thescoree.com</p>
 
@@ -59,7 +59,7 @@
 <p>Note our Privacy Policy will be change at any time without any notice so keep checking our privacy page.</p>
 <p><strong>Contact Us:</strong></p>
 <p>If you have any query and question about our Privacy Policy then feel free to <a id="click_here" href="{{ url('contactus') }}">Contact us</a>.</p>
-                      </div>
+                      
                       </td>
                     </tr>
                   </tbody>

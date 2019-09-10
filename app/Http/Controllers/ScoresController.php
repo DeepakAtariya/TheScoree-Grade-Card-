@@ -280,7 +280,7 @@ class ScoresController extends Controller
                 }
 
                     
-                array_push($col,ceil($assgn+$theory+$lab_marks));
+                array_push($col,floor($assgn+$theory+$lab_marks));
                 for($c = 0; $c<sizeof($course_data); $c++){
                     if($col[0] == $course_data[$c]->code){
                         array_push($col,$course_data[$c]->name);
@@ -342,13 +342,15 @@ class ScoresController extends Controller
                 // ],201);
                 // print_r($row);exit;
 
+                // echo $earned_marks;exit;
+
                 return [
                     'scores'=>$row,
                     'name'=>str_replace('</b>','',$foundName),
                     'enrollment'=>$this->enrollment,
                     'earned_marks' => $earned_marks,
                     'outof' => $outof,
-                    'percent'=>round(($earned_marks/$outof)*100,2),
+                    'percent'=>($earned_marks/$outof)*100,
                     'program'=>$this->program,
                     'status'=>'200',
                     'gradecard'=>'M'

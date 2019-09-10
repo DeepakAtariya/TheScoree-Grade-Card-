@@ -85,16 +85,7 @@ textarea{
 	/* margin-top: 100px; */
  }
 
- #feedback_container{
-	 border:1px solid black;
-	 margin-top: 2%;
-	 /* width: 90%; */
-	 /* height: 100%; */
-	 box-shadow: 3px 5px #888888;
-	 padding-left: 20px;
-	 padding-right: 20px;
 
- }
 
  #guest{
 	margin-top: 4%;
@@ -165,17 +156,17 @@ textarea{
 	
 }
 #contribute{
-	font-weight: bold;
-	color: white;
-	font-size : 25px;
+	/* font-weight: bold; */
+	color: black;
+	font-size : 40px;
 	/* padding: 10px; */
 	padding-bottom: 20px;
-	background: black;
-	text-align: center;
+	/* background: black; */
+	text-align: left;
 	
 }
 #contribute >th {
-	text-align: center;
+	text-align: left;
 	padding: 5px 1px;
 }
 
@@ -286,19 +277,7 @@ select:focus, select:active {
 	 padding-top:100px;
  } */
 
- #feedback_container{
-	border:1px solid black;
-	/* margin-top: 10%; */
-	width: 60%;
-	margin: auto;
-	margin-top: 4%;
-	padding: 10px;
-	/* height: 100%; */
-	box-shadow: 3px 5px #888888;
-	padding-left: 20px;
-	padding-right: 20px;
 
-}
 
 #row{
 	/* margin-top: 10%; */
@@ -319,22 +298,38 @@ input#go{
 	width: 40%;
   }
 
+  #feedback_container{
+	/* border:1px solid black; */
+	/* margin-top: 10%; */
+	width: 100%;
+	margin: auto;
+	margin-top: 4%;
+	padding: 10px;
+	/* height: 100%; */
+	/* box-shadow: 3px 5px #888888; */
+	padding-left: 20px;
+	padding-right: 20px;
+
+}
+
 
 @media only screen and (max-width: 767px) and (min-width : 10px) {
 
+
 	#feedback_container{
-		border:1px solid black;
+		margin-top:50px;
+		/* border:1px solid black; */
 		/* margin-top: 10%; */
-		width: 100%;
-		margin: auto;
+		width: 90%;
+		/* margin: auto; */
 		/* margin-top: 4%; */
 		padding: 10px;
-		/* height: 100%; */
-		box-shadow: 3px 5px #888888;
+		/* box-shadow: 3px 5px #888888; */
 		padding-left: 20px;
 		padding-right: 20px;
 	
 	}
+
 	#contribute_container{
 		border:1px solid black;
 		/* margin-top: 10%; */

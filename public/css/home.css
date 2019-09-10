@@ -51,18 +51,18 @@
 	
 }
 #contribute{
-	font-weight: bold;
-	color: white;
-	font-size : 25px;
+	/* font-weight: bold; */
+	color: black;
+	font-size : 40px;
 	/* padding: 10px; */
 	padding-bottom: 20px;
-	background: black;
-	text-align: center;
+	/* background: black; */
+	text-align: left;
 	
 }
 #contribute >th {
-	text-align: center;
-	padding: 5px 1px;
+	text-align: left;
+	/* padding: 5px 1px; */
 }
 
 #mail_admin:hover{
@@ -219,14 +219,14 @@ input{
  } */
 
  #feedback_container{
-	border:1px solid black;
+	/* border:1px solid black; */
 	/* margin-top: 10%; */
 	width: 60%;
 	margin: auto;
 	margin-top: 4%;
 	padding: 10px;
 	/* height: 100%; */
-	box-shadow: 3px 5px #888888;
+	/* box-shadow: 3px 5px #888888; */
 	padding-left: 20px;
 	padding-right: 20px;
 
@@ -292,9 +292,19 @@ input#go{
 	width: 40%;
   }
 
+  .img-responsive{
+	display: initial;
+  }
+
+  .standard_width{
+	  /* width: 90%; */
+  }
+
 
 @media only screen and (max-width: 767px) and (min-width : 10px) {
 
+
+	
 	
 
 
@@ -326,13 +336,14 @@ input#go{
 
 
 	#feedback_container{
-		border:1px solid black;
+		margin-top:50px;
+		/* border:1px solid black; */
 		/* margin-top: 10%; */
 		width: 100%;
-		margin: auto;
+		/* margin: auto; */
 		/* margin-top: 4%; */
 		padding: 10px;
-		box-shadow: 3px 5px #888888;
+		/* box-shadow: 3px 5px #888888; */
 		padding-left: 20px;
 		padding-right: 20px;
 	

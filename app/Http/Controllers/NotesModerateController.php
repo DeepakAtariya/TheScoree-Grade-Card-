@@ -59,7 +59,6 @@ class NotesModerateController extends Controller
 
     public function view_notes(Request $request){
         return $request->notes;
-        
     }
     
     public function publish_note(Request $request){
