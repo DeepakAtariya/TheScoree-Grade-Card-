@@ -119,6 +119,9 @@ Route::get('coming_soon',function(){
 	return view('coming_soon');
 })->name('coming_soon');
 
+// Notes view
+Route::get('notes','NotesController@notes')->name('notes');
+
 
 
 
