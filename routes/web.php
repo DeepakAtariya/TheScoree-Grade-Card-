@@ -121,6 +121,8 @@ Route::get('coming_soon',function(){
 
 // Notes view
 Route::get('notes','NotesController@notes')->name('notes');
+Route::get('notes/units','NotesController@units')->name('units');
+Route::get('notes/view','NotesController@view')->name('view');
 
 
 

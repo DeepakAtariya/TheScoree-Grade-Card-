@@ -69,6 +69,7 @@ if(strpos($current_url,"contactus") > 0){
 
 <link rel="stylesheet" href="{{ URL::asset('css/header.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/notes4user.css') }}">
 
 <!-- <link rel="icon" type="image/png" sizes="32x32" href="http://ismartsolar.in/css/cropped-Teri-logoifavicon-2-32x32.png"> -->
 

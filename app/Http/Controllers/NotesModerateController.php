@@ -100,12 +100,21 @@ class NotesModerateController extends Controller
 
     public function view_sample(Request $request){
         // return $request->notes;
-        $data = DB::table('notes__units')
-                ->join('notes__courses', 'notes__courses.id', '=', 'notes__units.course_id')
-                ->join('notes__programs', 'notes__programs.id', '=', 'notes__courses.program_id')
-                ->where('notes__units.id',$request->id)
-                ->select('notes__units.*', 'notes__courses.course_name','notes__courses.course_code', 'notes__programs.program_fullform', 'notes__programs.program_code')
-                ->get();
+        // $data = DB::table('notes__units')
+        //         ->join('notes__courses', 'notes__courses.id', '=', 'notes__units.course_id')
+        //         ->join('notes__programs', 'notes__programs.id', '=', 'notes__courses.program_id')
+        //         ->where('notes__units.id',$request->id)
+        //         ->select('notes__units.*', 'notes__courses.course_name','notes__courses.course_code', 'notes__programs.program_fullform', 'notes__programs.program_code')
+        //         ->get();
+        $data = Notes_Unit::join('notes__courses', function($j){
+            $j->on('notes__courses.id','=','notes__units.course_id');
+        })->join('notes__programs',function($j){
+            $j->on('notes__courses.program_id','=','notes__programs.id');
+        })->get([
+            'notes__units.*',
+            'notes__programs.program_code',
+            'notes__courses.course_code'
+        ]);
 
         return view('admin/view_sample',[
             'note_data'=>$data,

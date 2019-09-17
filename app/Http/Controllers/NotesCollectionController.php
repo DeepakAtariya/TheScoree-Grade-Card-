@@ -17,7 +17,7 @@ class NotesCollectionController extends Controller
 
     public function submitNotes(Request $request){
 
-        return $request->unit_description;
+        // return $request->unit_description;
         unset($request['_token']);
         // return $request;
 

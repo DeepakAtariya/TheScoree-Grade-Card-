@@ -15,28 +15,66 @@ class NotesController extends Controller
                 $j->on('notes__courses.id','=','notes__units.course_id');
             })->join('notes__programs',function($j){
                 $j->on('notes__courses.program_id','=','notes__programs.id');
-            })->paginate(10,[
+            })->where('notes__units.published','1')->paginate(10,[
+                'notes__programs.program_code',
                 'notes__courses.course_code',
                 'notes__courses.course_name'
             ]);
-            return view('notes/viewNotes',[
-                'program_list'=>$course_list
+            return view('notes/courses',[
+                'course_list'=>$course_list
             ]);    
         }else{
             $program_list = Notes_Unit::join('notes__courses', function($j){
                 $j->on('notes__courses.id','=','notes__units.course_id');
             })->join('notes__programs',function($j){
                 $j->on('notes__courses.program_id','=','notes__programs.id');
-            })->paginate(10,[
-                'notes_programs.program_code',
-                'notes_programs.program_fullform'
+            })->where('notes__units.published','1')->paginate(10,[
+                'notes__programs.program_code',
+                'notes__programs.program_fullform'
             ]);
     
             // return $program_list;
     
-            return view('notes/viewNotes',[
+            // return $program_list;
+            return view('notes/programs',[
                 'program_list'=>$program_list
             ]);
         }
+    }
+
+    public function units(Request $request){
+        $unit_list = Notes_Unit::join('notes__courses', function($j){
+            $j->on('notes__courses.id','=','notes__units.course_id');
+        })->join('notes__programs',function($j){
+            $j->on('notes__courses.program_id','=','notes__programs.id');
+        })->where('notes__units.published','1')->paginate(10,[
+            'notes__units.id',
+            'notes__units.unit_name',
+            'notes__programs.program_code',
+            'notes__courses.course_code'
+        ]);
+
+        return view('notes/units',[
+            'unit_list'=>$unit_list
+        ]);
+
+    }
+
+    public function view(Request $request){
+        $unit_data = Notes_Unit::join('notes__courses', function($j){
+            $j->on('notes__courses.id','=','notes__units.course_id');
+        })->join('notes__programs',function($j){
+            $j->on('notes__courses.program_id','=','notes__programs.id');
+        })->where('notes__units.id',$request->uuid)->where('notes__units.published','1')->get([
+            'notes__units.*',
+            'notes__programs.program_code',
+            'notes__courses.course_code'
+        ]);
+     
+        return view('notes/view',[
+            'unit_data'=>$unit_data
+        ]);
+
+
     }
 }
