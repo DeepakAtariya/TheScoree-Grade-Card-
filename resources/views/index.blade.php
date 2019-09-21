@@ -49,11 +49,21 @@
                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             </div>
                         </div>
+                        
+                        <div class="row">
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <a href="{{ url('notes') }}" class="btn-link ">Notes</a><sup style="color:red">New</sup>
+                            </div>
+                            
+                        </div>
+                        
                     </div>
                 </form>
                 </div>
                       </td>
                     </tr>
+                    
             </table>
 
         </div>
@@ -281,6 +291,6 @@
 <script src="{{ URL::asset('js/home.js') }}"></script>
 
 
-<footer id="home_footer"  class="footer">
+<footer id="home_footer"  class="">
     @include('footer')
 </footer>

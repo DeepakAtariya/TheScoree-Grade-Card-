@@ -223,7 +223,7 @@ input{
 	/* margin-top: 10%; */
 	width: 60%;
 	margin: auto;
-	margin-top: 4%;
+	margin-top: 0%;
 	padding: 10px;
 	/* height: 100%; */
 	/* box-shadow: 3px 5px #888888; */
@@ -294,6 +294,7 @@ input#go{
 
   .img-responsive{
 	display: initial;
+	width: 80%;
   }
 
   .standard_width{
