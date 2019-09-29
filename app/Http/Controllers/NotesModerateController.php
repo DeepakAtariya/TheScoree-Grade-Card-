@@ -52,6 +52,7 @@ class NotesModerateController extends Controller
 
         return view('admin/edit_notes',[
             'note_data'=>$data,
+            'program'=>Notes_Program::get()
 
         ]);
         
@@ -110,7 +111,7 @@ class NotesModerateController extends Controller
             $j->on('notes__courses.id','=','notes__units.course_id');
         })->join('notes__programs',function($j){
             $j->on('notes__courses.program_id','=','notes__programs.id');
-        })->get([
+        })->where('notes__units.id',$request->id)->get([
             'notes__units.*',
             'notes__programs.program_code',
             'notes__courses.course_code'

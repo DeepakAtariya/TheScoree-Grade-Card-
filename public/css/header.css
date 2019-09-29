@@ -116,6 +116,12 @@
   
   }
 
+  h1,h2,p,li{
+		font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif !important;	
+		/* font-size: */
+	}
+	
+
   @media only screen and (max-width: 767px) and (min-width : 10px) {
   
     .fa-bars{
@@ -139,4 +145,10 @@
         bottom:0;
         width:100%;
       }
+
+      h1,h2,p,li{
+        font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif !important;	
+        /* font-size: */
+      }
+      
   }

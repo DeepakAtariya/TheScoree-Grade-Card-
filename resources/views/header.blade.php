@@ -178,7 +178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- <span class="closebtn" style="margin-right:50px;">dasda</span> -->
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="{{ url('') }}" class="option">Home</a><hr>
-  <a href="{{ url('notes') }}" class="option">Notes</a><hr>
+  <a href="{{ url('notes') }}" class="option">IGNOU Notes</a><hr>
   <a href="{{ url('about') }}" class="option">About Us</a><hr>
   <a href="{{ url('contactus') }}" class="option">Contact Us</a><hr><br>
   <!-- <ul class="list-inline" id="sidebar_part">
@@ -223,6 +223,8 @@ function closeNav() {
 }
 
 </script>
+
+
 
 
 

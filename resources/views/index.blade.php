@@ -53,7 +53,7 @@
                         <div class="row">
                             
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <a href="{{ url('notes') }}" class="btn-link ">Notes</a><sup style="color:red">New</sup>
+                                <a href="{{ url('notes') }}" class="btn-link ">IGNOU Notes</a><sup style="color:red">New</sup>
                             </div>
                             
                         </div>

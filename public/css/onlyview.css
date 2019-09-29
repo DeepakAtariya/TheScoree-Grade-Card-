@@ -1,0 +1,120 @@
+.class-hr{
+	border-color: gray
+}
+
+p, li{
+	font-size: 21px !important;
+	/* text-align: left; */
+	text-align: justify;
+}
+
+a:hover{
+	color: skyblue;
+}
+
+a{
+	font-size: 18px !important;
+}
+
+h2{
+	font-size: 38px;
+}
+
+h1{
+	font-size: 41px;
+
+}
+
+table, th, td {	
+	border: 1px solid black;	
+	text-align: center;
+	/* width: 100%; */
+}
+table > tbody > tr > td > p{
+	/* border: 1px solid black; */
+	text-align: center;
+	/* width: 100%; */
+}
+table {
+	border: 1px solid black;
+	text-align: center;
+	width: 100%;
+}
+
+h1,h2,p,li{
+	font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif !important;	
+}
+
+
+
+
+.inner-table > td{
+	/* color:red; */
+	/* border: 0px solid white; */
+	/* border-collapse:collapse !important; */
+	/* border: none; */
+}
+.inner-table {
+	/* color:red; */
+	/* border: 0px solid white; */
+	/* border: none; */
+	/* border-collapse:collapse !important; */
+}
+
+@media only screen and (max-width: 767px) and (min-width : 10px) {
+	
+	.class-hr{
+		border-color: gray
+	}
+	
+	p, li{
+		font-size: 19px !important;
+		/* text-align: left; */
+		text-align: justify;
+	}
+	
+	p > strong {
+		text-align: initial !important;
+		/* color: red; */
+	}
+
+
+	a:hover{
+		color: skyblue;
+	}
+	
+	a{
+		font-size: 16px !important;
+	}
+	
+	h2{
+		font-size: 28px;
+	}
+	
+	h1{
+		font-size: 32px;
+	
+	}
+	
+	table, th, td {	
+		border: 1px solid black;	
+		text-align: center;
+		/* width: 100%; */
+	}
+	table > tbody > tr > td > p{
+		/* border: 1px solid black; */
+		text-align: center;
+		/* width: 100%; */
+	}
+	table {
+		border: 1px solid black;
+		text-align: center;
+		width: 100%;
+	}
+	
+	h1,h2,p,li{
+		font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif !important;	
+		/* font-size: */
+	}
+	
+}

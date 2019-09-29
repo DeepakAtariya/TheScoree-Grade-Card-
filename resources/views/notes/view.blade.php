@@ -1,5 +1,5 @@
 @include('header')
-
+<link rel="stylesheet" href="{{ URL::asset('css/onlyview.css') }}">
 
 <div class="container">
     
@@ -51,7 +51,7 @@
         </div>
         
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">        
-                <h2>About</h2>
+                <h2>Description</h2>
                 <hr class="class-hr">
                 {!! $data->unit_description !!}
                 <h2>Application</h2>
