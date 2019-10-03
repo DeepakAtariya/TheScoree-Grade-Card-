@@ -41,7 +41,7 @@
             <ul class="">
                 @foreach($course_list as $data)
                     <li>
-                        <a class="btn-link" href="{{ url('notes\units').'?program='.$data->program_code }}&course={{$data->course_code}}">{{ $data->course_code }} ({{ $data->course_name }})</a> 
+                        <a class="btn-link" href="{{ url('notes\units').'?program='.$data->program_code }}&course={{$data->id}}">{{ $data->course_code }} ({{ $data->course_name }})</a> 
                      </li>
                 @endforeach
             </ul>

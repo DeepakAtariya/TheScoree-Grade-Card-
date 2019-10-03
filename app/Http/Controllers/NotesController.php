@@ -18,6 +18,7 @@ class NotesController extends Controller
             })->where('notes__units.published','1')->distinct('notes__courses.course_code')->paginate(10,[
                 'notes__programs.program_code',
                 'notes__courses.course_code',
+                'notes__courses.id',
                 'notes__courses.course_name'
             ]);
             return view('notes/courses',[
@@ -43,11 +44,12 @@ class NotesController extends Controller
     }
 
     public function units(Request $request){
+        // return $request->course;
         $unit_list = Notes_Unit::join('notes__courses', function($j){
             $j->on('notes__courses.id','=','notes__units.course_id');
         })->join('notes__programs',function($j){
             $j->on('notes__courses.program_id','=','notes__programs.id');
-        })->where('notes__units.published','1')->paginate(10,[
+        })->where('notes__units.published','1')->where('notes__units.course_id',$request->course)->paginate(10,[
             'notes__units.id',
             'notes__units.unit_name',
             'notes__programs.program_code',
