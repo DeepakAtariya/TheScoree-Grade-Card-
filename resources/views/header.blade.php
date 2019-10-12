@@ -44,8 +44,14 @@ if(strpos($current_url,"contactus") > 0){
   echo "<title>Grade Card - The Scoree - Shows the grade card with more indicators and mobile friendly.</title>";
 }elseif(strpos($current_url,"termendresults") > 0 || strpos($current_url,"termend") > 0){
   echo "<title>Term End Exam Results June 2019! The Scoree - Shows the term end exam results with more indicators and mobile friendly.</title>";
+}elseif(strpos($current_url,"units") > 0 ){
+  echo "<title>Units - Notes or reference study material available for given programmes</title>";
+}elseif(strpos($current_url,"view") > 0 ){
+  echo "<title>Unit Description - unit description, application and important questions</title>";
+}elseif(strpos($current_url,"notes") > 0 ){
+  echo "<title>Programme List - Notes or reference study material available for given programmes</title>";
 }else{
-  echo "<title>The Scoree - Check Ignou Results, grade card with new experience</title>";
+  echo "<title>The Scoree - prepare yourself by studying from ignou notes provided by thescoree and get boost in your scores , interactive gradecard will help you to work on your weak points  </title>";
 }
 
 @endphp

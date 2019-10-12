@@ -125,6 +125,6 @@ Route::get('notes/units','NotesController@units')->name('units');
 Route::get('notes/view','NotesController@view')->name('view');
 
 
-
+Route::post('saveImage', 'NotesCollectionController@saveImage')->name('saveImage');
 
 

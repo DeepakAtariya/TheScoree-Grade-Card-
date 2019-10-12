@@ -163,52 +163,40 @@ Thank you for lending your precious time, your small contribution can make a cha
 
 
 
+<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+<script>
+var token = $('[name="_token"]').val();
+console.log(token);
+var unit_desc=CKEDITOR.replace("unit_desc",{
+	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token
+	
+});
+
+unit_desc.config.allowedContent=true;
+var unit_app=CKEDITOR.replace("unit_app",{
+	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token
+	
+});
+unit_app.config.allowedContent=true;
+
+var unit_importantQuestion=CKEDITOR.replace("unit_importantQuestion",{
+	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token
+	
+});
+unit_importantQuestion.config.allowedContent=true;
+
+var unit_reference=CKEDITOR.replace("unit_reference",{
+	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token
+	
+});
+unit_reference.config.allowedContent=true;
+
+
+</script>
+
 
 <script>
-tinymce.init({
-  selector: 'textarea#unit_desc , textarea#unit_app, textarea#unit_importantQuestion, textarea#unit_reference',
-//   placeholder: 'Unit Short description'
-  height: 500,
-  menubar: true,
-  plugins: [ 
-    'advlist autolink lists link image charmap print preview anchor textcolor',
-    'searchreplace visualblocks code fullscreen',
-    'insertdatetime media table paste code help wordcount',
-    'table',
-    'placeholder'
-  ],
-  toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol',
-  content_css: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-    '//www.tiny.cloud/css/codepen.min.css',
-    '{{ URL::asset("css/notes.css") }}'
-  ]
-});
 
-$('#course').prop("disabled",true);
-$('#course').css("border-color","red");
-
-$('#program').change(function(){
-
-    $('#course')
-         .empty()
-         .append($("<option></option>")
-                    .attr("value","")
-                    .text("Select course..."));
-
-    var program_id = $('#program').val();
-    $.ajax({url: "{{ url('notes/getCourses') }}?program_id="+program_id, success: function(result){
-        // console.log(result);
-        $('#course').prop("disabled",false);
-        $('#course').css("border-color","gray");
-        $.each(result['data'], function(key, value) {   
-        $('#course')
-         .append($("<option></option>")
-                    .attr("value",value['id'])
-                    .text(value['course_code']+' ('+value['course_name']+')')); 
-        });
-    }});
-});
 
 
 function validate(){
