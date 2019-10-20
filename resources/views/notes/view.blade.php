@@ -75,5 +75,10 @@
     @endforeach
 </div>
 
+<script>
+
+$('img').addClass('img-responsive');
+
+</script>
 
 @include('footer')

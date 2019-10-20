@@ -97,7 +97,7 @@ class NotesCollectionController extends Controller
         // echo $request->hasFile('upload')?'true':'false';exit;
         if($request->hasFile('upload')){
             $file = $request->file('upload');
-            $file_name = $request->input('upload').'.'.$file->getClientOriginalExtension();
+            $file_name = $file->getClientOriginalName().'-'.time().'.'.$file->getClientOriginalExtension();
             $destinationPath = public_path('/images');
             $file->move($destinationPath, $file_name);
         }

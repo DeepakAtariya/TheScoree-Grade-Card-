@@ -166,76 +166,61 @@ Thank you for lending your precious time, your small contribution can make a cha
 <script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
 <script>
 var token = $('[name="_token"]').val();
+CKEDITOR.plugins.addExternal( 'pastefromword', '{{ URL::asset("/ckeditor/plugins/pastefromword/plugin.js") }}', 'plugin.js' );
 console.log(token);
 var unit_desc=CKEDITOR.replace("unit_desc",{
-	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token
+	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token,
+    extraPlugins: 'pastefromword',
 	
 });
 
 unit_desc.config.allowedContent=true;
 var unit_app=CKEDITOR.replace("unit_app",{
-	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token
+	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token,
+    extraPlugins: 'pastefromword',
 	
 });
 unit_app.config.allowedContent=true;
 
 var unit_importantQuestion=CKEDITOR.replace("unit_importantQuestion",{
-	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token
+	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token,
+    extraPlugins: 'pastefromword',
 	
 });
 unit_importantQuestion.config.allowedContent=true;
 
 var unit_reference=CKEDITOR.replace("unit_reference",{
-	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token
+	filebrowserUploadUrl:"{{ url('saveImage') }}?command=QuickUpload&type&_token="+token,
+    extraPlugins: 'pastefromword',
 	
 });
 unit_reference.config.allowedContent=true;
 
+$('#course').prop("disabled",true);
+$('#course').css("border-color","red");
 
-</script>
+$('#program').change(function(){
 
+    $('#course')
+         .empty()
+         .append($("<option></option>")
+                    .attr("value","")
+                    .text("Select course..."));
 
-<script>
+    var program_id = $('#program').val();
+    $.ajax({url: "{{ url('notes/getCourses') }}?program_id="+program_id, success: function(result){
+        // console.log(result);
+        $('#course').prop("disabled",false);
+        $('#course').css("border-color","gray");
+        $.each(result['data'], function(key, value) {   
+        $('#course')
+         .append($("<option></option>")
+                    .attr("value",value['id'])
+                    .text(value['course_code']+' ('+value['course_name']+')')); 
+        });
+    }});
+});
 
-
-
-function validate(){
-    // Get the HTML contents of the currently active editor
-// tinyMCE.activeEditor.getContent();
-
-// Get the raw contents of the currently active editor
-// tinyMCE.activeEditor.getContent({format : 'text'});
-
-// Get content of a specific editor:
-// tinyMCE.get('content id').getContent()
-    // tinyMCE.triggerSave();
-    // var desc=tinyMCE.get('unit_desc').getContent();
-    // var desc = $('#unit_desc').val();
-    // // console.log(desc);
-    
-    // var application = $('#unit_app').val();
-    // var importantQuestion = $('#unit_importantQuestion').val();
-    // var reference = $('#unit_reference').val();
-    
-    // if(desc===""){
-    //     alert('Important points field is blank');
-    //     return false;
-    // }
-    // if(application===""){
-    //     alert('Application/Uses field is blank');
-    //     return false;
-    // }
-    // if(importantQuestion===""){
-    //     alert('Important Question field is blank');
-    //     return false;
-    // }
-    // if(reference===""){
-    //     alert('Reference field is blank');
-    //     return false;
-    // }
-    
-    return true;
-}
 
 </script>
 
