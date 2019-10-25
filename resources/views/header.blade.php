@@ -23,6 +23,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta data-rh="true" name="theme-color" content="#000000" />
+    <meta data-rh="true" property="og:site_name" content="TheScoree" />
+    <meta data-rh="true" property="og:type" content="Notes" />
+ 
+    <meta data-rh="true" name="robots" content="index,follow" />
 
   <link rel="icon" type="image/x-icon" href="{{ URL::asset('images/favicon.ico') }}">
 
@@ -31,30 +36,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 $current_url = url()->current();
 
 if(strpos($current_url,"contactus") > 0){
-  echo "<title>Contact - Contact us to give your suggestions, the scoree tries best to make your experience better</title>";
+  echo "<title>Contact - Contact us to give your suggestions, the scoree tries best to make your experience better</title>  ";
+  $title = "Contact - Contact us to give your suggestions, the scoree tries best to make your experience better";
 }elseif(strpos($current_url,"about") > 0){
   echo "<title>About - The Scoree - Read about the scoree, releases and contact for improvements</title>";
+  $title = "About - The Scoree - Read about the scoree, releases and contact for improvements";
 }elseif(strpos($current_url,"privacypolicy") > 0){
   echo "<title>Privacy policy - The Scoree - Read the privacy policy for awareness, what and how do we work</title>";
+  $title = "Privacy policy - The Scoree - Read the privacy policy for awareness, what and how do we work";
 }elseif(strpos($current_url,"disclaimer") > 0){
   echo "<title>Disclaimer - The Scoree - Read the disclaimer carefully for following things thescoree is not responsible.</title>";
+  $title = "Disclaimer - The Scoree - Read the disclaimer carefully for following things thescoree is not responsible.";
 }elseif(strpos($current_url,"contribute") > 0){
   echo "<title>Contribute - The Scoree - Developers are everyone who keeps the idea to develop anything. We would like to hear from them.</title>";
+  $title = "Contribute - The Scoree - Developers are everyone who keeps the idea to develop anything. We would like to hear from them.";
 }elseif(strpos($current_url,"scores") > 0){
   echo "<title>Grade Card - The Scoree - Shows the grade card with more indicators and mobile friendly.</title>";
+  $title = "Grade Card - The Scoree - Shows the grade card with more indicators and mobile friendly.";
 }elseif(strpos($current_url,"termendresults") > 0 || strpos($current_url,"termend") > 0){
-  echo "<title>Term End Exam Results June 2019! The Scoree - Shows the term end exam results with more indicators and mobile friendly.</title>";
+  echo "<title>Term End Exam Results June 2020! The Scoree - Shows the term end exam results with more indicators and mobile friendly.</title>";
+  $title = "Term End Exam Results June 2020! The Scoree - Shows the term end exam results with more indicators and mobile friendly.";
 }elseif(strpos($current_url,"units") > 0 ){
   echo "<title>Units - Notes or reference study material available for given programmes</title>";
+  $title = "Units - Notes or reference study material available for given programmes";
 }elseif(strpos($current_url,"view") > 0 ){
   echo "<title>Unit Description - unit description, application and important questions</title>";
+  $title = "Unit Description - unit description, application and important questions";
 }elseif(strpos($current_url,"notes") > 0 ){
   echo "<title>Programme List - Notes or reference study material available for given programmes</title>";
+  $title = "Programme List - Notes or reference study material available for given programmes";
 }else{
   echo "<title>The Scoree - prepare yourself by studying from ignou notes provided by thescoree and get boost in your scores , interactive gradecard will help you to work on your weak points  </title>";
+  $title = "The Scoree - prepare yourself by studying from ignou notes provided by thescoree and get boost in your scores , interactive gradecard will help you to work on your weak points  ";
 }
 
+
 @endphp
+    <meta data-rh="true" name="title" content="{{$title}}" />
+    <meta data-rh="true" property="og:title" content="{{$title}}" />
+    <meta data-rh="true" property="twitter:title" content="{{$title}}" />
+    <meta data-rh="true" name="description" content="{{$title}}" />
+    <meta data-rh="true" property="og:description" content="{{ $title}}" />
+    <meta data-rh="true" property="og:url" content="{{$current_url}}" />
+    <meta data-rh="true" property="al:web:url" content="{{$current_url}}" />
+    <meta data-rh="true" property="og:image" content="https://thescoree.com/images/grade_card_resized.png" />
 
 
 <!-- termendform -->
