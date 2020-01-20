@@ -119,10 +119,22 @@
   h1,h2,p,li{
 		font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif !important;	
 		/* font-size: */
-	}
+  }
+  
+  p, li{
+    font-size: 21px !important;
+    /* text-align: left; */
+    text-align: justify;
+  }
 	
 
   @media only screen and (max-width: 767px) and (min-width : 10px) {
+
+    p, li{
+      font-size: 21px !important;
+      /* text-align: left; */
+      text-align: justify;
+    }
   
     .fa-bars{
       font-size: 22px !important; 

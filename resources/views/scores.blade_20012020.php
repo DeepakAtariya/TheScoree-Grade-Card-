@@ -7,7 +7,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                   <ul class="list-inline">
                       <li>
-                          <span style="font-size: 25px;">{{ $scores['program'] }} - {{ round($scores['percent'], 2)."%" }} </span><br>
+                          <span style="font-size: 25px;">{{ $scores['program'] }} - {{ $scores['percent']."%" }} </span><br>
                           <h4></h4>
                           <h5>{{ $scores['name'] }} ({{ $scores['enrollment'] }})</h5>
                           
@@ -54,22 +54,22 @@
                                   <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                         
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][1] }}<br> {{ $data[1] }}</label>
+                                              <label>Assignment<br> {{ $data[1] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][2] }} <br>{{ $data[2] }}</label>
+                                              <label>Lab1 <br>{{ $data[2] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][3] }} <br> {{ $data[3] }}</label>
+                                              <label>Lab2 <br> {{ $data[3] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][4] }} <br> {{ $data[4] }} </label>
+                                              <label>Lab3 <br> {{ $data[4] }} </label>
                                           </div>
                                           <div id="assignment" >
-                                              <label> Theory <br> {{ $data[5] }}</label>
+                                              <label> Lab4 <br> {{ $data[5] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                           <label>Practical <br> 
+                                           <label>Theory <br> 
                                                 @if(true)
                                                     {{ $data[6] }}
                                                 @else
@@ -84,8 +84,7 @@
                               
                           </div>
                       </div>
-                     
-                      @elseif($data[5]!="-")
+                      @elseif($data[6]!="-")
                       <div *ngFor="let row of master_data; let i = index;" class="column">
                         <div class="card container" style="background-color:rgb(235, 235, 235)">
                               <div class="row">
@@ -100,22 +99,22 @@
                                   <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" id="failed" style="color:red">
                                         
                                           <div id="assignment" >
-                                          <label>{{ $scores['scores'][0][1] }}<br> {{ $data[1] }}</label>
+                                              <label>Assignment<br> {{ $data[1] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][2] }} <br>{{ $data[2] }}</label>
+                                              <label>Lab1 <br>{{ $data[2] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][3] }} <br> {{ $data[3] }}</label>
+                                              <label>Lab2 <br> {{ $data[3] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][4] }} <br> {{ $data[4] }} </label>
+                                              <label>Lab3 <br> {{ $data[4] }} </label>
                                           </div>
                                           <div id="assignment" >
-                                              <label> Theory <br> {{ $data[5] }}</label>
+                                              <label> Lab4 <br> {{ $data[5] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>Practical <br>
+                                              <label>Theory <br>
                                                     @if(true)
                                                         {{ $data[6] }}
                                                     @else
@@ -145,22 +144,22 @@
                                   <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                                         
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][1] }}<br> {{ $data[1] }}</label>
+                                              <label>Assignment<br> {{ $data[1] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][2] }} <br>{{ $data[2] }}</label>
+                                              <label>Lab1 <br>{{ $data[2] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][3] }} <br> {{ $data[3] }}</label>
+                                              <label>Lab2 <br> {{ $data[3] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                              <label>{{ $scores['scores'][0][4] }}<br> {{ $data[4] }} </label>
+                                              <label>Lab3 <br> {{ $data[4] }} </label>
                                           </div>
                                           <div id="assignment" >
-                                              <label> Theory <br> {{ $data[5] }}</label>
+                                              <label> Lab4 <br> {{ $data[5] }}</label>
                                           </div>
                                           <div id="assignment" >
-                                           <label>Practical <br> 
+                                           <label>Theory <br> 
                                                 @if(true)
                                                     {{ $data[6] }}
                                                 @else
@@ -196,8 +195,8 @@
                               <th>{{ $scores['scores'][0][2] }}</th>
                               <th>{{ $scores['scores'][0][3] }}</th>
                               <th>{{ $scores['scores'][0][4] }}</th>
+                              <th>{{ $scores['scores'][0][5] }}</th>
                               <th>Theory</th>
-                              <th>Practical</th>
                               <th>Total</th> 
                               <!-- <th>Code</th>
                               <th>Name</th>
@@ -222,7 +221,7 @@
                               <!-- <td *ngIf="row.status=='Pass' else failed_serial" >
                                   
                               </td > -->
-                              <td *ngIf="row.status=='Pass' else failed_course_code" style="width: 10%;">
+                              <td *ngIf="row.status=='Pass' else failed_course_code" style="width: 6%;">
                               {{ $data[0] }}
                               </td>
                               <td *ngIf="row.status=='Pass' else failed_course_name" style="width: 26%;">
@@ -261,7 +260,7 @@
                               
                               
                           </tr>
-                            @elseif($data[5]!="-")
+                            @elseif($data[6]!="-")
                             <tr *ngFor="let row of master_data; let i = index;" id="fail_table">
                               <!-- <td *ngIf="row.status=='Pass' else failed_serial" >
                                   

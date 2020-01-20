@@ -17,9 +17,10 @@
                     <tr>
                       <td class="standard_width">
                       <hr>
-                        <p>Hello, Scoree is a general purpose website for the students of IGNOU. Scoree shows the results, grade cards of IGNOU students in improved structure, such as Scoree shows course name, calculate total marks and percentage. If student is in first or second semester then Scoree will calculate percentage, total marks according to given course results. Currently Scoree is able to show few programs as mentioned in the releases. Later on Scoree will able to show most of the IGNOU programs.  </p>
-
-                        <p>Scoree is saving your enrollment and progress data to provide you better service in the future for more details please read our disclaimer and policies.</p>
+                        <p>Hello, Scoree is a general purpose website for the students of IGNOU. It shows term-end exam results as well as grade cards of IGNOU students in an improved structure. Scoree displays the programme name, total marks obtained in each course and the aggregate percentage. The students will be able to download their grade card in PDF format, or they can view their grade card on IGNOU’s official website. Currently it is able to show the results for a few programmes as mentioned in the Releases. More of the IGNOU programmes will be added in due course of time. <br><br>
+Students enrolled in various programmes will now be able to prepare for their term-end exams by referring to the notes provided by Scoree. The notes will be provided for every course and every unit, in a very comprehensive and exam-oriented format, thereby making it convenient for the students to understand the concepts and have it on their fingertips. This is currently available for MCA students; notes for other units/courses and programmes will be uploaded in due course of time.<br><br>
+Scoree saves your enrollment number and progress data to provide you with better services in the future. For more details, please read the Disclaimer and Privacy Policy.
+  </p>
                         </td>
                         <td>
                           
@@ -52,6 +53,6 @@
 </div>
 <script src="{{ URL::asset('js/home.js') }}"></script>
 <br>
-<footer class="footer">
+<footer class="">
 @include('footer')
 </footer>

@@ -34,53 +34,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @php
 
 $current_url = url()->current();
-
-if(strpos($current_url,"contactus") > 0){
-  echo "<title>Contact - Contact us to give your suggestions, the scoree tries best to make your experience better</title>  ";
-  echo "<meta name='description' content='Please feel free to write scoree anytime, we wil ensure you for better resolution '>";
-  $title = "Contact - Contact us to give your suggestions, the scoree tries best to make your experience better";
-}elseif(strpos($current_url,"about") > 0){
-  echo "<meta name='description' content='Scoree is the platform where ignou student can perpare for the ignou exam by reading comprehensive ignou notes. Scoree keeps the track of your weak points by your grade card and provide you helpful material to prepare for ignou exams.'>";
-  echo "<title>About - The Scoree - Read about the scoree, releases and contact for improvements</title>";
-  $title = "About - The Scoree - Read about the scoree, releases and contact for improvements";
-}elseif(strpos($current_url,"privacypolicy") > 0){
-  echo "<meta name='description' content='At thescoree.com, accessible from thescoree.com , one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by thescoree.com and how we use it. If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at admin@thescoree.com'>";
-  echo "<title>Privacy policy - The Scoree - Read the privacy policy for awareness, what and how do we work</title>";
-  $title = "Privacy policy - The Scoree - Read the privacy policy for awareness, what and how do we work";
-}elseif(strpos($current_url,"disclaimer") > 0){
-  echo "<meta name='description' content='The Scoree application is a free web application for the students of IGNOU. The information on this website is published for general information purpose only. The Scoree application does not guarantee the correctness, completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website (https://www.thescoree.com), is strictly at your own risk. The Scoree application will not be liable for any losses and/or damages in connection with the use of our website. Whenever we update, amend or make any changes to this document, those changes will be prominently posted here.'>";
-  echo "<title>Disclaimer - The Scoree - Read the disclaimer carefully for following things thescoree is not responsible.</title>";
-  $title = "Disclaimer - The Scoree - Read the disclaimer carefully for following things thescoree is not responsible.";
-}elseif(strpos($current_url,"contribute") > 0){
-  
-  echo "<title>Contribute - The Scoree - Developers are everyone who keeps the idea to develop anything. We would like to hear from them.</title>";
-  $title = "Contribute - The Scoree - Developers are everyone who keeps the idea to develop anything. We would like to hear from them.";
-}elseif(strpos($current_url,"scores") > 0){
-  echo "<meta name='description' content='Ignou Grade Card - The Scoree - Shows the ignou grade card with more indicators and mobile friendly. Scoree indicates the awaited and disqualified results seperately and provide you links to work on your weak points'>";
-  echo "<title>Grade Card - The Scoree - Shows the grade card with more indicators and mobile friendly.</title>";
-  $title = "Grade Card - The Scoree - Shows the grade card with more indicators and mobile friendly.";
-}elseif(strpos($current_url,"termendresults") > 0 || strpos($current_url,"termend") > 0){
-  echo "<title>Term End Exam Results June 2020! The Scoree - Shows the term end exam results with more indicators and mobile friendly.</title>";
-  $title = "Term End Exam Results June 2020! The Scoree - Shows the term end exam results with more indicators and mobile friendly.";
-}elseif(strpos($current_url,"units") > 0 ){
-  echo "<meta name='description' content='Units - IGNOU Notes or reference study material available for given programmes'>";
-  echo "<title>Units - Notes or reference study material available for given programmes</title>";
-  $title = "Units - Notes or reference study material available for given programmes";
-}elseif(strpos($current_url,"view") > 0 ){
-  echo "<title>Unit Description - unit description, application and important questions</title>";
-  $title = "Unit Description - unit description, application and important questions";
-}elseif(strpos($current_url,"notes") > 0 ){
-  echo "<meta name='description' content='IGNOU Programme List - IGNOU Notes or reference ignou study material available for given ignou programmes'>";
-  echo "<title>Programme List - Notes or reference study material available for given programmes</title>";
-  $title = "Programme List - Notes or reference study material available for given programmes";
-}else{
-  echo "<meta name='description' content='The Scoree - Prepare yourself by studying from ignou notes provided by thescoree and get boost in your scores , interactive gradecard will help you to work on your weak points'>";
-  echo "<title>The Scoree - prepare yourself by studying from ignou notes provided by thescoree and get boost in your scores , interactive gradecard will help you to work on your weak points  </title>";
-  $title = "The Scoree - prepare yourself by studying from ignou notes provided by thescoree and get boost in your scores , interactive gradecard will help you to work on your weak points  ";
-}
-
+$title = $unit_data[0]->unit_name;
 
 @endphp
+
+    <title>{{ $title }}</title>
+    <meta name='description' content='{{ substr(strip_tags($unit_data[0]->unit_description),50) }}'>
+    <meta name='keyword' content=''>
     <meta data-rh="true" name="title" content="{{$title}}" />
     <meta data-rh="true" property="og:title" content="{{$title}}" />
     <meta data-rh="true" property="twitter:title" content="{{$title}}" />

@@ -18,6 +18,7 @@
       /* position: fixed; */
       bottom:0;
       width:100%;
+      padding-top: 20px;
       /* height:60px;   Height of the footr */
       /* background:#6cf; */
    }
@@ -35,7 +36,7 @@
     a{
       text-decoration: none;
       color: gray;
-      font-size:13px;
+      font-size:18px !important;
     }
   
     a:hover{
@@ -54,14 +55,18 @@
       color: gray;
       font-size:11px;
     }
-  
+
+    .custom-seperator{
+      color :#bebebe !important;
+    }
+
     @media only screen and (max-width: 767px) and (min-width : 10px) {
 
       
       a{
         text-decoration: none;
         color: gray;
-        font-size:10px;
+        font-size:13px !important;
       }
     
       a:hover{

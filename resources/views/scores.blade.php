@@ -7,7 +7,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                   <ul class="list-inline">
                       <li>
-                          <span style="font-size: 25px;">{{ $scores['program'] }} - {{ $scores['percent']."%" }} </span><br>
+                          <span style="font-size: 25px;">{{ $scores['program'] }} - {{ round($scores['percent'],1)."%" }} </span><br>
                           <h4></h4>
                           <h5>{{ $scores['name'] }} ({{ $scores['enrollment'] }})</h5>
                           

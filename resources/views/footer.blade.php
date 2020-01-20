@@ -11,12 +11,12 @@
           <ul class="list-inline" id="left">
               <!-- <li>|</li> -->
               <li><a href="{{ url('about') }}" data-toggle="modal"  href='#modal-about'>About Us </a></li>
-              <li>|</li>
+              <li class="custom-seperator">|</li>
               <!-- <li><a href="{{ url('contribute') }}"  data-toggle="modal"  href='#modal-id'> &#8226; Contribute</a></li> -->
               <li><a href="{{ url('disclaimer') }}"  data-toggle="modal"  href='#modal-id'>Disclaimer </a></li>
-              <li>|</li>
+              <li class="custom-seperator">|</li>
               <li><a href="{{ url('privacypolicy') }}"  data-toggle="modal"  href='#modal-id'>Privacy Policy </a></li>
-              <li>|</li>
+              <li class="custom-seperator">|</li>
               <li><a href="{{ url('contactus') }}"  data-toggle="modal"  href='#modal-id'>Contact Us</a></li>
               <!-- <li>|</li> -->
           </ul>

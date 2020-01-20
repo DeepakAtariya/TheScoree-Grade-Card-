@@ -1,4 +1,4 @@
-@include('header')
+@include('notes_header')
 <link rel="stylesheet" href="{{ URL::asset('css/onlyview.css') }}">
 
 <div class="container">
@@ -12,7 +12,7 @@
         
         
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-            <a class="btn-link" href="{{ url('') }}">Home \ </a><a class="btn-link" href="{{ url('notes') }}">Notes \ </a><a class="btn-link" href="{{ url('notes') }}?program={{ $unit_data[0]->program_code }}">{{ $unit_data[0]->program_code }} \ </a><a class="btn-link" href="{{ url('notes/units') }}?program={{ $unit_data[0]->program_code }}&course={{ $unit_data[0]->course_code }}">{{ $unit_data[0]->course_code }} \ </a><a class="btn-link" href="{{ url('notes\view') }}?uuid={{ $unit_data[0]->id }}">{{ $unit_data[0]->unit_name }}</a>
+            <a class="btn-link" href="{{ url('') }}">Home \ </a><a class="btn-link" href="{{ url('notes') }}">Notes \ </a><a class="btn-link" href="{{ url('notes') }}?program={{ $unit_data[0]->program_code }}">{{ $unit_data[0]->program_code }} \ </a><a class="btn-link" href="{{ url('notes/units') }}?program={{ $unit_data[0]->program_code }}&course={{ $unit_data[0]->course_id }}">{{ $unit_data[0]->course_code }} \ </a><a class="btn-link" href="{{ url('notes\view') }}?uuid={{ $unit_data[0]->id }}">{{ $unit_data[0]->unit_name }}</a>
         </div>
         
         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
