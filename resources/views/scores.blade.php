@@ -184,7 +184,7 @@
                           @endforeach
                       
                   </div>
-
+{{$courses}}
                   <div id="scoretable">
                   <table class="table table-responsive table-fit ">
                       <thead>
@@ -222,10 +222,24 @@
                                   
                               </td > -->
                               <td *ngIf="row.status=='Pass' else failed_course_code" style="width: 6%;">
-                              {{ $data[0] }}
+                              {{ $data[0] }} 
                               </td>
                               <td *ngIf="row.status=='Pass' else failed_course_name" style="width: 26%;">
-                              {{ $data[9] }}
+                              @php
+                                $found = 0;
+                              @endphp
+                              @foreach($courses as $c_data)
+                              @if (strcmp($c_data->course_code, $data[0])==0)
+                                    <a href="#">{{ $data[9] }}</a>
+                                    @php 
+                                        break;
+                                        $found = 1;
+                                    @endphp
+                              @endif
+                              @endforeach
+                              @if($found != 1)
+                                        {{ $data[9] }}
+                              @endif
                               </td>
                               <td *ngIf="row.status=='Pass' else failed_assign" >
                               {{ $data[1] }}

@@ -226,7 +226,13 @@
                               {{ $data[0] }}
                               </td>
                               <td *ngIf="row.status=='Pass' else failed_course_name" style="width: 26%;">
-                              {{ $data[9] }}
+                              @foreach($courses as $data)
+                              @if (strcmp($data->course_code, $data[0])==0)
+                                    required link -- {{ $data[9] }}
+                              @else
+                                    not required link -- {{ $data[9] }}
+                              @endif
+                              @endfor
                               </td>
                               <td *ngIf="row.status=='Pass' else failed_assign" >
                               {{ $data[1] }}

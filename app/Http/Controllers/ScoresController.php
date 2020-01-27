@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Notes_Unit;
+use App\Notes_Course;
+
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
@@ -404,16 +407,31 @@ class ScoresController extends Controller
 
     public function scores(Request $request)
     {   
+        // return "wget https://www.apachefriends.org/xampp-files/7.1.10/xampp-linux-x64-7.1.10-0-installer.run";
+        $course = $course_list = Notes_Unit::join('notes__courses', function($j){
+            $j->on('notes__courses.id','=','notes__units.course_id');
+        })->join('notes__programs',function($j){
+            $j->on('notes__courses.program_id','=','notes__programs.id');
+        })->where('notes__units.published','1')->distinct('notes__courses.course_code')->get([
+            // 'notes__programs.program_code',
+            'notes__courses.course_code',
+            'notes__courses.id',
+            // 'notes__courses.course_name'
+        ]);
+
+        // return $course;
         try{
             $data = $this->getScores($request);
             if($data['status']!="404" && $data['status']!="500"){
                 if($data['gradecard']=='R'){
                     return view('scores_r',[
-                        'scores'=>$data
+                        'scores'=>$data,
+                        'courses'=>$course
                     ]);
                 }else{
                     return view('scores',[
-                        'scores'=>$data
+                        'scores'=>$data,
+                        'courses'=>$course,
                     ]);
                 }
             }else if($data['status']=="500"){
