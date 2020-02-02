@@ -126,9 +126,24 @@
     /* text-align: left; */
     text-align: justify;
   }
+
+  #home_footer{
+    position: fixed;
+    bottom:0;
+    width:100%;
+  }
+
+  .alert-info{
+    background-color: white !important;
+  }
+
+  .alert-info > a {
+    color: blue !important;
+  }
+
 	
 
-  @media only screen and (max-width: 767px) and (min-width : 10px) {
+  @media only screen and (max-width: 1200px) and (min-width : 10px) {
 
     p, li{
       font-size: 21px !important;
@@ -152,15 +167,18 @@
       width:100%; */
       }
 
-      #home_footer{
-        position: fixed;
-        bottom:0;
-        width:100%;
-      }
+
 
       h1,h2,p,li{
         font-family: medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif !important;	
         /* font-size: */
       }
+
+      #home_footer{
+        position: unset;
+        /* bottom:0; */
+        /* width:100%; */
+      }
+    
       
   }

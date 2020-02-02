@@ -25,6 +25,7 @@ class TermEndController extends Controller
             // $enrollment = '159673056';
     
     
+            $termendDec2019 = 'https://ignouhall.ignou.ac.in/TEResult/TermEndDec19/TermEndDec19.asp';
             $termendJuly2019 = 'https://ignouhall.ignou.ac.in/TEResult/TermEndJune19/TermEndJune19.asp';
             $termendJuly2018 = 'https://ignouhall.ignou.ac.in/TEResult/TermEndDec18/TermEndDec18.asp';
     
@@ -36,7 +37,7 @@ class TermEndController extends Controller
             */
     
                     // try{
-                $response = $client->request('POST', $termendJuly2019,[
+                $response = $client->request('POST', $termendDec2019,[
                     'form_params' => [
                         "eno"=> $enrollment,
                         "myhide"=> "OK",
@@ -112,9 +113,9 @@ class TermEndController extends Controller
                     ]);
                 }
         }catch(\Exception $e){
-            return "<script>alert('Enrollment not found, please try agian.'); history.go(-1);</script>";
+            return "<script>alert('Perhaps your enrollment is invalid or your result is not declared yet.'); history.go(-1);</script>";
             return view('error',[
-                'message'=>"Please enter valid enrollment number",
+                'message'=>"Perhaps your enrollment is invalid or your result is not declared yet.",
             ]);
             // dd($e);
         }
