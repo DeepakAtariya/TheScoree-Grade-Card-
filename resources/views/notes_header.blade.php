@@ -2,6 +2,51 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
+    <!-- Google ads code -->
+      
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-6203486592623594",
+              enable_page_level_ads: true
+         });
+    </script>
+
+
+<script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144591904-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-144591904-1');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MWXS75V');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta data-rh="true" name="theme-color" content="#000000" />
+    <meta data-rh="true" property="og:site_name" content="TheScoree" />
+    <meta data-rh="true" property="og:type" content="Notes" />
+ 
+    <meta data-rh="true" name="robots" content="index,follow" />
+
+  <link rel="icon" type="image/x-icon" href="{{ URL::asset('images/favicon.ico') }}">
+  
+      
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144591904-1"></script>
 <script>
@@ -30,6 +75,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta data-rh="true" name="robots" content="index,follow" />
 
   <link rel="icon" type="image/x-icon" href="{{ URL::asset('images/favicon.ico') }}">
+  
+  
 
 @php
 
@@ -74,10 +121,6 @@ $title = $unit_data[0]->unit_name;
 <!-- <link rel="icon" type="image/png" sizes="32x32" href="http://ismartsolar.in/css/cropped-Teri-logoifavicon-2-32x32.png"> -->
 
 <style>
-
-body{
-  font-family : medium-content-serif-font, Georgia, Cambria, "Times New Roman", Times, serif
-}
 
 #target {
   background:#0099cc;
@@ -134,6 +177,35 @@ body{
 
   </head>
   <body>
+      <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWXS75V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+      
+<amp-auto-ads type="adsense"
+  data-ad-client="ca-pub-6203486592623594">
+</amp-auto-ads>
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5d9f6136fbec0f2fe3b91f29/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
+<!-- Google Tag Manager (noscript) 
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWXS75V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+End Google Tag Manager (noscript) -->
 
   <div id="divLoading" style="margin: auto; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: rgb(15, 15, 17); z-index: 30001; opacity: 0.3;display: none;">
     <p style="position: absolute; color: white; font-weight: bold; top: 45%; margin-left: 50%;">
@@ -142,10 +214,7 @@ body{
     </p>
   </div> 
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWXS75V"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
 
 <div id="main_tmp">
 
