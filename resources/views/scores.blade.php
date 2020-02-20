@@ -184,7 +184,7 @@
                           @endforeach
                       
                   </div>
-{{$courses}}
+
                   <div id="scoretable">
                   <table class="table table-responsive table-fit ">
                       <thead>
@@ -198,15 +198,6 @@
                               <th>{{ $scores['scores'][0][5] }}</th>
                               <th>Theory</th>
                               <th>Total</th> 
-                              <!-- <th>Code</th>
-                              <th>Name</th>
-                              <th>Asgn1</th>
-                              <th>LAB1</th>
-                              <th>LAB2</th>
-                              <th>LAB3</th>
-                              <th>LAB4</th>
-                              <th>Theory</th>
-                              <th>Total</th> -->
                           </tr>
                       </thead>
                       <tbody>

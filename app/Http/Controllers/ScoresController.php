@@ -13,7 +13,7 @@ use PDF;
 
 class ScoresController extends Controller
 {
-        private $program;
+    private $program;
     private $enrollment;
     private $foundName;
 
@@ -52,9 +52,7 @@ class ScoresController extends Controller
 
 
     private function dataSavedIntoScoreTable($row){
-        
         foreach ($row as $col){
-            
             if(strpos($col[0], 'Course') == FALSE){
                 // return  $col[0];
             
@@ -89,8 +87,7 @@ class ScoresController extends Controller
     }
 
 
-    public function getScoresFromDatabase(Request $request)
-    {
+    public function getScoresFromDatabase(Request $request){
         $enrollment = $request->input('enrollment');
         // $password = $request->input('password');
 
@@ -405,8 +402,7 @@ class ScoresController extends Controller
         // print_r($data['scores']);
     }
 
-    public function scores(Request $request)
-    {   
+    public function scores(Request $request){   
         // return "wget https://www.apachefriends.org/xampp-files/7.1.10/xampp-linux-x64-7.1.10-0-installer.run";
         $course = $course_list = Notes_Unit::join('notes__courses', function($j){
             $j->on('notes__courses.id','=','notes__units.course_id');
@@ -436,7 +432,7 @@ class ScoresController extends Controller
                 }
             }else if($data['status']=="500"){
                 return view('error',[
-                    'message'=>'Oops! External Server Unavailable'
+                    'message'=>'Oops! External Server Unavailable 500'
                 ]);
             }else{
                 return view('error',[
@@ -444,14 +440,21 @@ class ScoresController extends Controller
                 ]);
             }
         }catch(\Exception $e){
-            return view('error',[
-                'message'=>'Oops! External Server Unavailable'
+
+            $data = $this->getDataFromDatabase($request);
+            return view('scores_offline',[
+                'scores'=>$data,
+                'courses'=>$course,
             ]);
+
+            // return view('error',[
+            //     'message'=>'Oops! External Server Unavailable : an exception'
+            // ]);
         }
     }
 
 
-    /************************* Grade Card - B link **************************** */
+    /*************** Grade Card - B link ********************/
 
 
     public function gradeCardB(Request $request, $url, $program, $enrollment){
@@ -876,5 +879,23 @@ class ScoresController extends Controller
         }
 
         
+    }
+
+    public function getDataFromDatabase($request){
+
+        $data = DB::table('score')->where('program',$request->program)->where('student',$request->enrollment)->get();
+
+        // $data = null;
+        // return $data;
+
+        return [
+            'scores'=>$data,
+            'name'=> $data[0]->name,
+            'enrollment'=> $data[0]->student,
+            'earned_marks' => 00,
+            'outof' => 00,
+            'percent'=>00,
+            'program'=>$data[0]->program,
+        ];
     }
 }
