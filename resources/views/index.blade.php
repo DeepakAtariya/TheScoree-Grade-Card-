@@ -9,11 +9,11 @@
     
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
     <div class="alert-format ">
-    <div class="alert alert-info">
+    <!-- <div class="alert alert-info">
         <a href="#" id="close_button" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong ><span class="glyphicon glyphicon-info-sign"></span> </strong> 
             <a id="click_here" style="font-size:15px;" href="{{ url('termendresults') }}" >IGNOU - Term End Exam Results - December 2019 is out! </a>
-    </div>          
+    </div>           -->
 </div>
     </div>
     
@@ -60,13 +60,13 @@
                             </div>
                         </div>
                         
-                        <div class="row">
+                        <!-- <div class="row">
                             
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <a href="{{ url('notes') }}" class="btn-link ">IGNOU Notes</a><sup style="color:red">New</sup>
                             </div>
                             
-                        </div>
+                        </div> -->
                         
                     </div>
                 </form>

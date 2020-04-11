@@ -434,7 +434,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <i class="fa fa-bars"> <span style="color:black"></span></i>
 
       </button>
-      <a class="navbar-brand " href="#" onclick="openNav()"> <span class="custom-brand"> IGNOU Solved Assignments </span></a>
+      <a class="navbar-brand " href="#" onclick="openNav()"> <span class="custom-brand glyphicon glyphicon-th">  </span></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -446,7 +446,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>
     </div>
   </div>
-</nav>
+</nav> 
 
 
 
@@ -458,7 +458,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-  <a href="https://thescoree.com/" target="_blank" class="option ">
+  <a href="https://solvedignouassignments.thescoree.com/" target="_blank" class="option ">
   <div class="planet">
     <span class="text-adjustment text-center">
     IGNOU ASSIGNMENTS <br> THESCOREE <br>
