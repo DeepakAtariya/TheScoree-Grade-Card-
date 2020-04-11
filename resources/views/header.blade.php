@@ -419,87 +419,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="container-fluid" id="header">
 
-<div class="row" id="header_row">
 
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 
-        <ul class="list-inline" id="left_header">
+</div>
 
-            <li class="list-inline-item"><i class="fa fa-bars" onclick="openNav()"> <span style="color:black">SCOREE</span></i></li>
 
-            <!-- <li class="list-inline-item">SCOREE</li> -->
 
-            <!-- <li><a routerLink="contribute">Contribute</a></li> -->
 
-          </ul>
+<nav class="navbar ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 
+        <i class="fa fa-bars"> <span style="color:black"></span></i>
+
+      </button>
+      <a class="navbar-brand " href="#" onclick="openNav()"> <span class="custom-brand"> IGNOU Solved Assignments </span></a>
     </div>
-
-    
-
-    
-
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-
-        <!-- <ul class="list-inline" id="center">
-
-            <li><span id="center_text"><a id="center_text" href="{{ url('') }}">The Scoree</a></span></li>    
-
-          </ul> -->
-
-    </div>
-
-    
-
-    
-
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-
-      <ul class="list-inline" id="left_header">
-
-        <!-- <li class="list-inline-item"><i class="fa fa-bars" onclick="openNav()"></i></li> -->
-
-        <!-- <li class="list-inline-item">SCOREE</li> -->
-
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class=""> <a href="{{ url('') }}">Home</a> </li>
+        <li class=""> <a href="https://thescoree.com/contactus">Contact Us</a> </li>
+        <li class=""><a href="https://thescoree.com/privacypolicy"> Privacy Policy </a></li>
+        <li class=""><a href="https://thescoree.com/disclaimer"> Disclaimer </a></li>
+        <li class=""><a href="https://thescoree.com/about">About</a></li>
       </ul>
-
     </div>
+  </div>
+</nav>
 
-</div>
 
-</div>
 
 
 
 <div id="mySidenav" class="sidenav">
-
+  <h2 class="text-center option" style="color:white">Our Planets</h2>
   <br>
-
-  <!-- <span class="closebtn" style="margin-right:50px;">dasda</span> -->
 
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-  <a href="{{ url('') }}" class="option">Home</a><hr>
-
+  <a href="https://thescoree.com/" target="_blank" class="option ">
+  <div class="planet">
+    <span class="text-adjustment text-center">
+    IGNOU ASSIGNMENTS <br> THESCOREE <br>
+    </span> 
+  </div>
+  </a>
+<!-- 
   <a href="{{ url('notes') }}" class="option">IGNOU Notes</a><hr>
 
   <a href="{{ url('about') }}" class="option">About Us</a><hr>
 
-  <a href="{{ url('contactus') }}" class="option">Contact Us</a><hr><br>
-
-  <!-- <ul class="list-inline" id="sidebar_part">
-
-    <li>Disclaimer</li>
-
-
-
-    <li>Privacy Policy</li>
-
-  </ul> -->
-
-
-
-  
+  <a href="{{ url('contactus') }}" class="option">Contact Us</a><hr><br> 
+-->
 
 </div>
 
