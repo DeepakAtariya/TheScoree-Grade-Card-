@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class bca extends Model{
+class bca extends Model{ 
 
     public static function getScores($items, $program){
         $row = array();
@@ -111,9 +111,6 @@ class bca extends Model{
                 for ($c = 0; $c < sizeof($course_data); $c++) {
                     if ($col[0] == $course_data[$c]->code) {
                         array_push($col, $course_data[$c]->name);
-                        break;
-                    } else {
-                        array_push($col, "Unknown");
                         break;
                     }
                 }

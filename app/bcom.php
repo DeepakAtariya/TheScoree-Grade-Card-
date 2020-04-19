@@ -84,12 +84,9 @@ class bcom extends Model
                     if ($col[0] == $course_data[$c]->code) {
                         array_push($col, $course_data[$c]->name);
                         break;
-                    } else {
-                        array_push($col, "Unknown");
-                        break;
                     }
                 }
-            } else {
+            } else { 
                 array_push($col, "Unknown");
             }
 

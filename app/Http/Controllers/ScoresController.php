@@ -217,13 +217,7 @@ class ScoresController extends Controller
                     # code...
                     break;
             }
-            // exit;
 
-            // print_r($row);
-            // if($row == null){
-            //     echo "asdasd";
-            //     exit;
-            // }
 
             $outof = 0;
             $earned_marks = 0;
@@ -233,15 +227,6 @@ class ScoresController extends Controller
             }
             // return $outof;
             if (sizeof($row) > 1 && sizeof($row[0]) > 1) {
-
-                // echo "I have got the results";
-
-                // deleting all the data for particular enrollment
-                // $row_id = DB::table('student_details')
-                //             ->select('id')
-                //             ->where('enrollment',$this->enrollment)
-                //             ->get();
-                // $student_id = $row_id[0]->id;
 
                 try {
                     $check_oldnew = DB::table('score')
@@ -253,23 +238,6 @@ class ScoresController extends Controller
                 } catch (\Exception $e) {
                     $this->dataSavedIntoScoreTable($row);
                 }
-
-                // Reset auto number
-                // DB::statement('ALTER TABLE score AUTO_INCREMENT=1;');
-
-
-                // inserting updated grade card into score table
-
-
-                // return response()->json([
-                //     'scores' => $row,
-                //     'earned_marks' => $earned_marks,
-                //     'outof' => $outof,
-                //     'percent'=>($earned_marks/$outof)*100
-                // ],201);
-                // print_r($row);exit;
-
-                // echo $earned_marks;exit;
 
                 return [
                     'scores' => $row,
@@ -291,21 +259,8 @@ class ScoresController extends Controller
                 ];
             }
 
-            // return response()->json([
-            //     'scores' => $row,
-            //     'status' => 'database passed'
-            // ],201);
 
         } catch (\Exception $e) {
-
-            // echo "exception occured";
-            // $enrollment=159673056;
-
-            // $dataWhenIgnouServerNotActive = DB::table('score')
-            //     ->select('score.course_code','score.asgn1','score.lab1','score.lab1','score.lab2','score.lab3','score.lab4','score.theory','score.status')
-            //     ->join('student_details','student_details.id','=','score.student')
-            //     ->where('enrollment', $enrollment)
-            //     ->get();
 
             return [
                 'scores' => 'fail',
@@ -341,12 +296,12 @@ class ScoresController extends Controller
             'notes__courses.course_code',
             'notes__courses.id',
             // 'notes__courses.course_name'
-        ]);
+        ]); 
 
         // return $course;
         try {
             $data = $this->getScores($request);
-            return $data;
+            // return $data;
             if ($data['status'] != "404" && $data['status'] != "500") {
                 if ($data['gradecard'] == 'R') {
                     return view('scores_r', [

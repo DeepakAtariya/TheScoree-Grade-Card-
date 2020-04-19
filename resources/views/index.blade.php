@@ -43,7 +43,7 @@
                             <option value="MCA">MCA (Master of Computer Application)</option>
                             <option value="MEG">MEG (Master of Arts - English)</option>
                             <option value="BCOM">BCOM (Bachelor of Commerce )</option>
-                            <option value="BDP">BPD (Bachelor Degree Program )</option>
+                            <!-- <option value="BDP">BPD (Bachelor Degree Program )</option> -->
                             <option value="BA">BA (Bachelor of Arts )</option>
                         </select>   
                     </div>
