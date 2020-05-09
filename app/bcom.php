@@ -14,7 +14,7 @@ class bcom extends Model
         $r_i = 0;
 
         $course_data = DB::table('course')
-            ->where('program', $program)
+            // ->where('program', $program)
             ->get();
 
         // return $course_data[1]->name;
@@ -78,18 +78,27 @@ class bcom extends Model
                 $lab_marks = $lab1 + $lab2 + $lab3 + $lab4;
             }
 
-            array_push($col, floor($assgn + $theory + $lab_marks));
+            array_push($col, ceil($assgn + $theory + $lab_marks));
             if (sizeof($course_data) > 0) {
-                for ($c = 0; $c < sizeof($course_data); $c++) {
-                    if ($col[0] == $course_data[$c]->code) {
-                        array_push($col, $course_data[$c]->name);
+                $flag = false;
+                // echo $col[0];
+                // for ($c = 0; $c<sizeof($course_data); $c++) {
+                foreach ($course_data as $course) {
+                    // echo $course->code;
+                    if (strcmp($col[0], $course->code) == 0) {
+                        // echo $col[0];
+                        array_push($col, $course->name);
                         break;
+                    } else {
+                        $flag = true;
                     }
                 }
-            } else { 
+                if ($flag) {
+                    array_push($col, "Unknown");
+                }
+            } else {
                 array_push($col, "Unknown");
             }
-
 
             // if($c>0 && $c<=39){
             //     array_push($col,$course_data[$data]->name);

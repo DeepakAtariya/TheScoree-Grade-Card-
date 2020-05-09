@@ -55,31 +55,30 @@ class meg extends Model
                     $lab3 = ((int) $col[$j] / 100) * 75;
                     // break;
                 }
+                // if ($j == 5 && $col[$j] != "-") {
+                //     //lab 4
+                //     $lab4 = ((int) $col[$j] / 100) * 70;
+                //     // break;
+                // }
                 if ($j == 5 && $col[$j] != "-") {
-                    //lab 4
-                    $lab4 = ((int) $col[$j] / 100) * 75;
-                    // break;
-                }
-                if ($j == 6 && $col[$j] != "-") {
                     // theory
-                    $theory = ((int) $col[$j] / 100) * 75;
+                    $theory = ((int) $col[$j] / 100) * 70;
                     // break;
                 }
             }
 
-            if ($lab1 != 0 && $lab2 != 0 && $lab3 != 0 && $lab4 != 0) {
-                $lab_marks = (($lab1 + $lab2 + $lab3 + $lab4) / 400) * 100;
-            } else if ($lab1 != 0 && $lab2 != 0 && $lab3 != 0) {
-                $lab_marks = (($lab1 + $lab2 + $lab3) / 300) * 100;
-            } else if ($lab1 != 0 && $lab2 != 0) {
-                $lab_marks = (($lab1 + $lab2) / 200) * 100;
-            } else if ($lab1 != 0) {
-                $lab_marks = (($lab1) / 100) * 100;
-            } else {
-                $lab_marks = $lab1 + $lab2 + $lab3 + $lab4;
-            }
-
-            array_push($col, floor($assgn + $theory + $lab_marks));
+            // if ($lab1 != 0 && $lab2 != 0 && $lab3 != 0 && $lab4 != 0) {
+            //     $lab_marks = (($lab1 + $lab2 + $lab3 + $lab4) / 400) * 100;
+            // } else if ($lab1 != 0 && $lab2 != 0 && $lab3 != 0) {
+            //     $lab_marks = (($lab1 + $lab2 + $lab3) / 300) * 100;
+            // } else if ($lab1 != 0 && $lab2 != 0) {
+            //     $lab_marks = (($lab1 + $lab2) / 200) * 100;
+            // } else if ($lab1 != 0) {
+            //     $lab_marks = (($lab1) / 100) * 100;
+            // } else {
+            //     $lab_marks = $lab1 + $lab2 + $lab3 + $lab4;
+            // }
+            array_push($col, ceil($assgn + $theory));
             if (sizeof($course_data) > 0) {
                 for ($c = 0; $c < sizeof($course_data); $c++) {
                     if ($col[0] == $course_data[$c]->code) {
