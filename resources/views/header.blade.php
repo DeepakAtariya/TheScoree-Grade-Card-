@@ -434,7 +434,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <i class="fa fa-bars"> <span style="color:black"></span></i>
 
       </button>
-      <a class="navbar-brand " href="#" onclick="openNav()"> <span class="custom-brand glyphicon glyphicon-th">  </span></a>
+      <!-- <a class="navbar-brand " href="#" onclick="openNav()"> <span class="custom-brand glyphicon glyphicon-th">  </span></a> -->
+      <a class="navbar-brand " href="#" > <span class="custom-brand"> SCOREE </span> </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">

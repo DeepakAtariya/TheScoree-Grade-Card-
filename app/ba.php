@@ -38,32 +38,32 @@ class ba extends Model
 
                 if ($j == 1 && $col[$j] != "-") {
                     // assignment marks
-                    $assgn = ((int) $col[$j] / 100) * 25;
+                    $assgn = ((int) $col[$j] / 100) * 30;
                     // break;
                 }
                 if ($j == 2 && $col[$j] != "-") {
                     //lab1 marks
-                    $lab1 = ((int) $col[$j] / 100) * 75;
+                    $lab1 = ((int) $col[$j] / 100) * 70;
                     // break;
                 }
                 if ($j == 3 && $col[$j] != "-") {
                     // lab2 marks
-                    $lab2 = ((int) $col[$j] / 100) * 75;
+                    $lab2 = ((int) $col[$j] / 100) * 70;
                     // break;
                 }
                 if ($j == 4 && $col[$j] != "-") {
                     // lab3 marks
-                    $lab3 = ((int) $col[$j] / 100) * 75;
+                    $lab3 = ((int) $col[$j] / 100) * 70;
                     // break;
                 }
                 if ($j == 5 && $col[$j] != "-") {
                     //lab 4
-                    $lab4 = ((int) $col[$j] / 100) * 75;
+                    $lab4 = ((int) $col[$j] / 100) * 70;
                     // break;
                 }
                 if ($j == 6 && $col[$j] != "-") {
                     // theory
-                    $theory = ((int) $col[$j] / 100) * 75;
+                    $theory = ((int) $col[$j] / 100) * 70;
                     // break;
                 }
             }

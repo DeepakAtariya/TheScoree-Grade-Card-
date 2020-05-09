@@ -35,7 +35,7 @@
                       
                       <div class=" modal-body text-center"><br>
                       <form name="gradeCardForm" id="gradeCardForm" method="POST" role="form" action="{{ url('getGradeCard') }}">
-                    {{ csrf_field() }}
+                        {{ csrf_field() }}
                     <div class="form-group">
                         <select class="" id="guest_program" name="program" required>
                             <option value>Select Program:</option>
