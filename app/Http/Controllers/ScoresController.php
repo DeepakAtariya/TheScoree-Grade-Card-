@@ -326,17 +326,22 @@ class ScoresController extends Controller
             $data = $this->getScores($request);
             // return $data;
             if ($data['status'] != "404" && $data['status'] != "500") {
-                if ($data['gradecard'] == 'R') {
-                    return view('scores_r', [
-                        'scores' => $data,
-                        'courses' => $course
-                    ]);
-                } else {
-                    return view('scores', [
-                        'scores' => $data,
-                        'courses' => $course,
-                    ]);
-                }
+                return view('scores', [
+                    'scores' => $data,
+                    'courses' => $course
+                ]);
+                
+                // if ($data['gradecard'] == 'R') {
+                //     return view('scores_r', [
+                //         'scores' => $data,
+                //         'courses' => $course
+                //     ]);
+                // } else {
+                //     return view('scores', [
+                //         'scores' => $data,
+                //         'courses' => $course,
+                //     ]);
+                // }
             } else if ($data['status'] == "500") {
                 return view('error', [
                     'message' => 'Oops! External Server Unavailable 500'

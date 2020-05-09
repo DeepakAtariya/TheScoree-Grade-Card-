@@ -7,8 +7,8 @@
     <!-- alert switching row  -->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            <ul class="list-inline">
-                <li>
+            <ul class="list-inline text-center">
+                <li class="text-center">
                     <span style="font-size: 25px;">{{ $scores['program'] }} - {{ round($scores['percent'],1)."%" }} </span><br>
                     <h4></h4>
                     <h5>{{ $scores['name'] }} ({{ $scores['enrollment'] }})</h5>
@@ -56,67 +56,22 @@
                             <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 
                                 <div id="assignment">
-                                    <label>Assignment<br> {{ $data[1] }}</label>
+                                    <label>{{ $scores['scores'][0][1] }}<br> {{ $data[1] }}</label>
                                 </div>
                                 <div id="assignment">
-                                    <label>Lab1 <br>{{ $data[2] }}</label>
+                                    <label>{{ $scores['scores'][0][2] }} <br>{{ $data[2] }}</label>
                                 </div>
                                 <div id="assignment">
-                                    <label>Lab2 <br> {{ $data[3] }}</label>
+                                    <label>{{ $scores['scores'][0][3] }} <br> {{ $data[3] }}</label>
                                 </div>
                                 <div id="assignment">
-                                    <label>Lab3 <br> {{ $data[4] }} </label>
+                                    <label>{{ $scores['scores'][0][4] }} <br> {{ $data[4] }} </label>
                                 </div>
                                 <div id="assignment">
-                                    <label> Lab4 <br> {{ $data[5] }}</label>
+                                    <label> {{ $scores['scores'][0][5] }} <br> {{ $data[5] }}</label>
                                 </div>
                                 <div id="assignment">
-                                    <label>Theory <br>
-                                        @if(true)
-                                        {{ $data[6] }}
-                                        @else
-                                        waiting...
-                                        @endif
-                                    </label>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                </div>
-                @elseif($data[6]!="-")
-                <div *ngFor="let row of master_data; let i = index;" class="column">
-                    <div class="card container" style="background-color:rgb(235, 235, 235)">
-                        <div class="row">
-                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" id="failed_head">
-                                <h2 id="course_code_failed" style="padding-right:10px;">{{ $data[0] }}</h2>
-                                <span style="font-size: 11px; color:red;"> {{ $data[9] }} </span>
-
-                                <h3 id="total" style="color:red"><span>{{ $data[8] }}</span></h3>
-                                <!-- <h3 id="total" ></h3> -->
-                            </div>
-
-                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" id="failed" style="color:red">
-
-                                <div id="assignment">
-                                    <label>Assignment<br> {{ $data[1] }}</label>
-                                </div>
-                                <div id="assignment">
-                                    <label>Lab1 <br>{{ $data[2] }}</label>
-                                </div>
-                                <div id="assignment">
-                                    <label>Lab2 <br> {{ $data[3] }}</label>
-                                </div>
-                                <div id="assignment">
-                                    <label>Lab3 <br> {{ $data[4] }} </label>
-                                </div>
-                                <div id="assignment">
-                                    <label> Lab4 <br> {{ $data[5] }}</label>
-                                </div>
-                                <div id="assignment">
-                                    <label>Theory <br>
+                                    <label>{{ $scores['scores'][0][6] }} <br>
                                         @if(true)
                                         {{ $data[6] }}
                                         @else
@@ -133,35 +88,35 @@
                 </div>
                 @else
                 <div *ngFor="let row of master_data; let i = index;" class="column">
-                    <div class="card" *ngIf="row.status=='Pass' else failed">
+                    <div class="card container" style="background-color:rgb(235, 235, 235)">
                         <div class="row">
-                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                                <h2 id="course_code" style="padding-right:10px;">{{ $data[0] }}</h2>
-                                <span style="font-size: 11px;"> {{ $data[9] }} </span>
+                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" id="failed_head">
+                                <h2 id="course_code_failed" style="padding-right:10px;">{{ $data[0] }}</h2>
+                                <span style="font-size: 11px; color:red;"> {{ $data[9] }} </span>
 
-                                <h3 id="total"><span style="">Awaited</span></h3>
+                                <h3 id="total" style="color:red"><span>{{ $data[8] }}</span></h3>
                                 <!-- <h3 id="total" ></h3> -->
                             </div>
 
-                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" id="failed" style="color:red">
 
                                 <div id="assignment">
-                                    <label>Assignment<br> {{ $data[1] }}</label>
+                                    <label>{{ $scores['scores'][0][1] }}<br> {{ $data[1] }}</label>
                                 </div>
                                 <div id="assignment">
-                                    <label>Lab1 <br>{{ $data[2] }}</label>
+                                    <label> {{ $scores['scores'][0][2] }} <br>{{ $data[2] }}</label>
                                 </div>
                                 <div id="assignment">
-                                    <label>Lab2 <br> {{ $data[3] }}</label>
+                                    <label> {{ $scores['scores'][0][3] }} <br> {{ $data[3] }}</label>
                                 </div>
                                 <div id="assignment">
-                                    <label>Lab3 <br> {{ $data[4] }} </label>
+                                    <label> {{ $scores['scores'][0][4] }} <br> {{ $data[4] }} </label>
                                 </div>
                                 <div id="assignment">
-                                    <label> Lab4 <br> {{ $data[5] }}</label>
+                                    <label> {{ $scores['scores'][0][5] }} <br> {{ $data[5] }}</label>
                                 </div>
                                 <div id="assignment">
-                                    <label>Theory <br>
+                                    <label>{{ $scores['scores'][0][6] }} <br>
                                         @if(true)
                                         {{ $data[6] }}
                                         @else
@@ -177,6 +132,7 @@
                     </div>
                 </div>
 
+
                 @endif
                 @endif
 
@@ -187,6 +143,8 @@
                 <h5>If you find any discrepency with the scores. please report at <a href="mailto:support@thescoree.com" class="hyperlink"> support@thescoree.com </a> or <a href="contactus" class="hyperlink" target="_blank"> contact us </a></h5>
             </div>
 
+
+            <!-- Score Table -->
             <div id="scoretable">
                 <h5>If you find any discrepency with the scores. please report at <a href="mailto:support@thescoree.com" class="hyperlink"> support@thescoree.com </a> or <a href="contactus" class="hyperlink" target="_blank"> contact us </a></h5>
                 <table class="table table-responsive table-fit ">
@@ -199,7 +157,7 @@
                             <th>{{ $scores['scores'][0][3] }}</th>
                             <th>{{ $scores['scores'][0][4] }}</th>
                             <th>{{ $scores['scores'][0][5] }}</th>
-                            <th>Theory</th>
+                            <th>{{ $scores['scores'][0][6] }}</th>
                             <th>Total</th>
                         </tr>
                     </thead>
@@ -210,7 +168,6 @@
                         @foreach($scores['scores'] as $data)
                         @if($i > 0)
                         @if($data[7]=="Completed")
-
                         <tr *ngFor="let row of master_data; let i = index;">
                             <!-- <td *ngIf="row.status=='Pass' else failed_serial" >
                                   

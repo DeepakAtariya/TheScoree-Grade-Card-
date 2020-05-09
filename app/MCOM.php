@@ -103,7 +103,7 @@ class MCOM extends Model{
             $row[$r_i] = $col;
             $r_i++;
         }
-        print_r($row);
+        // print_r($row);
         return $row; 
     }
 }

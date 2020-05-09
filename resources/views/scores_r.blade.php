@@ -196,7 +196,7 @@
                               <th>{{ $scores['scores'][0][2] }}</th>
                               <th>{{ $scores['scores'][0][3] }}</th>
                               <th>{{ $scores['scores'][0][4] }}</th>
-                              <th>Theory</th>
+                              <th>{{ $scores['scores'][0][6] }}</th>
                               <th>Practical</th>
                               <th>Total</th> 
                               <!-- <th>Code</th>

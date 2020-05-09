@@ -174,9 +174,9 @@ if(strpos($current_url,"contactus") > 0){
 
   echo "<meta name='description' content='The Scoree - Prepare yourself by studying from ignou notes provided by thescoree and get boost in your scores , interactive gradecard will help you to work on your weak points'>";
 
-  echo "<title>The Scoree - prepare yourself by studying from ignou notes provided by thescoree and get boost in your scores , interactive gradecard will help you to work on your weak points  </title>";
+  echo "<title>The Scoree - Check your grade card with Scoree.  </title>";
 
-  $title = "The Scoree - prepare yourself by studying from ignou notes provided by thescoree and get boost in your scores , interactive gradecard will help you to work on your weak points  ";
+  $title = "The Scoree - Check your grade card with Scoree.";
 
 }
 
