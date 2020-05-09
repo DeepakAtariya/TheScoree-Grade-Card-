@@ -435,7 +435,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       </button>
       <!-- <a class="navbar-brand " href="#" onclick="openNav()"> <span class="custom-brand glyphicon glyphicon-th">  </span></a> -->
-      <a class="navbar-brand " href="#" > <span class="custom-brand"> SCOREE </span> </a>
+      <a class="navbar-brand " href="{{ url('') }}" > <span class="custom-brand"> SCOREE </span> </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -448,7 +448,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </nav> 
-
+ 
 
 
 

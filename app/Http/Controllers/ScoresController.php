@@ -6,8 +6,11 @@ use App\ba;
 use App\bca;
 use App\bcom;
 use App\bdp;
+use App\BSC;
 use App\mca;
+use App\MCOM;
 use App\meg;
+use App\MPS;
 use App\Notes_Unit;
 use App\Notes_Course;
 
@@ -212,6 +215,21 @@ class ScoresController extends Controller
                     # code...
                     $row = ba::getScores($items, $this->program);
                     break;
+
+                case 'BSC':
+                    # code...
+                    $row = BSC::getScores($items, $this->program);
+                    break;
+                
+                case 'MCOM':
+                    # code...
+                    $row = MCOM::getScores($items, $this->program);
+                    break;
+                
+                case 'MPS':
+                    # code...
+                    $row = MPS::getScores($items, $this->program);
+                    break;
                 
                 default:
                     # code...
@@ -297,7 +315,7 @@ class ScoresController extends Controller
             'notes__courses.id',
             // 'notes__courses.course_name'
         ]); 
-
+ 
         // return $course;
         try {
             $data = $this->getScores($request);

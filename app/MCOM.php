@@ -5,16 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class ba extends Model
-{
-    public static function getScores($items, $program)
-    {
+class MCOM extends Model{
+
+    public static function getScores($items, $program){
         $row = array();
 
         $r_i = 0;
 
         $course_data = DB::table('course')
-            ->where('program', $program)
+            // ->where('program', $program)
             ->get();
         // echo $course_data[1]->code;
         // echo sizeof($course_data);

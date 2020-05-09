@@ -30,7 +30,7 @@
                         <img src="{{ URL::asset('images/grade_card_resized.png')}}" alt="Grade Card" srcset="" class="img-responsive">
                     </td>
                 </tr>
-                <tr>
+                <tr> 
                       <td>
                       
                       <div class=" modal-body text-center"><br>
@@ -39,12 +39,14 @@
                     <div class="form-group">
                         <select class="" id="guest_program" name="program" required>
                             <option value>Select Program:</option>
-                            <option value="BCA">BCA (Bachelor of Computer Applicati on)</option>
-                            <option value="MCA">MCA (Master of Computer Application)</option>
-                            <option value="MEG">MEG (Master of Arts - English)</option>
-                            <option value="BCOM">BCOM (Bachelor of Commerce )</option>
-                            <!-- <option value="BDP">BPD (Bachelor Degree Program )</option> -->
                             <option value="BA">BA (Bachelor of Arts )</option>
+                            <option value="BCA">BCA (Bachelor of Computer Application)</option>
+                            <option value="BCOM">BCOM (Bachelor of Commerce )</option>
+                            <option value="BSC">BSC (Bachelor of Science )</option>
+                            <option value="MCA">MCA (Master of Computer Application)</option>
+                            <option value="MCOM">MCOM (Master of Commerce )</option>
+                            <option value="MPS">MPS (Master of Arts Political Science)</option>
+                            <option value="MEG">MEG (Master of Arts - English)</option>
                         </select>   
                     </div>
                     <div class="form-group">
