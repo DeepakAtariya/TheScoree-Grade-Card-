@@ -2,7 +2,6 @@
 
 <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
 
-
 <div class="text-center" id="main" style="padding: 1%;">
 
 <div class="row">

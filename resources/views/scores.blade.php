@@ -1,5 +1,7 @@
 @include('header')
 <link rel="stylesheet" href="{{ URL::asset('css/scores.css') }}">
+
+
 <!-- main column -->
 <div class="main">
     <!-- alert switching row  -->

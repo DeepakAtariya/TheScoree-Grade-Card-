@@ -257,13 +257,18 @@ class ScoresController extends Controller
                     $this->dataSavedIntoScoreTable($row);
                 }
 
+                $percent = ($earned_marks / $outof) * 100;
+                if($percent > 60){
+                    session()->flash('good_score','1');
+                }
+
                 return [
                     'scores' => $row,
                     'name' => str_replace('</b>', '', $foundName),
                     'enrollment' => $this->enrollment,
                     'earned_marks' => $earned_marks,
                     'outof' => $outof,
-                    'percent' => ($earned_marks / $outof) * 100,
+                    'percent' => $percent,
                     'program' => $this->program,
                     'status' => '200',
                     'gradecard' => 'M'
