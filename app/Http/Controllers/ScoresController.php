@@ -136,11 +136,13 @@ class ScoresController extends Controller
         /*
             this function is responsible for requesting external server too fetch the information
         */
-        $client = new Client();
+        $client = new Client([
+            'verify' => false
+        ]);
         $foundName = '';
-        // echo $program;
         $this->program = $request->input('program');
         $this->enrollment = $request->input('enrollment');
+        // echo $this->program;
         // echo $request->input('program')."<br>". $request->input('enrollment');
         // exit;
 
@@ -170,6 +172,7 @@ class ScoresController extends Controller
 
 
             $body = $response->getBody()->getContents();
+            // return $body;
 
             if ($request->input('download') == '1') {
                 return $body;
@@ -283,11 +286,13 @@ class ScoresController extends Controller
             }
 
 
-        } catch (\Exception $e) {
-
+        } catch (\Throwable $th) {
+            // return $th;
+            // exit;
             return [
                 'scores' => 'fail',
                 'status' => '500',
+                'message' => json_encode($th)
             ];
         }
     }
